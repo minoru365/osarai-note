@@ -20,9 +20,12 @@ type Props = {
   onSettings: () => void;
   freeQuestion?: KanjiReadingQuestion;
   onFreePracticeList?: () => void;
+  onFreePracticeNext?: () => void;
+  freeQuestionNumber?: number;
+  freeQuestionCount?: number;
 };
 
-export function ReadingPractice({ questions, onHome, onWriting, onSettings, freeQuestion, onFreePracticeList }: Props) {
+export function ReadingPractice({ questions, onHome, onWriting, onSettings, freeQuestion, onFreePracticeList, onFreePracticeNext, freeQuestionNumber = 1, freeQuestionCount = 1 }: Props) {
   const [answer, setAnswer] = useState("");
   const [mistakes, setMistakes] = useState(0);
   const [result, setResult] = useState<"input" | "correct" | "incorrect">("input");
@@ -34,13 +37,19 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings, free
   useEffect(() => {
     freeAttemptId.current = createId();
     freeAttemptAnsweredAt.current = "";
+    setAnswer("");
+    setMistakes(0);
+    setResult("input");
+    setFeedback("漢字の部分だけを入力してね");
+    setSaving(false);
+    setAnsweredQuestion(null);
   }, [freeQuestion?.id]);
   const { session, currentQuestion, loading, error, recordAnswer, startNext } = useDailyKanjiSession("reading", questions, !freeQuestion);
   const pendingQuestion = freeQuestion ?? (currentQuestion?.mode === "reading" ? currentQuestion : undefined);
   const question = result === "correct" ? answeredQuestion ?? pendingQuestion : pendingQuestion;
   const completed = !freeQuestion && Boolean(session?.completedAt);
-  const questionIndex = freeQuestion ? 0 : Math.max(0, (session?.currentIndex ?? 0) - (result === "correct" ? 1 : 0));
-  const questionCount = freeQuestion ? 1 : session?.items.length ?? 0;
+  const questionIndex = freeQuestion ? freeQuestionNumber - 1 : Math.max(0, (session?.currentIndex ?? 0) - (result === "correct" ? 1 : 0));
+  const questionCount = freeQuestion ? freeQuestionCount : session?.items.length ?? 0;
   const progress = questionCount === 0 ? 0 : (questionIndex / questionCount) * 100;
   const summary = session ? summarizeDailySession(session) : null;
 
@@ -186,7 +195,7 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings, free
             ))}
           </div>
           {result === "correct"
-            ? <button className="reading-submit next" type="button" onClick={freeQuestion ? onFreePracticeList : nextQuestion}>{freeQuestion ? "問題一覧へ" : "次へ"}</button>
+            ? <button className="reading-submit next" type="button" onClick={freeQuestion ? onFreePracticeNext : nextQuestion}>{freeQuestion ? (freeQuestionNumber < freeQuestionCount ? "次へ" : "練習を終える") : "次へ"}</button>
             : <button className="reading-submit" type="button" disabled={saving} onClick={() => void submit()}>{saving ? "保存中…" : "回答する"}</button>}
         </section>
       </main>

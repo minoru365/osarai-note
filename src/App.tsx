@@ -29,6 +29,8 @@ type QuizState = "loading" | "writing" | "guide" | "character-complete" | "word-
 function App() {
   const [view, setView] = useState<"home" | "reading" | "writing" | "kanji-settings" | "free-practice">("home");
   const [freePracticeQuestion, setFreePracticeQuestion] = useState<KanjiQuestion | null>(null);
+  const [freePracticeQueue, setFreePracticeQueue] = useState<KanjiQuestion[]>([]);
+  const [freePracticeIndex, setFreePracticeIndex] = useState(0);
   const freeWritingAttemptIdRef = useRef(createId());
   const freeWritingAnsweredAtRef = useRef("");
   const [words, setWords] = useState<KanjiQuestion[]>([]);
@@ -65,7 +67,7 @@ function App() {
   const currentCharacter = progress.characters[Math.min(progress.currentIndex, progress.characters.length - 1)] ?? "";
   const completed = progress.characters.length > 0 && isWordComplete(progress);
   const writingComplete = freePracticeQuestion?.mode !== "writing" && Boolean(writingSession?.completedAt);
-  const writingQuestionCount = freePracticeQuestion?.mode === "writing" ? 1 : writingSession?.items.length ?? 0;
+  const writingQuestionCount = freePracticeQuestion?.mode === "writing" ? freePracticeQueue.length : writingSession?.items.length ?? 0;
   const writingSummary = writingSession ? summarizeDailySession(writingSession) : null;
 
   useEffect(() => {
@@ -76,18 +78,24 @@ function App() {
 
   const goHome = () => {
     setFreePracticeQuestion(null);
+    setFreePracticeQueue([]);
+    setFreePracticeIndex(0);
     setSelectedWritingId("");
     setView("home");
   };
 
   const openFreePractice = () => {
     setFreePracticeQuestion(null);
+    setFreePracticeQueue([]);
+    setFreePracticeIndex(0);
     setSelectedWritingId("");
     setView("free-practice");
   };
 
   const startDailyPractice = (mode: "reading" | "writing") => {
     setFreePracticeQuestion(null);
+    setFreePracticeQueue([]);
+    setFreePracticeIndex(0);
     setSelectedWritingId("");
     setView(mode);
   };
@@ -105,6 +113,26 @@ function App() {
       setQuizState("loading");
     } else setSelectedWritingId("");
     setView(question.mode);
+  };
+
+  const startFreePracticeBatch = (questions: KanjiQuestion[]) => {
+    if (questions.length === 0) return;
+    setFreePracticeQueue(questions);
+    setFreePracticeIndex(0);
+    startFreePractice(questions[0]);
+  };
+
+  const advanceFreePractice = () => {
+    const nextIndex = freePracticeIndex + 1;
+    const nextBase = freePracticeQueue[nextIndex];
+    if (!nextBase) {
+      openFreePractice();
+      return;
+    }
+    const mode = freePracticeQuestion?.mode ?? "reading";
+    const nextQuestion = findPairedQuestion(words, nextBase, mode) ?? nextBase;
+    setFreePracticeIndex(nextIndex);
+    startFreePractice(nextQuestion);
   };
 
   const switchPracticeMode = (mode: "reading" | "writing") => {
@@ -311,7 +339,7 @@ function App() {
   }
 
   if (view === "free-practice") {
-    return <FreePracticeBrowser questions={words} onBack={goHome} onSelect={startFreePractice} />;
+    return <FreePracticeBrowser questions={words} onBack={goHome} onStart={startFreePracticeBatch} />;
   }
 
   if (view === "home") {
@@ -334,6 +362,9 @@ function App() {
         questions={readingQuestions}
         freeQuestion={freePracticeQuestion?.mode === "reading" ? freePracticeQuestion : undefined}
         onFreePracticeList={freePracticeQuestion ? openFreePractice : undefined}
+        onFreePracticeNext={freePracticeQuestion ? advanceFreePractice : undefined}
+        freeQuestionNumber={freePracticeIndex + 1}
+        freeQuestionCount={freePracticeQueue.length}
         onHome={goHome}
         onWriting={() => switchPracticeMode("writing")}
         onSettings={() => setView("kanji-settings")}
@@ -369,7 +400,7 @@ function App() {
     <div className="app-shell">
       <PracticeHeader
         mode="writing"
-        progress={freePracticeQuestion?.mode === "writing" && quizState === "word-complete" ? 100 : writingQuestionCount === 0 ? 0 : ((writingSession?.currentIndex ?? 0) / writingQuestionCount) * 100}
+        progress={freePracticeQuestion?.mode === "writing" ? (writingQuestionCount === 0 ? 0 : (freePracticeIndex / writingQuestionCount) * 100) : writingQuestionCount === 0 ? 0 : ((writingSession?.currentIndex ?? 0) / writingQuestionCount) * 100}
         onHome={goHome}
         onReading={() => switchPracticeMode("reading")}
         onWriting={() => undefined}
@@ -411,7 +442,7 @@ function App() {
             <div><dt>見本</dt><dd>{usedGuide ? "使用" : "未使用"}</dd></div>
           </dl>
 
-          <p className="writing-question-progress">● {Math.min((writingSession?.currentIndex ?? 0) + (quizState === "word-complete" ? 0 : 1), writingQuestionCount)} / {writingQuestionCount}問</p>
+          <p className="writing-question-progress">● {freePracticeQuestion?.mode === "writing" ? freePracticeIndex + 1 : Math.min((writingSession?.currentIndex ?? 0) + (quizState === "word-complete" ? 0 : 1), writingQuestionCount)} / {writingQuestionCount}問</p>
         </section>
 
         <section className="writing-card">
@@ -440,7 +471,7 @@ function App() {
               {quizState === "guide" && <button type="button" className="primary" onClick={retryAfterGuide}>もう一度書く</button>}
               {quizState === "character-complete" && <button type="button" className="primary" onClick={() => void continueWord()}>次へ</button>}
               {quizState === "saving" && <button type="button" className="primary" disabled>保存中…</button>}
-              {quizState === "word-complete" && freePracticeQuestion?.mode === "writing" && <button type="button" className="primary" onClick={openFreePractice}>問題一覧へ</button>}
+              {quizState === "word-complete" && freePracticeQuestion?.mode === "writing" && <button type="button" className="primary" onClick={advanceFreePractice}>{freePracticeIndex + 1 < freePracticeQueue.length ? "次へ" : "練習を終える"}</button>}
               {quizState === "word-complete" && !freePracticeQuestion && !writingComplete && <button type="button" className="primary" onClick={nextWord}>次へ</button>}
               {quizState === "word-complete" && writingComplete && <button type="button" className="primary" onClick={() => setSelectedWritingId("")}>結果を見る</button>}
               {quizState === "word-complete" && <button type="button" onClick={() => chooseWord(selected)}>もう一度</button>}
