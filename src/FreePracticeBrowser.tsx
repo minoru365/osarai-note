@@ -7,7 +7,6 @@ type Props = {
   questions: KanjiQuestion[];
   onBack: () => void;
   onSelect: (question: KanjiQuestion) => void;
-  onSettings: () => void;
 };
 
 export function filterFreePracticeQuestions(
@@ -19,7 +18,7 @@ export function filterFreePracticeQuestions(
   );
 }
 
-export function FreePracticeBrowser({ questions, onBack, onSelect, onSettings }: Props) {
+export function FreePracticeBrowser({ questions, onBack, onSelect }: Props) {
   const [mode, setMode] = useState<KanjiStudyMode>("reading");
   const [grade, setGrade] = useState<3 | 4>(3);
   const [query, setQuery] = useState("");
@@ -59,7 +58,7 @@ export function FreePracticeBrowser({ questions, onBack, onSelect, onSettings }:
       <header className="topbar">
         <button className="brand brand-button" type="button" onClick={onBack}><span className="brand-mark">学</span><span>おさらいノート</span></button>
         <div className="spike-label">自由練習</div>
-        <button className="header-action" type="button" onClick={onSettings}>未習漢字を設定</button>
+        <span aria-hidden="true" />
       </header>
       <main className="free-practice-workspace">
         <section className="free-practice-panel">

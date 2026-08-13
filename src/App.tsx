@@ -301,7 +301,7 @@ function App() {
   }
 
   if (view === "free-practice") {
-    return <FreePracticeBrowser questions={words} onBack={goHome} onSelect={startFreePractice} onSettings={() => setView("kanji-settings")} />;
+    return <FreePracticeBrowser questions={words} onBack={goHome} onSelect={startFreePractice} />;
   }
 
   if (view === "home") {
