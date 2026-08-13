@@ -10,6 +10,8 @@ type KanjiQuestionBase = {
 
 export type KanjiWritingQuestion = KanjiQuestionBase & {
   mode: "writing";
+  promptBefore: string;
+  promptAfter: string;
 };
 
 export type KanjiReadingQuestion = KanjiQuestionBase & {
@@ -49,6 +51,7 @@ export function validateKanjiPack(value: unknown): KanjiQuestion[] {
   }
 
   const ids = new Set<string>();
+  const schemaVersion = value.schemaVersion;
   return value.questions.map((question) => {
     if (!isObject(question)
       || typeof question.id !== "string"
@@ -73,9 +76,20 @@ export function validateKanjiPack(value: unknown): KanjiQuestion[] {
       && (typeof question.promptBefore !== "string" || typeof question.promptAfter !== "string")) {
       throw new Error("読み問題の文脈が不正です");
     }
+    if (schemaVersion === 2 && question.mode === "writing"
+      && (typeof question.promptBefore !== "string" || typeof question.promptAfter !== "string")) {
+      throw new Error("書き問題の文脈が不正です");
+    }
     if (ids.has(question.id)) throw new Error(`問題IDが重複しています: ${question.id}`);
     ids.add(question.id);
-    return { ...question, answerKanji } as KanjiQuestion;
+    return {
+      ...question,
+      answerKanji,
+      ...(question.mode === "writing" && schemaVersion === 1 ? {
+        promptBefore: typeof question.promptBefore === "string" ? question.promptBefore : "",
+        promptAfter: typeof question.promptAfter === "string" ? question.promptAfter : "",
+      } : {}),
+    } as KanjiQuestion;
   });
 }
 

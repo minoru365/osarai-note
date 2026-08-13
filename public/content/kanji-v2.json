@@ -11,15 +11,15 @@
       "canonicalReading": "は",
       "word": "葉",
       "reading": "は",
+      "promptBefore": "公園で木の",
+      "promptAfter": "をひろいました。",
       "targetKanji": [
         "葉"
       ],
       "answerKanji": "葉",
       "id": "kanji-g3-reading-leaf-01",
       "mode": "reading",
-      "prompt": "文の中の「葉」の読みを答えよう",
-      "promptBefore": "公園で木の",
-      "promptAfter": "をひろいました。"
+      "prompt": "文の中の「葉」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -29,6 +29,8 @@
       "canonicalReading": "は",
       "word": "葉",
       "reading": "は",
+      "promptBefore": "公園で木の",
+      "promptAfter": "をひろいました。",
       "targetKanji": [
         "葉"
       ],
@@ -45,6 +47,8 @@
       "canonicalReading": "ショク",
       "word": "植物",
       "reading": "しょくぶつ",
+      "promptBefore": "理科で",
+      "promptAfter": "を育てます。",
       "targetKanji": [
         "植",
         "物"
@@ -52,9 +56,7 @@
       "answerKanji": "植物",
       "id": "kanji-g3-reading-plant-01",
       "mode": "reading",
-      "prompt": "文の中の「植物」の読みを答えよう",
-      "promptBefore": "理科で",
-      "promptAfter": "を育てます。"
+      "prompt": "文の中の「植物」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -64,6 +66,8 @@
       "canonicalReading": "ショク",
       "word": "植物",
       "reading": "しょくぶつ",
+      "promptBefore": "理科で",
+      "promptAfter": "を育てます。",
       "targetKanji": [
         "植",
         "物"
@@ -81,6 +85,8 @@
       "canonicalReading": "アク",
       "word": "悪事",
       "reading": "あくじ",
+      "promptBefore": "",
+      "promptAfter": "をしてはいけません。",
       "targetKanji": [
         "悪",
         "事"
@@ -88,9 +94,7 @@
       "answerKanji": "悪事",
       "id": "kanji-g3-悪-on-e788a2909b01:reading",
       "mode": "reading",
-      "prompt": "文の中の「悪事」の読みを答えよう",
-      "promptBefore": "",
-      "promptAfter": "をしてはいけません。"
+      "prompt": "文の中の「悪事」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -100,6 +104,8 @@
       "canonicalReading": "アク",
       "word": "悪事",
       "reading": "あくじ",
+      "promptBefore": "",
+      "promptAfter": "をしてはいけません。",
       "targetKanji": [
         "悪",
         "事"
@@ -117,6 +123,8 @@
       "canonicalReading": "オ",
       "word": "悪寒",
       "reading": "おかん",
+      "promptBefore": "",
+      "promptAfter": "がして、体がふるえます。",
       "targetKanji": [
         "悪",
         "寒"
@@ -124,9 +132,7 @@
       "answerKanji": "悪寒",
       "id": "kanji-g3-悪-on-9afa6549ff13:reading",
       "mode": "reading",
-      "prompt": "文の中の「悪寒」の読みを答えよう",
-      "promptBefore": "",
-      "promptAfter": "がして、体がふるえます。"
+      "prompt": "文の中の「悪寒」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -136,6 +142,8 @@
       "canonicalReading": "オ",
       "word": "悪寒",
       "reading": "おかん",
+      "promptBefore": "",
+      "promptAfter": "がして、体がふるえます。",
       "targetKanji": [
         "悪",
         "寒"
@@ -153,15 +161,15 @@
       "canonicalReading": "わるい",
       "word": "悪い",
       "reading": "わるい",
+      "promptBefore": "道にごみをすてるのは",
+      "promptAfter": "ことです。",
       "targetKanji": [
         "悪"
       ],
       "answerKanji": "悪",
       "id": "kanji-g3-悪-kun-ff6b75e0da6a:reading",
       "mode": "reading",
-      "prompt": "文の中の「悪い」の読みを答えよう",
-      "promptBefore": "道にごみをすてるのは",
-      "promptAfter": "ことです。"
+      "prompt": "文の中の「悪い」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -171,6 +179,8 @@
       "canonicalReading": "わるい",
       "word": "悪い",
       "reading": "わるい",
+      "promptBefore": "道にごみをすてるのは",
+      "promptAfter": "ことです。",
       "targetKanji": [
         "悪"
       ],
@@ -187,6 +197,8 @@
       "canonicalReading": "アン",
       "word": "安全",
       "reading": "あんぜん",
+      "promptBefore": "左右を見て、",
+      "promptAfter": "に道をわたります。",
       "targetKanji": [
         "安",
         "全"
@@ -194,9 +206,7 @@
       "answerKanji": "安全",
       "id": "kanji-g3-安-on-3f211f766b1e:reading",
       "mode": "reading",
-      "prompt": "文の中の「安全」の読みを答えよう",
-      "promptBefore": "左右を見て、",
-      "promptAfter": "に道をわたります。"
+      "prompt": "文の中の「安全」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -206,6 +216,8 @@
       "canonicalReading": "アン",
       "word": "安全",
       "reading": "あんぜん",
+      "promptBefore": "左右を見て、",
+      "promptAfter": "に道をわたります。",
       "targetKanji": [
         "安",
         "全"
@@ -223,15 +235,15 @@
       "canonicalReading": "やすい",
       "word": "安い",
       "reading": "やすい",
+      "promptBefore": "この店のえんぴつは",
+      "promptAfter": "です。",
       "targetKanji": [
         "安"
       ],
       "answerKanji": "安",
       "id": "kanji-g3-安-kun-4fc03b238eec:reading",
       "mode": "reading",
-      "prompt": "文の中の「安い」の読みを答えよう",
-      "promptBefore": "この店のえんぴつは",
-      "promptAfter": "です。"
+      "prompt": "文の中の「安い」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -241,6 +253,8 @@
       "canonicalReading": "やすい",
       "word": "安い",
       "reading": "やすい",
+      "promptBefore": "この店のえんぴつは",
+      "promptAfter": "です。",
       "targetKanji": [
         "安"
       ],
@@ -257,6 +271,8 @@
       "canonicalReading": "アン",
       "word": "明暗",
       "reading": "めいあん",
+      "promptBefore": "絵に",
+      "promptAfter": "をつけます。",
       "targetKanji": [
         "明",
         "暗"
@@ -264,9 +280,7 @@
       "answerKanji": "明暗",
       "id": "kanji-g3-暗-on-db80ed07eafd:reading",
       "mode": "reading",
-      "prompt": "文の中の「明暗」の読みを答えよう",
-      "promptBefore": "絵に",
-      "promptAfter": "をつけます。"
+      "prompt": "文の中の「明暗」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -276,6 +290,8 @@
       "canonicalReading": "アン",
       "word": "明暗",
       "reading": "めいあん",
+      "promptBefore": "絵に",
+      "promptAfter": "をつけます。",
       "targetKanji": [
         "明",
         "暗"
@@ -293,15 +309,15 @@
       "canonicalReading": "くらい",
       "word": "暗い",
       "reading": "くらい",
+      "promptBefore": "外が",
+      "promptAfter": "ので、電気をつけます。",
       "targetKanji": [
         "暗"
       ],
       "answerKanji": "暗",
       "id": "kanji-g3-暗-kun-47a50a9ac3b8:reading",
       "mode": "reading",
-      "prompt": "文の中の「暗い」の読みを答えよう",
-      "promptBefore": "外が",
-      "promptAfter": "ので、電気をつけます。"
+      "prompt": "文の中の「暗い」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -311,6 +327,8 @@
       "canonicalReading": "くらい",
       "word": "暗い",
       "reading": "くらい",
+      "promptBefore": "外が",
+      "promptAfter": "ので、電気をつけます。",
       "targetKanji": [
         "暗"
       ],
@@ -327,6 +345,8 @@
       "canonicalReading": "イ",
       "word": "医学",
       "reading": "いがく",
+      "promptBefore": "",
+      "promptAfter": "を学び、人の命をすくいます。",
       "targetKanji": [
         "医",
         "学"
@@ -334,9 +354,7 @@
       "answerKanji": "医学",
       "id": "kanji-g3-医-on-59d996061992:reading",
       "mode": "reading",
-      "prompt": "文の中の「医学」の読みを答えよう",
-      "promptBefore": "",
-      "promptAfter": "を学び、人の命をすくいます。"
+      "prompt": "文の中の「医学」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -346,6 +364,8 @@
       "canonicalReading": "イ",
       "word": "医学",
       "reading": "いがく",
+      "promptBefore": "",
+      "promptAfter": "を学び、人の命をすくいます。",
       "targetKanji": [
         "医",
         "学"
@@ -363,6 +383,8 @@
       "canonicalReading": "イ",
       "word": "委員",
       "reading": "いいん",
+      "promptBefore": "図書",
+      "promptAfter": "として本をならべます。",
       "targetKanji": [
         "委",
         "員"
@@ -370,9 +392,7 @@
       "answerKanji": "委員",
       "id": "kanji-g3-委-on-5fcbb0913b68:reading",
       "mode": "reading",
-      "prompt": "文の中の「委員」の読みを答えよう",
-      "promptBefore": "図書",
-      "promptAfter": "として本をならべます。"
+      "prompt": "文の中の「委員」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -382,6 +402,8 @@
       "canonicalReading": "イ",
       "word": "委員",
       "reading": "いいん",
+      "promptBefore": "図書",
+      "promptAfter": "として本をならべます。",
       "targetKanji": [
         "委",
         "員"
@@ -399,15 +421,15 @@
       "canonicalReading": "ゆだねる",
       "word": "委ねる",
       "reading": "ゆだねる",
+      "promptBefore": "友だちに後を",
+      "promptAfter": "ことにします。",
       "targetKanji": [
         "委"
       ],
       "answerKanji": "委",
       "id": "kanji-g3-委-kun-d4706beab0cf:reading",
       "mode": "reading",
-      "prompt": "文の中の「委ねる」の読みを答えよう",
-      "promptBefore": "友だちに後を",
-      "promptAfter": "ことにします。"
+      "prompt": "文の中の「委ねる」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -417,6 +439,8 @@
       "canonicalReading": "ゆだねる",
       "word": "委ねる",
       "reading": "ゆだねる",
+      "promptBefore": "友だちに後を",
+      "promptAfter": "ことにします。",
       "targetKanji": [
         "委"
       ],
@@ -433,6 +457,8 @@
       "canonicalReading": "イ",
       "word": "意見",
       "reading": "いけん",
+      "promptBefore": "話し合いで",
+      "promptAfter": "を言います。",
       "targetKanji": [
         "意",
         "見"
@@ -440,9 +466,7 @@
       "answerKanji": "意見",
       "id": "kanji-g3-意-on-892e6d23938f:reading",
       "mode": "reading",
-      "prompt": "文の中の「意見」の読みを答えよう",
-      "promptBefore": "話し合いで",
-      "promptAfter": "を言います。"
+      "prompt": "文の中の「意見」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -452,6 +476,8 @@
       "canonicalReading": "イ",
       "word": "意見",
       "reading": "いけん",
+      "promptBefore": "話し合いで",
+      "promptAfter": "を言います。",
       "targetKanji": [
         "意",
         "見"
@@ -469,6 +495,8 @@
       "canonicalReading": "イク",
       "word": "教育",
       "reading": "きょういく",
+      "promptBefore": "学校で",
+      "promptAfter": "を受けます。",
       "targetKanji": [
         "教",
         "育"
@@ -476,9 +504,7 @@
       "answerKanji": "教育",
       "id": "kanji-g3-育-on-cf05b1a4f942:reading",
       "mode": "reading",
-      "prompt": "文の中の「教育」の読みを答えよう",
-      "promptBefore": "学校で",
-      "promptAfter": "を受けます。"
+      "prompt": "文の中の「教育」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -488,6 +514,8 @@
       "canonicalReading": "イク",
       "word": "教育",
       "reading": "きょういく",
+      "promptBefore": "学校で",
+      "promptAfter": "を受けます。",
       "targetKanji": [
         "教",
         "育"
@@ -505,15 +533,15 @@
       "canonicalReading": "そだつ",
       "word": "育つ",
       "reading": "そだつ",
+      "promptBefore": "花が大きく",
+      "promptAfter": "ように水をやります。",
       "targetKanji": [
         "育"
       ],
       "answerKanji": "育",
       "id": "kanji-g3-育-kun-72a6d9cc8d07:reading",
       "mode": "reading",
-      "prompt": "文の中の「育つ」の読みを答えよう",
-      "promptBefore": "花が大きく",
-      "promptAfter": "ように水をやります。"
+      "prompt": "文の中の「育つ」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -523,6 +551,8 @@
       "canonicalReading": "そだつ",
       "word": "育つ",
       "reading": "そだつ",
+      "promptBefore": "花が大きく",
+      "promptAfter": "ように水をやります。",
       "targetKanji": [
         "育"
       ],
@@ -539,15 +569,15 @@
       "canonicalReading": "そだてる",
       "word": "育てる",
       "reading": "そだてる",
+      "promptBefore": "畑でやさいを",
+      "promptAfter": "ことにします。",
       "targetKanji": [
         "育"
       ],
       "answerKanji": "育",
       "id": "kanji-g3-育-kun-9e3eaac7024f:reading",
       "mode": "reading",
-      "prompt": "文の中の「育てる」の読みを答えよう",
-      "promptBefore": "畑でやさいを",
-      "promptAfter": "ことにします。"
+      "prompt": "文の中の「育てる」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -557,6 +587,8 @@
       "canonicalReading": "そだてる",
       "word": "育てる",
       "reading": "そだてる",
+      "promptBefore": "畑でやさいを",
+      "promptAfter": "ことにします。",
       "targetKanji": [
         "育"
       ],
@@ -573,15 +605,15 @@
       "canonicalReading": "はぐくむ",
       "word": "育む",
       "reading": "はぐくむ",
+      "promptBefore": "家族で思いやりの心を",
+      "promptAfter": "ことが大切です。",
       "targetKanji": [
         "育"
       ],
       "answerKanji": "育",
       "id": "kanji-g3-育-kun-a21713795d6c:reading",
       "mode": "reading",
-      "prompt": "文の中の「育む」の読みを答えよう",
-      "promptBefore": "家族で思いやりの心を",
-      "promptAfter": "ことが大切です。"
+      "prompt": "文の中の「育む」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -591,6 +623,8 @@
       "canonicalReading": "はぐくむ",
       "word": "育む",
       "reading": "はぐくむ",
+      "promptBefore": "家族で思いやりの心を",
+      "promptAfter": "ことが大切です。",
       "targetKanji": [
         "育"
       ],
@@ -607,6 +641,8 @@
       "canonicalReading": "イン",
       "word": "定員",
       "reading": "ていいん",
+      "promptBefore": "このバスの",
+      "promptAfter": "は三十人です。",
       "targetKanji": [
         "定",
         "員"
@@ -614,9 +650,7 @@
       "answerKanji": "定員",
       "id": "kanji-g3-員-on-eab67dd96ea9:reading",
       "mode": "reading",
-      "prompt": "文の中の「定員」の読みを答えよう",
-      "promptBefore": "このバスの",
-      "promptAfter": "は三十人です。"
+      "prompt": "文の中の「定員」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -626,6 +660,8 @@
       "canonicalReading": "イン",
       "word": "定員",
       "reading": "ていいん",
+      "promptBefore": "このバスの",
+      "promptAfter": "は三十人です。",
       "targetKanji": [
         "定",
         "員"
@@ -643,6 +679,8 @@
       "canonicalReading": "イン",
       "word": "院内",
       "reading": "いんない",
+      "promptBefore": "",
+      "promptAfter": "では走りません。",
       "targetKanji": [
         "院",
         "内"
@@ -650,9 +688,7 @@
       "answerKanji": "院内",
       "id": "kanji-g3-院-on-2657f413a333:reading",
       "mode": "reading",
-      "prompt": "文の中の「院内」の読みを答えよう",
-      "promptBefore": "",
-      "promptAfter": "では走りません。"
+      "prompt": "文の中の「院内」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -662,6 +698,8 @@
       "canonicalReading": "イン",
       "word": "院内",
       "reading": "いんない",
+      "promptBefore": "",
+      "promptAfter": "では走りません。",
       "targetKanji": [
         "院",
         "内"
@@ -679,6 +717,8 @@
       "canonicalReading": "イン",
       "word": "飲食",
       "reading": "いんしょく",
+      "promptBefore": "このへやでは",
+      "promptAfter": "できません。",
       "targetKanji": [
         "飲",
         "食"
@@ -686,9 +726,7 @@
       "answerKanji": "飲食",
       "id": "kanji-g3-飲-on-31b4ebacc345:reading",
       "mode": "reading",
-      "prompt": "文の中の「飲食」の読みを答えよう",
-      "promptBefore": "このへやでは",
-      "promptAfter": "できません。"
+      "prompt": "文の中の「飲食」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -698,6 +736,8 @@
       "canonicalReading": "イン",
       "word": "飲食",
       "reading": "いんしょく",
+      "promptBefore": "このへやでは",
+      "promptAfter": "できません。",
       "targetKanji": [
         "飲",
         "食"
@@ -715,15 +755,15 @@
       "canonicalReading": "のむ",
       "word": "飲む",
       "reading": "のむ",
+      "promptBefore": "水を",
+      "promptAfter": "と、元気になります。",
       "targetKanji": [
         "飲"
       ],
       "answerKanji": "飲",
       "id": "kanji-g3-飲-kun-88eac193f43a:reading",
       "mode": "reading",
-      "prompt": "文の中の「飲む」の読みを答えよう",
-      "promptBefore": "水を",
-      "promptAfter": "と、元気になります。"
+      "prompt": "文の中の「飲む」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -733,6 +773,8 @@
       "canonicalReading": "のむ",
       "word": "飲む",
       "reading": "のむ",
+      "promptBefore": "水を",
+      "promptAfter": "と、元気になります。",
       "targetKanji": [
         "飲"
       ],
@@ -749,6 +791,8 @@
       "canonicalReading": "ウン",
       "word": "運動",
       "reading": "うんどう",
+      "promptBefore": "朝に",
+      "promptAfter": "をすると、体があたたまります。",
       "targetKanji": [
         "運",
         "動"
@@ -756,9 +800,7 @@
       "answerKanji": "運動",
       "id": "kanji-g3-運-on-51c0c99c209b:reading",
       "mode": "reading",
-      "prompt": "文の中の「運動」の読みを答えよう",
-      "promptBefore": "朝に",
-      "promptAfter": "をすると、体があたたまります。"
+      "prompt": "文の中の「運動」の読みを答えよう"
     },
     {
       "grade": 3,
@@ -768,6 +810,8 @@
       "canonicalReading": "ウン",
       "word": "運動",
       "reading": "うんどう",
+      "promptBefore": "朝に",
+      "promptAfter": "をすると、体があたたまります。",
       "targetKanji": [
         "運",
         "動"

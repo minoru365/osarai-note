@@ -304,6 +304,9 @@ function App() {
         <section className="question-card">
           <div>
             <p className="eyebrow">漢字の書き</p>
+            <p className="writing-context">
+              {selected.promptBefore}<span>「{selected.reading}」</span>{selected.promptAfter}
+            </p>
             <h1>{selected.prompt}</h1>
             <p className="reading">読み：{selected.reading}</p>
           </div>

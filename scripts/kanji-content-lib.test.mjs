@@ -27,7 +27,9 @@ describe("kanji content generator", () => {
     expect(pack.schemaVersion).toBe(2);
     expect(pack.questions).toHaveLength(2);
     expect(pack.questions[0]).toMatchObject({ mode: "reading", word: "飲む", answerKanji: "飲" });
-    expect(pack.questions[1]).toMatchObject({ mode: "writing", word: "飲む", answerKanji: "飲" });
+    expect(pack.questions[1]).toMatchObject({
+      mode: "writing", word: "飲む", answerKanji: "飲", promptBefore: "水を", promptAfter: "。",
+    });
   });
 
   it("既存の学習履歴と当日セットのため固定問題IDを維持する", () => {

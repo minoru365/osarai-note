@@ -66,6 +66,8 @@ button { font: inherit; }
 .eyebrow { margin: 0 0 18px; color: #3b7d65; font-weight: 700; letter-spacing: .08em; }
 h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-weight: 700; }
 .reading { margin: 16px 0 0; color: #6c786f; font-size: 18px; }
+.writing-context { margin: 14px 0 18px; color: #34493f; font-size: clamp(20px, 1.65vw, 27px); font-weight: 600; line-height: 1.6; }
+.writing-context span { display: inline-block; margin: 0 4px; padding: 0 4px; color: #285e4a; background: linear-gradient(transparent 64%, #ffdea0 64%); }
 
 .character-progress { margin-top: 30px; display: flex; gap: 13px; }
 .character-box {

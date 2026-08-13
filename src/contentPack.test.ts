@@ -39,6 +39,19 @@ describe("content pack validation", () => {
     })[0]).toMatchObject({ word: "飲む", answerKanji: "飲" });
   });
 
+  it("新形式の書き問題には答えを隠した例文を必須にする", () => {
+    const writing = {
+      id: "w-dark", grade: 3, mode: "writing", word: "暗い", reading: "くらい",
+      prompt: "漢字の部分を書こう", promptBefore: "外が", promptAfter: "ので、電気をつけます。",
+      targetKanji: ["暗"], answerKanji: "暗",
+    };
+    expect(validateKanjiPack({ schemaVersion: 2, questions: [writing] })[0]).toMatchObject({
+      promptBefore: "外が", promptAfter: "ので、電気をつけます。",
+    });
+    const { promptBefore: _before, ...withoutContext } = writing;
+    expect(() => validateKanjiPack({ schemaVersion: 2, questions: [withoutContext] })).toThrow("書き問題の文脈");
+  });
+
   it("文脈を持つ読み問題を受け入れる", () => {
     expect(validateKanjiPack({
       schemaVersion: 1,

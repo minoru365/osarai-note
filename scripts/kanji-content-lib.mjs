@@ -197,6 +197,8 @@ function questionPair(material) {
     canonicalReading: material.canonicalReading,
     word: material.word,
     reading: material.wordReading,
+    promptBefore: material.promptBefore,
+    promptAfter: material.promptAfter,
     targetKanji: material.targetKanji,
     answerKanji: material.targetKanji.join(""),
   };
