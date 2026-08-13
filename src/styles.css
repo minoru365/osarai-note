@@ -110,17 +110,17 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
 .writer-heading p { margin: 0; color: #6c7971; }
 
 .writer-layout { min-height: 0; display: grid; grid-template-columns: minmax(480px, 1fr) 142px; gap: 16px; }
-.writer-stage { min-height: 560px; position: relative; overflow: hidden; display: grid; place-items: center; border: 2px solid #bfcfc5; border-radius: 20px; background: #fffefb; }
-.guide-lines { position: absolute; inset: 7%; opacity: .8; background: linear-gradient(90deg, transparent 49.85%, #dce3dd 50%, transparent 50.15%), linear-gradient(transparent 49.85%, #dce3dd 50%, transparent 50.15%); border: 1px solid #e0e6e1; pointer-events: none; }
+.writer-stage { min-height: 560px; position: relative; overflow: hidden; container-type: size; display: grid; place-items: center; border: 2px solid #bfcfc5; border-radius: 20px; background: #fffefb; }
+.guide-lines { position: absolute; width: min(86cqw, 86cqh); height: min(86cqw, 86cqh); opacity: .8; background: linear-gradient(90deg, transparent 49.85%, #dce3dd 50%, transparent 50.15%), linear-gradient(transparent 49.85%, #dce3dd 50%, transparent 50.15%); border: 1px solid #e0e6e1; pointer-events: none; }
 .guide-lines::before, .guide-lines::after { content: ""; position: absolute; inset: 0; }
 .guide-lines::before { background: linear-gradient(45deg, transparent 49.9%, #edf0ed 50%, transparent 50.1%); }
 .guide-lines::after { background: linear-gradient(-45deg, transparent 49.9%, #edf0ed 50%, transparent 50.1%); }
-.hanzi-target { width: 470px; height: 470px; z-index: 2; touch-action: none; }
-.hanzi-target svg { touch-action: none; }
+.hanzi-target { width: min(86cqw, 86cqh); height: min(86cqw, 86cqh); z-index: 2; touch-action: none; }
+.hanzi-target svg { width: 100%; height: 100%; touch-action: none; }
 
 .stage-overlay { position: absolute; inset: 0; z-index: 5; display: grid; place-items: center; color: #627168; background: rgba(255, 254, 250, .88); backdrop-filter: blur(2px); }
 .complete-overlay { align-content: center; gap: 8px; color: #2d624e; }
-.complete-overlay strong { font-size: 96px; line-height: 1.2; }
+.complete-overlay strong { font-size: clamp(72px, 20cqh, 150px); line-height: 1.2; }
 .complete-overlay span { font-size: 22px; font-weight: 700; }
 .complete-overlay small { color: #68766e; }
 
@@ -243,7 +243,6 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
   .workspace { padding: 18px; }
   .question-card { padding: 24px; }
   .writer-stage { min-height: 500px; }
-  .hanzi-target { transform: scale(.9); }
   .settings-workspace { padding: 18px; }
   .settings-panel { padding: 20px 24px 24px; }
   .kanji-grid { grid-template-columns: repeat(10, minmax(76px, 1fr)); }
