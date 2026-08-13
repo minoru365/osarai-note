@@ -43,6 +43,7 @@ describe("content pack validation", () => {
     const writing = {
       id: "w-dark", grade: 3, mode: "writing", word: "暗い", reading: "くらい",
       prompt: "漢字の部分を書こう", promptBefore: "外が", promptAfter: "ので、電気をつけます。",
+      readingBefore: "", answerReading: "くら", readingAfter: "い",
       targetKanji: ["暗"], answerKanji: "暗",
     };
     expect(validateKanjiPack({ schemaVersion: 2, questions: [writing] })[0]).toMatchObject({

@@ -188,7 +188,22 @@ export function createCoverageMarkdown(source, reference) {
   return `# 漢字音訓カバレッジ\n\n基準版：${reference.sourceVersion}\n素材版：${source.sourceVersion}\n\n- 基準読み：${counts.total}\n- 素材作成済み：${counts.created}\n- 確認済み：${counts.approved}\n- 未作成：${counts.total - counts.created}\n\n| 状態 | 学年 | 漢字 | 音訓 | 基準読み | 採用語句 | 文化庁の語例 | 原本ページ |\n|---|---:|---|---|---|---|---|---:|\n${rows.join("\n")}\n`;
 }
 
+function splitWritingReading(material) {
+  const answerKanji = material.targetKanji.join("");
+  const match = material.word.match(/^([ぁ-ゖー]*)([々〇〆ヶ\u3400-\u9fff]+)([ぁ-ゖー]*)$/u);
+  assert(match && match[2] === answerKanji, `${material.pairId}: 書き問題の漢字部分と送り仮名を分離できません`);
+  const [, visibleBefore, , visibleAfter] = match;
+  assert(material.wordReading.startsWith(visibleBefore) && material.wordReading.endsWith(visibleAfter), `${material.pairId}: 語句読みと送り仮名が一致しません`);
+  const answerReading = material.wordReading.slice(
+    visibleBefore.length,
+    visibleAfter.length === 0 ? undefined : -visibleAfter.length,
+  );
+  assert(answerReading.length > 0, `${material.pairId}: 漢字部分の読みがありません`);
+  return { readingBefore: visibleBefore, answerReading, readingAfter: visibleAfter };
+}
+
 function questionPair(material) {
+  const writingReading = splitWritingReading(material);
   const common = {
     grade: material.grade,
     pairId: material.pairId,
@@ -211,9 +226,10 @@ function questionPair(material) {
     promptAfter: material.promptAfter,
   }, {
     ...common,
+    ...writingReading,
     id: material.questionIds?.writing ?? `${material.pairId}:writing`,
     mode: "writing",
-    prompt: material.writingPrompt,
+    prompt: `「${writingReading.answerReading}」の部分を漢字で書こう`,
   }];
 }
 

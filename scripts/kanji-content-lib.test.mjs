@@ -29,6 +29,7 @@ describe("kanji content generator", () => {
     expect(pack.questions[0]).toMatchObject({ mode: "reading", word: "飲む", answerKanji: "飲" });
     expect(pack.questions[1]).toMatchObject({
       mode: "writing", word: "飲む", answerKanji: "飲", promptBefore: "水を", promptAfter: "。",
+      readingBefore: "", answerReading: "の", readingAfter: "む", prompt: "「の」の部分を漢字で書こう",
     });
   });
 

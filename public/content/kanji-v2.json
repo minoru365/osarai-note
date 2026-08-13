@@ -35,9 +35,12 @@
         "葉"
       ],
       "answerKanji": "葉",
+      "readingBefore": "",
+      "answerReading": "は",
+      "readingAfter": "",
       "id": "kanji-g3-writing-leaf-01",
       "mode": "writing",
-      "prompt": "「はっぱ」の「は」を漢字で書こう"
+      "prompt": "「は」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -73,9 +76,12 @@
         "物"
       ],
       "answerKanji": "植物",
+      "readingBefore": "",
+      "answerReading": "しょくぶつ",
+      "readingAfter": "",
       "id": "kanji-g3-writing-plant-01",
       "mode": "writing",
-      "prompt": "「しょくぶつ」を漢字で書こう"
+      "prompt": "「しょくぶつ」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -111,9 +117,12 @@
         "事"
       ],
       "answerKanji": "悪事",
+      "readingBefore": "",
+      "answerReading": "あくじ",
+      "readingAfter": "",
       "id": "kanji-g3-悪-on-e788a2909b01:writing",
       "mode": "writing",
-      "prompt": "「あくじ」の漢字の部分を書こう"
+      "prompt": "「あくじ」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -149,9 +158,12 @@
         "寒"
       ],
       "answerKanji": "悪寒",
+      "readingBefore": "",
+      "answerReading": "おかん",
+      "readingAfter": "",
       "id": "kanji-g3-悪-on-9afa6549ff13:writing",
       "mode": "writing",
-      "prompt": "「おかん」の漢字の部分を書こう"
+      "prompt": "「おかん」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -185,9 +197,12 @@
         "悪"
       ],
       "answerKanji": "悪",
+      "readingBefore": "",
+      "answerReading": "わる",
+      "readingAfter": "い",
       "id": "kanji-g3-悪-kun-ff6b75e0da6a:writing",
       "mode": "writing",
-      "prompt": "「わるい」の漢字の部分を書こう"
+      "prompt": "「わる」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -223,9 +238,12 @@
         "全"
       ],
       "answerKanji": "安全",
+      "readingBefore": "",
+      "answerReading": "あんぜん",
+      "readingAfter": "",
       "id": "kanji-g3-安-on-3f211f766b1e:writing",
       "mode": "writing",
-      "prompt": "「あんぜん」の漢字の部分を書こう"
+      "prompt": "「あんぜん」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -259,9 +277,12 @@
         "安"
       ],
       "answerKanji": "安",
+      "readingBefore": "",
+      "answerReading": "やす",
+      "readingAfter": "い",
       "id": "kanji-g3-安-kun-4fc03b238eec:writing",
       "mode": "writing",
-      "prompt": "「やすい」の漢字の部分を書こう"
+      "prompt": "「やす」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -297,9 +318,12 @@
         "暗"
       ],
       "answerKanji": "明暗",
+      "readingBefore": "",
+      "answerReading": "めいあん",
+      "readingAfter": "",
       "id": "kanji-g3-暗-on-db80ed07eafd:writing",
       "mode": "writing",
-      "prompt": "「めいあん」の漢字の部分を書こう"
+      "prompt": "「めいあん」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -333,9 +357,12 @@
         "暗"
       ],
       "answerKanji": "暗",
+      "readingBefore": "",
+      "answerReading": "くら",
+      "readingAfter": "い",
       "id": "kanji-g3-暗-kun-47a50a9ac3b8:writing",
       "mode": "writing",
-      "prompt": "「くらい」の漢字の部分を書こう"
+      "prompt": "「くら」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -371,9 +398,12 @@
         "学"
       ],
       "answerKanji": "医学",
+      "readingBefore": "",
+      "answerReading": "いがく",
+      "readingAfter": "",
       "id": "kanji-g3-医-on-59d996061992:writing",
       "mode": "writing",
-      "prompt": "「いがく」の漢字の部分を書こう"
+      "prompt": "「いがく」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -409,9 +439,12 @@
         "員"
       ],
       "answerKanji": "委員",
+      "readingBefore": "",
+      "answerReading": "いいん",
+      "readingAfter": "",
       "id": "kanji-g3-委-on-5fcbb0913b68:writing",
       "mode": "writing",
-      "prompt": "「いいん」の漢字の部分を書こう"
+      "prompt": "「いいん」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -445,9 +478,12 @@
         "委"
       ],
       "answerKanji": "委",
+      "readingBefore": "",
+      "answerReading": "ゆだ",
+      "readingAfter": "ねる",
       "id": "kanji-g3-委-kun-d4706beab0cf:writing",
       "mode": "writing",
-      "prompt": "「ゆだねる」の漢字の部分を書こう"
+      "prompt": "「ゆだ」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -483,9 +519,12 @@
         "見"
       ],
       "answerKanji": "意見",
+      "readingBefore": "",
+      "answerReading": "いけん",
+      "readingAfter": "",
       "id": "kanji-g3-意-on-892e6d23938f:writing",
       "mode": "writing",
-      "prompt": "「いけん」の漢字の部分を書こう"
+      "prompt": "「いけん」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -521,9 +560,12 @@
         "育"
       ],
       "answerKanji": "教育",
+      "readingBefore": "",
+      "answerReading": "きょういく",
+      "readingAfter": "",
       "id": "kanji-g3-育-on-cf05b1a4f942:writing",
       "mode": "writing",
-      "prompt": "「きょういく」の漢字の部分を書こう"
+      "prompt": "「きょういく」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -557,9 +599,12 @@
         "育"
       ],
       "answerKanji": "育",
+      "readingBefore": "",
+      "answerReading": "そだ",
+      "readingAfter": "つ",
       "id": "kanji-g3-育-kun-72a6d9cc8d07:writing",
       "mode": "writing",
-      "prompt": "「そだつ」の漢字の部分を書こう"
+      "prompt": "「そだ」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -593,9 +638,12 @@
         "育"
       ],
       "answerKanji": "育",
+      "readingBefore": "",
+      "answerReading": "そだ",
+      "readingAfter": "てる",
       "id": "kanji-g3-育-kun-9e3eaac7024f:writing",
       "mode": "writing",
-      "prompt": "「そだてる」の漢字の部分を書こう"
+      "prompt": "「そだ」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -629,9 +677,12 @@
         "育"
       ],
       "answerKanji": "育",
+      "readingBefore": "",
+      "answerReading": "はぐく",
+      "readingAfter": "む",
       "id": "kanji-g3-育-kun-a21713795d6c:writing",
       "mode": "writing",
-      "prompt": "「はぐくむ」の漢字の部分を書こう"
+      "prompt": "「はぐく」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -667,9 +718,12 @@
         "員"
       ],
       "answerKanji": "定員",
+      "readingBefore": "",
+      "answerReading": "ていいん",
+      "readingAfter": "",
       "id": "kanji-g3-員-on-eab67dd96ea9:writing",
       "mode": "writing",
-      "prompt": "「ていいん」の漢字の部分を書こう"
+      "prompt": "「ていいん」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -705,9 +759,12 @@
         "内"
       ],
       "answerKanji": "院内",
+      "readingBefore": "",
+      "answerReading": "いんない",
+      "readingAfter": "",
       "id": "kanji-g3-院-on-2657f413a333:writing",
       "mode": "writing",
-      "prompt": "「いんない」の漢字の部分を書こう"
+      "prompt": "「いんない」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -743,9 +800,12 @@
         "食"
       ],
       "answerKanji": "飲食",
+      "readingBefore": "",
+      "answerReading": "いんしょく",
+      "readingAfter": "",
       "id": "kanji-g3-飲-on-31b4ebacc345:writing",
       "mode": "writing",
-      "prompt": "「いんしょく」の漢字の部分を書こう"
+      "prompt": "「いんしょく」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -779,9 +839,12 @@
         "飲"
       ],
       "answerKanji": "飲",
+      "readingBefore": "",
+      "answerReading": "の",
+      "readingAfter": "む",
       "id": "kanji-g3-飲-kun-88eac193f43a:writing",
       "mode": "writing",
-      "prompt": "「のむ」の漢字の部分を書こう"
+      "prompt": "「の」の部分を漢字で書こう"
     },
     {
       "grade": 3,
@@ -817,9 +880,12 @@
         "動"
       ],
       "answerKanji": "運動",
+      "readingBefore": "",
+      "answerReading": "うんどう",
+      "readingAfter": "",
       "id": "kanji-g3-運-on-51c0c99c209b:writing",
       "mode": "writing",
-      "prompt": "「うんどう」の漢字の部分を書こう"
+      "prompt": "「うんどう」の部分を漢字で書こう"
     }
   ]
 }

@@ -12,6 +12,9 @@ export type KanjiWritingQuestion = KanjiQuestionBase & {
   mode: "writing";
   promptBefore: string;
   promptAfter: string;
+  readingBefore: string;
+  answerReading: string;
+  readingAfter: string;
 };
 
 export type KanjiReadingQuestion = KanjiQuestionBase & {
@@ -77,7 +80,13 @@ export function validateKanjiPack(value: unknown): KanjiQuestion[] {
       throw new Error("読み問題の文脈が不正です");
     }
     if (schemaVersion === 2 && question.mode === "writing"
-      && (typeof question.promptBefore !== "string" || typeof question.promptAfter !== "string")) {
+      && (typeof question.promptBefore !== "string"
+        || typeof question.promptAfter !== "string"
+        || typeof question.readingBefore !== "string"
+        || typeof question.answerReading !== "string"
+        || question.answerReading.length === 0
+        || typeof question.readingAfter !== "string"
+        || `${question.readingBefore}${question.answerReading}${question.readingAfter}` !== question.reading)) {
       throw new Error("書き問題の文脈が不正です");
     }
     if (ids.has(question.id)) throw new Error(`問題IDが重複しています: ${question.id}`);
@@ -88,6 +97,9 @@ export function validateKanjiPack(value: unknown): KanjiQuestion[] {
       ...(question.mode === "writing" && schemaVersion === 1 ? {
         promptBefore: typeof question.promptBefore === "string" ? question.promptBefore : "",
         promptAfter: typeof question.promptAfter === "string" ? question.promptAfter : "",
+        readingBefore: "",
+        answerReading: question.reading,
+        readingAfter: "",
       } : {}),
     } as KanjiQuestion;
   });
