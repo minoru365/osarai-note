@@ -25,6 +25,41 @@ export type KanjiReadingQuestion = KanjiQuestionBase & {
 
 export type KanjiQuestion = KanjiWritingQuestion | KanjiReadingQuestion;
 
+type WritingReadingSource = Pick<KanjiWritingQuestion, "word" | "reading" | "answerKanji">
+  & Partial<Pick<KanjiWritingQuestion, "readingBefore" | "answerReading" | "readingAfter">>;
+
+export function getWritingReadingParts(question: WritingReadingSource): {
+  readingBefore: string;
+  answerReading: string;
+  readingAfter: string;
+} {
+  if (typeof question.readingBefore === "string"
+    && typeof question.answerReading === "string"
+    && question.answerReading.length > 0
+    && typeof question.readingAfter === "string"
+    && `${question.readingBefore}${question.answerReading}${question.readingAfter}` === question.reading) {
+    return {
+      readingBefore: question.readingBefore,
+      answerReading: question.answerReading,
+      readingAfter: question.readingAfter,
+    };
+  }
+
+  const match = question.word.match(/^([ぁ-ゖー]*)([々〇〆ヶ\u3400-\u9fff]+)([ぁ-ゖー]*)$/u);
+  if (match && match[2] === question.answerKanji) {
+    const readingBefore = match[1];
+    const readingAfter = match[3];
+    if (question.reading.startsWith(readingBefore) && question.reading.endsWith(readingAfter)) {
+      const answerReading = question.reading.slice(
+        readingBefore.length,
+        readingAfter.length === 0 ? undefined : -readingAfter.length,
+      );
+      if (answerReading.length > 0) return { readingBefore, answerReading, readingAfter };
+    }
+  }
+  return { readingBefore: "", answerReading: question.reading, readingAfter: "" };
+}
+
 type ContentManifest = {
   schemaVersion: 1;
   contentVersion: string;

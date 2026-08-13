@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { validateKanjiPack, validateManifest } from "./contentPack";
+import { getWritingReadingParts, validateKanjiPack, validateManifest } from "./contentPack";
 
 describe("content pack validation", () => {
   it("バージョン付き問題パック一覧を受け入れる", () => {
@@ -51,6 +51,15 @@ describe("content pack validation", () => {
     });
     const { promptBefore: _before, ...withoutContext } = writing;
     expect(() => validateKanjiPack({ schemaVersion: 2, questions: [withoutContext] })).toThrow("書き問題の文脈");
+  });
+
+  it("更新前の問題が画面に残っていても漢字部分の読みを復元する", () => {
+    expect(getWritingReadingParts({
+      word: "暗い", reading: "くらい", answerKanji: "暗", answerReading: "",
+    })).toEqual({ readingBefore: "", answerReading: "くら", readingAfter: "い" });
+    expect(getWritingReadingParts({
+      word: "飲む", reading: "のむ", answerKanji: "飲",
+    })).toEqual({ readingBefore: "", answerReading: "の", readingAfter: "む" });
   });
 
   it("文脈を持つ読み問題を受け入れる", () => {

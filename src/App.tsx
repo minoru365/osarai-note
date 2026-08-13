@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import HanziWriter from "hanzi-writer";
 import {
   loadKanjiQuestions,
+  getWritingReadingParts,
   type KanjiQuestion,
   type KanjiReadingQuestion,
   type KanjiWritingQuestion,
@@ -43,6 +44,7 @@ function App() {
   } = useDailyKanjiSession("writing", writingQuestions, view === "writing");
   const [selectedWritingId, setSelectedWritingId] = useState("");
   const selected = writingQuestions.find((question) => question.id === selectedWritingId);
+  const writingReadingParts = selected ? getWritingReadingParts(selected) : null;
   const [progress, setProgress] = useState<WordProgress>(() => createWordProgress(""));
   const [quizState, setQuizState] = useState<QuizState>("loading");
   const [mistakes, setMistakes] = useState(0);
@@ -305,9 +307,9 @@ function App() {
           <div>
             <p className="eyebrow">漢字の書き</p>
             <p className="writing-context">
-              {selected.promptBefore}{selected.readingBefore}<span>「{selected.answerReading}」</span>{selected.readingAfter}{selected.promptAfter}
+              {selected.promptBefore}{writingReadingParts?.readingBefore}<span>「{writingReadingParts?.answerReading}」</span>{writingReadingParts?.readingAfter}{selected.promptAfter}
             </p>
-            <h1>{selected.prompt}</h1>
+            <h1>「{writingReadingParts?.answerReading}」の部分を漢字で書こう</h1>
             <p className="reading">読み：{selected.reading}</p>
           </div>
 
