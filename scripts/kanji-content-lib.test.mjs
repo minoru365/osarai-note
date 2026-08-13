@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
-import { createCoverageMarkdown, createReviewMarkdown, generateKanjiPack, validateMaterialSource, validateReadingReference } from "./kanji-content-lib.mjs";
+import { createCoverageMarkdown, createReviewMarkdown, createWordCandidateMarkdown, generateKanjiPack, validateMaterialSource, validateReadingReference, validateWordCandidates } from "./kanji-content-lib.mjs";
 
 const material = (overrides = {}) => ({
   pairId: "g3-drink-kun-nomu",
@@ -65,6 +65,15 @@ it("全基準読みに対する素材作成・確認状況を出力する", asyn
   const actualSource = JSON.parse(await readFile(resolve("content-source/kanji-materials.json"), "utf8"));
   const coverage = createCoverageMarkdown(actualSource, reference);
   expect(coverage).toContain("基準読み：929");
-  expect(coverage).toContain("素材作成済み：2");
-  expect(coverage).toContain("未作成：927");
+  expect(coverage).toContain("素材作成済み：848");
+  expect(coverage).toContain("未作成：81");
+});
+
+it("文化庁語例から作った929件の未確認候補を検証する", async () => {
+  const reference = JSON.parse(await readFile(resolve("content-source/joyo-readings-2010.json"), "utf8"));
+  const candidates = JSON.parse(await readFile(resolve("content-source/kanji-word-candidates.json"), "utf8"));
+  expect(validateWordCandidates(candidates, reference)).toBe(candidates);
+  expect(candidates.counts.total).toBe(929);
+  expect(candidates.counts.candidate).toBeGreaterThan(0);
+  expect(createWordCandidateMarkdown(candidates, reference)).toContain("学年内表記で採用可能：868");
 });

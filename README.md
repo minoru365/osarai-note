@@ -52,6 +52,8 @@ npm audit
 
 共通素材は `content-source/kanji-materials.json` で管理します。編集後に `npm run content:generate` を実行すると、確認済み素材だけから `public/content/kanji-v2.json` とレビュー・カバレッジ表が生成されます。
 
+文化庁語例から候補を再作成するときは、`requirements-content.txt` を導入して `scripts/build-kanji-word-candidates.py` を実行します。`scripts/seed-kanji-materials.py` は既存素材を上書きせず、読み照合済み候補だけを `draft` として追加します。Janomeの読みは候補専用で、人が確認するまで公開されません。
+
 公開前に `npm test` と `npm run build` を実行し、問題IDの重複、読み書きペア、学年配当、ひらがな回答を確認します。学習履歴、未習設定、カスタム問題はIndexedDBにあり、問題パックには含めません。
 
 ## GitHub Pages

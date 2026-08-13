@@ -106,6 +106,38 @@ function referenceKeys(reference) {
   )));
 }
 
+export function validateWordCandidates(data, reference) {
+  validateReadingReference(reference);
+  assert(data && data.schemaVersion === 1 && data.candidateVersion === reference.sourceVersion, "語例候補の版が不正です");
+  assert(Array.isArray(data.candidates) && data.candidates.length === referenceKeys(reference).size, "語例候補の件数が一致しません");
+  const expectedKeys = referenceKeys(reference);
+  const actualKeys = new Set();
+  for (const candidate of data.candidates) {
+    const key = `${candidate.grade}:${candidate.primaryKanji}:${candidate.readingType}:${candidate.canonicalReading}`;
+    assert(expectedKeys.has(key) && !actualKeys.has(key), `語例候補のキーが不正です: ${key}`);
+    actualKeys.add(key);
+    assert(["candidate", "reading-unresolved", "needs-rewrite", "no-example"].includes(candidate.status), `${key}: 候補状態が不正です`);
+    assert(Array.isArray(candidate.officialExamples), `${key}: 文化庁語例候補がありません`);
+    if (candidate.status === "candidate") {
+      assert(candidate.selected && typeof candidate.selected.word === "string" && HIRAGANA.test(candidate.selected.wordReading), `${key}: 採用候補の読みが不正です`);
+      assert(["official-kun-reading", "canonical-visible", "manual-review"].includes(candidate.selected.readingCheck), `${key}: 採用候補の読み確認状態が不正です`);
+      assert(candidate.selected.overGradeKanji.length === 0, `${key}: 採用候補に学年超過漢字があります`);
+      assert(candidate.selected.targetKanji.includes(candidate.primaryKanji), `${key}: 採用候補に主対象漢字がありません`);
+    }
+  }
+  assert(data.counts?.total === data.candidates.length, "語例候補の集計が一致しません");
+  return data;
+}
+
+export function createWordCandidateMarkdown(data, reference) {
+  validateWordCandidates(data, reference);
+  const rows = data.candidates.map((candidate) => {
+    const selected = candidate.selected;
+    return `| ${candidate.status} | ${candidate.grade} | ${candidate.primaryKanji} | ${candidate.readingType} | ${candidate.canonicalReading} | ${selected?.word ?? ""} | ${selected?.wordReading ?? ""} | ${selected?.readingCheck ?? ""} |`;
+  });
+  return `# 文化庁語例からの問題語句候補\n\n候補版：${data.candidateVersion}\n\n- 全基準読み：${data.counts.total}\n- 学年内表記で採用可能：${data.counts.candidate ?? 0}\n- 読みの個別確認が必要：${data.counts["reading-manual-review"] ?? 0}\n- 語句の書き換えが必要：${data.counts["needs-rewrite"] ?? 0}\n- 語例なし：${data.counts["no-example"] ?? 0}\n\n候補の読みは未確認であり、この表から直接公開しない。\n\n| 状態 | 学年 | 漢字 | 音訓 | 基準読み | 語句候補 | 語句読み候補 | 読み照合 |\n|---|---:|---|---|---|---|---|---|\n${rows.join("\n")}\n`;
+}
+
 export function validateMaterialsAgainstReference(source, reference) {
   validateMaterialSource(source);
   validateReadingReference(reference);

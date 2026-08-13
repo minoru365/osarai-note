@@ -23,3 +23,11 @@ Before distribution, include the complete license texts supplied in the package 
 - The checked-in JSON is an extracted and filtered dataset for grade 3 and grade 4, with source title, edition, URL, and PDF page retained.
 - Source and extraction details: `docs/kanji-data-sources.md`
 - Website content use is governed by the applicable Ministry of Education website terms linked from the Agency for Cultural Affairs site. Verify current terms and attribution requirements before public distribution.
+
+## Janome
+
+- Tooling only: `Janome` 0.5.0
+- Purpose: attach review-candidate readings to the official word examples; it is not shipped in the web application.
+- License: Apache License 2.0; bundled dictionary/model is based on MeCab-IPADIC.
+- Source: https://github.com/mocobeta/janome
+- Janome output is never treated as reviewed or published automatically.
