@@ -378,7 +378,6 @@ function App() {
         freeQuestionCount={freePracticeQueue.length}
         onHome={goHome}
         onWriting={() => switchPracticeMode("writing")}
-        onSettings={() => setView("kanji-settings")}
       />
     );
   }
@@ -386,7 +385,7 @@ function App() {
   if (view === "writing" && writingComplete && !selectedWritingId) {
     return (
       <div className="app-shell">
-        <PracticeHeader mode="writing" progress={100} onHome={goHome} onReading={() => void startDailyPractice("reading")} onWriting={() => undefined} onSettings={() => setView("kanji-settings")} />
+        <PracticeHeader mode="writing" progress={100} onHome={goHome} onReading={() => void startDailyPractice("reading")} onWriting={() => undefined} />
         <main className="content-loading practice-complete"><strong>書きの学習、おつかれさま！</strong><span>{writingQuestionCount}問できました</span><div className="completion-summary"><span>一回で正解<strong>{writingSummary?.firstTryCorrect ?? 0}</strong></span><span>やり直して正解<strong>{writingSummary?.correctedAfterMistake ?? 0}</strong></span><span>分からない<strong>{writingSummary?.unknown ?? 0}</strong></span></div><button className="start-button" type="button" onClick={() => void nextWritingBatch()}>もう10問</button><button type="button" onClick={goHome}>ホームへ</button></main>
       </div>
     );
@@ -415,7 +414,6 @@ function App() {
         onHome={goHome}
         onReading={() => switchPracticeMode("reading")}
         onWriting={() => undefined}
-        onSettings={() => setView("kanji-settings")}
         onBrowse={freePracticeQuestion?.mode === "writing" ? openFreePractice : undefined}
       />
 
