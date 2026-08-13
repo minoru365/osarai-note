@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { KANJI_CATALOG, type KanjiGrade } from "./kanjiCatalog";
 import { studyStorage } from "./storage/indexedDb";
-import type { KanjiState } from "./storage/schema";
+import { createEmptyKanjiSkillStats, type KanjiState } from "./storage/schema";
 
 type StatusFilter = "all" | "learned" | "unlearned";
 
@@ -13,9 +13,8 @@ function createState(character: string, learned: boolean, previous?: KanjiState)
   return {
     kanji: character,
     learned,
-    readingMastery: previous?.readingMastery ?? 0,
-    writingMastery: previous?.writingMastery ?? 0,
-    nextReviewAt: previous?.nextReviewAt ?? null,
+    reading: previous?.reading ?? createEmptyKanjiSkillStats(),
+    writing: previous?.writing ?? createEmptyKanjiSkillStats(),
     updatedAt: new Date().toISOString(),
   };
 }

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { getKanjiByGrade, KANJI_CATALOG } from "./kanjiCatalog";
 import { filterEligibleKanji, isKanjiEligible } from "./kanjiEligibility";
-import type { KanjiState } from "./storage/schema";
+import { createEmptyKanjiSkillStats, type KanjiState } from "./storage/schema";
 
 describe("kanji catalog", () => {
   it("文科省配当表どおり3年生200字・4年生202字を重複なく持つ", () => {
@@ -28,9 +28,8 @@ describe("kanji eligibility", () => {
     return {
       kanji: "植",
       learned,
-      readingMastery: 0,
-      writingMastery: 0,
-      nextReviewAt: null,
+      reading: createEmptyKanjiSkillStats(),
+      writing: createEmptyKanjiSkillStats(),
       updatedAt: "2026-08-13T00:00:00.000Z",
     };
   }

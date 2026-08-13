@@ -11,6 +11,7 @@
 - [開発計画](./docs/study-support-plan.md)：今後の仕様、制約、ロードマップ
 - [進捗](./docs/progress.md)：現在地、完了、次の作業、検証結果
 - [ADR](./docs/adr/)：重要な設計判断と採用理由
+- [IndexedDB v2設計](./docs/db-v2-design.md)：移行、状態遷移、原子的保存の受け入れ条件
 
 ## 起動
 
