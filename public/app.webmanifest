@@ -1,0 +1,20 @@
+{
+  "name": "まなびノート",
+  "short_name": "まなびノート",
+  "description": "小学生の家庭学習を支える復習アプリ",
+  "lang": "ja",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#f3f6ed",
+  "theme_color": "#3b7d65",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

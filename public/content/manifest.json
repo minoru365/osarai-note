@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026.08.13-1",
+  "packs": [
+    {
+      "subject": "kanji",
+      "url": "kanji-v1.json"
+    }
+  ]
+}

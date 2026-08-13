@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "packId": "kanji-v1",
+  "questions": [
+    {
+      "id": "kanji-g3-reading-leaf-01",
+      "grade": 3,
+      "mode": "reading",
+      "word": "葉",
+      "reading": "は",
+      "prompt": "文の中の「葉」の読みを答えよう",
+      "promptBefore": "公園で木の",
+      "promptAfter": "をひろいました。",
+      "targetKanji": ["葉"]
+    },
+    {
+      "id": "kanji-g3-reading-plant-01",
+      "grade": 3,
+      "mode": "reading",
+      "word": "植物",
+      "reading": "しょくぶつ",
+      "prompt": "文の中の「植物」の読みを答えよう",
+      "promptBefore": "理科で",
+      "promptAfter": "を育てます。",
+      "targetKanji": ["植", "物"]
+    },
+    {
+      "id": "kanji-g3-writing-leaf-01",
+      "grade": 3,
+      "mode": "writing",
+      "word": "葉",
+      "reading": "は",
+      "prompt": "「はっぱ」の「は」を漢字で書こう",
+      "targetKanji": ["葉"]
+    },
+    {
+      "id": "kanji-g3-writing-plant-01",
+      "grade": 3,
+      "mode": "writing",
+      "word": "植物",
+      "reading": "しょくぶつ",
+      "prompt": "「しょくぶつ」を漢字で書こう",
+      "targetKanji": ["植", "物"]
+    }
+  ]
+}

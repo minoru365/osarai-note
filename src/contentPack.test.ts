@@ -1,0 +1,53 @@
+import { describe, expect, it } from "vitest";
+import { validateKanjiPack, validateManifest } from "./contentPack";
+
+describe("content pack validation", () => {
+  it("バージョン付き問題パック一覧を受け入れる", () => {
+    expect(validateManifest({
+      schemaVersion: 1,
+      contentVersion: "2026.08.13-1",
+      packs: [{ subject: "kanji", url: "kanji-v1.json" }],
+    }).packs).toHaveLength(1);
+  });
+
+  it("外部・親ディレクトリの問題パック参照を拒否する", () => {
+    expect(() => validateManifest({
+      schemaVersion: 1,
+      contentVersion: "bad",
+      packs: [{ subject: "kanji", url: "../private.json" }],
+    })).toThrow("参照先が不正");
+  });
+
+  it("正しい漢字問題を受け入れる", () => {
+    expect(validateKanjiPack({
+      schemaVersion: 1,
+      packId: "test",
+      questions: [{
+        id: "q1", grade: 3, mode: "writing", word: "植物", reading: "しょくぶつ",
+        prompt: "書こう", targetKanji: ["植", "物"],
+      }],
+    })).toHaveLength(1);
+  });
+
+  it("文脈を持つ読み問題を受け入れる", () => {
+    expect(validateKanjiPack({
+      schemaVersion: 1,
+      questions: [{
+        id: "r1", grade: 3, mode: "reading", word: "葉", reading: "は",
+        prompt: "葉を読みましょう", promptBefore: "木の", promptAfter: "をひろいました。", targetKanji: ["葉"],
+      }],
+    })).toHaveLength(1);
+  });
+
+  it("重複IDと答えに一致しない対象漢字を拒否する", () => {
+    const question = {
+      id: "q1", grade: 3, mode: "writing", word: "植物", reading: "しょくぶつ",
+      prompt: "書こう", targetKanji: ["植"],
+    };
+    expect(() => validateKanjiPack({ schemaVersion: 1, questions: [question] })).toThrow("形式が不正");
+    expect(() => validateKanjiPack({
+      schemaVersion: 1,
+      questions: [{ ...question, targetKanji: ["植", "物"] }, { ...question, targetKanji: ["植", "物"] }],
+    })).toThrow("問題IDが重複");
+  });
+});
