@@ -89,6 +89,7 @@ export function selectDailyQuestions(
           ? 2
           : question.targetKanji.some((kanji) => seenCharacters.has(kanji)) ? 1 : 0,
         weakness: Math.max(...question.targetKanji.map((kanji) => stateMap.get(kanji)?.[mode].weakness ?? 0)),
+        presentations: Math.min(...question.targetKanji.map((kanji) => stateMap.get(kanji)?.[mode].presentations ?? 0)),
         attempted: history.length > 0,
         lastAnsweredAt,
         tie: stableHash(`${seed}:${question.id}`),
@@ -96,9 +97,8 @@ export function selectDailyQuestions(
     })
     .sort((left, right) =>
       left.seenTier - right.seenTier
+      || left.presentations - right.presentations
       || right.weakness - left.weakness
-      || Number(left.attempted) - Number(right.attempted)
-      || left.lastAnsweredAt.localeCompare(right.lastAnsweredAt)
       || left.tie - right.tie,
     );
 

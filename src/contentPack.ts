@@ -1,5 +1,6 @@
 type KanjiQuestionBase = {
   id: string;
+  pairId?: string;
   grade: 3 | 4;
   word: string;
   reading: string;
@@ -24,6 +25,18 @@ export type KanjiReadingQuestion = KanjiQuestionBase & {
 };
 
 export type KanjiQuestion = KanjiWritingQuestion | KanjiReadingQuestion;
+
+export function findPairedQuestion(
+  questions: KanjiQuestion[],
+  current: KanjiQuestion,
+  mode: "reading" | "writing",
+): KanjiQuestion | undefined {
+  const currentFallbackPair = current.id.replace(/:(reading|writing)$/u, "");
+  return questions.find((question) => question.mode === mode
+    && (current.pairId
+      ? question.pairId === current.pairId
+      : question.id.replace(/:(reading|writing)$/u, "") === currentFallbackPair));
+}
 
 type WritingReadingSource = Pick<KanjiWritingQuestion, "word" | "reading" | "answerKanji">
   & Partial<Pick<KanjiWritingQuestion, "readingBefore" | "answerReading" | "readingAfter">>;

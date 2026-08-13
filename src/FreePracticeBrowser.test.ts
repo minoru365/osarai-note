@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { KanjiQuestion } from "./contentPack";
-import { filterFreePracticeQuestions } from "./FreePracticeBrowser";
+import { filterFreePracticeQuestions, stableRandomOrder } from "./FreePracticeBrowser";
 import { createEmptyKanjiSkillStats, type KanjiState } from "./storage/schema";
 
 const question = (id: string, targetKanji: string[]): KanjiQuestion => ({
@@ -18,5 +18,13 @@ describe("free practice browser", () => {
     expect(filterFreePracticeQuestions([
       question("leaf", ["葉"]), question("plant", ["植", "物"]),
     ], states).map((item) => item.id)).toEqual(["leaf"]);
+  });
+
+  it("同じシードならランダム順を固定し、項目を欠落させない", () => {
+    const items = ["悪", "安", "暗", "医", "委", "意", "育", "員", "院", "飲", "運"];
+    const first = stableRandomOrder(items, "batch-a", (item) => item);
+    expect(stableRandomOrder(items, "batch-a", (item) => item)).toEqual(first);
+    expect(new Set(first)).toEqual(new Set(items));
+    expect(stableRandomOrder(items, "batch-b", (item) => item)).not.toEqual(first);
   });
 });

@@ -3,6 +3,7 @@ import HanziWriter from "hanzi-writer";
 import {
   loadKanjiQuestions,
   getWritingReadingParts,
+  findPairedQuestion,
   type KanjiQuestion,
   type KanjiReadingQuestion,
   type KanjiWritingQuestion,
@@ -102,8 +103,17 @@ function App() {
       setMistakes(0);
       setUsedGuide(false);
       setQuizState("loading");
-    }
+    } else setSelectedWritingId("");
     setView(question.mode);
+  };
+
+  const switchPracticeMode = (mode: "reading" | "writing") => {
+    if (!freePracticeQuestion) {
+      startDailyPractice(mode);
+      return;
+    }
+    const counterpart = findPairedQuestion(words, freePracticeQuestion, mode);
+    if (counterpart) startFreePractice(counterpart);
   };
 
   const startQuiz = useCallback((writer: HanziWriter) => {
@@ -325,7 +335,7 @@ function App() {
         freeQuestion={freePracticeQuestion?.mode === "reading" ? freePracticeQuestion : undefined}
         onFreePracticeList={freePracticeQuestion ? openFreePractice : undefined}
         onHome={goHome}
-        onWriting={() => startDailyPractice("writing")}
+        onWriting={() => switchPracticeMode("writing")}
         onSettings={() => setView("kanji-settings")}
       />
     );
@@ -361,7 +371,7 @@ function App() {
         mode="writing"
         progress={freePracticeQuestion?.mode === "writing" && quizState === "word-complete" ? 100 : writingQuestionCount === 0 ? 0 : ((writingSession?.currentIndex ?? 0) / writingQuestionCount) * 100}
         onHome={goHome}
-        onReading={() => startDailyPractice("reading")}
+        onReading={() => switchPracticeMode("reading")}
         onWriting={() => undefined}
         onSettings={() => setView("kanji-settings")}
         onBrowse={freePracticeQuestion?.mode === "writing" ? openFreePractice : undefined}

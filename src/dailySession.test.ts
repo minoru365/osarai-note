@@ -18,10 +18,10 @@ const question = (id: string, word: string): KanjiQuestion => ({
   answerKanji: word,
 });
 
-const state = (kanji: string, weakness: number, learned = true): KanjiState => ({
+const state = (kanji: string, weakness: number, learned = true, presentations = 0): KanjiState => ({
   kanji,
   learned,
-  reading: { ...createEmptyKanjiSkillStats(), weakness },
+  reading: { ...createEmptyKanjiSkillStats(), weakness, presentations },
   writing: createEmptyKanjiSkillStats(),
   updatedAt: "2026-08-14T00:00:00.000Z",
 });
@@ -40,24 +40,23 @@ const attempt = (questionId: string, answeredAt: string): StudyAttempt => ({
 });
 
 describe("selectDailyQuestions", () => {
-  it("未習漢字を除外し、苦手度の高い問題を優先する", () => {
+  it("未習漢字を除外し、練習回数の少ない問題を優先する", () => {
     const selected = selectDailyQuestions(
       [question("easy", "山"), question("hard", "海"), question("unlearned", "川")],
-      { mode: "reading", states: [state("山", 1), state("海", 5), state("川", 10, false)] },
+      { mode: "reading", states: [state("山", 1, true, 0), state("海", 5, true, 3), state("川", 10, false)] },
     );
-    expect(selected.map((item) => item.id)).toEqual(["hard", "easy"]);
+    expect(selected.map((item) => item.id)).toEqual(["easy", "hard"]);
   });
 
-  it("同じ苦手度では未出題、次に回答日の古い問題を優先する", () => {
+  it("同じ練習回数では苦手度を優先し、その後は日付シードで固定する", () => {
     const selected = selectDailyQuestions(
-      [question("new", "山"), question("old", "海"), question("recent", "川")],
+      [question("easy", "山"), question("hard", "海")],
       {
-        mode: "reading",
-        states: [state("山", 2), state("海", 2), state("川", 2)],
-        attempts: [attempt("old", "2026-08-01T00:00:00.000Z"), attempt("recent", "2026-08-13T00:00:00.000Z")],
+        mode: "reading", seed: "2026-08-14",
+        states: [state("山", 1, true, 2), state("海", 5, true, 2)],
       },
     );
-    expect(selected.map((item) => item.id)).toEqual(["new", "old", "recent"]);
+    expect(selected.map((item) => item.id)).toEqual(["hard", "easy"]);
   });
 
   it("セット内で同じ漢字を避け、候補不足時だけ重複を許す", () => {

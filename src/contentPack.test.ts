@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getWritingReadingParts, validateKanjiPack, validateManifest } from "./contentPack";
+import { findPairedQuestion, getWritingReadingParts, validateKanjiPack, validateManifest } from "./contentPack";
 
 describe("content pack validation", () => {
   it("バージョン付き問題パック一覧を受け入れる", () => {
@@ -60,6 +60,18 @@ describe("content pack validation", () => {
     expect(getWritingReadingParts({
       word: "飲む", reading: "のむ", answerKanji: "飲",
     })).toEqual({ readingBefore: "", answerReading: "の", readingAfter: "む" });
+  });
+
+  it("自由練習のタブ切替で同じ問題ペアを選ぶ", () => {
+    const pair = validateKanjiPack({ schemaVersion: 2, questions: [{
+      id: "dark:reading", pairId: "dark", grade: 3, mode: "reading", word: "暗い", reading: "くらい",
+      prompt: "読む", promptBefore: "外が", promptAfter: "。", targetKanji: ["暗"], answerKanji: "暗",
+    }, {
+      id: "dark:writing", pairId: "dark", grade: 3, mode: "writing", word: "暗い", reading: "くらい",
+      prompt: "書く", promptBefore: "外が", promptAfter: "。", readingBefore: "", answerReading: "くら", readingAfter: "い",
+      targetKanji: ["暗"], answerKanji: "暗",
+    } ] });
+    expect(findPairedQuestion(pair, pair[0], "writing")?.id).toBe("dark:writing");
   });
 
   it("文脈を持つ読み問題を受け入れる", () => {
