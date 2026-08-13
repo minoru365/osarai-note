@@ -172,7 +172,7 @@ type HeaderProps = {
 export function PracticeHeader({ mode, progress, onHome, onReading, onWriting, onSettings }: HeaderProps) {
   return (
     <header className="topbar practice-topbar">
-      <button className="brand brand-button" type="button" onClick={onHome}><span className="brand-mark">学</span><span>まなびノート</span></button>
+      <button className="brand brand-button" type="button" onClick={onHome}><span className="brand-mark">学</span><span>おさらいノート</span></button>
       <div className="practice-mode-switch" aria-label="問題形式">
         <button type="button" aria-pressed={mode === "reading"} onClick={onReading}>読み</button>
         <button type="button" aria-pressed={mode === "writing"} onClick={onWriting}>書き</button>

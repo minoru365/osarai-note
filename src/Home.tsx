@@ -19,7 +19,7 @@ export function Home({ questionCount, contentError, onStartKanji, onOpenKanjiSet
   return (
     <div className="app-shell home-shell">
       <header className="topbar">
-        <div className="brand"><span className="brand-mark">学</span><span>まなびノート</span></div>
+        <div className="brand"><span className="brand-mark">学</span><span>おさらいノート</span></div>
         <div className="spike-label">おうちの復習</div>
         <button className="header-action" type="button" onClick={onOpenKanjiSettings}>保護者設定</button>
       </header>

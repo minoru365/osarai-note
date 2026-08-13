@@ -105,7 +105,7 @@ export function KanjiSettings({ onBack }: Props) {
     <div className="app-shell settings-shell">
       <header className="topbar">
         <button className="brand brand-button" type="button" onClick={onBack}>
-          <span className="brand-mark">学</span><span>まなびノート</span>
+          <span className="brand-mark">学</span><span>おさらいノート</span>
         </button>
         <div className="spike-label">漢字の履修設定</div>
         <button className="header-action" type="button" onClick={onBack}>練習へ戻る</button>

@@ -240,7 +240,7 @@ function App() {
     return (
       <div className="app-shell">
         <header className="topbar">
-          <div className="brand"><span className="brand-mark">学</span><span>まなびノート</span></div>
+          <div className="brand"><span className="brand-mark">学</span><span>おさらいノート</span></div>
           <div className="spike-label">問題データ</div>
           <button className="header-action" type="button" onClick={() => setView("kanji-settings")}>漢字の設定</button>
         </header>

@@ -1,4 +1,4 @@
-const CACHE_NAME = "study-support-shell-v1";
+const CACHE_NAME = "osarai-note-shell-v2";
 const scopeUrl = new URL("./", self.registration.scope);
 const appShell = [
   scopeUrl.href,
