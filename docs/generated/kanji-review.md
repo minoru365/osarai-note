@@ -1,35 +1,35 @@
 # 漢字問題レビュー一覧
 
-素材版：2026.08.14-2
+素材版：2026.08.14-3
 
-- 確認済み：2
-- 未確認：846
+- 確認済み：22
+- 未確認：826
 - 要修正：0
 
 | 状態 | 学年 | 主対象 | 音訓 | 基準読み | 語句 | 語句読み | pairId |
 |---|---:|---|---|---|---|---|---|
 | approved | 3 | 葉 | kun | は | 葉 | は | kanji-g3-leaf-kun-ha-01 |
 | approved | 3 | 植 | on | ショク | 植物 | しょくぶつ | kanji-g3-plant-on-shoku-01 |
-| draft | 3 | 悪 | on | アク | 悪事 | あくじ | kanji-g3-悪-on-e788a2909b01 |
-| draft | 3 | 悪 | on | オ | 悪寒 | おかん | kanji-g3-悪-on-9afa6549ff13 |
-| draft | 3 | 悪 | kun | わるい | 悪い | わるい | kanji-g3-悪-kun-ff6b75e0da6a |
-| draft | 3 | 安 | on | アン | 安全 | あんぜん | kanji-g3-安-on-3f211f766b1e |
-| draft | 3 | 安 | kun | やすい | 安い | やすい | kanji-g3-安-kun-4fc03b238eec |
-| draft | 3 | 暗 | on | アン | 明暗 | めいあん | kanji-g3-暗-on-db80ed07eafd |
-| draft | 3 | 暗 | kun | くらい | 暗い | くらい | kanji-g3-暗-kun-47a50a9ac3b8 |
-| draft | 3 | 医 | on | イ | 医学 | いがく | kanji-g3-医-on-59d996061992 |
-| draft | 3 | 委 | on | イ | 委員 | いいん | kanji-g3-委-on-5fcbb0913b68 |
-| draft | 3 | 委 | kun | ゆだねる | 委ねる | ゆだねる | kanji-g3-委-kun-d4706beab0cf |
-| draft | 3 | 意 | on | イ | 意見 | いけん | kanji-g3-意-on-892e6d23938f |
-| draft | 3 | 育 | on | イク | 教育 | きょういく | kanji-g3-育-on-cf05b1a4f942 |
-| draft | 3 | 育 | kun | そだつ | 育つ | そだつ | kanji-g3-育-kun-72a6d9cc8d07 |
-| draft | 3 | 育 | kun | そだてる | 育てる | そだてる | kanji-g3-育-kun-9e3eaac7024f |
-| draft | 3 | 育 | kun | はぐくむ | 育む | はぐくむ | kanji-g3-育-kun-a21713795d6c |
-| draft | 3 | 員 | on | イン | 定員 | ていいん | kanji-g3-員-on-eab67dd96ea9 |
-| draft | 3 | 院 | on | イン | 院内 | いんない | kanji-g3-院-on-2657f413a333 |
-| draft | 3 | 飲 | on | イン | 飲食 | いんしょく | kanji-g3-飲-on-31b4ebacc345 |
-| draft | 3 | 飲 | kun | のむ | 飲む | のむ | kanji-g3-飲-kun-88eac193f43a |
-| draft | 3 | 運 | on | ウン | 運動 | うんどう | kanji-g3-運-on-51c0c99c209b |
+| approved | 3 | 悪 | on | アク | 悪事 | あくじ | kanji-g3-悪-on-e788a2909b01 |
+| approved | 3 | 悪 | on | オ | 悪寒 | おかん | kanji-g3-悪-on-9afa6549ff13 |
+| approved | 3 | 悪 | kun | わるい | 悪い | わるい | kanji-g3-悪-kun-ff6b75e0da6a |
+| approved | 3 | 安 | on | アン | 安全 | あんぜん | kanji-g3-安-on-3f211f766b1e |
+| approved | 3 | 安 | kun | やすい | 安い | やすい | kanji-g3-安-kun-4fc03b238eec |
+| approved | 3 | 暗 | on | アン | 明暗 | めいあん | kanji-g3-暗-on-db80ed07eafd |
+| approved | 3 | 暗 | kun | くらい | 暗い | くらい | kanji-g3-暗-kun-47a50a9ac3b8 |
+| approved | 3 | 医 | on | イ | 医学 | いがく | kanji-g3-医-on-59d996061992 |
+| approved | 3 | 委 | on | イ | 委員 | いいん | kanji-g3-委-on-5fcbb0913b68 |
+| approved | 3 | 委 | kun | ゆだねる | 委ねる | ゆだねる | kanji-g3-委-kun-d4706beab0cf |
+| approved | 3 | 意 | on | イ | 意見 | いけん | kanji-g3-意-on-892e6d23938f |
+| approved | 3 | 育 | on | イク | 教育 | きょういく | kanji-g3-育-on-cf05b1a4f942 |
+| approved | 3 | 育 | kun | そだつ | 育つ | そだつ | kanji-g3-育-kun-72a6d9cc8d07 |
+| approved | 3 | 育 | kun | そだてる | 育てる | そだてる | kanji-g3-育-kun-9e3eaac7024f |
+| approved | 3 | 育 | kun | はぐくむ | 育む | はぐくむ | kanji-g3-育-kun-a21713795d6c |
+| approved | 3 | 員 | on | イン | 定員 | ていいん | kanji-g3-員-on-eab67dd96ea9 |
+| approved | 3 | 院 | on | イン | 院内 | いんない | kanji-g3-院-on-2657f413a333 |
+| approved | 3 | 飲 | on | イン | 飲食 | いんしょく | kanji-g3-飲-on-31b4ebacc345 |
+| approved | 3 | 飲 | kun | のむ | 飲む | のむ | kanji-g3-飲-kun-88eac193f43a |
+| approved | 3 | 運 | on | ウン | 運動 | うんどう | kanji-g3-運-on-51c0c99c209b |
 | draft | 3 | 運 | kun | はこぶ | 運ぶ | はこぶ | kanji-g3-運-kun-98d892fb7428 |
 | draft | 3 | 泳 | on | エイ | 水泳 | すいえい | kanji-g3-泳-on-5ceb6915a480 |
 | draft | 3 | 泳 | kun | およぐ | 泳ぐ | およぐ | kanji-g3-泳-kun-1d63df75c911 |

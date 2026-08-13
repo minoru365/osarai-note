@@ -56,6 +56,8 @@ npm audit
 
 3年生の未確認素材から20件のレビュー票を作る場合は `npm run content:review-batch -- 3 1 20`、編集後の一覧を再描画する場合は `npm run content:review-render -- kanji-g3-001` を使います。レビュー票を作っただけでは問題は公開されません。
 
+判断済みの票は `npm run content:review-apply -- kanji-g3-001 2026.08.14-3` のように新しい素材版を指定して取り込みます。未判断項目、古い票、不正な状態遷移がある場合は素材を変更せず停止します。
+
 公開前に `npm test` と `npm run build` を実行し、問題IDの重複、読み書きペア、学年配当、ひらがな回答を確認します。学習履歴、未習設定、カスタム問題はIndexedDBにあり、問題パックには含めません。
 
 ## GitHub Pages
