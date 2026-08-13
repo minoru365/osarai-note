@@ -263,6 +263,46 @@ describe("StudyStorage", () => {
     });
   });
 
+  it("読みの分からないを未知として一度だけ記録し、後の正解で相殺しない", async () => {
+    const dailySession = createSession("reading", ["kanji-reading-暗"]);
+    await storage.createDailySession(dailySession);
+    await storage.recordKanjiSessionAttempt(createSessionAttempt({
+      id: "reading-unknown",
+      sessionId: dailySession.id,
+      sessionItemId: dailySession.items[0].id,
+      questionId: "kanji-reading-暗",
+      mode: "reading",
+      answer: "",
+      correct: false,
+      mistakes: 1,
+      usedGuide: true,
+      firstTryCorrect: false,
+      targetKanji: ["暗"],
+    }));
+    await storage.recordKanjiSessionAttempt(createSessionAttempt({
+      id: "reading-after-guide",
+      sessionId: dailySession.id,
+      sessionItemId: dailySession.items[0].id,
+      questionId: "kanji-reading-暗",
+      mode: "reading",
+      answer: "くら",
+      correct: true,
+      mistakes: 0,
+      usedGuide: true,
+      firstTryCorrect: false,
+      targetKanji: ["暗"],
+      answeredAt: "2026-08-14T10:01:00.000Z",
+    }));
+
+    expect(await storage.getKanjiState("暗")).toMatchObject({
+      reading: { presentations: 1, mistakePresentations: 1, weakness: 1, unknownCount: 1 },
+    });
+    expect(await storage.getDailySession(dailySession.id)).toMatchObject({
+      currentIndex: 1,
+      items: [{ status: "completed", mistakeCount: 1, usedGuide: true, unknownKanji: ["暗"] }],
+    });
+  });
+
   it("書き問題は文字別結果だけを各漢字へ反映する", async () => {
     const dailySession = createSession("writing", ["kanji-writing-植物"]);
     await storage.createDailySession(dailySession);
@@ -369,6 +409,7 @@ describe("StudyStorage", () => {
       answer: "くらい",
       mistakes: 1,
       firstTryCorrect: false,
+      usedGuide: true,
       targetKanji: ["暗"],
     });
     expect(await storage.recordKanjiFreePracticeAttempt(attempt)).toBe("added");
@@ -376,7 +417,7 @@ describe("StudyStorage", () => {
     expect(await storage.listDailySessions("2026-08-14")).toEqual([]);
     expect(await storage.listAttempts()).toEqual([attempt]);
     expect(await storage.getKanjiState("暗")).toMatchObject({
-      reading: { presentations: 1, mistakePresentations: 1, weakness: 1 },
+      reading: { presentations: 1, mistakePresentations: 1, weakness: 1, unknownCount: 1 },
     });
   });
 

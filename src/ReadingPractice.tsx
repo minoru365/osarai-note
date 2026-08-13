@@ -28,9 +28,10 @@ type Props = {
 export function ReadingPractice({ questions, onHome, onWriting, onSettings, freeQuestion, onFreePracticeList, onFreePracticeNext, freeQuestionNumber = 1, freeQuestionCount = 1 }: Props) {
   const [answer, setAnswer] = useState("");
   const [mistakes, setMistakes] = useState(0);
-  const [result, setResult] = useState<"input" | "correct" | "incorrect">("input");
+  const [result, setResult] = useState<"input" | "correct" | "incorrect" | "guide">("input");
   const [feedback, setFeedback] = useState("漢字の部分だけを入力してね");
   const [saving, setSaving] = useState(false);
+  const [usedGuide, setUsedGuide] = useState(false);
   const [answeredQuestion, setAnsweredQuestion] = useState<KanjiReadingQuestion | null>(null);
   const freeAttemptId = useRef(createId());
   const freeAttemptAnsweredAt = useRef("");
@@ -42,6 +43,7 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings, free
     setResult("input");
     setFeedback("漢字の部分だけを入力してね");
     setSaving(false);
+    setUsedGuide(false);
     setAnsweredQuestion(null);
   }, [freeQuestion?.id]);
   const { session, currentQuestion, loading, error, recordAnswer, startNext } = useDailyKanjiSession("reading", questions, !freeQuestion);
@@ -60,13 +62,13 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings, free
   };
 
   const appendKana = (character: string) => {
-    if (result === "correct" || character === "・" || Array.from(answer).length >= 12) return;
+    if ((result !== "input" && result !== "incorrect") || character === "・" || Array.from(answer).length >= 12) return;
     setAnswer((current) => current + character);
     resetFeedback();
   };
 
   const modify = (operation: (value: string) => string) => {
-    if (result === "correct") return;
+    if (result !== "input" && result !== "incorrect") return;
     setAnswer(operation);
     resetFeedback();
   };
@@ -92,7 +94,7 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings, free
           answer,
           correct: true,
           mistakes: nextMistakes,
-          usedGuide: false,
+          usedGuide,
           firstTryCorrect: mistakes === 0,
           targetKanji: freeQuestion.targetKanji,
           answeredAt: freeAttemptAnsweredAt.current ||= new Date().toISOString(),
@@ -102,7 +104,7 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings, free
           answer,
           correct,
           mistakes: correct ? 0 : 1,
-          usedGuide: false,
+          usedGuide,
           firstTryCorrect: correct && mistakes === 0,
         });
       }
@@ -120,9 +122,42 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings, free
     }
   };
 
+  const showAnswer = async () => {
+    if (!question || !answerParts || saving || result === "correct" || result === "guide") return;
+    setSaving(true);
+    try {
+      if (!freeQuestion) {
+        await recordAnswer({
+          answer: "",
+          correct: false,
+          mistakes: 1,
+          usedGuide: true,
+          firstTryCorrect: false,
+        });
+      }
+      setAnswer("");
+      setMistakes((current) => current + 1);
+      setUsedGuide(true);
+      setResult("guide");
+      setFeedback(`答えは「${answerParts.answerReading}」。よく見たら、答えをかくしてもう一度入力しよう。`);
+    } catch {
+      setResult("incorrect");
+      setFeedback("保存できませんでした。もう一度「分からない」を押してね");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const retryAfterGuide = () => {
+    setAnswer("");
+    setResult("input");
+    setFeedback("漢字の部分だけを、もう一度入力してね");
+  };
+
   const nextQuestion = () => {
     setAnswer("");
     setMistakes(0);
+    setUsedGuide(false);
     setAnsweredQuestion(null);
     resetFeedback();
   };
@@ -165,7 +200,7 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings, free
           <p className="reading-prompt">
             {question.promptBefore}{answerParts?.wordBefore}<span className="reading-target">{answerParts?.answerKanji}</span>{answerParts?.wordAfter}{question.promptAfter}
           </p>
-          <div className={`reading-answer ${result === "correct" ? "correct" : result === "incorrect" ? "incorrect" : ""}`} aria-live="polite">
+          <div className={`reading-answer ${result === "correct" ? "correct" : result === "incorrect" ? "incorrect" : result === "guide" ? "guide" : ""}`} aria-live="polite">
             {answer || <span>50音表から入力しよう</span>}
           </div>
           <div className={`reading-feedback ${result}`} aria-live="polite">{feedback}</div>
@@ -179,18 +214,18 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings, free
           <div className="kana-tools">
             <strong className="kana-panel-title">ひらがな50音</strong>
             <div className="kana-tool-row">
-              <button type="button" onClick={() => modify(toggleSmallKana)}>小文字</button>
-              <button className="kana-mark-button" type="button" aria-label="濁音" onClick={() => modify(applyDakuten)}><span aria-hidden="true">゛</span><small>濁音</small></button>
-              <button className="kana-mark-button" type="button" aria-label="半濁音" onClick={() => modify(applyHandakuten)}><span aria-hidden="true">゜</span><small>半濁音</small></button>
-              <button type="button" onClick={() => modify(deleteLastKana)}>一字消す</button>
-              <button type="button" onClick={() => { setAnswer(""); resetFeedback(); }}>全部消す</button>
+              <button type="button" disabled={result === "guide" || result === "correct"} onClick={() => modify(toggleSmallKana)}>小文字</button>
+              <button className="kana-mark-button" type="button" disabled={result === "guide" || result === "correct"} aria-label="濁音" onClick={() => modify(applyDakuten)}><span aria-hidden="true">゛</span><small>濁音</small></button>
+              <button className="kana-mark-button" type="button" disabled={result === "guide" || result === "correct"} aria-label="半濁音" onClick={() => modify(applyHandakuten)}><span aria-hidden="true">゜</span><small>半濁音</small></button>
+              <button type="button" disabled={result === "guide" || result === "correct"} onClick={() => modify(deleteLastKana)}>一字消す</button>
+              <button type="button" disabled={result === "guide" || result === "correct"} onClick={() => { setAnswer(""); resetFeedback(); }}>全部消す</button>
             </div>
           </div>
           <div className="kana-grid">
             {HIRAGANA_GRID.map((character, index) => (
               <button
                 type="button"
-                disabled={character === "・" || result === "correct"}
+                disabled={character === "・" || result === "correct" || result === "guide"}
                 onClick={() => appendKana(character)}
                 key={`${character}-${index}`}
               >{character === "・" ? "" : character}</button>
@@ -198,7 +233,12 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings, free
           </div>
           {result === "correct"
             ? <button className="reading-submit next" type="button" onClick={freeQuestion ? onFreePracticeNext : nextQuestion}>{freeQuestion ? (freeQuestionNumber < freeQuestionCount ? "次へ" : "練習を終える") : "次へ"}</button>
-            : <button className="reading-submit" type="button" disabled={saving} onClick={() => void submit()}>{saving ? "保存中…" : "回答する"}</button>}
+            : result === "guide"
+              ? <button className="reading-submit" type="button" onClick={retryAfterGuide}>答えをかくして、もう一度</button>
+              : <div className="reading-actions">
+                <button className="reading-submit" type="button" disabled={saving} onClick={() => void submit()}>{saving ? "保存中…" : "回答する"}</button>
+                <button className="reading-unknown" type="button" disabled={saving} onClick={() => void showAnswer()}>分からない</button>
+              </div>}
         </section>
       </main>
     </div>
