@@ -13,6 +13,7 @@
 - [ADR](./docs/adr/)：重要な設計判断と採用理由
 - [IndexedDB v2設計](./docs/db-v2-design.md)：移行、状態遷移、原子的保存の受け入れ条件
 - [問題生成の実装境界](./docs/content-generation-design.md)：素材状態、公開条件、機械ゲート
+- [自由練習の保存境界](./docs/free-practice-design.md)：未履修除外、回答保存、当日セットとの分離
 - [漢字問題の基準資料](./docs/kanji-data-sources.md)：学年配当と常用漢字音訓の出典・版
 
 ## 起動

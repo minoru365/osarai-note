@@ -188,6 +188,9 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
 .section-heading .eyebrow { margin-bottom: 6px; }
 .section-heading h2 { margin: 0; font-size: 27px; }
 .section-heading button { min-height: 42px; padding: 0 14px; border: 1px solid #cbd7cf; border-radius: 11px; color: #315f4d; background: #fff; cursor: pointer; font-weight: 700; }
+.section-heading button:disabled { opacity: .45; cursor: wait; }
+.section-actions { display: flex; gap: 8px; }
+.section-actions button:first-child { color: #fff; border-color: #3b7d65; background: #3b7d65; }
 .subject-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 11px; margin-top: 21px; }
 .subject-card { min-height: 118px; display: grid; grid-template-columns: 48px 1fr; grid-template-rows: 1fr 1fr; column-gap: 12px; align-items: center; padding: 14px; border: 1px solid #dde4de; border-radius: 15px; color: #8a928d; background: #f5f6f3; text-align: left; }
 .subject-card.ready { color: #304f42; border-color: #bcd1c3; background: #f1f7f1; cursor: pointer; }
@@ -207,6 +210,24 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
 .completion-summary { display: flex; gap: 10px; margin-top: 8px; }
 .completion-summary span { min-width: 130px; display: grid; gap: 3px; padding: 12px; border-radius: 12px; color: #65736b; background: #edf5ef; font-size: 13px; }
 .completion-summary strong { color: #315f4d; font-size: 23px; }
+
+.free-practice-shell { height: 100vh; min-height: 0; overflow: hidden; }
+.free-practice-workspace { min-height: 0; padding: 24px; }
+.free-practice-panel { height: 100%; min-height: 0; display: grid; grid-template-rows: auto auto minmax(0, 1fr); gap: 18px; padding: 26px 30px 30px; border: 1px solid #d9e2d7; border-radius: 22px; background: #fffefa; box-shadow: 0 12px 30px rgba(53, 77, 65, .08); }
+.free-practice-heading { display: flex; align-items: end; justify-content: space-between; gap: 28px; }
+.free-practice-heading .eyebrow { margin-bottom: 7px; }
+.free-practice-heading p:last-child { max-width: 520px; margin: 0; color: #68766e; line-height: 1.6; }
+.free-practice-toolbar { display: flex; align-items: end; gap: 12px; }
+.free-practice-search { display: grid; gap: 4px; color: #69766f; font-size: 12px; }
+.free-practice-search input { width: 220px; height: 46px; padding: 0 13px; border: 1px solid #cbd7cf; border-radius: 12px; color: #28362f; background: #fff; font-size: 17px; }
+.free-practice-count { margin-left: auto; padding-bottom: 11px; color: #3b6d59; }
+.free-practice-grid { min-height: 0; overflow-y: auto; display: grid; grid-template-columns: repeat(5, minmax(150px, 1fr)); align-content: start; gap: 11px; padding: 3px 6px 8px 2px; }
+.free-practice-grid button { min-height: 112px; display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto 1fr; gap: 5px 10px; padding: 14px; text-align: left; border: 2px solid #d8e1da; border-radius: 15px; color: #294f40; background: #fcfdf9; cursor: pointer; }
+.free-practice-grid button:active { border-color: #3b7d65; background: #edf6f0; }
+.free-practice-grid button > span { color: #3b7d65; font-size: 14px; font-weight: 700; }
+.free-practice-grid button > strong { grid-column: 1 / -1; align-self: end; font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 27px; }
+.free-practice-grid button > small { grid-column: 2; grid-row: 1; color: #748078; font-size: 13px; }
+.free-practice-empty { min-height: 0; display: grid; place-items: center; color: #68766e; background: #f7f9f4; border-radius: 16px; }
 
 .settings-shell { height: 100vh; min-height: 0; overflow: hidden; }
 .settings-workspace { min-height: 0; padding: 24px; }
@@ -244,6 +265,9 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
   .question-card { padding: 24px; }
   .writer-stage { min-height: 500px; }
   .settings-workspace { padding: 18px; }
+  .free-practice-workspace { padding: 18px; }
+  .free-practice-panel { gap: 14px; padding: 20px 24px 24px; }
+  .free-practice-grid button { min-height: 96px; }
   .settings-panel { padding: 20px 24px 24px; }
   .kanji-grid { grid-template-columns: repeat(10, minmax(76px, 1fr)); }
   .kanji-tile { min-height: 88px; }

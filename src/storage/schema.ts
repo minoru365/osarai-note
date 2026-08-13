@@ -104,6 +104,14 @@ export type KanjiSessionAttempt = StudyAttempt & {
   firstTryCorrect: boolean;
 };
 
+export type KanjiFreePracticeAttempt = StudyAttempt & {
+  subject: "kanji";
+  mode: KanjiStudyMode;
+  sessionId: "free-practice";
+  targetKanji: string[];
+  firstTryCorrect: boolean;
+};
+
 export type AppSettings = {
   id: "app";
   dailyQuestionCount: number;

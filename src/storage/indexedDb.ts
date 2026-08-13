@@ -7,6 +7,7 @@ import {
   type DailyKanjiSession,
   type DailySessionItem,
   type KanjiState,
+  type KanjiFreePracticeAttempt,
   type KanjiSessionAttempt,
   type KanjiSkillStats,
   type KanjiStudyMode,
@@ -114,6 +115,29 @@ function validateKanjiSessionAttempt(attempt: KanjiSessionAttempt): void {
   }
 }
 
+function validateKanjiFreePracticeAttempt(attempt: KanjiFreePracticeAttempt): void {
+  validateAttempt(attempt);
+  if (attempt.subject !== "kanji" || attempt.sessionId !== "free-practice"
+    || (attempt.mode !== "reading" && attempt.mode !== "writing")
+    || attempt.sessionItemId !== undefined || typeof attempt.firstTryCorrect !== "boolean"
+    || !Array.isArray(attempt.targetKanji) || attempt.targetKanji.length === 0
+    || new Set(attempt.targetKanji).size !== attempt.targetKanji.length
+    || !attempt.targetKanji.every((kanji) => Array.from(kanji).length === 1)) {
+    throw new Error("漢字自由練習回答の形式が不正です");
+  }
+  if (!attempt.correct || (attempt.firstTryCorrect && (attempt.mistakes > 0 || attempt.usedGuide))) {
+    throw new Error("自由練習の完了結果が回答内容と一致しません");
+  }
+  if (attempt.mode === "writing") {
+    const resultCharacters = attempt.characterResults?.map((result) => result.character) ?? [];
+    if (resultCharacters.length !== attempt.targetKanji.length
+      || new Set(resultCharacters).size !== resultCharacters.length
+      || !attempt.targetKanji.every((kanji) => resultCharacters.includes(kanji))) {
+      throw new Error("書き問題の文字別結果が不足しています");
+    }
+  }
+}
+
 function defaultKanjiState(kanji: string, updatedAt: string): KanjiState {
   return {
     kanji,
@@ -139,7 +163,7 @@ type AttemptImpact = {
   strokeMistakes: number;
 };
 
-function getAttemptImpacts(attempt: KanjiSessionAttempt): Map<string, AttemptImpact> {
+function getAttemptImpacts(attempt: KanjiSessionAttempt | KanjiFreePracticeAttempt): Map<string, AttemptImpact> {
   if (attempt.mode === "reading") {
     const impact: SkillImpact = attempt.firstTryCorrect ? "decrease" : "increase";
     return new Map(attempt.targetKanji.map((kanji) => [kanji, {
@@ -420,6 +444,69 @@ export class StudyStorage {
       await Promise.all([
         requestResult(attemptsStore.add(attempt)),
         requestResult(sessionsStore.put(nextSession)),
+        ...stateUpdates.map((state) => requestResult(statesStore.put(state))),
+      ]);
+      await completion;
+      return "added";
+    } catch (error) {
+      try {
+        transaction.abort();
+      } catch {
+        // The transaction may already be complete after a duplicate read.
+      }
+      await completion.catch(() => undefined);
+      throw error;
+    }
+  }
+
+  async recordKanjiFreePracticeAttempt(attempt: KanjiFreePracticeAttempt): Promise<SaveAttemptResult> {
+    validateKanjiFreePracticeAttempt(attempt);
+    const database = await this.database();
+    const transaction = database.transaction(
+      [STORE_NAMES.attempts, STORE_NAMES.kanjiStates],
+      "readwrite",
+    );
+    const completion = transactionComplete(transaction);
+    const attemptsStore = transaction.objectStore(STORE_NAMES.attempts);
+    const statesStore = transaction.objectStore(STORE_NAMES.kanjiStates);
+
+    try {
+      const existingAttempt = await requestResult(
+        attemptsStore.get(attempt.id) as IDBRequest<StudyAttempt | undefined>,
+      );
+      if (existingAttempt) {
+        await completion;
+        if (sameRecord(existingAttempt, attempt)) return "duplicate";
+        throw new Error(`回答ID ${attempt.id} は別の内容です`);
+      }
+
+      const impactMap = getAttemptImpacts(attempt);
+      const uniqueKanji = [...impactMap.keys()];
+      const currentStates = await Promise.all(uniqueKanji.map((kanji) => requestResult(
+        statesStore.get(kanji) as IDBRequest<KanjiState | undefined>,
+      )));
+      if (currentStates.some((state) => state?.learned === false)) {
+        throw new Error("未履修の漢字を含む問題は自由練習できません");
+      }
+      const stateUpdates = uniqueKanji.map((kanji, index) => {
+        const details = impactMap.get(kanji);
+        if (!details) throw new Error("漢字別更新情報が不足しています");
+        const currentState = normalizeKanjiState(
+          currentStates[index] ?? defaultKanjiState(kanji, attempt.answeredAt),
+          attempt.answeredAt,
+        );
+        const skill = applyImpact(
+          currentState[attempt.mode],
+          details,
+          true,
+          details.usedGuide,
+          attempt.answeredAt,
+        );
+        return { ...currentState, [attempt.mode]: skill, updatedAt: attempt.answeredAt };
+      });
+
+      await Promise.all([
+        requestResult(attemptsStore.add(attempt)),
         ...stateUpdates.map((state) => requestResult(statesStore.put(state))),
       ]);
       await completion;

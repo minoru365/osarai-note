@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { KanjiReadingQuestion } from "./contentPack";
+import { createId } from "./id";
 import { summarizeDailySession } from "./dailySession";
 import {
   applyDakuten,
@@ -10,27 +11,36 @@ import {
   toggleSmallKana,
 } from "./kanaInput";
 import { useDailyKanjiSession } from "./useDailyKanjiSession";
+import { studyStorage } from "./storage/indexedDb";
 
 type Props = {
   questions: KanjiReadingQuestion[];
   onHome: () => void;
   onWriting: () => void;
   onSettings: () => void;
+  freeQuestion?: KanjiReadingQuestion;
+  onFreePracticeList?: () => void;
 };
 
-export function ReadingPractice({ questions, onHome, onWriting, onSettings }: Props) {
+export function ReadingPractice({ questions, onHome, onWriting, onSettings, freeQuestion, onFreePracticeList }: Props) {
   const [answer, setAnswer] = useState("");
   const [mistakes, setMistakes] = useState(0);
   const [result, setResult] = useState<"input" | "correct" | "incorrect">("input");
   const [feedback, setFeedback] = useState("漢字の部分だけを入力してね");
   const [saving, setSaving] = useState(false);
   const [answeredQuestion, setAnsweredQuestion] = useState<KanjiReadingQuestion | null>(null);
-  const { session, currentQuestion, loading, error, recordAnswer, startNext } = useDailyKanjiSession("reading", questions);
-  const pendingQuestion = currentQuestion?.mode === "reading" ? currentQuestion : undefined;
+  const freeAttemptId = useRef(createId());
+  const freeAttemptAnsweredAt = useRef("");
+  useEffect(() => {
+    freeAttemptId.current = createId();
+    freeAttemptAnsweredAt.current = "";
+  }, [freeQuestion?.id]);
+  const { session, currentQuestion, loading, error, recordAnswer, startNext } = useDailyKanjiSession("reading", questions, !freeQuestion);
+  const pendingQuestion = freeQuestion ?? (currentQuestion?.mode === "reading" ? currentQuestion : undefined);
   const question = result === "correct" ? answeredQuestion ?? pendingQuestion : pendingQuestion;
-  const completed = Boolean(session?.completedAt);
-  const questionIndex = Math.max(0, (session?.currentIndex ?? 0) - (result === "correct" ? 1 : 0));
-  const questionCount = session?.items.length ?? 0;
+  const completed = !freeQuestion && Boolean(session?.completedAt);
+  const questionIndex = freeQuestion ? 0 : Math.max(0, (session?.currentIndex ?? 0) - (result === "correct" ? 1 : 0));
+  const questionCount = freeQuestion ? 1 : session?.items.length ?? 0;
   const progress = questionCount === 0 ? 0 : (questionIndex / questionCount) * 100;
   const summary = session ? summarizeDailySession(session) : null;
 
@@ -59,15 +69,32 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings }: Pr
     }
     const correct = isCorrectReading(answer, question.reading);
     const nextMistakes = correct ? mistakes : mistakes + 1;
-    setSaving(true);
+    setSaving(correct || !freeQuestion);
     try {
-      await recordAnswer({
-        answer,
-        correct,
-        mistakes: correct ? 0 : 1,
-        usedGuide: false,
-        firstTryCorrect: correct && mistakes === 0,
-      });
+      if (freeQuestion) {
+        if (correct) await studyStorage.recordKanjiFreePracticeAttempt({
+          id: freeAttemptId.current,
+          sessionId: "free-practice",
+          questionId: freeQuestion.id,
+          subject: "kanji",
+          mode: "reading",
+          answer,
+          correct: true,
+          mistakes: nextMistakes,
+          usedGuide: false,
+          firstTryCorrect: mistakes === 0,
+          targetKanji: freeQuestion.targetKanji,
+          answeredAt: freeAttemptAnsweredAt.current ||= new Date().toISOString(),
+        });
+      } else {
+        await recordAnswer({
+          answer,
+          correct,
+          mistakes: correct ? 0 : 1,
+          usedGuide: false,
+          firstTryCorrect: correct && mistakes === 0,
+        });
+      }
       setMistakes(nextMistakes);
       if (correct) setAnsweredQuestion(question);
       setResult(correct ? "correct" : "incorrect");
@@ -98,10 +125,10 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings }: Pr
     }
   };
 
-  if (loading || error || (!question && !completed)) {
+  if ((!freeQuestion && (loading || error)) || (!question && !completed)) {
     return (
       <div className="app-shell">
-        <PracticeHeader mode="reading" progress={0} onHome={onHome} onReading={() => undefined} onWriting={onWriting} onSettings={onSettings} />
+        <PracticeHeader mode="reading" progress={0} onHome={onHome} onReading={() => undefined} onWriting={onWriting} onSettings={onSettings} onBrowse={onFreePracticeList} />
         <main className="content-loading"><strong>{loading ? "今日の読み問題を準備しています…" : error || "出題できる読み問題がありません"}</strong>{!loading && !error && <span>未習漢字の設定を確認してください。</span>}</main>
       </div>
     );
@@ -120,7 +147,7 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings }: Pr
 
   return (
     <div className="app-shell reading-shell">
-      <PracticeHeader mode="reading" progress={progress} onHome={onHome} onReading={() => undefined} onWriting={onWriting} onSettings={onSettings} />
+      <PracticeHeader mode="reading" progress={progress} onHome={onHome} onReading={() => undefined} onWriting={onWriting} onSettings={onSettings} onBrowse={onFreePracticeList} />
       <main className="reading-workspace">
         <section className="reading-question-card">
           <p className="eyebrow">漢字の読み</p>
@@ -159,7 +186,7 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings }: Pr
             ))}
           </div>
           {result === "correct"
-            ? <button className="reading-submit next" type="button" onClick={nextQuestion}>次へ</button>
+            ? <button className="reading-submit next" type="button" onClick={freeQuestion ? onFreePracticeList : nextQuestion}>{freeQuestion ? "問題一覧へ" : "次へ"}</button>
             : <button className="reading-submit" type="button" disabled={saving} onClick={() => void submit()}>{saving ? "保存中…" : "回答する"}</button>}
         </section>
       </main>
@@ -174,9 +201,10 @@ type HeaderProps = {
   onReading: () => void;
   onWriting: () => void;
   onSettings: () => void;
+  onBrowse?: () => void;
 };
 
-export function PracticeHeader({ mode, progress, onHome, onReading, onWriting, onSettings }: HeaderProps) {
+export function PracticeHeader({ mode, progress, onHome, onReading, onWriting, onSettings, onBrowse }: HeaderProps) {
   return (
     <header className="topbar practice-topbar">
       <button className="brand brand-button" type="button" onClick={onHome}><span className="brand-mark">学</span><span>おさらいノート</span></button>
@@ -186,6 +214,7 @@ export function PracticeHeader({ mode, progress, onHome, onReading, onWriting, o
       </div>
       <div className="practice-header-end">
         <div className="practice-progress"><span className="practice-progress-fill" style={{ width: `${progress}%` }} /></div>
+        {onBrowse && <button className="compact-header-button" type="button" onClick={onBrowse}>問題一覧</button>}
         <button className="compact-header-button" type="button" onClick={onHome}>ホーム</button>
         <button className="compact-header-button" type="button" onClick={onSettings}>設定</button>
       </div>

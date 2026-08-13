@@ -10,6 +10,7 @@ import {
 import { summarizeDailySession } from "./dailySession";
 import { japaneseCharDataLoader } from "./kanjiData";
 import { Home } from "./Home";
+import { FreePracticeBrowser } from "./FreePracticeBrowser";
 import { KanjiSettings } from "./KanjiSettings";
 import { PracticeHeader, ReadingPractice } from "./ReadingPractice";
 import {
@@ -19,11 +20,16 @@ import {
   type WordProgress,
 } from "./quizModel";
 import { useDailyKanjiSession } from "./useDailyKanjiSession";
+import { createId } from "./id";
+import { studyStorage } from "./storage/indexedDb";
 
 type QuizState = "loading" | "writing" | "guide" | "character-complete" | "word-complete" | "saving" | "error";
 
 function App() {
-  const [view, setView] = useState<"home" | "reading" | "writing" | "kanji-settings">("home");
+  const [view, setView] = useState<"home" | "reading" | "writing" | "kanji-settings" | "free-practice">("home");
+  const [freePracticeQuestion, setFreePracticeQuestion] = useState<KanjiQuestion | null>(null);
+  const freeWritingAttemptIdRef = useRef(createId());
+  const freeWritingAnsweredAtRef = useRef("");
   const [words, setWords] = useState<KanjiQuestion[]>([]);
   const readingQuestions = useMemo(
     () => words.filter((question): question is KanjiReadingQuestion => question.mode === "reading"),
@@ -41,9 +47,11 @@ function App() {
     error: writingSessionError,
     recordAnswer: recordWritingAnswer,
     startNext: startNextWritingBatch,
-  } = useDailyKanjiSession("writing", writingQuestions, view === "writing");
+  } = useDailyKanjiSession("writing", writingQuestions, view === "writing" && freePracticeQuestion?.mode !== "writing");
   const [selectedWritingId, setSelectedWritingId] = useState("");
-  const selected = writingQuestions.find((question) => question.id === selectedWritingId);
+  const selected = freePracticeQuestion?.mode === "writing"
+    ? freePracticeQuestion
+    : writingQuestions.find((question) => question.id === selectedWritingId);
   const writingReadingParts = selected ? getWritingReadingParts(selected) : null;
   const [progress, setProgress] = useState<WordProgress>(() => createWordProgress(""));
   const [quizState, setQuizState] = useState<QuizState>("loading");
@@ -55,15 +63,48 @@ function App() {
   const guidePenaltyRef = useRef(0);
   const currentCharacter = progress.characters[Math.min(progress.currentIndex, progress.characters.length - 1)] ?? "";
   const completed = progress.characters.length > 0 && isWordComplete(progress);
-  const writingComplete = Boolean(writingSession?.completedAt);
-  const writingQuestionCount = writingSession?.items.length ?? 0;
+  const writingComplete = freePracticeQuestion?.mode !== "writing" && Boolean(writingSession?.completedAt);
+  const writingQuestionCount = freePracticeQuestion?.mode === "writing" ? 1 : writingSession?.items.length ?? 0;
   const writingSummary = writingSession ? summarizeDailySession(writingSession) : null;
 
   useEffect(() => {
-    if (view !== "writing" || selectedWritingId || pendingWritingQuestion?.mode !== "writing") return;
+    if (view !== "writing" || freePracticeQuestion || selectedWritingId || pendingWritingQuestion?.mode !== "writing") return;
     setSelectedWritingId(pendingWritingQuestion.id);
     setProgress(createWordProgress(pendingWritingQuestion.answerKanji));
-  }, [pendingWritingQuestion, selectedWritingId, view]);
+  }, [freePracticeQuestion, pendingWritingQuestion, selectedWritingId, view]);
+
+  const goHome = () => {
+    setFreePracticeQuestion(null);
+    setSelectedWritingId("");
+    setView("home");
+  };
+
+  const openFreePractice = () => {
+    setFreePracticeQuestion(null);
+    setSelectedWritingId("");
+    setView("free-practice");
+  };
+
+  const startDailyPractice = (mode: "reading" | "writing") => {
+    setFreePracticeQuestion(null);
+    setSelectedWritingId("");
+    setView(mode);
+  };
+
+  const startFreePractice = (question: KanjiQuestion) => {
+    setFreePracticeQuestion(question);
+    if (question.mode === "writing") {
+      freeWritingAttemptIdRef.current = createId();
+      freeWritingAnsweredAtRef.current = "";
+      setSelectedWritingId(question.id);
+      setProgress(createWordProgress(question.answerKanji));
+      guidePenaltyRef.current = 0;
+      setMistakes(0);
+      setUsedGuide(false);
+      setQuizState("loading");
+    }
+    setView(question.mode);
+  };
 
   const startQuiz = useCallback((writer: HanziWriter) => {
     setQuizState("writing");
@@ -146,6 +187,8 @@ function App() {
 
   const chooseWord = (nextQuestion: KanjiWritingQuestion) => {
     writerRef.current?.cancelQuiz();
+    if (freePracticeQuestion?.mode === "writing") freeWritingAttemptIdRef.current = createId();
+    if (freePracticeQuestion?.mode === "writing") freeWritingAnsweredAtRef.current = "";
     setSelectedWritingId(nextQuestion.id);
     setProgress(createWordProgress(nextQuestion.answerKanji));
     guidePenaltyRef.current = 0;
@@ -200,14 +243,28 @@ function App() {
       setQuizState("saving");
       setStatus("できた記録を保存しています");
       try {
-        await recordWritingAnswer({
-        answer: selected.answerKanji,
-        correct: true,
-        mistakes: nextProgress.results.reduce((total, result) => total + result.mistakes, 0),
-        usedGuide: nextProgress.results.some((result) => result.usedGuide),
-        firstTryCorrect: nextProgress.results.every((result) => result.mistakes === 0 && !result.usedGuide),
-        characterResults: nextProgress.results,
-        });
+        const answerResult = {
+          answer: selected.answerKanji,
+          correct: true,
+          mistakes: nextProgress.results.reduce((total, result) => total + result.mistakes, 0),
+          usedGuide: nextProgress.results.some((result) => result.usedGuide),
+          firstTryCorrect: nextProgress.results.every((result) => result.mistakes === 0 && !result.usedGuide),
+          characterResults: nextProgress.results,
+        };
+        if (freePracticeQuestion?.mode === "writing") {
+          await studyStorage.recordKanjiFreePracticeAttempt({
+            id: freeWritingAttemptIdRef.current,
+            sessionId: "free-practice",
+            questionId: selected.id,
+            subject: "kanji",
+            mode: "writing",
+            targetKanji: selected.targetKanji,
+            answeredAt: freeWritingAnsweredAtRef.current ||= new Date().toISOString(),
+            ...answerResult,
+          });
+        } else {
+          await recordWritingAnswer(answerResult);
+        }
         setQuizState("word-complete");
         setStatus(`${selected.word}を最後まで書けました`);
       } catch {
@@ -240,7 +297,11 @@ function App() {
   );
 
   if (view === "kanji-settings") {
-    return <KanjiSettings onBack={() => setView("home")} />;
+    return <KanjiSettings onBack={goHome} />;
+  }
+
+  if (view === "free-practice") {
+    return <FreePracticeBrowser questions={words} onBack={goHome} onSelect={startFreePractice} onSettings={() => setView("kanji-settings")} />;
   }
 
   if (view === "home") {
@@ -250,7 +311,8 @@ function App() {
         readingQuestionCount={readingQuestions.length}
         writingQuestionCount={writingQuestions.length}
         contentError={contentError}
-        onStartKanji={(mode) => setView(mode === "reading" && readingQuestions.length === 0 ? "writing" : mode)}
+        onStartKanji={(mode) => startDailyPractice(mode === "reading" && readingQuestions.length === 0 ? "writing" : mode)}
+        onOpenFreePractice={openFreePractice}
         onOpenKanjiSettings={() => setView("kanji-settings")}
       />
     );
@@ -260,8 +322,10 @@ function App() {
     return (
       <ReadingPractice
         questions={readingQuestions}
-        onHome={() => setView("home")}
-        onWriting={() => setView("writing")}
+        freeQuestion={freePracticeQuestion?.mode === "reading" ? freePracticeQuestion : undefined}
+        onFreePracticeList={freePracticeQuestion ? openFreePractice : undefined}
+        onHome={goHome}
+        onWriting={() => startDailyPractice("writing")}
         onSettings={() => setView("kanji-settings")}
       />
     );
@@ -270,8 +334,8 @@ function App() {
   if (view === "writing" && writingComplete && !selectedWritingId) {
     return (
       <div className="app-shell">
-        <PracticeHeader mode="writing" progress={100} onHome={() => setView("home")} onReading={() => setView("reading")} onWriting={() => undefined} onSettings={() => setView("kanji-settings")} />
-        <main className="content-loading practice-complete"><strong>書きの学習、おつかれさま！</strong><span>{writingQuestionCount}問できました</span><div className="completion-summary"><span>一回で正解<strong>{writingSummary?.firstTryCorrect ?? 0}</strong></span><span>やり直して正解<strong>{writingSummary?.correctedAfterMistake ?? 0}</strong></span><span>分からない<strong>{writingSummary?.unknown ?? 0}</strong></span></div><button className="start-button" type="button" onClick={() => void nextWritingBatch()}>もう10問</button><button type="button" onClick={() => setView("home")}>ホームへ</button></main>
+        <PracticeHeader mode="writing" progress={100} onHome={goHome} onReading={() => startDailyPractice("reading")} onWriting={() => undefined} onSettings={() => setView("kanji-settings")} />
+        <main className="content-loading practice-complete"><strong>書きの学習、おつかれさま！</strong><span>{writingQuestionCount}問できました</span><div className="completion-summary"><span>一回で正解<strong>{writingSummary?.firstTryCorrect ?? 0}</strong></span><span>やり直して正解<strong>{writingSummary?.correctedAfterMistake ?? 0}</strong></span><span>分からない<strong>{writingSummary?.unknown ?? 0}</strong></span></div><button className="start-button" type="button" onClick={() => void nextWritingBatch()}>もう10問</button><button type="button" onClick={goHome}>ホームへ</button></main>
       </div>
     );
   }
@@ -295,11 +359,12 @@ function App() {
     <div className="app-shell">
       <PracticeHeader
         mode="writing"
-        progress={writingQuestionCount === 0 ? 0 : ((writingSession?.currentIndex ?? 0) / writingQuestionCount) * 100}
-        onHome={() => setView("home")}
-        onReading={() => setView("reading")}
+        progress={freePracticeQuestion?.mode === "writing" && quizState === "word-complete" ? 100 : writingQuestionCount === 0 ? 0 : ((writingSession?.currentIndex ?? 0) / writingQuestionCount) * 100}
+        onHome={goHome}
+        onReading={() => startDailyPractice("reading")}
         onWriting={() => undefined}
         onSettings={() => setView("kanji-settings")}
+        onBrowse={freePracticeQuestion?.mode === "writing" ? openFreePractice : undefined}
       />
 
       <main className="workspace">
@@ -365,7 +430,8 @@ function App() {
               {quizState === "guide" && <button type="button" className="primary" onClick={retryAfterGuide}>もう一度書く</button>}
               {quizState === "character-complete" && <button type="button" className="primary" onClick={() => void continueWord()}>次へ</button>}
               {quizState === "saving" && <button type="button" className="primary" disabled>保存中…</button>}
-              {quizState === "word-complete" && !writingComplete && <button type="button" className="primary" onClick={nextWord}>次へ</button>}
+              {quizState === "word-complete" && freePracticeQuestion?.mode === "writing" && <button type="button" className="primary" onClick={openFreePractice}>問題一覧へ</button>}
+              {quizState === "word-complete" && !freePracticeQuestion && !writingComplete && <button type="button" className="primary" onClick={nextWord}>次へ</button>}
               {quizState === "word-complete" && writingComplete && <button type="button" className="primary" onClick={() => setSelectedWritingId("")}>結果を見る</button>}
               {quizState === "word-complete" && <button type="button" onClick={() => chooseWord(selected)}>もう一度</button>}
             </div>

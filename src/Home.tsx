@@ -8,6 +8,7 @@ type Props = {
   writingQuestionCount: number;
   contentError: string;
   onStartKanji: (mode: "reading" | "writing") => void;
+  onOpenFreePractice: () => void;
   onOpenKanjiSettings: () => void;
 };
 
@@ -21,7 +22,7 @@ const SUBJECTS = [
 
 type TodayProgress = { reading: { done: number; total: number }; writing: { done: number; total: number } };
 
-export function Home({ questionCount, readingQuestionCount, writingQuestionCount, contentError, onStartKanji, onOpenKanjiSettings }: Props) {
+export function Home({ questionCount, readingQuestionCount, writingQuestionCount, contentError, onStartKanji, onOpenFreePractice, onOpenKanjiSettings }: Props) {
   const canStart = questionCount > 0 && !contentError;
   const [today, setToday] = useState<TodayProgress>({
     reading: { done: 0, total: Math.min(10, readingQuestionCount) },
@@ -90,7 +91,7 @@ export function Home({ questionCount, readingQuestionCount, writingQuestionCount
         <section className="home-section">
           <div className="section-heading">
             <div><p className="eyebrow">教科から練習</p><h2>何を復習する？</h2></div>
-            <button type="button" onClick={onOpenKanjiSettings}>未習漢字を設定</button>
+            <div className="section-actions"><button type="button" disabled={!canStart} onClick={onOpenFreePractice}>問題を選んで自由練習</button><button type="button" onClick={onOpenKanjiSettings}>未習漢字を設定</button></div>
           </div>
           <div className="subject-grid">
             {SUBJECTS.map((subject) => (

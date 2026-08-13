@@ -361,6 +361,46 @@ describe("StudyStorage", () => {
 
     expect(await storage.getKanjiState("葉")).toMatchObject({ reading: { weakness: 10 } });
   });
+
+  it("自由練習の結果を今日のセッションを作らず苦手度へ反映する", async () => {
+    const attempt = createFreePracticeAttempt({
+      id: "free-reading-1",
+      questionId: "kanji-reading-dark",
+      answer: "くらい",
+      mistakes: 1,
+      firstTryCorrect: false,
+      targetKanji: ["暗"],
+    });
+    expect(await storage.recordKanjiFreePracticeAttempt(attempt)).toBe("added");
+    expect(await storage.recordKanjiFreePracticeAttempt(attempt)).toBe("duplicate");
+    expect(await storage.listDailySessions("2026-08-14")).toEqual([]);
+    expect(await storage.listAttempts()).toEqual([attempt]);
+    expect(await storage.getKanjiState("暗")).toMatchObject({
+      reading: { presentations: 1, mistakePresentations: 1, weakness: 1 },
+    });
+  });
+
+  it("自由練習は未履修漢字を回答確定時にも拒否し全更新を戻す", async () => {
+    await storage.saveKanjiState(createKanjiState("暗", false, 0, 0));
+    const before = await storage.getKanjiState("暗");
+    await expect(storage.recordKanjiFreePracticeAttempt(createFreePracticeAttempt({
+      id: "free-unlearned",
+      questionId: "kanji-reading-dark",
+      answer: "くらい",
+      targetKanji: ["暗"],
+    }))).rejects.toThrow("未履修");
+    expect(await storage.listAttempts()).toEqual([]);
+    expect(await storage.getKanjiState("暗")).toEqual(before);
+  });
+
+  it("自由練習で同じ回答IDの別内容を拒否し二重計上しない", async () => {
+    const attempt = createFreePracticeAttempt({ id: "free-conflict" });
+    await storage.recordKanjiFreePracticeAttempt(attempt);
+    const before = await storage.getKanjiState("葉");
+    await expect(storage.recordKanjiFreePracticeAttempt({ ...attempt, answer: "ば" })).rejects.toThrow("別の内容");
+    expect(await storage.getKanjiState("葉")).toEqual(before);
+    expect(await storage.listAttempts()).toHaveLength(1);
+  });
 });
 
 function createSession(mode: "reading" | "writing", questionIds: string[]) {
@@ -402,6 +442,24 @@ function createSessionAttempt(overrides: Record<string, unknown>) {
     firstTryCorrect: false,
     targetKanji: ["葉"],
     answeredAt: overrides.correct ? "2026-08-14T10:01:00.000Z" : "2026-08-14T10:00:30.000Z",
+    ...overrides,
+  };
+}
+
+function createFreePracticeAttempt(overrides: Record<string, unknown> = {}) {
+  return {
+    id: "free-attempt",
+    sessionId: "free-practice" as const,
+    questionId: "kanji-reading-leaf",
+    subject: "kanji" as const,
+    mode: "reading" as const,
+    answer: "は",
+    correct: true,
+    mistakes: 0,
+    usedGuide: false,
+    firstTryCorrect: true,
+    targetKanji: ["葉"],
+    answeredAt: "2026-08-14T10:01:00.000Z",
     ...overrides,
   };
 }
