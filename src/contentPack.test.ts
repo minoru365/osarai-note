@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { findPairedQuestion, getWritingReadingParts, validateKanjiPack, validateManifest } from "./contentPack";
+import { findPairedQuestion, getKanjiAnswerParts, getWritingReadingParts, validateKanjiPack, validateManifest } from "./contentPack";
 
 describe("content pack validation", () => {
   it("バージョン付き問題パック一覧を受け入れる", () => {
@@ -60,6 +60,21 @@ describe("content pack validation", () => {
     expect(getWritingReadingParts({
       word: "飲む", reading: "のむ", answerKanji: "飲",
     })).toEqual({ readingBefore: "", answerReading: "の", readingAfter: "む" });
+  });
+
+  it("読み問題でも漢字部分と送り仮名を分ける", () => {
+    expect(getKanjiAnswerParts({
+      word: "暗い", reading: "くらい", answerKanji: "暗",
+    })).toEqual({
+      wordBefore: "", answerKanji: "暗", wordAfter: "い",
+      readingBefore: "", answerReading: "くら", readingAfter: "い",
+    });
+    expect(getKanjiAnswerParts({
+      word: "お祝い", reading: "おいわい", answerKanji: "祝",
+    })).toEqual({
+      wordBefore: "お", answerKanji: "祝", wordAfter: "い",
+      readingBefore: "お", answerReading: "いわ", readingAfter: "い",
+    });
   });
 
   it("自由練習のタブ切替で同じ問題ペアを選ぶ", () => {

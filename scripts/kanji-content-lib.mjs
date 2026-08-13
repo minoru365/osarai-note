@@ -219,9 +219,10 @@ function questionPair(material) {
   };
   return [{
     ...common,
+    ...writingReading,
     id: material.questionIds?.reading ?? `${material.pairId}:reading`,
     mode: "reading",
-    prompt: `文の中の「${material.word}」の読みを答えよう`,
+    prompt: `文の中の「${material.targetKanji.join("")}」の読みを答えよう`,
     promptBefore: material.promptBefore,
     promptAfter: material.promptAfter,
   }, {

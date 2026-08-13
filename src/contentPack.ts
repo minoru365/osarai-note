@@ -22,6 +22,9 @@ export type KanjiReadingQuestion = KanjiQuestionBase & {
   mode: "reading";
   promptBefore: string;
   promptAfter: string;
+  readingBefore?: string;
+  answerReading?: string;
+  readingAfter?: string;
 };
 
 export type KanjiQuestion = KanjiWritingQuestion | KanjiReadingQuestion;
@@ -71,6 +74,32 @@ export function getWritingReadingParts(question: WritingReadingSource): {
     }
   }
   return { readingBefore: "", answerReading: question.reading, readingAfter: "" };
+}
+
+export function getKanjiAnswerParts(question: WritingReadingSource): {
+  wordBefore: string;
+  answerKanji: string;
+  wordAfter: string;
+  readingBefore: string;
+  answerReading: string;
+  readingAfter: string;
+} {
+  const readingParts = getWritingReadingParts(question);
+  const answerIndex = question.word.indexOf(question.answerKanji);
+  if (answerIndex < 0) {
+    return {
+      wordBefore: "",
+      answerKanji: question.word,
+      wordAfter: "",
+      ...readingParts,
+    };
+  }
+  return {
+    wordBefore: question.word.slice(0, answerIndex),
+    answerKanji: question.answerKanji,
+    wordAfter: question.word.slice(answerIndex + question.answerKanji.length),
+    ...readingParts,
+  };
 }
 
 type ContentManifest = {
@@ -126,6 +155,15 @@ export function validateKanjiPack(value: unknown): KanjiQuestion[] {
     if (question.mode === "reading"
       && (typeof question.promptBefore !== "string" || typeof question.promptAfter !== "string")) {
       throw new Error("読み問題の文脈が不正です");
+    }
+    if (question.mode === "reading"
+      && (question.readingBefore !== undefined || question.answerReading !== undefined || question.readingAfter !== undefined)
+      && (typeof question.readingBefore !== "string"
+        || typeof question.answerReading !== "string"
+        || question.answerReading.length === 0
+        || typeof question.readingAfter !== "string"
+        || `${question.readingBefore}${question.answerReading}${question.readingAfter}` !== question.reading)) {
+      throw new Error("読み問題の回答範囲が不正です");
     }
     if (schemaVersion === 2 && question.mode === "writing"
       && (typeof question.promptBefore !== "string"

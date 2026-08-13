@@ -26,7 +26,10 @@ describe("kanji content generator", () => {
     const pack = generateKanjiPack(source([material()]));
     expect(pack.schemaVersion).toBe(2);
     expect(pack.questions).toHaveLength(2);
-    expect(pack.questions[0]).toMatchObject({ mode: "reading", word: "飲む", answerKanji: "飲" });
+    expect(pack.questions[0]).toMatchObject({
+      mode: "reading", word: "飲む", answerKanji: "飲",
+      readingBefore: "", answerReading: "の", readingAfter: "む", prompt: "文の中の「飲」の読みを答えよう",
+    });
     expect(pack.questions[1]).toMatchObject({
       mode: "writing", word: "飲む", answerKanji: "飲", promptBefore: "水を", promptAfter: "。",
       readingBefore: "", answerReading: "の", readingAfter: "む", prompt: "「の」の部分を漢字で書こう",

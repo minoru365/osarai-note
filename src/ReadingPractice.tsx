@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import type { KanjiReadingQuestion } from "./contentPack";
+import { getKanjiAnswerParts, type KanjiReadingQuestion } from "./contentPack";
 import { createId } from "./id";
 import { summarizeDailySession } from "./dailySession";
 import {
@@ -52,6 +52,7 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings, free
   const questionCount = freeQuestion ? freeQuestionCount : session?.items.length ?? 0;
   const progress = questionCount === 0 ? 0 : (questionIndex / questionCount) * 100;
   const summary = session ? summarizeDailySession(session) : null;
+  const answerParts = question ? getKanjiAnswerParts(question) : null;
 
   const resetFeedback = () => {
     setResult("input");
@@ -76,7 +77,8 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings, free
       setFeedback("50音表から読みを入力してね");
       return;
     }
-    const correct = isCorrectReading(answer, question.reading);
+    const currentParts = getKanjiAnswerParts(question);
+    const correct = isCorrectReading(answer, currentParts.answerReading);
     const nextMistakes = correct ? mistakes : mistakes + 1;
     setSaving(correct || !freeQuestion);
     try {
@@ -108,8 +110,8 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings, free
       if (correct) setAnsweredQuestion(question);
       setResult(correct ? "correct" : "incorrect");
       setFeedback(correct
-        ? `そのとおり！ 「${question.word}」は「${question.reading}」と読むよ。`
-        : `おしい。文の中の「${question.word}」の読みをもう一度考えてみよう。`);
+        ? `そのとおり！ 「${currentParts.answerKanji}」の部分は「${currentParts.answerReading}」と読むよ。`
+        : `おしい。文の中の「${currentParts.answerKanji}」の読みをもう一度考えてみよう。`);
     } catch {
       setResult("incorrect");
       setFeedback("保存できませんでした。もう一度、回答するを押してね");
@@ -161,7 +163,7 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings, free
         <section className="reading-question-card">
           <p className="eyebrow">漢字の読み</p>
           <p className="reading-prompt">
-            {question.promptBefore}<span className="reading-target">{question.word}</span>{question.promptAfter}
+            {question.promptBefore}{answerParts?.wordBefore}<span className="reading-target">{answerParts?.answerKanji}</span>{answerParts?.wordAfter}{question.promptAfter}
           </p>
           <div className={`reading-answer ${result === "correct" ? "correct" : result === "incorrect" ? "incorrect" : ""}`} aria-live="polite">
             {answer || <span>50音表から入力しよう</span>}
