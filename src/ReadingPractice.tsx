@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import type { KanjiReadingQuestion } from "./contentPack";
-import { createId } from "./id";
+import { summarizeDailySession } from "./dailySession";
 import {
   applyDakuten,
   applyHandakuten,
@@ -9,7 +9,7 @@ import {
   isCorrectReading,
   toggleSmallKana,
 } from "./kanaInput";
-import { studyStorage } from "./storage/indexedDb";
+import { useDailyKanjiSession } from "./useDailyKanjiSession";
 
 type Props = {
   questions: KanjiReadingQuestion[];
@@ -19,29 +19,20 @@ type Props = {
 };
 
 export function ReadingPractice({ questions, onHome, onWriting, onSettings }: Props) {
-  const [eligibleQuestions, setEligibleQuestions] = useState<KanjiReadingQuestion[]>(questions);
-  const [questionIndex, setQuestionIndex] = useState(0);
   const [answer, setAnswer] = useState("");
   const [mistakes, setMistakes] = useState(0);
   const [result, setResult] = useState<"input" | "correct" | "incorrect">("input");
   const [feedback, setFeedback] = useState("漢字の部分だけを入力してね");
-  const sessionIdRef = useRef(createId());
-
-  useEffect(() => {
-    let active = true;
-    void studyStorage.listKanjiStates().then((states) => {
-      if (!active) return;
-      const stateMap = new Map(states.map((state) => [state.kanji, state]));
-      setEligibleQuestions(questions.filter((question) =>
-        question.targetKanji.every((kanji) => stateMap.get(kanji)?.learned !== false),
-      ));
-      setQuestionIndex(0);
-    });
-    return () => { active = false; };
-  }, [questions]);
-
-  const question = eligibleQuestions[questionIndex];
-  const progress = eligibleQuestions.length === 0 ? 0 : ((questionIndex + 1) / eligibleQuestions.length) * 100;
+  const [saving, setSaving] = useState(false);
+  const [answeredQuestion, setAnsweredQuestion] = useState<KanjiReadingQuestion | null>(null);
+  const { session, currentQuestion, loading, error, recordAnswer, startNext } = useDailyKanjiSession("reading", questions);
+  const pendingQuestion = currentQuestion?.mode === "reading" ? currentQuestion : undefined;
+  const question = result === "correct" ? answeredQuestion ?? pendingQuestion : pendingQuestion;
+  const completed = Boolean(session?.completedAt);
+  const questionIndex = Math.max(0, (session?.currentIndex ?? 0) - (result === "correct" ? 1 : 0));
+  const questionCount = session?.items.length ?? 0;
+  const progress = questionCount === 0 ? 0 : (questionIndex / questionCount) * 100;
+  const summary = session ? summarizeDailySession(session) : null;
 
   const resetFeedback = () => {
     setResult("input");
@@ -60,23 +51,7 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings }: Pr
     resetFeedback();
   };
 
-  const saveAnswer = (correct: boolean, nextMistakes: number) => {
-    if (!question) return;
-    void studyStorage.saveAttempt({
-      id: createId(),
-      sessionId: sessionIdRef.current,
-      questionId: question.id,
-      subject: "kanji",
-      mode: "reading",
-      answer,
-      correct,
-      mistakes: nextMistakes,
-      usedGuide: false,
-      answeredAt: new Date().toISOString(),
-    });
-  };
-
-  const submit = () => {
+  const submit = async () => {
     if (!question || !answer) {
       setResult("incorrect");
       setFeedback("50音表から読みを入力してね");
@@ -84,30 +59,64 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings }: Pr
     }
     const correct = isCorrectReading(answer, question.reading);
     const nextMistakes = correct ? mistakes : mistakes + 1;
-    setMistakes(nextMistakes);
-    saveAnswer(correct, nextMistakes);
-    setResult(correct ? "correct" : "incorrect");
-    setFeedback(correct
-      ? `そのとおり！ 「${question.word}」は「${question.reading}」と読むよ。`
-      : `おしい。文の中の「${question.word}」の読みをもう一度考えてみよう。`);
+    setSaving(true);
+    try {
+      await recordAnswer({
+        answer,
+        correct,
+        mistakes: correct ? 0 : 1,
+        usedGuide: false,
+        firstTryCorrect: correct && mistakes === 0,
+      });
+      setMistakes(nextMistakes);
+      if (correct) setAnsweredQuestion(question);
+      setResult(correct ? "correct" : "incorrect");
+      setFeedback(correct
+        ? `そのとおり！ 「${question.word}」は「${question.reading}」と読むよ。`
+        : `おしい。文の中の「${question.word}」の読みをもう一度考えてみよう。`);
+    } catch {
+      setResult("incorrect");
+      setFeedback("保存できませんでした。もう一度、回答するを押してね");
+    } finally {
+      setSaving(false);
+    }
   };
 
   const nextQuestion = () => {
-    if (questionIndex + 1 >= eligibleQuestions.length) return;
-    setQuestionIndex((current) => current + 1);
     setAnswer("");
     setMistakes(0);
+    setAnsweredQuestion(null);
     resetFeedback();
   };
 
-  if (!question) {
+  const nextBatch = async () => {
+    try {
+      await startNext();
+      nextQuestion();
+    } catch {
+      // The session hook exposes a child-friendly error state.
+    }
+  };
+
+  if (loading || error || (!question && !completed)) {
     return (
       <div className="app-shell">
         <PracticeHeader mode="reading" progress={0} onHome={onHome} onReading={() => undefined} onWriting={onWriting} onSettings={onSettings} />
-        <main className="content-loading"><strong>出題できる読み問題がありません</strong><span>未習漢字の設定を確認してください。</span></main>
+        <main className="content-loading"><strong>{loading ? "今日の読み問題を準備しています…" : error || "出題できる読み問題がありません"}</strong>{!loading && !error && <span>未習漢字の設定を確認してください。</span>}</main>
       </div>
     );
   }
+
+  if (completed && result !== "correct") {
+    return (
+      <div className="app-shell">
+        <PracticeHeader mode="reading" progress={100} onHome={onHome} onReading={() => undefined} onWriting={onWriting} onSettings={onSettings} />
+        <main className="content-loading practice-complete"><strong>読みの学習、おつかれさま！</strong><span>{questionCount}問できました</span><div className="completion-summary"><span>一回で正解<strong>{summary?.firstTryCorrect ?? 0}</strong></span><span>やり直して正解<strong>{summary?.correctedAfterMistake ?? 0}</strong></span><span>分からない<strong>{summary?.unknown ?? 0}</strong></span></div><button className="start-button" type="button" onClick={() => void nextBatch()}>もう10問</button><button type="button" onClick={onHome}>ホームへ</button></main>
+      </div>
+    );
+  }
+
+  if (!question) return null;
 
   return (
     <div className="app-shell reading-shell">
@@ -124,7 +133,7 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings }: Pr
           <div className={`reading-feedback ${result}`} aria-live="polite">{feedback}</div>
           <div className="reading-question-footer">
             <span>{question.grade}年生の漢字</span>
-            <span>● {questionIndex + 1} / {eligibleQuestions.length}問</span>
+            <span>● {questionIndex + 1} / {questionCount}問</span>
           </div>
         </section>
 
@@ -149,11 +158,9 @@ export function ReadingPractice({ questions, onHome, onWriting, onSettings }: Pr
               >{character === "・" ? "" : character}</button>
             ))}
           </div>
-          {result === "correct" && questionIndex + 1 === eligibleQuestions.length
-            ? <div className="reading-complete" role="status">読み問題はここまでです</div>
-            : result === "correct"
+          {result === "correct"
             ? <button className="reading-submit next" type="button" onClick={nextQuestion}>次へ</button>
-            : <button className="reading-submit" type="button" onClick={submit}>回答する</button>}
+            : <button className="reading-submit" type="button" disabled={saving} onClick={() => void submit()}>{saving ? "保存中…" : "回答する"}</button>}
         </section>
       </main>
     </div>

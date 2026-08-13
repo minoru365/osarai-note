@@ -1,7 +1,13 @@
+import { useEffect, useState } from "react";
+import { getLocalDate } from "./dailySession";
+import { studyStorage } from "./storage/indexedDb";
+
 type Props = {
   questionCount: number;
+  readingQuestionCount: number;
+  writingQuestionCount: number;
   contentError: string;
-  onStartKanji: () => void;
+  onStartKanji: (mode: "reading" | "writing") => void;
   onOpenKanjiSettings: () => void;
 };
 
@@ -13,8 +19,40 @@ const SUBJECTS = [
   { icon: "理", name: "理科", note: "準備中", ready: false },
 ];
 
-export function Home({ questionCount, contentError, onStartKanji, onOpenKanjiSettings }: Props) {
+type TodayProgress = { reading: { done: number; total: number }; writing: { done: number; total: number } };
+
+export function Home({ questionCount, readingQuestionCount, writingQuestionCount, contentError, onStartKanji, onOpenKanjiSettings }: Props) {
   const canStart = questionCount > 0 && !contentError;
+  const [today, setToday] = useState<TodayProgress>({
+    reading: { done: 0, total: Math.min(10, readingQuestionCount) },
+    writing: { done: 0, total: Math.min(10, writingQuestionCount) },
+  });
+
+  useEffect(() => {
+    let active = true;
+    void studyStorage.listDailySessions(getLocalDate()).then((sessions) => {
+      if (!active) return;
+      const summarize = (mode: "reading" | "writing", available: number) => {
+        const modeSessions = sessions.filter((session) => session.mode === mode);
+        const latest = modeSessions.sort((left, right) => left.batchNumber - right.batchNumber).at(-1);
+        return latest
+          ? { done: latest.currentIndex, total: latest.items.length }
+          : { done: 0, total: Math.min(10, available) };
+      };
+      setToday({
+        reading: summarize("reading", readingQuestionCount),
+        writing: summarize("writing", writingQuestionCount),
+      });
+    }).catch(() => undefined);
+    return () => { active = false; };
+  }, [readingQuestionCount, writingQuestionCount]);
+
+  const hasProgress = today.reading.done > 0 || today.writing.done > 0;
+  const startMode = today.reading.total > 0
+    && today.reading.done >= today.reading.total
+    && today.writing.done < today.writing.total
+    ? "writing" as const
+    : "reading" as const;
 
   return (
     <div className="app-shell home-shell">
@@ -29,9 +67,13 @@ export function Home({ questionCount, contentError, onStartKanji, onOpenKanjiSet
           <div className="today-copy">
             <p className="eyebrow">今日の学習</p>
             <h1>まずは漢字から<br />やってみよう</h1>
-            <p>読みを50音表で答えてから、書き順を一画ずつ練習します。</p>
-            <button className="start-button" type="button" disabled={!canStart} onClick={onStartKanji}>
-              {contentError ? "問題を読み込めません" : questionCount > 0 ? `漢字の試し練習 ${questionCount}問` : "問題を読み込み中…"}
+            <p>読みと書きを、それぞれ自分のペースで練習できます。</p>
+            <div className="today-progress" aria-label="今日の漢字学習の進み具合">
+              <div><span>読み</span><strong>{today.reading.done} / {today.reading.total}問</strong></div>
+              <div><span>書き</span><strong>{today.writing.done} / {today.writing.total}問</strong></div>
+            </div>
+            <button className="start-button" type="button" disabled={!canStart} onClick={() => onStartKanji(startMode)}>
+              {contentError ? "問題を読み込めません" : questionCount > 0 ? hasProgress ? "今日のつづきから" : "今日の漢字をはじめる" : "問題を読み込み中…"}
               <span>→</span>
             </button>
             {contentError && <small className="home-error">{contentError}</small>}
@@ -56,21 +98,15 @@ export function Home({ questionCount, contentError, onStartKanji, onOpenKanjiSet
                 className={`subject-card ${subject.ready ? "ready" : ""}`}
                 type="button"
                 disabled={!subject.ready || !canStart}
-                onClick={subject.ready ? onStartKanji : undefined}
+                onClick={subject.ready ? () => onStartKanji(startMode) : undefined}
                 key={subject.name}
               >
                 <span className="subject-icon">{subject.icon}</span>
                 <strong>{subject.name}</strong>
-                <small>{subject.ready ? `${questionCount}問を試せます` : subject.note}</small>
+                <small>{subject.ready ? "読み・書きを練習" : subject.note}</small>
               </button>
             ))}
           </div>
-        </section>
-
-        <section className="home-status-row">
-          <div><span>保存先</span><strong>このタブレット</strong><small>学習データは外へ送りません</small></div>
-          <div><span>現在の段階</span><strong>漢字機能を開発中</strong><small>単位・分数・地図・理科は順次追加</small></div>
-          <div><span>保護者向け</span><strong>未習漢字を除外</strong><small>3年生200字・4年生202字</small></div>
         </section>
       </main>
     </div>

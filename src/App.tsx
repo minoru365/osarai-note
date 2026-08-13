@@ -6,7 +6,7 @@ import {
   type KanjiReadingQuestion,
   type KanjiWritingQuestion,
 } from "./contentPack";
-import { createId } from "./id";
+import { summarizeDailySession } from "./dailySession";
 import { japaneseCharDataLoader } from "./kanjiData";
 import { Home } from "./Home";
 import { KanjiSettings } from "./KanjiSettings";
@@ -17,9 +17,9 @@ import {
   isWordComplete,
   type WordProgress,
 } from "./quizModel";
-import { studyStorage } from "./storage/indexedDb";
+import { useDailyKanjiSession } from "./useDailyKanjiSession";
 
-type QuizState = "loading" | "writing" | "guide" | "character-complete" | "word-complete" | "error";
+type QuizState = "loading" | "writing" | "guide" | "character-complete" | "word-complete" | "saving" | "error";
 
 function App() {
   const [view, setView] = useState<"home" | "reading" | "writing" | "kanji-settings">("home");
@@ -33,8 +33,16 @@ function App() {
     [words],
   );
   const [contentError, setContentError] = useState("");
-  const [wordIndex, setWordIndex] = useState(0);
-  const selected = writingQuestions[wordIndex];
+  const {
+    session: writingSession,
+    currentQuestion: pendingWritingQuestion,
+    loading: writingSessionLoading,
+    error: writingSessionError,
+    recordAnswer: recordWritingAnswer,
+    startNext: startNextWritingBatch,
+  } = useDailyKanjiSession("writing", writingQuestions, view === "writing");
+  const [selectedWritingId, setSelectedWritingId] = useState("");
+  const selected = writingQuestions.find((question) => question.id === selectedWritingId);
   const [progress, setProgress] = useState<WordProgress>(() => createWordProgress(""));
   const [quizState, setQuizState] = useState<QuizState>("loading");
   const [mistakes, setMistakes] = useState(0);
@@ -43,9 +51,17 @@ function App() {
   const writerRef = useRef<HanziWriter | null>(null);
   const targetRef = useRef<HTMLDivElement | null>(null);
   const guidePenaltyRef = useRef(0);
-  const sessionIdRef = useRef(createId());
   const currentCharacter = progress.characters[Math.min(progress.currentIndex, progress.characters.length - 1)] ?? "";
   const completed = progress.characters.length > 0 && isWordComplete(progress);
+  const writingComplete = Boolean(writingSession?.completedAt);
+  const writingQuestionCount = writingSession?.items.length ?? 0;
+  const writingSummary = writingSession ? summarizeDailySession(writingSession) : null;
+
+  useEffect(() => {
+    if (view !== "writing" || selectedWritingId || pendingWritingQuestion?.mode !== "writing") return;
+    setSelectedWritingId(pendingWritingQuestion.id);
+    setProgress(createWordProgress(pendingWritingQuestion.word));
+  }, [pendingWritingQuestion, selectedWritingId, view]);
 
   const startQuiz = useCallback((writer: HanziWriter) => {
     setQuizState("writing");
@@ -126,12 +142,10 @@ function App() {
     };
   }, [completed, currentCharacter, selected, startQuiz, view]);
 
-  const chooseWord = (nextIndex: number) => {
+  const chooseWord = (nextQuestion: KanjiWritingQuestion) => {
     writerRef.current?.cancelQuiz();
-    const nextWord = writingQuestions[nextIndex];
-    if (!nextWord) return;
-    setWordIndex(nextIndex);
-    setProgress(createWordProgress(nextWord.word));
+    setSelectedWritingId(nextQuestion.id);
+    setProgress(createWordProgress(nextQuestion.word));
     guidePenaltyRef.current = 0;
     setMistakes(0);
     setUsedGuide(false);
@@ -168,7 +182,7 @@ function App() {
     startQuiz(writer);
   };
 
-  const continueWord = () => {
+  const continueWord = async () => {
     if (!selected || !currentCharacter) return;
     const nextProgress = completeCurrentCharacter(progress, {
       character: currentCharacter,
@@ -181,28 +195,41 @@ function App() {
     setUsedGuide(false);
 
     if (isWordComplete(nextProgress)) {
-      setQuizState("word-complete");
-      setStatus(`${selected.word}を最後まで書けました`);
-      void studyStorage.saveAttempt({
-        id: createId(),
-        sessionId: sessionIdRef.current,
-        questionId: selected.id,
-        subject: "kanji",
-        mode: "writing",
+      setQuizState("saving");
+      setStatus("できた記録を保存しています");
+      try {
+        await recordWritingAnswer({
         answer: selected.word,
         correct: true,
         mistakes: nextProgress.results.reduce((total, result) => total + result.mistakes, 0),
         usedGuide: nextProgress.results.some((result) => result.usedGuide),
-        answeredAt: new Date().toISOString(),
+        firstTryCorrect: nextProgress.results.every((result) => result.mistakes === 0 && !result.usedGuide),
         characterResults: nextProgress.results,
-      }).catch(() => undefined);
+        });
+        setQuizState("word-complete");
+        setStatus(`${selected.word}を最後まで書けました`);
+      } catch {
+        setQuizState("character-complete");
+        setStatus("保存できませんでした。もう一度「次へ」を押してね");
+      }
     } else {
       setQuizState("loading");
     }
   };
 
   const nextWord = () => {
-    if (wordIndex + 1 < writingQuestions.length) chooseWord(wordIndex + 1);
+    if (pendingWritingQuestion?.mode === "writing") chooseWord(pendingWritingQuestion);
+  };
+
+  const nextWritingBatch = async () => {
+    try {
+      const next = await startNextWritingBatch();
+      const firstId = next?.questionIds[0];
+      const first = writingQuestions.find((question) => question.id === firstId);
+      if (first) chooseWord(first);
+    } catch {
+      // The session hook exposes a child-friendly error state.
+    }
   };
 
   const resultSummary = useMemo(
@@ -218,8 +245,10 @@ function App() {
     return (
       <Home
         questionCount={words.length}
+        readingQuestionCount={readingQuestions.length}
+        writingQuestionCount={writingQuestions.length}
         contentError={contentError}
-        onStartKanji={() => setView(readingQuestions.length > 0 ? "reading" : "writing")}
+        onStartKanji={(mode) => setView(mode === "reading" && readingQuestions.length === 0 ? "writing" : mode)}
         onOpenKanjiSettings={() => setView("kanji-settings")}
       />
     );
@@ -236,6 +265,15 @@ function App() {
     );
   }
 
+  if (view === "writing" && writingComplete && !selectedWritingId) {
+    return (
+      <div className="app-shell">
+        <PracticeHeader mode="writing" progress={100} onHome={() => setView("home")} onReading={() => setView("reading")} onWriting={() => undefined} onSettings={() => setView("kanji-settings")} />
+        <main className="content-loading practice-complete"><strong>書きの学習、おつかれさま！</strong><span>{writingQuestionCount}問できました</span><div className="completion-summary"><span>一回で正解<strong>{writingSummary?.firstTryCorrect ?? 0}</strong></span><span>やり直して正解<strong>{writingSummary?.correctedAfterMistake ?? 0}</strong></span><span>分からない<strong>{writingSummary?.unknown ?? 0}</strong></span></div><button className="start-button" type="button" onClick={() => void nextWritingBatch()}>もう10問</button><button type="button" onClick={() => setView("home")}>ホームへ</button></main>
+      </div>
+    );
+  }
+
   if (!selected) {
     return (
       <div className="app-shell">
@@ -245,8 +283,7 @@ function App() {
           <button className="header-action" type="button" onClick={() => setView("kanji-settings")}>漢字の設定</button>
         </header>
         <main className="content-loading" role="status">
-          <strong>{contentError ? "問題を読み込めませんでした" : "問題を読み込んでいます…"}</strong>
-          {contentError && <span>{contentError}</span>}
+          <strong>{writingSessionError || contentError || (writingSessionLoading ? "今日の書き問題を準備しています…" : "出題できる書き問題がありません")}</strong>
         </main>
       </div>
     );
@@ -256,7 +293,7 @@ function App() {
     <div className="app-shell">
       <PracticeHeader
         mode="writing"
-        progress={writingQuestions.length === 0 ? 0 : ((wordIndex + 1) / writingQuestions.length) * 100}
+        progress={writingQuestionCount === 0 ? 0 : ((writingSession?.currentIndex ?? 0) / writingQuestionCount) * 100}
         onHome={() => setView("home")}
         onReading={() => setView("reading")}
         onWriting={() => undefined}
@@ -294,7 +331,7 @@ function App() {
             <div><dt>見本</dt><dd>{usedGuide ? "使用" : "未使用"}</dd></div>
           </dl>
 
-          <p className="writing-question-progress">● {wordIndex + 1} / {writingQuestions.length}問</p>
+          <p className="writing-question-progress">● {Math.min((writingSession?.currentIndex ?? 0) + (quizState === "word-complete" ? 0 : 1), writingQuestionCount)} / {writingQuestionCount}問</p>
         </section>
 
         <section className="writing-card">
@@ -321,9 +358,11 @@ function App() {
               <button type="button" onClick={resetCharacter} disabled={quizState === "loading" || quizState === "word-complete"}>最初から</button>
               <button type="button" className="help" onClick={showGuide} disabled={quizState === "loading" || quizState === "guide" || quizState === "character-complete" || quizState === "word-complete"}>分からない</button>
               {quizState === "guide" && <button type="button" className="primary" onClick={retryAfterGuide}>もう一度書く</button>}
-              {quizState === "character-complete" && <button type="button" className="primary" onClick={continueWord}>次へ</button>}
-              {quizState === "word-complete" && wordIndex + 1 < writingQuestions.length && <button type="button" className="primary" onClick={nextWord}>次へ</button>}
-              {quizState === "word-complete" && <button type="button" onClick={() => chooseWord(wordIndex)}>もう一度</button>}
+              {quizState === "character-complete" && <button type="button" className="primary" onClick={() => void continueWord()}>次へ</button>}
+              {quizState === "saving" && <button type="button" className="primary" disabled>保存中…</button>}
+              {quizState === "word-complete" && !writingComplete && <button type="button" className="primary" onClick={nextWord}>次へ</button>}
+              {quizState === "word-complete" && writingComplete && <button type="button" className="primary" onClick={() => setSelectedWritingId("")}>結果を見る</button>}
+              {quizState === "word-complete" && <button type="button" onClick={() => chooseWord(selected)}>もう一度</button>}
             </div>
           </div>
         </section>
