@@ -2,6 +2,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 import { createCoverageMarkdown, createReviewMarkdown, createWordCandidateMarkdown, generateKanjiPack, validateMaterialsAgainstReference } from "./kanji-content-lib.mjs";
+import "./generate-kanji-character-data.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const sourcePath = resolve(projectRoot, "content-source/kanji-materials.json");

@@ -1,13 +1,5 @@
 import type { CharacterJson, CharDataLoaderFn } from "hanzi-writer";
-import leaf from "@jamsch/hanzi-writer-data-jp/葉.json";
-import plant from "@jamsch/hanzi-writer-data-jp/植.json";
-import thing from "@jamsch/hanzi-writer-data-jp/物.json";
-
-const characterData: Record<string, CharacterJson> = {
-  葉: leaf as CharacterJson,
-  植: plant as CharacterJson,
-  物: thing as CharacterJson,
-};
+import { generatedCharacterData as characterData } from "./generated/kanjiCharacterData";
 
 export const supportedCharacters = Object.keys(characterData);
 
