@@ -8,7 +8,7 @@ import {
   type KanjiReadingQuestion,
   type KanjiWritingQuestion,
 } from "./contentPack";
-import { summarizeDailySession } from "./dailySession";
+import { startNextDailyBatch, summarizeDailySession } from "./dailySession";
 import { japaneseCharDataLoader } from "./kanjiData";
 import { Home } from "./Home";
 import { FreePracticeBrowser } from "./FreePracticeBrowser";
@@ -31,6 +31,7 @@ function App() {
   const [freePracticeQuestion, setFreePracticeQuestion] = useState<KanjiQuestion | null>(null);
   const [freePracticeQueue, setFreePracticeQueue] = useState<KanjiQuestion[]>([]);
   const [freePracticeIndex, setFreePracticeIndex] = useState(0);
+  const dailyStartPendingRef = useRef(false);
   const freeWritingAttemptIdRef = useRef(createId());
   const freeWritingAnsweredAtRef = useRef("");
   const [words, setWords] = useState<KanjiQuestion[]>([]);
@@ -92,12 +93,22 @@ function App() {
     setView("free-practice");
   };
 
-  const startDailyPractice = (mode: "reading" | "writing") => {
+  const startDailyPractice = async (mode: "reading" | "writing") => {
+    if (dailyStartPendingRef.current) return;
+    dailyStartPendingRef.current = true;
     setFreePracticeQuestion(null);
     setFreePracticeQueue([]);
     setFreePracticeIndex(0);
     setSelectedWritingId("");
-    setView(mode);
+    const questions = mode === "reading" ? readingQuestions : writingQuestions;
+    try {
+      await startNextDailyBatch(studyStorage, questions, mode);
+    } catch {
+      // The session hook retries and exposes a child-friendly error state.
+    } finally {
+      dailyStartPendingRef.current = false;
+      setView(mode);
+    }
   };
 
   const startFreePractice = (question: KanjiQuestion) => {
@@ -137,7 +148,7 @@ function App() {
 
   const switchPracticeMode = (mode: "reading" | "writing") => {
     if (!freePracticeQuestion) {
-      startDailyPractice(mode);
+      void startDailyPractice(mode);
       return;
     }
     const counterpart = findPairedQuestion(words, freePracticeQuestion, mode);
@@ -349,7 +360,7 @@ function App() {
         readingQuestionCount={readingQuestions.length}
         writingQuestionCount={writingQuestions.length}
         contentError={contentError}
-        onStartKanji={(mode) => startDailyPractice(mode === "reading" && readingQuestions.length === 0 ? "writing" : mode)}
+        onStartKanji={(mode) => void startDailyPractice(mode === "reading" && readingQuestions.length === 0 ? "writing" : mode)}
         onOpenFreePractice={openFreePractice}
         onOpenKanjiSettings={() => setView("kanji-settings")}
       />
@@ -375,7 +386,7 @@ function App() {
   if (view === "writing" && writingComplete && !selectedWritingId) {
     return (
       <div className="app-shell">
-        <PracticeHeader mode="writing" progress={100} onHome={goHome} onReading={() => startDailyPractice("reading")} onWriting={() => undefined} onSettings={() => setView("kanji-settings")} />
+        <PracticeHeader mode="writing" progress={100} onHome={goHome} onReading={() => void startDailyPractice("reading")} onWriting={() => undefined} onSettings={() => setView("kanji-settings")} />
         <main className="content-loading practice-complete"><strong>書きの学習、おつかれさま！</strong><span>{writingQuestionCount}問できました</span><div className="completion-summary"><span>一回で正解<strong>{writingSummary?.firstTryCorrect ?? 0}</strong></span><span>やり直して正解<strong>{writingSummary?.correctedAfterMistake ?? 0}</strong></span><span>分からない<strong>{writingSummary?.unknown ?? 0}</strong></span></div><button className="start-button" type="button" onClick={() => void nextWritingBatch()}>もう10問</button><button type="button" onClick={goHome}>ホームへ</button></main>
       </div>
     );

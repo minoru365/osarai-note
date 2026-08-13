@@ -16,8 +16,10 @@ ADRは、後から理由を忘れると手戻りになる重要判断だけを�
 | --- | --- | --- |
 | [0001](./0001-local-first-pwa.md) | Accepted | ローカルファーストPWAとGitHub Pages |
 | [0002](./0002-kanji-level-scoring.md) | Accepted | 漢字単位の読み・書き集計 |
-| [0003](./0003-daily-kanji-sessions.md) | Accepted | 読み・書き各10問の当日セッション |
+| [0003](./0003-daily-kanji-sessions.md) | Superseded | 読み・書き各10問の当日セッション |
 | [0004](./0004-paired-question-generation.md) | Accepted | 共通素材から読み・書きペアを生成 |
+| [0004b](./0004-practice-frequency-first.md) | Superseded | 今日の漢字は練習回数の少ない順にする |
+| [0005](./0005-fresh-daily-practice.md) | Accepted | 「今日の漢字」は押すたびに新しく抽出する |
 
 ## テンプレート
 
@@ -39,4 +41,3 @@ ADRは、後から理由を忘れると手戻りになる重要判断だけを�
 
 得られる利点、制約、必要になる作業。
 ```
-

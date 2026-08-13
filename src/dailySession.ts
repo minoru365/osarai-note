@@ -1,10 +1,10 @@
 import type { KanjiQuestion } from "./contentPack";
+import { createId } from "./id";
 import type { StudyStorage } from "./storage/indexedDb";
 import type {
   DailyKanjiSession,
   KanjiState,
   KanjiStudyMode,
-  StudyAttempt,
 } from "./storage/schema";
 
 export const DEFAULT_DAILY_QUESTION_COUNT = 10;
@@ -30,9 +30,6 @@ type SelectionOptions = {
   mode: KanjiStudyMode;
   limit?: number;
   states?: KanjiState[];
-  attempts?: StudyAttempt[];
-  seenQuestionIds?: Iterable<string>;
-  seenKanji?: Iterable<string>;
   seed?: string;
 };
 
@@ -58,47 +55,23 @@ export function selectDailyQuestions(
     mode,
     limit = DEFAULT_DAILY_QUESTION_COUNT,
     states = [],
-    attempts = [],
-    seenQuestionIds = [],
-    seenKanji = [],
     seed = "daily",
   }: SelectionOptions,
 ): KanjiQuestion[] {
   const stateMap = new Map(states.map((state) => [state.kanji, state]));
-  const seenQuestions = new Set(seenQuestionIds);
-  const seenCharacters = new Set(seenKanji);
-  const questionAttempts = new Map<string, StudyAttempt[]>();
-  attempts.filter((attempt) => attempt.mode === mode).forEach((attempt) => {
-    const current = questionAttempts.get(attempt.questionId) ?? [];
-    current.push(attempt);
-    questionAttempts.set(attempt.questionId, current);
-  });
 
   const ranked = questions
     .filter((question) => question.mode === mode)
     .filter((question) => question.targetKanji.every((kanji) => stateMap.get(kanji)?.learned !== false))
     .map((question) => {
-      const history = questionAttempts.get(question.id) ?? [];
-      const lastAnsweredAt = history.reduce(
-        (latest, attempt) => attempt.answeredAt > latest ? attempt.answeredAt : latest,
-        "",
-      );
       return {
         question,
-        seenTier: seenQuestions.has(question.id)
-          ? 2
-          : question.targetKanji.some((kanji) => seenCharacters.has(kanji)) ? 1 : 0,
-        weakness: Math.max(...question.targetKanji.map((kanji) => stateMap.get(kanji)?.[mode].weakness ?? 0)),
         presentations: Math.min(...question.targetKanji.map((kanji) => stateMap.get(kanji)?.[mode].presentations ?? 0)),
-        attempted: history.length > 0,
-        lastAnsweredAt,
         tie: stableHash(`${seed}:${question.id}`),
       };
     })
     .sort((left, right) =>
-      left.seenTier - right.seenTier
-      || left.presentations - right.presentations
-      || right.weakness - left.weakness
+      left.presentations - right.presentations
       || left.tie - right.tie,
     );
 
@@ -155,22 +128,14 @@ async function createBatch(
   mode: KanjiStudyMode,
   now: Date,
   sessions: DailyKanjiSession[],
+  seed: string,
 ): Promise<DailyKanjiSession | null> {
   const localDate = getLocalDate(now);
-  const [states, attempts] = await Promise.all([
-    storage.listKanjiStates(),
-    storage.listAttempts(),
-  ]);
-  const questionMap = new Map(questions.map((question) => [question.id, question]));
-  const seenQuestionIds = sessions.flatMap((session) => session.questionIds);
-  const seenKanji = seenQuestionIds.flatMap((id) => questionMap.get(id)?.targetKanji ?? []);
+  const states = await storage.listKanjiStates();
   const selected = selectDailyQuestions(questions, {
     mode,
     states,
-    attempts,
-    seenQuestionIds,
-    seenKanji,
-    seed: `${localDate}:${mode}:${sessions.length + 1}`,
+    seed,
   });
   if (selected.length === 0) return null;
   const batchNumber = Math.max(0, ...sessions.map((session) => session.batchNumber)) + 1;
@@ -190,7 +155,7 @@ export async function getOrCreateDailySession(
   const incomplete = [...sessions].reverse().find((session) => session.completedAt === null);
   if (incomplete) return incomplete;
   if (sessions.length > 0) return sessions.at(-1) ?? null;
-  return createBatch(storage, questions, mode, now, sessions);
+  return createBatch(storage, questions, mode, now, sessions, createId());
 }
 
 export async function startNextDailyBatch(
@@ -198,11 +163,9 @@ export async function startNextDailyBatch(
   questions: KanjiQuestion[],
   mode: KanjiStudyMode,
   now = new Date(),
+  seed = createId(),
 ): Promise<DailyKanjiSession | null> {
   const sessions = (await storage.listDailySessions(getLocalDate(now), mode))
     .sort((left, right) => left.batchNumber - right.batchNumber);
-  if (sessions.some((session) => session.completedAt === null)) {
-    return [...sessions].reverse().find((session) => session.completedAt === null) ?? null;
-  }
-  return createBatch(storage, questions, mode, now, sessions);
+  return createBatch(storage, questions, mode, now, sessions, seed);
 }

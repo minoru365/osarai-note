@@ -1,6 +1,7 @@
 # ADR-0004: 今日の漢字は練習回数の少ない順にする
 
-- Status: Accepted
+- Status: Superseded
+- Superseded by: ADR-0005
 - Date: 2026-08-14
 
 ## Context

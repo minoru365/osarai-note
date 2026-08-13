@@ -1,6 +1,7 @@
 # ADR-0003: 読み・書き各10問の当日セッション
 
-- Status: Accepted
+- Status: Superseded
+- Superseded by: ADR-0005
 - Date: 2026-08-14
 
 ## Context
