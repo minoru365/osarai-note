@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
-import { createCoverageMarkdown, createReviewMarkdown, createWordCandidateMarkdown, generateKanjiPack, validateMaterialSource, validateReadingReference, validateWordCandidates } from "./kanji-content-lib.mjs";
+import { applyReviewBatch, createCoverageMarkdown, createReviewBatch, createReviewBatchMarkdown, createReviewMarkdown, createWordCandidateMarkdown, generateKanjiPack, validateMaterialSource, validateReadingReference, validateWordCandidates } from "./kanji-content-lib.mjs";
 
 const material = (overrides = {}) => ({
   pairId: "g3-drink-kun-nomu",
@@ -50,6 +50,41 @@ describe("kanji content generator", () => {
     expect(() => validateMaterialSource(source([material(), material({ pairId: "duplicate" })]))).toThrow("生成キーが重複");
     expect(() => validateMaterialSource(source([material({ promptBefore: "議会で" })]))).toThrow("学年配当外");
     expect(() => validateMaterialSource(source([material({ wordReading: "ノム" })]))).toThrow("ひらがな");
+  });
+
+  it("20件単位のレビュー票を作り、pendingでは素材と公開件数を変えない", () => {
+    const input = source([
+      material({ reviewStatus: "draft" }),
+      material({ pairId: "g3-drink-on-in", readingType: "on", canonicalReading: "イン", reviewStatus: "draft" }),
+    ]);
+    const batch = createReviewBatch(input, { batchId: "g3-001", limit: 20 });
+    const applied = applyReviewBatch(input, batch);
+    expect(batch.entries).toHaveLength(2);
+    expect(applied.counts).toEqual({ pending: 2, approved: 0, needsFix: 0 });
+    expect(applied.source).toEqual(input);
+    expect(generateKanjiPack(applied.source).questions).toHaveLength(0);
+    expect(createReviewBatchMarkdown(batch)).toContain("対象：3年生 2件");
+  });
+
+  it("draftだけを承認・要修正へ変更し、古いレビュー票を拒否する", () => {
+    const input = source([
+      material({ reviewStatus: "draft" }),
+      material({ pairId: "g3-drink-on-in", readingType: "on", canonicalReading: "イン", reviewStatus: "draft" }),
+    ]);
+    const batch = createReviewBatch(input, { batchId: "g3-001" });
+    batch.entries[0].decision = "approve";
+    batch.entries[0].proposed.promptBefore = "朝に水を";
+    batch.entries[1].decision = "needs-fix";
+    batch.entries[1].note = "例文を見直す";
+    const applied = applyReviewBatch(input, batch);
+    expect(applied.counts).toEqual({ pending: 0, approved: 1, needsFix: 1 });
+    expect(applied.source.materials.map((entry) => entry.reviewStatus)).toEqual(["approved", "needs-fix"]);
+    expect(generateKanjiPack(applied.source).questions).toHaveLength(2);
+
+    const changed = structuredClone(input);
+    changed.materials[0].promptBefore = "朝に水を";
+    expect(() => applyReviewBatch(changed, batch)).toThrow("レビュー票作成後に素材が変更");
+    expect(() => applyReviewBatch(applied.source, batch)).toThrow();
   });
 });
 

@@ -7,7 +7,9 @@
     "dev": "vite --host 0.0.0.0",
     "build": "tsc -b && vite build",
     "test": "vitest run",
-    "content:generate": "node scripts/generate-kanji-content.mjs"
+    "content:generate": "node scripts/generate-kanji-content.mjs",
+    "content:review-batch": "node scripts/create-kanji-review-batch.mjs",
+    "content:review-render": "node scripts/render-kanji-review-batch.mjs"
   },
   "dependencies": {
     "@jamsch/hanzi-writer-data-jp": "0.0.3",

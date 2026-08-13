@@ -1,0 +1,400 @@
+{
+  "schemaVersion": 1,
+  "batchId": "kanji-g3-001",
+  "materialSourceVersion": "2026.08.14-2",
+  "grade": 3,
+  "entries": [
+    {
+      "pairId": "kanji-g3-悪-on-e788a2909b01",
+      "primaryKanji": "悪",
+      "readingType": "on",
+      "canonicalReading": "アク",
+      "fingerprint": "b448563e0b6ae2a090ff8613abd86829674face9f56c14e856a4f6ab03a1bb21",
+      "proposed": {
+        "word": "悪事",
+        "wordReading": "あくじ",
+        "promptBefore": "",
+        "promptAfter": "をしてはいけません。",
+        "targetKanji": [
+          "悪",
+          "事"
+        ],
+        "writingPrompt": "「あくじ」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-悪-on-9afa6549ff13",
+      "primaryKanji": "悪",
+      "readingType": "on",
+      "canonicalReading": "オ",
+      "fingerprint": "ced14ebabc50de8c051b15612c7f0684aab896ecd4a7ed35643200c8e5ec8842",
+      "proposed": {
+        "word": "悪寒",
+        "wordReading": "おかん",
+        "promptBefore": "",
+        "promptAfter": "がして、体がふるえます。",
+        "targetKanji": [
+          "悪",
+          "寒"
+        ],
+        "writingPrompt": "「おかん」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-悪-kun-ff6b75e0da6a",
+      "primaryKanji": "悪",
+      "readingType": "kun",
+      "canonicalReading": "わるい",
+      "fingerprint": "60ded122fdb5320da7d4eba53a866e2d019e57776be1e7fe093cabf010090c1b",
+      "proposed": {
+        "word": "悪い",
+        "wordReading": "わるい",
+        "promptBefore": "道にごみをすてるのは",
+        "promptAfter": "ことです。",
+        "targetKanji": [
+          "悪"
+        ],
+        "writingPrompt": "「わるい」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-安-on-3f211f766b1e",
+      "primaryKanji": "安",
+      "readingType": "on",
+      "canonicalReading": "アン",
+      "fingerprint": "c0ff137baad4fd2df1d6fda14bfd6af1b2c1a070bc3b9ad9e946e14d26801b09",
+      "proposed": {
+        "word": "安全",
+        "wordReading": "あんぜん",
+        "promptBefore": "左右を見て、",
+        "promptAfter": "に道をわたります。",
+        "targetKanji": [
+          "安",
+          "全"
+        ],
+        "writingPrompt": "「あんぜん」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-安-kun-4fc03b238eec",
+      "primaryKanji": "安",
+      "readingType": "kun",
+      "canonicalReading": "やすい",
+      "fingerprint": "edf985608ba861d61086a87264e894d9b301b1326d1ef2f9d466de75e1d228f4",
+      "proposed": {
+        "word": "安い",
+        "wordReading": "やすい",
+        "promptBefore": "この店のえんぴつは",
+        "promptAfter": "です。",
+        "targetKanji": [
+          "安"
+        ],
+        "writingPrompt": "「やすい」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-暗-on-db80ed07eafd",
+      "primaryKanji": "暗",
+      "readingType": "on",
+      "canonicalReading": "アン",
+      "fingerprint": "d156fb67dcbfd5f8babdbad824e228f42ea01fabf82f19b09de5e4fb66fce81b",
+      "proposed": {
+        "word": "明暗",
+        "wordReading": "めいあん",
+        "promptBefore": "絵に",
+        "promptAfter": "をつけます。",
+        "targetKanji": [
+          "明",
+          "暗"
+        ],
+        "writingPrompt": "「めいあん」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-暗-kun-47a50a9ac3b8",
+      "primaryKanji": "暗",
+      "readingType": "kun",
+      "canonicalReading": "くらい",
+      "fingerprint": "2e9adbe0096bdaf54cfbcbf24faee3e8f1a62cf97e8e7a094ba6ce98b10c7a48",
+      "proposed": {
+        "word": "暗い",
+        "wordReading": "くらい",
+        "promptBefore": "外が",
+        "promptAfter": "ので、電気をつけます。",
+        "targetKanji": [
+          "暗"
+        ],
+        "writingPrompt": "「くらい」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-医-on-59d996061992",
+      "primaryKanji": "医",
+      "readingType": "on",
+      "canonicalReading": "イ",
+      "fingerprint": "362a8e2e1027e679f501156dd1e747ecc881483f77b3073a18b238d8057895cc",
+      "proposed": {
+        "word": "医学",
+        "wordReading": "いがく",
+        "promptBefore": "",
+        "promptAfter": "を学び、人の命をすくいます。",
+        "targetKanji": [
+          "医",
+          "学"
+        ],
+        "writingPrompt": "「いがく」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-委-on-5fcbb0913b68",
+      "primaryKanji": "委",
+      "readingType": "on",
+      "canonicalReading": "イ",
+      "fingerprint": "e4a6f5f6c0c448a93c2e8ccf369686f1b70e07756616ee6d6d1829102dfbb9fb",
+      "proposed": {
+        "word": "委員",
+        "wordReading": "いいん",
+        "promptBefore": "図書",
+        "promptAfter": "として本をならべます。",
+        "targetKanji": [
+          "委",
+          "員"
+        ],
+        "writingPrompt": "「いいん」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-委-kun-d4706beab0cf",
+      "primaryKanji": "委",
+      "readingType": "kun",
+      "canonicalReading": "ゆだねる",
+      "fingerprint": "8d2875b1caefb1570534185eb7e025ecef6dc9ded3b18489d8187e7f80b1b491",
+      "proposed": {
+        "word": "委ねる",
+        "wordReading": "ゆだねる",
+        "promptBefore": "友だちに後を",
+        "promptAfter": "ことにします。",
+        "targetKanji": [
+          "委"
+        ],
+        "writingPrompt": "「ゆだねる」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-意-on-892e6d23938f",
+      "primaryKanji": "意",
+      "readingType": "on",
+      "canonicalReading": "イ",
+      "fingerprint": "1f59fb2709b2a1dc6bb2682213f64215ca1d60d3103d7e8b5297a9220fb64e09",
+      "proposed": {
+        "word": "意見",
+        "wordReading": "いけん",
+        "promptBefore": "話し合いで",
+        "promptAfter": "を言います。",
+        "targetKanji": [
+          "意",
+          "見"
+        ],
+        "writingPrompt": "「いけん」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-育-on-cf05b1a4f942",
+      "primaryKanji": "育",
+      "readingType": "on",
+      "canonicalReading": "イク",
+      "fingerprint": "5a78009baa6d139c62a623c7698315431bc8c159f69a6662793d78c277068290",
+      "proposed": {
+        "word": "教育",
+        "wordReading": "きょういく",
+        "promptBefore": "学校で",
+        "promptAfter": "を受けます。",
+        "targetKanji": [
+          "教",
+          "育"
+        ],
+        "writingPrompt": "「きょういく」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-育-kun-72a6d9cc8d07",
+      "primaryKanji": "育",
+      "readingType": "kun",
+      "canonicalReading": "そだつ",
+      "fingerprint": "a6ce2bce827a5157bc7b1309acc9bc6110dab7454fd1f8add2d186e72fb737cc",
+      "proposed": {
+        "word": "育つ",
+        "wordReading": "そだつ",
+        "promptBefore": "花が大きく",
+        "promptAfter": "ように水をやります。",
+        "targetKanji": [
+          "育"
+        ],
+        "writingPrompt": "「そだつ」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-育-kun-9e3eaac7024f",
+      "primaryKanji": "育",
+      "readingType": "kun",
+      "canonicalReading": "そだてる",
+      "fingerprint": "d77b0f75acf17b3e2681a33c49d7090ddd4702dbe899d475a4577441e55e14fd",
+      "proposed": {
+        "word": "育てる",
+        "wordReading": "そだてる",
+        "promptBefore": "畑でやさいを",
+        "promptAfter": "ことにします。",
+        "targetKanji": [
+          "育"
+        ],
+        "writingPrompt": "「そだてる」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-育-kun-a21713795d6c",
+      "primaryKanji": "育",
+      "readingType": "kun",
+      "canonicalReading": "はぐくむ",
+      "fingerprint": "d7331ef2c9f26cdb05a3b72b19c336beca5a1749b50e78650e277a79eefdc81e",
+      "proposed": {
+        "word": "育む",
+        "wordReading": "はぐくむ",
+        "promptBefore": "家族で思いやりの心を",
+        "promptAfter": "ことが大切です。",
+        "targetKanji": [
+          "育"
+        ],
+        "writingPrompt": "「はぐくむ」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-員-on-eab67dd96ea9",
+      "primaryKanji": "員",
+      "readingType": "on",
+      "canonicalReading": "イン",
+      "fingerprint": "21d729585f8677d6783f3bcedc98555d05dad3dff49d60486976fe03fca6fcee",
+      "proposed": {
+        "word": "定員",
+        "wordReading": "ていいん",
+        "promptBefore": "このバスの",
+        "promptAfter": "は三十人です。",
+        "targetKanji": [
+          "定",
+          "員"
+        ],
+        "writingPrompt": "「ていいん」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-院-on-2657f413a333",
+      "primaryKanji": "院",
+      "readingType": "on",
+      "canonicalReading": "イン",
+      "fingerprint": "aeed44acc43e4a7474d2a62220e3c603ef4e8226d628b410de4e69dec51a2d96",
+      "proposed": {
+        "word": "院内",
+        "wordReading": "いんない",
+        "promptBefore": "",
+        "promptAfter": "では走りません。",
+        "targetKanji": [
+          "院",
+          "内"
+        ],
+        "writingPrompt": "「いんない」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-飲-on-31b4ebacc345",
+      "primaryKanji": "飲",
+      "readingType": "on",
+      "canonicalReading": "イン",
+      "fingerprint": "19fae57f2c52fb4804308dd71492cba2961dbe6d567dc9436400d7c03a0bb99d",
+      "proposed": {
+        "word": "飲食",
+        "wordReading": "いんしょく",
+        "promptBefore": "このへやでは",
+        "promptAfter": "できません。",
+        "targetKanji": [
+          "飲",
+          "食"
+        ],
+        "writingPrompt": "「いんしょく」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-飲-kun-88eac193f43a",
+      "primaryKanji": "飲",
+      "readingType": "kun",
+      "canonicalReading": "のむ",
+      "fingerprint": "d3b86152b4bffd1ec3ab8d8c59a163c1eee9d1100e37e2949c96d449a2399877",
+      "proposed": {
+        "word": "飲む",
+        "wordReading": "のむ",
+        "promptBefore": "水を",
+        "promptAfter": "と、元気になります。",
+        "targetKanji": [
+          "飲"
+        ],
+        "writingPrompt": "「のむ」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-運-on-51c0c99c209b",
+      "primaryKanji": "運",
+      "readingType": "on",
+      "canonicalReading": "ウン",
+      "fingerprint": "c35868a78a0e4b76f703e1d2c75ac57f25bab79d1425d6ceac9a0dd6cdc3dc95",
+      "proposed": {
+        "word": "運動",
+        "wordReading": "うんどう",
+        "promptBefore": "朝に",
+        "promptAfter": "をすると、体があたたまります。",
+        "targetKanji": [
+          "運",
+          "動"
+        ],
+        "writingPrompt": "「うんどう」の漢字の部分を書こう"
+      },
+      "decision": "pending",
+      "note": ""
+    }
+  ]
+}

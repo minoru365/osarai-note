@@ -1,3 +1,5 @@
+import { createHash } from "node:crypto";
+
 const GRADE_KANJI = {
   1: "一右雨円王音下火花貝学気九休玉金空月犬見五口校左三山子四糸字耳七車手十出女小上森人水正生青夕石赤千川先早草足村大男竹中虫町天田土二日入年白八百文木本名目立力林六",
   2: "引羽雲園遠何科夏家歌画回会海絵外角楽活間丸岩顔汽記帰弓牛魚京強教近兄形計元言原戸古午後語工公広交光考行高黄合谷国黒今才細作算止市矢姉思紙寺自時室社弱首秋週春書少場色食心新親図数西声星晴切雪船線前組走多太体台地池知茶昼長鳥朝直通弟店点電刀冬当東答頭同道読内南肉馬売買麦半番父風分聞米歩母方北毎妹万明鳴毛門夜野友用曜来里理話",
@@ -11,6 +13,8 @@ const HIRAGANA = /^[ぁ-ゖ]+$/u;
 const KATAKANA = /^[ァ-ヶー]+$/u;
 const KUN_READING = /^[ぁ-ゖ.]+$/u;
 const KANJI = /[々〇〆ヶ\u3400-\u9fff]/gu;
+const REVIEW_DECISIONS = new Set(["pending", "approve", "needs-fix"]);
+const REVIEW_EDIT_FIELDS = ["word", "wordReading", "promptBefore", "promptAfter", "targetKanji", "writingPrompt"];
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -29,6 +33,18 @@ function visibleKanji(material) {
     material.promptAfter,
     material.writingPrompt,
   ].flatMap((text) => text.match(KANJI) ?? []));
+}
+
+function reviewSnapshot(material) {
+  return Object.fromEntries(REVIEW_EDIT_FIELDS.map((field) => [field, material[field]]));
+}
+
+function reviewFingerprint(material) {
+  return createHash("sha256").update(JSON.stringify({
+    pairId: material.pairId,
+    reviewStatus: material.reviewStatus,
+    ...reviewSnapshot(material),
+  })).digest("hex");
 }
 
 export function validateMaterialSource(source) {
@@ -221,4 +237,84 @@ export function createReviewMarkdown(source) {
     `| ${material.reviewStatus} | ${material.grade} | ${material.primaryKanji} | ${material.readingType} | ${material.canonicalReading} | ${material.word} | ${material.wordReading} | ${material.pairId} |`,
   );
   return `# 漢字問題レビュー一覧\n\n素材版：${source.sourceVersion}\n\n- 確認済み：${counts.approved}\n- 未確認：${counts.draft}\n- 要修正：${counts["needs-fix"]}\n\n| 状態 | 学年 | 主対象 | 音訓 | 基準読み | 語句 | 語句読み | pairId |\n|---|---:|---|---|---|---|---|---|\n${rows.join("\n")}\n`;
+}
+
+export function createReviewBatch(source, { batchId, grade = 3, limit = 20 } = {}) {
+  validateMaterialSource(source);
+  assert(typeof batchId === "string" && batchId.length > 0, "レビューバッチIDがありません");
+  assert(grade === 3 || grade === 4, "レビュー対象学年が不正です");
+  assert(Number.isInteger(limit) && limit > 0 && limit <= 100, "レビュー件数が不正です");
+  const selected = source.materials
+    .filter((material) => material.grade === grade && material.reviewStatus === "draft")
+    .slice(0, limit);
+  assert(selected.length > 0, `${grade}年生の未確認素材がありません`);
+  return {
+    schemaVersion: 1,
+    batchId,
+    materialSourceVersion: source.sourceVersion,
+    grade,
+    entries: selected.map((material) => ({
+      pairId: material.pairId,
+      primaryKanji: material.primaryKanji,
+      readingType: material.readingType,
+      canonicalReading: material.canonicalReading,
+      fingerprint: reviewFingerprint(material),
+      proposed: reviewSnapshot(material),
+      decision: "pending",
+      note: "",
+    })),
+  };
+}
+
+export function applyReviewBatch(source, batch) {
+  validateMaterialSource(source);
+  assert(batch?.schemaVersion === 1 && typeof batch.batchId === "string", "レビューバッチの形式が不正です");
+  assert(batch.materialSourceVersion === source.sourceVersion, "レビューバッチの素材版が一致しません");
+  assert(Array.isArray(batch.entries) && batch.entries.length > 0, "レビュー項目がありません");
+  const entryIds = new Set();
+  const materials = structuredClone(source.materials);
+  const materialMap = new Map(materials.map((material) => [material.pairId, material]));
+  const counts = { pending: 0, approved: 0, needsFix: 0 };
+
+  for (const entry of batch.entries) {
+    assert(typeof entry?.pairId === "string" && !entryIds.has(entry.pairId), `レビュー対象が重複しています: ${entry?.pairId ?? "不明"}`);
+    entryIds.add(entry.pairId);
+    assert(REVIEW_DECISIONS.has(entry.decision), `${entry.pairId}: レビュー判断が不正です`);
+    const material = materialMap.get(entry.pairId);
+    assert(material, `${entry.pairId}: 素材が見つかりません`);
+    assert(material.grade === batch.grade, `${entry.pairId}: 対象学年が一致しません`);
+    assert(reviewFingerprint(material) === entry.fingerprint, `${entry.pairId}: レビュー票作成後に素材が変更されています`);
+    if (entry.decision === "pending") {
+      counts.pending += 1;
+      continue;
+    }
+    assert(material.reviewStatus === "draft", `${entry.pairId}: draft以外からは状態変更できません`);
+    if (entry.decision === "needs-fix") {
+      assert(typeof entry.note === "string" && entry.note.trim().length > 0, `${entry.pairId}: 要修正の理由がありません`);
+      material.reviewStatus = "needs-fix";
+      material.reviewNote = entry.note.trim();
+      counts.needsFix += 1;
+      continue;
+    }
+    assert(entry.proposed && typeof entry.proposed === "object", `${entry.pairId}: 承認内容がありません`);
+    for (const field of REVIEW_EDIT_FIELDS) material[field] = structuredClone(entry.proposed[field]);
+    material.reviewStatus = "approved";
+    delete material.reviewNote;
+    counts.approved += 1;
+  }
+
+  const result = { ...structuredClone(source), materials };
+  validateMaterialSource(result);
+  return { source: result, counts };
+}
+
+export function createReviewBatchMarkdown(batch) {
+  assert(batch?.schemaVersion === 1 && Array.isArray(batch.entries), "レビューバッチの形式が不正です");
+  const rows = batch.entries.map((entry, index) => {
+    const proposed = entry.proposed;
+    const sentence = `${proposed.promptBefore}【${proposed.word}】${proposed.promptAfter}`;
+    const readingType = entry.readingType === "on" ? "音" : "訓";
+    return `| ${index + 1} | ${entry.primaryKanji} | ${readingType} | ${entry.canonicalReading} | ${proposed.word} | ${proposed.wordReading} | ${sentence} | ${entry.decision} | ${entry.note} |`;
+  });
+  return `# 漢字問題レビューバッチ ${batch.batchId}\n\n素材版：${batch.materialSourceVersion}\n対象：${batch.grade}年生 ${batch.entries.length}件\n\n語句の読み、送り仮名、例文の自然さ、学年内の表記を確認する。判断はJSON票の \`decision\` に \`approve\`、\`needs-fix\`、または \`pending\` を記録する。\n\n| # | 漢字 | 音訓 | 基準読み | 語句 | 語句読み | 読み問題の表示 | 判断 | メモ |\n|---:|---|---|---|---|---|---|---|---|\n${rows.join("\n")}\n`;
 }
