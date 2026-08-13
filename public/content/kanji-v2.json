@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 2,
+  "packId": "kanji-2026.08.14-1",
+  "sourceVersion": "2026.08.14-1",
+  "questions": [
+    {
+      "grade": 3,
+      "pairId": "kanji-g3-leaf-kun-ha-01",
+      "primaryKanji": "葉",
+      "readingType": "kun",
+      "canonicalReading": "は",
+      "word": "葉",
+      "reading": "は",
+      "targetKanji": [
+        "葉"
+      ],
+      "answerKanji": "葉",
+      "id": "kanji-g3-reading-leaf-01",
+      "mode": "reading",
+      "prompt": "文の中の「葉」の読みを答えよう",
+      "promptBefore": "公園で木の",
+      "promptAfter": "をひろいました。"
+    },
+    {
+      "grade": 3,
+      "pairId": "kanji-g3-leaf-kun-ha-01",
+      "primaryKanji": "葉",
+      "readingType": "kun",
+      "canonicalReading": "は",
+      "word": "葉",
+      "reading": "は",
+      "targetKanji": [
+        "葉"
+      ],
+      "answerKanji": "葉",
+      "id": "kanji-g3-writing-leaf-01",
+      "mode": "writing",
+      "prompt": "「はっぱ」の「は」を漢字で書こう"
+    },
+    {
+      "grade": 3,
+      "pairId": "kanji-g3-plant-on-shoku-01",
+      "primaryKanji": "植",
+      "readingType": "on",
+      "canonicalReading": "ショク",
+      "word": "植物",
+      "reading": "しょくぶつ",
+      "targetKanji": [
+        "植",
+        "物"
+      ],
+      "answerKanji": "植物",
+      "id": "kanji-g3-reading-plant-01",
+      "mode": "reading",
+      "prompt": "文の中の「植物」の読みを答えよう",
+      "promptBefore": "理科で",
+      "promptAfter": "を育てます。"
+    },
+    {
+      "grade": 3,
+      "pairId": "kanji-g3-plant-on-shoku-01",
+      "primaryKanji": "植",
+      "readingType": "on",
+      "canonicalReading": "ショク",
+      "word": "植物",
+      "reading": "しょくぶつ",
+      "targetKanji": [
+        "植",
+        "物"
+      ],
+      "answerKanji": "植物",
+      "id": "kanji-g3-writing-plant-01",
+      "mode": "writing",
+      "prompt": "「しょくぶつ」を漢字で書こう"
+    }
+  ]
+}

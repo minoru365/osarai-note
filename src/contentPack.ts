@@ -5,6 +5,7 @@ type KanjiQuestionBase = {
   reading: string;
   prompt: string;
   targetKanji: string[];
+  answerKanji: string;
 };
 
 export type KanjiWritingQuestion = KanjiQuestionBase & {
@@ -43,7 +44,7 @@ export function validateManifest(value: unknown): ContentManifest {
 }
 
 export function validateKanjiPack(value: unknown): KanjiQuestion[] {
-  if (!isObject(value) || value.schemaVersion !== 1 || !Array.isArray(value.questions)) {
+  if (!isObject(value) || (value.schemaVersion !== 1 && value.schemaVersion !== 2) || !Array.isArray(value.questions)) {
     throw new Error("漢字問題パックの形式が不正です");
   }
 
@@ -57,9 +58,16 @@ export function validateKanjiPack(value: unknown): KanjiQuestion[] {
       || typeof question.reading !== "string"
       || typeof question.prompt !== "string"
       || !Array.isArray(question.targetKanji)
-      || !question.targetKanji.every((character) => typeof character === "string" && Array.from(character).length === 1)
-      || question.targetKanji.join("") !== question.word) {
+      || !question.targetKanji.every((character) => typeof character === "string" && Array.from(character).length === 1)) {
       throw new Error("漢字問題の形式が不正です");
+    }
+    const answerKanji = typeof question.answerKanji === "string"
+      ? question.answerKanji
+      : question.targetKanji.join("");
+    const word = question.word as string;
+    if (answerKanji !== question.targetKanji.join("")
+      || !question.targetKanji.every((character) => word.includes(character))) {
+      throw new Error("漢字問題の回答文字が不正です");
     }
     if (question.mode === "reading"
       && (typeof question.promptBefore !== "string" || typeof question.promptAfter !== "string")) {
@@ -67,7 +75,7 @@ export function validateKanjiPack(value: unknown): KanjiQuestion[] {
     }
     if (ids.has(question.id)) throw new Error(`問題IDが重複しています: ${question.id}`);
     ids.add(question.id);
-    return question as KanjiQuestion;
+    return { ...question, answerKanji } as KanjiQuestion;
   });
 }
 

@@ -12,6 +12,8 @@
 - [進捗](./docs/progress.md)：現在地、完了、次の作業、検証結果
 - [ADR](./docs/adr/)：重要な設計判断と採用理由
 - [IndexedDB v2設計](./docs/db-v2-design.md)：移行、状態遷移、原子的保存の受け入れ条件
+- [問題生成の実装境界](./docs/content-generation-design.md)：素材状態、公開条件、機械ゲート
+- [漢字問題の基準資料](./docs/kanji-data-sources.md)：学年配当と常用漢字音訓の出典・版
 
 ## 起動
 
@@ -48,9 +50,9 @@ npm audit
 
 ## 問題パックの更新
 
-標準問題は `public/content/` に置きます。問題ファイルは上書きせず `kanji-v2.json` のように新しい名前で追加し、最後に `manifest.json` の `contentVersion` と参照先を更新します。画面コードの変更は不要です。
+共通素材は `content-source/kanji-materials.json` で管理します。編集後に `npm run content:generate` を実行すると、確認済み素材だけから `public/content/kanji-v2.json` とレビュー・カバレッジ表が生成されます。
 
-公開前に `npm test` と `npm run build` を実行し、問題IDの重複や問題形式の不備がないことを確認します。学習履歴、未習設定、カスタム問題はIndexedDBにあり、問題パックには含めません。
+公開前に `npm test` と `npm run build` を実行し、問題IDの重複、読み書きペア、学年配当、ひらがな回答を確認します。学習履歴、未習設定、カスタム問題はIndexedDBにあり、問題パックには含めません。
 
 ## GitHub Pages
 

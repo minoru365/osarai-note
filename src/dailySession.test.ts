@@ -15,6 +15,7 @@ const question = (id: string, word: string): KanjiQuestion => ({
   promptBefore: "",
   promptAfter: "を読む。",
   targetKanji: Array.from(word),
+  answerKanji: word,
 });
 
 const state = (kanji: string, weakness: number, learned = true): KanjiState => ({

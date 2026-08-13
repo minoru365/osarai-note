@@ -1,0 +1,7599 @@
+{
+  "schemaVersion": 1,
+  "sourceVersion": "joyo-2010-agency-cultural-affairs",
+  "source": {
+    "title": "常用漢字（音訓）基本データ",
+    "edition": "平成22年11月30日内閣告示対応",
+    "url": "https://www.bunka.go.jp/seisaku/bunkashingikai/kokugo/shoiinkai/iinkai_02/pdf/sanko_2.pdf"
+  },
+  "grades": {
+    "3": [
+      {
+        "kanji": "悪",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "アク",
+            "examples": "悪事，悪意，醜悪",
+            "sourcePage": 1
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "オ",
+            "examples": "悪寒，好悪，憎悪",
+            "sourcePage": 1
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "わるい",
+            "examples": "悪い，悪さ，悪者",
+            "sourcePage": 1
+          }
+        ]
+      },
+      {
+        "kanji": "安",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "アン",
+            "examples": "安全，安価，不安",
+            "sourcePage": 1
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "やすい",
+            "examples": "安い，安らかだ",
+            "sourcePage": 1
+          }
+        ]
+      },
+      {
+        "kanji": "暗",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "アン",
+            "examples": "暗示，暗愚，明暗",
+            "sourcePage": 1
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "くらい",
+            "examples": "暗い，暗がり",
+            "sourcePage": 1
+          }
+        ]
+      },
+      {
+        "kanji": "医",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "イ",
+            "examples": "医学，医療，名医",
+            "sourcePage": 1
+          }
+        ]
+      },
+      {
+        "kanji": "委",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "イ",
+            "examples": "委任，委員，委細",
+            "sourcePage": 1
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ゆだねる",
+            "examples": "委ねる",
+            "sourcePage": 1
+          }
+        ]
+      },
+      {
+        "kanji": "意",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "イ",
+            "examples": "意見，意味，決意",
+            "sourcePage": 2
+          }
+        ]
+      },
+      {
+        "kanji": "育",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "イク",
+            "examples": "育児，教育，発育",
+            "sourcePage": 2
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "そだつ",
+            "examples": "育つ，育ち",
+            "sourcePage": 2
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "そだてる",
+            "examples": "育てる，育て親",
+            "sourcePage": 2
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はぐくむ",
+            "examples": "育む",
+            "sourcePage": 2
+          }
+        ]
+      },
+      {
+        "kanji": "員",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "イン",
+            "examples": "満員，定員，社員",
+            "sourcePage": 2
+          }
+        ]
+      },
+      {
+        "kanji": "院",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "イン",
+            "examples": "院内，議院，病院",
+            "sourcePage": 2
+          }
+        ]
+      },
+      {
+        "kanji": "飲",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "イン",
+            "examples": "飲料，飲食，痛飲",
+            "sourcePage": 3
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "のむ",
+            "examples": "飲む，飲み水",
+            "sourcePage": 3
+          }
+        ]
+      },
+      {
+        "kanji": "運",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ウン",
+            "examples": "運動，運命，海運",
+            "sourcePage": 3
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はこぶ",
+            "examples": "運ぶ",
+            "sourcePage": 3
+          }
+        ]
+      },
+      {
+        "kanji": "泳",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "エイ",
+            "examples": "泳法，水泳，背泳",
+            "sourcePage": 3
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "およぐ",
+            "examples": "泳ぐ，泳ぎ",
+            "sourcePage": 3
+          }
+        ]
+      },
+      {
+        "kanji": "駅",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "エキ",
+            "examples": "駅長，駅伝，貨物駅",
+            "sourcePage": 4
+          }
+        ]
+      },
+      {
+        "kanji": "央",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "オウ",
+            "examples": "中央",
+            "sourcePage": 5
+          }
+        ]
+      },
+      {
+        "kanji": "横",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "オウ",
+            "examples": "横断，横領，専横",
+            "sourcePage": 5
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "よこ",
+            "examples": "横，横顔，横たわる",
+            "sourcePage": 5
+          }
+        ]
+      },
+      {
+        "kanji": "屋",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "オク",
+            "examples": "屋上･屋外･家屋",
+            "sourcePage": 5
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "や",
+            "examples": "屋根･花屋･楽屋",
+            "sourcePage": 5
+          }
+        ]
+      },
+      {
+        "kanji": "温",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "オン",
+            "examples": "温暖，温厚，気温",
+            "sourcePage": 6
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あたたか",
+            "examples": "温かだ",
+            "sourcePage": 6
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あたたかい",
+            "examples": "温かい",
+            "sourcePage": 6
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あたたまる",
+            "examples": "温まる",
+            "sourcePage": 6
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あたためる",
+            "examples": "温める",
+            "sourcePage": 6
+          }
+        ]
+      },
+      {
+        "kanji": "化",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カ",
+            "examples": "化石，化学，文化",
+            "sourcePage": 6
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ケ",
+            "examples": "化粧，化身，権化",
+            "sourcePage": 6
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ばける",
+            "examples": "化ける，お化け",
+            "sourcePage": 6
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ばかす",
+            "examples": "化かす",
+            "sourcePage": 6
+          }
+        ]
+      },
+      {
+        "kanji": "荷",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カ",
+            "examples": "出荷，入荷",
+            "sourcePage": 7
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "に",
+            "examples": "荷，荷物，初荷",
+            "sourcePage": 7
+          }
+        ]
+      },
+      {
+        "kanji": "界",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カイ",
+            "examples": "境界，限界，世界",
+            "sourcePage": 9
+          }
+        ]
+      },
+      {
+        "kanji": "開",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カイ",
+            "examples": "開始，開拓，展開",
+            "sourcePage": 9
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ひらく",
+            "examples": "開く，川開き",
+            "sourcePage": 9
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ひらける",
+            "examples": "開ける",
+            "sourcePage": 9
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あく",
+            "examples": "開く",
+            "sourcePage": 9
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あける",
+            "examples": "開ける，開けたて",
+            "sourcePage": 9
+          }
+        ]
+      },
+      {
+        "kanji": "階",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カイ",
+            "examples": "階段，階級，地階",
+            "sourcePage": 9
+          }
+        ]
+      },
+      {
+        "kanji": "寒",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カン",
+            "examples": "寒暑，寒村，厳寒",
+            "sourcePage": 12
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "さむい",
+            "examples": "寒い，寒がる，寒空",
+            "sourcePage": 12
+          }
+        ]
+      },
+      {
+        "kanji": "感",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カン",
+            "examples": "感心，感覚，直感",
+            "sourcePage": 13
+          }
+        ]
+      },
+      {
+        "kanji": "漢",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カン",
+            "examples": "漢字，漢語，門外漢",
+            "sourcePage": 13
+          }
+        ]
+      },
+      {
+        "kanji": "館",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カン",
+            "examples": "館内，旅館，図書館",
+            "sourcePage": 13
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "やかた",
+            "examples": "館",
+            "sourcePage": 13
+          }
+        ]
+      },
+      {
+        "kanji": "岸",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ガン",
+            "examples": "岸壁，対岸，彼岸",
+            "sourcePage": 13
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "きし",
+            "examples": "岸，向こう岸",
+            "sourcePage": 13
+          }
+        ]
+      },
+      {
+        "kanji": "起",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キ",
+            "examples": "起立，起源，奮起",
+            "sourcePage": 14
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おきる",
+            "examples": "起きる，早起き",
+            "sourcePage": 14
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おこる",
+            "examples": "起こる",
+            "sourcePage": 14
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おこす",
+            "examples": "起こす",
+            "sourcePage": 14
+          }
+        ]
+      },
+      {
+        "kanji": "期",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キ",
+            "examples": "期間，期待，予期",
+            "sourcePage": 15
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ゴ",
+            "examples": "最期，この期に及んで",
+            "sourcePage": 15
+          }
+        ]
+      },
+      {
+        "kanji": "客",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キャク",
+            "examples": "客間，客車，乗客",
+            "sourcePage": 16
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "カク",
+            "examples": "客死，主客，旅客",
+            "sourcePage": 16
+          }
+        ]
+      },
+      {
+        "kanji": "究",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キュウ",
+            "examples": "究明，研究，学究",
+            "sourcePage": 17
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "きわめる",
+            "examples": "究める",
+            "sourcePage": 17
+          }
+        ]
+      },
+      {
+        "kanji": "急",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キュウ",
+            "examples": "急速，急務，緊急",
+            "sourcePage": 17
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "いそぐ",
+            "examples": "急ぐ，急ぎ",
+            "sourcePage": 17
+          }
+        ]
+      },
+      {
+        "kanji": "級",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キュウ",
+            "examples": "等級，上級，階級",
+            "sourcePage": 17
+          }
+        ]
+      },
+      {
+        "kanji": "宮",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キュウ",
+            "examples": "宮殿，宮廷，離宮",
+            "sourcePage": 17
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "グウ",
+            "examples": "宮司，神宮，東宮",
+            "sourcePage": 17
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ク",
+            "examples": "",
+            "sourcePage": 17
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "みや",
+            "examples": "宮，宮様",
+            "sourcePage": 17
+          }
+        ]
+      },
+      {
+        "kanji": "球",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キュウ",
+            "examples": "球形，球技，地球",
+            "sourcePage": 17
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "たま",
+            "examples": "球",
+            "sourcePage": 17
+          }
+        ]
+      },
+      {
+        "kanji": "去",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キョ",
+            "examples": "去年，去就，除去",
+            "sourcePage": 17
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "コ",
+            "examples": "過去",
+            "sourcePage": 17
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "さる",
+            "examples": "去る，去る○日",
+            "sourcePage": 17
+          }
+        ]
+      },
+      {
+        "kanji": "橋",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キョウ",
+            "examples": "橋脚，鉄橋，歩道橋",
+            "sourcePage": 19
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はし",
+            "examples": "橋，丸木橋",
+            "sourcePage": 19
+          }
+        ]
+      },
+      {
+        "kanji": "業",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ギョウ",
+            "examples": "業績，職業，卒業",
+            "sourcePage": 19
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ゴウ",
+            "examples": "業病，罪業，自業自得",
+            "sourcePage": 19
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "わざ",
+            "examples": "業，仕業，早業",
+            "sourcePage": 20
+          }
+        ]
+      },
+      {
+        "kanji": "曲",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キョク",
+            "examples": "曲線，曲面，名曲",
+            "sourcePage": 20
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "まがる",
+            "examples": "曲がる",
+            "sourcePage": 20
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "まげる",
+            "examples": "曲げる",
+            "sourcePage": 20
+          }
+        ]
+      },
+      {
+        "kanji": "局",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キョク",
+            "examples": "局部，時局，結局",
+            "sourcePage": 20
+          }
+        ]
+      },
+      {
+        "kanji": "銀",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ギン",
+            "examples": "銀貨，銀行，水銀",
+            "sourcePage": 20
+          }
+        ]
+      },
+      {
+        "kanji": "区",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ク",
+            "examples": "区別，区々，地区",
+            "sourcePage": 20
+          }
+        ]
+      },
+      {
+        "kanji": "苦",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ク",
+            "examples": "苦心，苦労，辛苦",
+            "sourcePage": 21
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "くるしい",
+            "examples": "苦しい，苦しがる，見苦しい",
+            "sourcePage": 21
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "くるしむ",
+            "examples": "苦しむ，苦しみ",
+            "sourcePage": 21
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "くるしめる",
+            "examples": "苦しめる",
+            "sourcePage": 21
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "にがい",
+            "examples": "苦い，苦虫，苦々しい",
+            "sourcePage": 21
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "にがる",
+            "examples": "苦り切る",
+            "sourcePage": 21
+          }
+        ]
+      },
+      {
+        "kanji": "具",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "グ",
+            "examples": "具体的，具備，道具",
+            "sourcePage": 21
+          }
+        ]
+      },
+      {
+        "kanji": "君",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "クン",
+            "examples": "君主，君臨，諸君",
+            "sourcePage": 21
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "きみ",
+            "examples": "君，母君",
+            "sourcePage": 21
+          }
+        ]
+      },
+      {
+        "kanji": "係",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ケイ",
+            "examples": "係累，係争，関係",
+            "sourcePage": 22
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かかる",
+            "examples": "係る",
+            "sourcePage": 22
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かかり",
+            "examples": "係，係員，庶務係",
+            "sourcePage": 22
+          }
+        ]
+      },
+      {
+        "kanji": "軽",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ケイ",
+            "examples": "軽快，軽薄，軽率",
+            "sourcePage": 22
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かるい",
+            "examples": "軽い，軽々と，手軽だ",
+            "sourcePage": 22
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かろやか",
+            "examples": "軽やかだ",
+            "sourcePage": 22
+          }
+        ]
+      },
+      {
+        "kanji": "血",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ケツ",
+            "examples": "血液，血統，鮮血",
+            "sourcePage": 23
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ち",
+            "examples": "血，鼻血",
+            "sourcePage": 23
+          }
+        ]
+      },
+      {
+        "kanji": "決",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ケツ",
+            "examples": "決裂･決意･解決",
+            "sourcePage": 23
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "きめる",
+            "examples": "決める，取り決め",
+            "sourcePage": 23
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "きまる",
+            "examples": "決まる，決まり",
+            "sourcePage": 23
+          }
+        ]
+      },
+      {
+        "kanji": "研",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ケン",
+            "examples": "研究，研修",
+            "sourcePage": 24
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "とぐ",
+            "examples": "研ぐ",
+            "sourcePage": 24
+          }
+        ]
+      },
+      {
+        "kanji": "県",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ケン",
+            "examples": "県庁，県立，○○県",
+            "sourcePage": 24
+          }
+        ]
+      },
+      {
+        "kanji": "庫",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "コ",
+            "examples": "倉庫，文庫，車庫",
+            "sourcePage": 26
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ク",
+            "examples": "庫裏",
+            "sourcePage": 26
+          }
+        ]
+      },
+      {
+        "kanji": "湖",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "コ",
+            "examples": "湖水，湖沼，湖畔",
+            "sourcePage": 26
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "みずうみ",
+            "examples": "湖",
+            "sourcePage": 26
+          }
+        ]
+      },
+      {
+        "kanji": "向",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "コウ",
+            "examples": "向上，傾向，趣向",
+            "sourcePage": 28
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "むく",
+            "examples": "向く，向き",
+            "sourcePage": 28
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "むける",
+            "examples": "向ける，顔向け",
+            "sourcePage": 28
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "むかう",
+            "examples": "向かう，向かい",
+            "sourcePage": 28
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "むこう",
+            "examples": "向こう，向こう側",
+            "sourcePage": 28
+          }
+        ]
+      },
+      {
+        "kanji": "幸",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "コウ",
+            "examples": "幸福，不幸，行幸",
+            "sourcePage": 28
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "さいわい",
+            "examples": "幸い，幸いな事",
+            "sourcePage": 28
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "さち",
+            "examples": "幸",
+            "sourcePage": 28
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "しあわせ",
+            "examples": "幸せ，幸せな人",
+            "sourcePage": 28
+          }
+        ]
+      },
+      {
+        "kanji": "港",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "コウ",
+            "examples": "港湾，漁港，出港",
+            "sourcePage": 30
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "みなと",
+            "examples": "港",
+            "sourcePage": 30
+          }
+        ]
+      },
+      {
+        "kanji": "号",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ゴウ",
+            "examples": "号令，号外，番号",
+            "sourcePage": 30
+          }
+        ]
+      },
+      {
+        "kanji": "根",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "コン",
+            "examples": "根拠，根気，平方根",
+            "sourcePage": 31
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ね",
+            "examples": "根，根強い，屋根",
+            "sourcePage": 31
+          }
+        ]
+      },
+      {
+        "kanji": "祭",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "サイ",
+            "examples": "祭礼，文化祭",
+            "sourcePage": 32
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "まつる",
+            "examples": "祭る，祭り上げる",
+            "sourcePage": 32
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "まつり",
+            "examples": "祭り，秋祭り",
+            "sourcePage": 32
+          }
+        ]
+      },
+      {
+        "kanji": "皿",
+        "readings": [
+          {
+            "readingType": "kun",
+            "canonicalReading": "さら",
+            "examples": "皿，灰皿",
+            "sourcePage": 34
+          }
+        ]
+      },
+      {
+        "kanji": "仕",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シ",
+            "examples": "仕事，出仕",
+            "sourcePage": 35
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ジ",
+            "examples": "給仕",
+            "sourcePage": 35
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つかえる",
+            "examples": "仕える",
+            "sourcePage": 35
+          }
+        ]
+      },
+      {
+        "kanji": "死",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シ",
+            "examples": "死亡，死角，必死",
+            "sourcePage": 36
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "しぬ",
+            "examples": "死ぬ，死に絶える",
+            "sourcePage": 36
+          }
+        ]
+      },
+      {
+        "kanji": "使",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シ",
+            "examples": "使役，使者，駆使",
+            "sourcePage": 36
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つかう",
+            "examples": "使う，使い",
+            "sourcePage": 36
+          }
+        ]
+      },
+      {
+        "kanji": "始",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シ",
+            "examples": "始終，年始，開始",
+            "sourcePage": 36
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はじめる",
+            "examples": "始める，始め",
+            "sourcePage": 36
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はじまる",
+            "examples": "始まる，始まり",
+            "sourcePage": 36
+          }
+        ]
+      },
+      {
+        "kanji": "指",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シ",
+            "examples": "指示，指導，屈指",
+            "sourcePage": 36
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ゆび",
+            "examples": "指，指先",
+            "sourcePage": 36
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "さす",
+            "examples": "指す，指図，名指し",
+            "sourcePage": 36
+          }
+        ]
+      },
+      {
+        "kanji": "歯",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シ",
+            "examples": "歯科，乳歯，義歯",
+            "sourcePage": 37
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "は",
+            "examples": "歯，入れ歯",
+            "sourcePage": 37
+          }
+        ]
+      },
+      {
+        "kanji": "詩",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シ",
+            "examples": "詩情，詩人，詩歌",
+            "sourcePage": 37
+          }
+        ]
+      },
+      {
+        "kanji": "次",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ジ",
+            "examples": "次回，次元，目次",
+            "sourcePage": 37
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "シ",
+            "examples": "次第",
+            "sourcePage": 37
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つぐ",
+            "examples": "次ぐ，次いで〔副〕",
+            "sourcePage": 37
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つぎ",
+            "examples": "次，次に，次々と",
+            "sourcePage": 37
+          }
+        ]
+      },
+      {
+        "kanji": "事",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ジ",
+            "examples": "事物，無事，師事",
+            "sourcePage": 38
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ズ",
+            "examples": "好事家",
+            "sourcePage": 38
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "こと",
+            "examples": "事，仕事，出来事",
+            "sourcePage": 38
+          }
+        ]
+      },
+      {
+        "kanji": "持",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ジ",
+            "examples": "持参，持続，支持",
+            "sourcePage": 38
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "もつ",
+            "examples": "持つ",
+            "sourcePage": 38
+          }
+        ]
+      },
+      {
+        "kanji": "式",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シキ",
+            "examples": "式典，形式，数式",
+            "sourcePage": 38
+          }
+        ]
+      },
+      {
+        "kanji": "実",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ジツ",
+            "examples": "実力，充実，実に",
+            "sourcePage": 39
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "み",
+            "examples": "実，実入り",
+            "sourcePage": 39
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "みのる",
+            "examples": "実る，実り",
+            "sourcePage": 39
+          }
+        ]
+      },
+      {
+        "kanji": "写",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シャ",
+            "examples": "写真，描写，映写",
+            "sourcePage": 39
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "うつす",
+            "examples": "写す，写し",
+            "sourcePage": 39
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "うつる",
+            "examples": "写る，写り",
+            "sourcePage": 39
+          }
+        ]
+      },
+      {
+        "kanji": "者",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シャ",
+            "examples": "医者，前者，第三者",
+            "sourcePage": 39
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "もの",
+            "examples": "者，若者",
+            "sourcePage": 39
+          }
+        ]
+      },
+      {
+        "kanji": "主",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シュ",
+            "examples": "主人，主権，施主",
+            "sourcePage": 40
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ス",
+            "examples": "法主，坊主",
+            "sourcePage": 40
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ぬし",
+            "examples": "主，地主",
+            "sourcePage": 40
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おも",
+            "examples": "主な人々",
+            "sourcePage": 40
+          }
+        ]
+      },
+      {
+        "kanji": "守",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シュ",
+            "examples": "守備，保守，攻守",
+            "sourcePage": 40
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ス",
+            "examples": "留守",
+            "sourcePage": 40
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "まもる",
+            "examples": "守る，守り",
+            "sourcePage": 40
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "もり",
+            "examples": "お守り，子守，灯台守",
+            "sourcePage": 40
+          }
+        ]
+      },
+      {
+        "kanji": "取",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シュ",
+            "examples": "取捨，取材，聴取",
+            "sourcePage": 40
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "とる",
+            "examples": "取る",
+            "sourcePage": 40
+          }
+        ]
+      },
+      {
+        "kanji": "酒",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シュ",
+            "examples": "酒宴，飲酒，洋酒",
+            "sourcePage": 41
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "さけ",
+            "examples": "酒，酒好き，甘酒",
+            "sourcePage": 41
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "さか",
+            "examples": "酒屋，酒場，酒盛り",
+            "sourcePage": 41
+          }
+        ]
+      },
+      {
+        "kanji": "受",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ジュ",
+            "examples": "受諾，受験，甘受",
+            "sourcePage": 41
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "うける",
+            "examples": "受ける，受付",
+            "sourcePage": 41
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "うかる",
+            "examples": "受かる",
+            "sourcePage": 41
+          }
+        ]
+      },
+      {
+        "kanji": "州",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シュウ",
+            "examples": "州議会，六大州",
+            "sourcePage": 41
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "す",
+            "examples": "州，中州，三角州",
+            "sourcePage": 41
+          }
+        ]
+      },
+      {
+        "kanji": "拾",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シュウ",
+            "examples": "収得，収拾",
+            "sourcePage": 42
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ジュウ",
+            "examples": "拾万円",
+            "sourcePage": 42
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ひろう",
+            "examples": "拾う，拾い物",
+            "sourcePage": 42
+          }
+        ]
+      },
+      {
+        "kanji": "終",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シュウ",
+            "examples": "終了･終日･最終",
+            "sourcePage": 42
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おわる",
+            "examples": "終わる･終わり",
+            "sourcePage": 42
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おえる",
+            "examples": "終える",
+            "sourcePage": 42
+          }
+        ]
+      },
+      {
+        "kanji": "習",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シュウ",
+            "examples": "習得，習慣，練習",
+            "sourcePage": 42
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ならう",
+            "examples": "習う，手習い",
+            "sourcePage": 42
+          }
+        ]
+      },
+      {
+        "kanji": "集",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シュウ",
+            "examples": "集合，集結，全集",
+            "sourcePage": 42
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あつまる",
+            "examples": "集まる，集まり",
+            "sourcePage": 42
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あつめる",
+            "examples": "集める，人集め",
+            "sourcePage": 42
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つどう",
+            "examples": "集う，集い",
+            "sourcePage": 42
+          }
+        ]
+      },
+      {
+        "kanji": "住",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ジュウ",
+            "examples": "住所，安住，衣食住",
+            "sourcePage": 43
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "すむ",
+            "examples": "住む",
+            "sourcePage": 43
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "すまう",
+            "examples": "住まう，住まい",
+            "sourcePage": 43
+          }
+        ]
+      },
+      {
+        "kanji": "重",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ジュウ",
+            "examples": "重量，重大，二重",
+            "sourcePage": 43
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "チョウ",
+            "examples": "重畳，慎重，貴重",
+            "sourcePage": 43
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "え",
+            "examples": "一重，八重桜",
+            "sourcePage": 43
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おもい",
+            "examples": "重い，重たい",
+            "sourcePage": 43
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かさねる",
+            "examples": "重ねる，重ね着",
+            "sourcePage": 43
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かさなる",
+            "examples": "重なる",
+            "sourcePage": 43
+          }
+        ]
+      },
+      {
+        "kanji": "宿",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シュク",
+            "examples": "宿泊，宿題，合宿",
+            "sourcePage": 43
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "やど",
+            "examples": "宿，宿屋",
+            "sourcePage": 43
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "やどる",
+            "examples": "宿る，雨宿り",
+            "sourcePage": 43
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "やどす",
+            "examples": "宿す",
+            "sourcePage": 43
+          }
+        ]
+      },
+      {
+        "kanji": "所",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ショ",
+            "examples": "所得，住所，近所",
+            "sourcePage": 45
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ところ",
+            "examples": "所，台所",
+            "sourcePage": 45
+          }
+        ]
+      },
+      {
+        "kanji": "暑",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ショ",
+            "examples": "暑気，残暑，避暑",
+            "sourcePage": 45
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あつい",
+            "examples": "暑い，暑さ",
+            "sourcePage": 45
+          }
+        ]
+      },
+      {
+        "kanji": "助",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ジョ",
+            "examples": "助力，助監督，救助",
+            "sourcePage": 45
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "たすける",
+            "examples": "助ける，助け",
+            "sourcePage": 45
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "たすかる",
+            "examples": "助かる，大助かり",
+            "sourcePage": 45
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "すけ",
+            "examples": "助太刀",
+            "sourcePage": 45
+          }
+        ]
+      },
+      {
+        "kanji": "昭",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ショウ",
+            "examples": "昭和*",
+            "sourcePage": 46
+          }
+        ]
+      },
+      {
+        "kanji": "消",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ショウ",
+            "examples": "消滅，消極的，費消",
+            "sourcePage": 46
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "きえる",
+            "examples": "消える，立ち消え",
+            "sourcePage": 46
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "けす",
+            "examples": "消す，消しゴム",
+            "sourcePage": 46
+          }
+        ]
+      },
+      {
+        "kanji": "商",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ショウ",
+            "examples": "商売，商業，貿易商",
+            "sourcePage": 46
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あきなう",
+            "examples": "商う，商い",
+            "sourcePage": 46
+          }
+        ]
+      },
+      {
+        "kanji": "章",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ショウ",
+            "examples": "憲章，勲章，文章",
+            "sourcePage": 46
+          }
+        ]
+      },
+      {
+        "kanji": "勝",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ショウ",
+            "examples": "勝敗，優勝，名勝",
+            "sourcePage": 46
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かつ",
+            "examples": "勝つ，勝ち，勝手",
+            "sourcePage": 46
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "まさる",
+            "examples": "勝る，男勝り",
+            "sourcePage": 46
+          }
+        ]
+      },
+      {
+        "kanji": "乗",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ジョウ",
+            "examples": "乗数，乗車，大乗的",
+            "sourcePage": 48
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "のる",
+            "examples": "乗る，乗り物",
+            "sourcePage": 48
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "のせる",
+            "examples": "乗せる",
+            "sourcePage": 48
+          }
+        ]
+      },
+      {
+        "kanji": "植",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ショク",
+            "examples": "植樹，植物，誤植",
+            "sourcePage": 49
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "うえる",
+            "examples": "植える，植木",
+            "sourcePage": 49
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "うわる",
+            "examples": "植わる",
+            "sourcePage": 49
+          }
+        ]
+      },
+      {
+        "kanji": "申",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シン",
+            "examples": "申告，申請，内申書",
+            "sourcePage": 49
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "もうす",
+            "examples": "申す，申し上げる",
+            "sourcePage": 49
+          }
+        ]
+      },
+      {
+        "kanji": "身",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シン",
+            "examples": "身体，単身，等身大",
+            "sourcePage": 49
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "み",
+            "examples": "身，身内，親身",
+            "sourcePage": 49
+          }
+        ]
+      },
+      {
+        "kanji": "神",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シン",
+            "examples": "神聖，神経，精神",
+            "sourcePage": 49
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ジン",
+            "examples": "神社，神宮，神通力",
+            "sourcePage": 49
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かみ",
+            "examples": "神，神様，貧乏神",
+            "sourcePage": 49
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かん",
+            "examples": "神主",
+            "sourcePage": 49
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "こう",
+            "examples": "神々しい",
+            "sourcePage": 49
+          }
+        ]
+      },
+      {
+        "kanji": "真",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シン",
+            "examples": "真偽，写真，純真",
+            "sourcePage": 50
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ま",
+            "examples": "真南，真新しい，真っ先，真ん中",
+            "sourcePage": 50
+          }
+        ]
+      },
+      {
+        "kanji": "深",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シン",
+            "examples": "深山,深夜,水深",
+            "sourcePage": 50
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ふかい",
+            "examples": "深い,深入り,深み",
+            "sourcePage": 50
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ふかまる",
+            "examples": "深まる",
+            "sourcePage": 50
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ふかめる",
+            "examples": "深める",
+            "sourcePage": 50
+          }
+        ]
+      },
+      {
+        "kanji": "進",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シン",
+            "examples": "進級,進言,前進",
+            "sourcePage": 50
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "すすむ",
+            "examples": "進む,進み",
+            "sourcePage": 50
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "すすめる",
+            "examples": "進める",
+            "sourcePage": 50
+          }
+        ]
+      },
+      {
+        "kanji": "世",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "セイ",
+            "examples": "世紀，時世，処世",
+            "sourcePage": 52
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "セ",
+            "examples": "世界，世間，出世",
+            "sourcePage": 52
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "よ",
+            "examples": "世，世の中",
+            "sourcePage": 52
+          }
+        ]
+      },
+      {
+        "kanji": "整",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "セイ",
+            "examples": "整理，整列，調整",
+            "sourcePage": 54
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ととのえる",
+            "examples": "整える",
+            "sourcePage": 54
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ととのう",
+            "examples": "整う",
+            "sourcePage": 54
+          }
+        ]
+      },
+      {
+        "kanji": "昔",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "セキ",
+            "examples": "昔日，昔年，昔時",
+            "sourcePage": 55
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "シャク",
+            "examples": "今昔",
+            "sourcePage": 55
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "むかし",
+            "examples": "昔，昔話",
+            "sourcePage": 55
+          }
+        ]
+      },
+      {
+        "kanji": "全",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ゼン",
+            "examples": "全部，全国，完全",
+            "sourcePage": 57
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "まったく",
+            "examples": "全く，全うする",
+            "sourcePage": 57
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "すべて",
+            "examples": "全て",
+            "sourcePage": 57
+          }
+        ]
+      },
+      {
+        "kanji": "相",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ソウ",
+            "examples": "相当，相談，真相",
+            "sourcePage": 58
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ショウ",
+            "examples": "首相，宰相",
+            "sourcePage": 58
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あい",
+            "examples": "相手，相宿",
+            "sourcePage": 58
+          }
+        ]
+      },
+      {
+        "kanji": "送",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ソウ",
+            "examples": "送別，放送，運送",
+            "sourcePage": 58
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おくる",
+            "examples": "送る，見送り",
+            "sourcePage": 58
+          }
+        ]
+      },
+      {
+        "kanji": "想",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ソウ",
+            "examples": "想像，感想，予想",
+            "sourcePage": 59
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ソ",
+            "examples": "愛想",
+            "sourcePage": 59
+          }
+        ]
+      },
+      {
+        "kanji": "息",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ソク",
+            "examples": "休息，消息，子息",
+            "sourcePage": 60
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "いき",
+            "examples": "息，息巻く，吐息",
+            "sourcePage": 60
+          }
+        ]
+      },
+      {
+        "kanji": "速",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ソク",
+            "examples": "速度，敏速，時速",
+            "sourcePage": 60
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はやい",
+            "examples": "速い，速さ",
+            "sourcePage": 60
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はやめる",
+            "examples": "速める",
+            "sourcePage": 60
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はやまる",
+            "examples": "速まる",
+            "sourcePage": 60
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "すみやか",
+            "examples": "速やかだ",
+            "sourcePage": 60
+          }
+        ]
+      },
+      {
+        "kanji": "族",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ゾク",
+            "examples": "一族，家族，民族",
+            "sourcePage": 60
+          }
+        ]
+      },
+      {
+        "kanji": "他",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "タ",
+            "examples": "他国，自他，排他的",
+            "sourcePage": 61
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ほか",
+            "examples": "他，○○の他",
+            "sourcePage": 61
+          }
+        ]
+      },
+      {
+        "kanji": "打",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ダ",
+            "examples": "打撃，打破，乱打",
+            "sourcePage": 61
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "うつ",
+            "examples": "打つ",
+            "sourcePage": 61
+          }
+        ]
+      },
+      {
+        "kanji": "対",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "タイ",
+            "examples": "対立，絶対，反対",
+            "sourcePage": 61
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ツイ",
+            "examples": "対句，一対",
+            "sourcePage": 61
+          }
+        ]
+      },
+      {
+        "kanji": "待",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "タイ",
+            "examples": "待機，待遇，期待",
+            "sourcePage": 61
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "まつ",
+            "examples": "待つ，待ち遠しい",
+            "sourcePage": 62
+          }
+        ]
+      },
+      {
+        "kanji": "代",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ダイ",
+            "examples": "代理，世代，現代",
+            "sourcePage": 62
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "タイ",
+            "examples": "代謝，交代",
+            "sourcePage": 62
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かわる",
+            "examples": "代わる，代わり",
+            "sourcePage": 62
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かえる",
+            "examples": "代える",
+            "sourcePage": 62
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "よ",
+            "examples": "代，神代",
+            "sourcePage": 62
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "しろ",
+            "examples": "代物，苗代",
+            "sourcePage": 62
+          }
+        ]
+      },
+      {
+        "kanji": "第",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ダイ",
+            "examples": "第一，第三者，及第",
+            "sourcePage": 62
+          }
+        ]
+      },
+      {
+        "kanji": "題",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ダイ",
+            "examples": "題名，問題，出題",
+            "sourcePage": 62
+          }
+        ]
+      },
+      {
+        "kanji": "炭",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "タン",
+            "examples": "炭鉱，木炭，石炭",
+            "sourcePage": 63
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "すみ",
+            "examples": "炭，炭火，消し炭",
+            "sourcePage": 63
+          }
+        ]
+      },
+      {
+        "kanji": "短",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "タン",
+            "examples": "短歌，短所，長短",
+            "sourcePage": 63
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "みじかい",
+            "examples": "短い",
+            "sourcePage": 63
+          }
+        ]
+      },
+      {
+        "kanji": "談",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ダン",
+            "examples": "談話，談判，相談",
+            "sourcePage": 64
+          }
+        ]
+      },
+      {
+        "kanji": "着",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "チャク",
+            "examples": "着用，着手，土着",
+            "sourcePage": 65
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ジャク",
+            "examples": "愛着，執着",
+            "sourcePage": 65
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "きる",
+            "examples": "着る，着物，晴れ着",
+            "sourcePage": 65
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "きせる",
+            "examples": "着せる，お仕着せ",
+            "sourcePage": 65
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つく",
+            "examples": "着く，船着き場",
+            "sourcePage": 65
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つける",
+            "examples": "着ける",
+            "sourcePage": 65
+          }
+        ]
+      },
+      {
+        "kanji": "注",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "チュウ",
+            "examples": "注入，注意，発注",
+            "sourcePage": 65
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "そそぐ",
+            "examples": "注ぐ",
+            "sourcePage": 65
+          }
+        ]
+      },
+      {
+        "kanji": "柱",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "チュウ",
+            "examples": "支柱，円柱，電柱",
+            "sourcePage": 66
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はしら",
+            "examples": "柱，帆柱，大黒柱",
+            "sourcePage": 66
+          }
+        ]
+      },
+      {
+        "kanji": "丁",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "チョウ",
+            "examples": "丁数，落丁，二丁目",
+            "sourcePage": 66
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "テイ",
+            "examples": "丁字路，甲乙丙丁",
+            "sourcePage": 66
+          }
+        ]
+      },
+      {
+        "kanji": "帳",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "チョウ",
+            "examples": "帳面，帳簿，通帳",
+            "sourcePage": 66
+          }
+        ]
+      },
+      {
+        "kanji": "調",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "チョウ",
+            "examples": "調和，調査，好調",
+            "sourcePage": 67
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "しらべる",
+            "examples": "調べる，調べ",
+            "sourcePage": 67
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ととのう",
+            "examples": "調う",
+            "sourcePage": 67
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ととのえる",
+            "examples": "調える",
+            "sourcePage": 67
+          }
+        ]
+      },
+      {
+        "kanji": "追",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ツイ",
+            "examples": "追跡，追放，訴追",
+            "sourcePage": 67
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おう",
+            "examples": "追う",
+            "sourcePage": 67
+          }
+        ]
+      },
+      {
+        "kanji": "定",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "テイ",
+            "examples": "定価，安定，決定",
+            "sourcePage": 68
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ジョウ",
+            "examples": "定石，定紋，必定",
+            "sourcePage": 68
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "さだめる",
+            "examples": "定める，定め",
+            "sourcePage": 68
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "さだまる",
+            "examples": "定まる",
+            "sourcePage": 68
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "さだか",
+            "examples": "定かだ",
+            "sourcePage": 68
+          }
+        ]
+      },
+      {
+        "kanji": "庭",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "テイ",
+            "examples": "庭園，校庭，家庭",
+            "sourcePage": 68
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "にわ",
+            "examples": "庭，庭先",
+            "sourcePage": 68
+          }
+        ]
+      },
+      {
+        "kanji": "笛",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "テキ",
+            "examples": "汽笛，警笛，牧笛",
+            "sourcePage": 69
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ふえ",
+            "examples": "笛，口笛",
+            "sourcePage": 69
+          }
+        ]
+      },
+      {
+        "kanji": "鉄",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "テツ",
+            "examples": "鉄道，鉄筋，鋼鉄",
+            "sourcePage": 69
+          }
+        ]
+      },
+      {
+        "kanji": "転",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "テン",
+            "examples": "転出，回転，運転",
+            "sourcePage": 69
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ころがる",
+            "examples": "転がる",
+            "sourcePage": 69
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ころげる",
+            "examples": "転げる",
+            "sourcePage": 69
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ころがす",
+            "examples": "転がす",
+            "sourcePage": 69
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ころぶ",
+            "examples": "転ぶ",
+            "sourcePage": 70
+          }
+        ]
+      },
+      {
+        "kanji": "都",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ト",
+            "examples": "都会，都心，首都",
+            "sourcePage": 70
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ツ",
+            "examples": "都合，都度",
+            "sourcePage": 70
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "みやこ",
+            "examples": "都，都落ち",
+            "sourcePage": 70
+          }
+        ]
+      },
+      {
+        "kanji": "度",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ド",
+            "examples": "度胸，制度，限度",
+            "sourcePage": 70
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ト",
+            "examples": "法度",
+            "sourcePage": 70
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "タク",
+            "examples": "支度",
+            "sourcePage": 70
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "たび",
+            "examples": "度，度重なる，この度",
+            "sourcePage": 70
+          }
+        ]
+      },
+      {
+        "kanji": "投",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "トウ",
+            "examples": "投資，投下，暴投",
+            "sourcePage": 71
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "なげる",
+            "examples": "投げる，身投げ",
+            "sourcePage": 71
+          }
+        ]
+      },
+      {
+        "kanji": "豆",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "トウ",
+            "examples": "豆腐，納豆",
+            "sourcePage": 71
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ズ",
+            "examples": "大豆",
+            "sourcePage": 71
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "まめ",
+            "examples": "豆，豆粒，煮豆",
+            "sourcePage": 71
+          }
+        ]
+      },
+      {
+        "kanji": "島",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "トウ",
+            "examples": "島民，半島，列島",
+            "sourcePage": 71
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "しま",
+            "examples": "島，島国，離れ島",
+            "sourcePage": 71
+          }
+        ]
+      },
+      {
+        "kanji": "湯",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "トウ",
+            "examples": "湯治，熱湯，微温湯",
+            "sourcePage": 72
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ゆ",
+            "examples": "湯，湯水，煮え湯",
+            "sourcePage": 72
+          }
+        ]
+      },
+      {
+        "kanji": "登",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "トウ",
+            "examples": "登壇，登校，登記",
+            "sourcePage": 72
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ト",
+            "examples": "登山，登城",
+            "sourcePage": 72
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "のぼる",
+            "examples": "登る，山登り",
+            "sourcePage": 72
+          }
+        ]
+      },
+      {
+        "kanji": "等",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "トウ",
+            "examples": "等分，等級，平等",
+            "sourcePage": 72
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ひとしい",
+            "examples": "等しい",
+            "sourcePage": 72
+          }
+        ]
+      },
+      {
+        "kanji": "動",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ドウ",
+            "examples": "動物，活動，騒動",
+            "sourcePage": 73
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "うごく",
+            "examples": "動く，動き",
+            "sourcePage": 73
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "うごかす",
+            "examples": "動かす",
+            "sourcePage": 73
+          }
+        ]
+      },
+      {
+        "kanji": "童",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ドウ",
+            "examples": "童話，童心，児童",
+            "sourcePage": 73
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "わらべ",
+            "examples": "童，童歌",
+            "sourcePage": 73
+          }
+        ]
+      },
+      {
+        "kanji": "農",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ノウ",
+            "examples": "農業，農具，酪農",
+            "sourcePage": 75
+          }
+        ]
+      },
+      {
+        "kanji": "波",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ハ",
+            "examples": "波浪，波及，電波",
+            "sourcePage": 75
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "なみ",
+            "examples": "波，波立つ，荒波",
+            "sourcePage": 75
+          }
+        ]
+      },
+      {
+        "kanji": "配",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ハイ",
+            "examples": "配分，交配，心配",
+            "sourcePage": 76
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "くばる",
+            "examples": "配る",
+            "sourcePage": 76
+          }
+        ]
+      },
+      {
+        "kanji": "倍",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "バイ",
+            "examples": "倍率，倍加，二倍",
+            "sourcePage": 76
+          }
+        ]
+      },
+      {
+        "kanji": "箱",
+        "readings": [
+          {
+            "readingType": "kun",
+            "canonicalReading": "はこ",
+            "examples": "箱，箱庭，小箱",
+            "sourcePage": 77
+          }
+        ]
+      },
+      {
+        "kanji": "畑",
+        "readings": [
+          {
+            "readingType": "kun",
+            "canonicalReading": "はた",
+            "examples": "畑，畑作",
+            "sourcePage": 77
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はたけ",
+            "examples": "畑，畑違い，麦畑",
+            "sourcePage": 77
+          }
+        ]
+      },
+      {
+        "kanji": "発",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ハツ",
+            "examples": "発明，発射，突発",
+            "sourcePage": 78
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ホツ",
+            "examples": "発作，発端，発起",
+            "sourcePage": 78
+          }
+        ]
+      },
+      {
+        "kanji": "反",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ハン",
+            "examples": "反映，反対，違反",
+            "sourcePage": 78
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ホン",
+            "examples": "謀反",
+            "sourcePage": 78
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "タン",
+            "examples": "反物",
+            "sourcePage": 78
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "そる",
+            "examples": "反る，反り",
+            "sourcePage": 78
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "そらす",
+            "examples": "反らす",
+            "sourcePage": 78
+          }
+        ]
+      },
+      {
+        "kanji": "坂",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ハン",
+            "examples": "急坂",
+            "sourcePage": 78
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "さか",
+            "examples": "坂，坂道，下り坂",
+            "sourcePage": 78
+          }
+        ]
+      },
+      {
+        "kanji": "板",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ハン",
+            "examples": "乾板，鉄板",
+            "sourcePage": 78
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "バン",
+            "examples": "黒板，掲示板",
+            "sourcePage": 78
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "いた",
+            "examples": "板，板前",
+            "sourcePage": 78
+          }
+        ]
+      },
+      {
+        "kanji": "皮",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヒ",
+            "examples": "皮膚，皮相，樹皮",
+            "sourcePage": 79
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かわ",
+            "examples": "皮，毛皮",
+            "sourcePage": 79
+          }
+        ]
+      },
+      {
+        "kanji": "悲",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヒ",
+            "examples": "悲喜，悲劇，慈悲",
+            "sourcePage": 80
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かなしい",
+            "examples": "悲しい，悲しがる",
+            "sourcePage": 80
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かなしむ",
+            "examples": "悲しむ，悲しみ",
+            "sourcePage": 80
+          }
+        ]
+      },
+      {
+        "kanji": "美",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ビ",
+            "examples": "美醜，美術，賛美",
+            "sourcePage": 80
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "うつくしい",
+            "examples": "美しい，美しさ",
+            "sourcePage": 80
+          }
+        ]
+      },
+      {
+        "kanji": "鼻",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ビ",
+            "examples": "鼻音，鼻孔，耳鼻科",
+            "sourcePage": 80
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はな",
+            "examples": "鼻，鼻血，小鼻",
+            "sourcePage": 80
+          }
+        ]
+      },
+      {
+        "kanji": "筆",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヒツ",
+            "examples": "筆力，筆記，毛筆",
+            "sourcePage": 80
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ふで",
+            "examples": "筆，筆先",
+            "sourcePage": 80
+          }
+        ]
+      },
+      {
+        "kanji": "氷",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヒョウ",
+            "examples": "氷点，氷山，結氷",
+            "sourcePage": 80
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "こおり",
+            "examples": "氷",
+            "sourcePage": 80
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ひ",
+            "examples": "氷雨",
+            "sourcePage": 80
+          }
+        ]
+      },
+      {
+        "kanji": "表",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヒョウ",
+            "examples": "表面，代表，発表",
+            "sourcePage": 80
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おもて",
+            "examples": "表，表門，裏表",
+            "sourcePage": 80
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あらわす",
+            "examples": "表す",
+            "sourcePage": 81
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あらわれる",
+            "examples": "表れる",
+            "sourcePage": 81
+          }
+        ]
+      },
+      {
+        "kanji": "秒",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ビョウ",
+            "examples": "秒針，秒速，寸秒",
+            "sourcePage": 81
+          }
+        ]
+      },
+      {
+        "kanji": "病",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ビョウ",
+            "examples": "病気，病根，看病",
+            "sourcePage": 81
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ヘイ",
+            "examples": "疾病",
+            "sourcePage": 81
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "やむ",
+            "examples": "病む，病み付き",
+            "sourcePage": 81
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "やまい",
+            "examples": "病",
+            "sourcePage": 81
+          }
+        ]
+      },
+      {
+        "kanji": "品",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヒン",
+            "examples": "品評，作品，上品",
+            "sourcePage": 81
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "しな",
+            "examples": "品，品物，手品",
+            "sourcePage": 81
+          }
+        ]
+      },
+      {
+        "kanji": "負",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "フ",
+            "examples": "負担，負傷，勝負",
+            "sourcePage": 82
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "まける",
+            "examples": "負ける，負け",
+            "sourcePage": 82
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "まかす",
+            "examples": "負かす",
+            "sourcePage": 82
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おう",
+            "examples": "負う，負い目，背負う",
+            "sourcePage": 82
+          }
+        ]
+      },
+      {
+        "kanji": "部",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ブ",
+            "examples": "部分，全部，本部",
+            "sourcePage": 82
+          }
+        ]
+      },
+      {
+        "kanji": "服",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "フク",
+            "examples": "服装，服従，洋服",
+            "sourcePage": 83
+          }
+        ]
+      },
+      {
+        "kanji": "福",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "フク",
+            "examples": "福祉，福徳，幸福",
+            "sourcePage": 83
+          }
+        ]
+      },
+      {
+        "kanji": "物",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ブツ",
+            "examples": "物質，人物，動物",
+            "sourcePage": 83
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "モツ",
+            "examples": "食物，進物，禁物",
+            "sourcePage": 83
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "もの",
+            "examples": "物，物語，品物",
+            "sourcePage": 83
+          }
+        ]
+      },
+      {
+        "kanji": "平",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヘイ",
+            "examples": "平面，平和，公平",
+            "sourcePage": 84
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ビョウ",
+            "examples": "平等",
+            "sourcePage": 84
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "たいら",
+            "examples": "平らな土地，平らげる",
+            "sourcePage": 84
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ひら",
+            "examples": "平手，平謝り，平たい",
+            "sourcePage": 84
+          }
+        ]
+      },
+      {
+        "kanji": "返",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヘン",
+            "examples": "返却，返事，返礼",
+            "sourcePage": 85
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かえす",
+            "examples": "返す，仕返し",
+            "sourcePage": 85
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かえる",
+            "examples": "返る，寝返り",
+            "sourcePage": 85
+          }
+        ]
+      },
+      {
+        "kanji": "勉",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ベン",
+            "examples": "勉強，勉学，勤勉",
+            "sourcePage": 85
+          }
+        ]
+      },
+      {
+        "kanji": "放",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ホウ",
+            "examples": "放送，放棄，追放",
+            "sourcePage": 86
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はなす",
+            "examples": "放す，手放す",
+            "sourcePage": 86
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はなつ",
+            "examples": "放つ",
+            "sourcePage": 86
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はなれる",
+            "examples": "放れる",
+            "sourcePage": 86
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ほうる",
+            "examples": "",
+            "sourcePage": 86
+          }
+        ]
+      },
+      {
+        "kanji": "味",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ミ",
+            "examples": "味覚，意味，興味",
+            "sourcePage": 89
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あじ",
+            "examples": "味，味見，塩味",
+            "sourcePage": 89
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あじわう",
+            "examples": "味わう，味わい",
+            "sourcePage": 89
+          }
+        ]
+      },
+      {
+        "kanji": "命",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "メイ",
+            "examples": "命令，運命，生命",
+            "sourcePage": 90
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ミョウ",
+            "examples": "寿命",
+            "sourcePage": 90
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "いのち",
+            "examples": "命，命拾い",
+            "sourcePage": 90
+          }
+        ]
+      },
+      {
+        "kanji": "面",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "メン",
+            "examples": "面会，顔面，方面",
+            "sourcePage": 91
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おも",
+            "examples": "川の面，面影，面長",
+            "sourcePage": 91
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おもて",
+            "examples": "面，細面",
+            "sourcePage": 91
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つら",
+            "examples": "面，面魂，鼻面",
+            "sourcePage": 91
+          }
+        ]
+      },
+      {
+        "kanji": "問",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "モン",
+            "examples": "問題，問答，訪問",
+            "sourcePage": 92
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "とう",
+            "examples": "問う，問いただす",
+            "sourcePage": 92
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "とい",
+            "examples": "問い",
+            "sourcePage": 92
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "とん",
+            "examples": "問屋",
+            "sourcePage": 92
+          }
+        ]
+      },
+      {
+        "kanji": "役",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヤク",
+            "examples": "役所，役目，荷役",
+            "sourcePage": 92
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "エキ",
+            "examples": "役務，使役，兵役",
+            "sourcePage": 92
+          }
+        ]
+      },
+      {
+        "kanji": "薬",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヤク",
+            "examples": "薬剤，薬局，火薬",
+            "sourcePage": 92
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "くすり",
+            "examples": "薬，飲み薬",
+            "sourcePage": 92
+          }
+        ]
+      },
+      {
+        "kanji": "由",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ユ",
+            "examples": "由来，経由",
+            "sourcePage": 92
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ユウ",
+            "examples": "自由，理由，事由",
+            "sourcePage": 92
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ユイ",
+            "examples": "由緒",
+            "sourcePage": 92
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "よし",
+            "examples": "……の由",
+            "sourcePage": 92
+          }
+        ]
+      },
+      {
+        "kanji": "油",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ユ",
+            "examples": "油脂，油田，石油",
+            "sourcePage": 92
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あぶら",
+            "examples": "油，油絵，水油",
+            "sourcePage": 92
+          }
+        ]
+      },
+      {
+        "kanji": "有",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ユウ",
+            "examples": "有益，所有，特有",
+            "sourcePage": 92
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ウ",
+            "examples": "有無，有象無象",
+            "sourcePage": 92
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ある",
+            "examples": "有る，有り金",
+            "sourcePage": 93
+          }
+        ]
+      },
+      {
+        "kanji": "遊",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ユウ",
+            "examples": "遊戯，遊離，交遊",
+            "sourcePage": 93
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ユ",
+            "examples": "遊山",
+            "sourcePage": 93
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あそぶ",
+            "examples": "遊ぶ，遊び",
+            "sourcePage": 93
+          }
+        ]
+      },
+      {
+        "kanji": "予",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヨ",
+            "examples": "予定，予備，猶予",
+            "sourcePage": 93
+          }
+        ]
+      },
+      {
+        "kanji": "羊",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヨウ",
+            "examples": "羊毛，綿羊，牧羊",
+            "sourcePage": 93
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ひつじ",
+            "examples": "羊",
+            "sourcePage": 93
+          }
+        ]
+      },
+      {
+        "kanji": "洋",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヨウ",
+            "examples": "洋楽，洋風，海洋",
+            "sourcePage": 93
+          }
+        ]
+      },
+      {
+        "kanji": "葉",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヨウ",
+            "examples": "葉緑素，落葉，紅葉",
+            "sourcePage": 94
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "は",
+            "examples": "葉，枯れ葉，落ち葉",
+            "sourcePage": 94
+          }
+        ]
+      },
+      {
+        "kanji": "陽",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヨウ",
+            "examples": "陽光，陰陽，太陽",
+            "sourcePage": 94
+          }
+        ]
+      },
+      {
+        "kanji": "様",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヨウ",
+            "examples": "様式，様子，模様",
+            "sourcePage": 94
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "さま",
+            "examples": "様，○○様",
+            "sourcePage": 94
+          }
+        ]
+      },
+      {
+        "kanji": "落",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ラク",
+            "examples": "落語，落涙，集落",
+            "sourcePage": 95
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おちる",
+            "examples": "落ちる，落ち着く",
+            "sourcePage": 95
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おとす",
+            "examples": "落とす，力落とし",
+            "sourcePage": 95
+          }
+        ]
+      },
+      {
+        "kanji": "流",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "リュウ",
+            "examples": "流行，流動，電流",
+            "sourcePage": 96
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ル",
+            "examples": "流布，流転，流罪",
+            "sourcePage": 96
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ながれる",
+            "examples": "流れる，流れ",
+            "sourcePage": 96
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ながす",
+            "examples": "流す，流し",
+            "sourcePage": 96
+          }
+        ]
+      },
+      {
+        "kanji": "旅",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "リョ",
+            "examples": "旅行，旅情，旅券",
+            "sourcePage": 96
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "たび",
+            "examples": "旅，旅先，船旅",
+            "sourcePage": 96
+          }
+        ]
+      },
+      {
+        "kanji": "両",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "リョウ",
+            "examples": "両親，両立，千両",
+            "sourcePage": 96
+          }
+        ]
+      },
+      {
+        "kanji": "緑",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "リョク",
+            "examples": "緑茶，緑陰，新緑",
+            "sourcePage": 97
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ロク",
+            "examples": "緑青",
+            "sourcePage": 97
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "みどり",
+            "examples": "緑，薄緑",
+            "sourcePage": 97
+          }
+        ]
+      },
+      {
+        "kanji": "礼",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "レイ",
+            "examples": "礼儀，謝礼，無礼",
+            "sourcePage": 97
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ライ",
+            "examples": "礼賛，礼拝",
+            "sourcePage": 98
+          }
+        ]
+      },
+      {
+        "kanji": "列",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "レツ",
+            "examples": "列外，列車，陳列",
+            "sourcePage": 98
+          }
+        ]
+      },
+      {
+        "kanji": "練",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "レン",
+            "examples": "練習，試練，熟練",
+            "sourcePage": 99
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ねる",
+            "examples": "練る，練り直す",
+            "sourcePage": 99
+          }
+        ]
+      },
+      {
+        "kanji": "路",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ロ",
+            "examples": "路上，道路",
+            "sourcePage": 99
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "じ",
+            "examples": "家路，旅路，山路",
+            "sourcePage": 99
+          }
+        ]
+      },
+      {
+        "kanji": "和",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ワ",
+            "examples": "和解，和服，柔和",
+            "sourcePage": 99
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "オ",
+            "examples": "和尚",
+            "sourcePage": 99
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "やわらぐ",
+            "examples": "和らぐ",
+            "sourcePage": 99
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "やわらげる",
+            "examples": "和らげる",
+            "sourcePage": 99
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "なごむ",
+            "examples": "和む",
+            "sourcePage": 99
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "なごやか",
+            "examples": "和やかだ",
+            "sourcePage": 100
+          }
+        ]
+      }
+    ],
+    "4": [
+      {
+        "kanji": "愛",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "アイ",
+            "examples": "愛情，愛読，恋愛",
+            "sourcePage": 1
+          }
+        ]
+      },
+      {
+        "kanji": "案",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "アン",
+            "examples": "案文，案内，新案",
+            "sourcePage": 1
+          }
+        ]
+      },
+      {
+        "kanji": "以",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "イ",
+            "examples": "以上，以内，以後",
+            "sourcePage": 1
+          }
+        ]
+      },
+      {
+        "kanji": "衣",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "イ",
+            "examples": "衣服，衣食住，作業衣",
+            "sourcePage": 1
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ころも",
+            "examples": "衣，羽衣",
+            "sourcePage": 1
+          }
+        ]
+      },
+      {
+        "kanji": "位",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "イ",
+            "examples": "位置，第一位，各位",
+            "sourcePage": 1
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "くらい",
+            "examples": "位，位取り，位する",
+            "sourcePage": 1
+          }
+        ]
+      },
+      {
+        "kanji": "茨",
+        "readings": [
+          {
+            "readingType": "kun",
+            "canonicalReading": "いばら",
+            "examples": "",
+            "sourcePage": 2
+          }
+        ]
+      },
+      {
+        "kanji": "印",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "イン",
+            "examples": "印刷，印象，調印",
+            "sourcePage": 2
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "しるし",
+            "examples": "印，目印，矢印",
+            "sourcePage": 2
+          }
+        ]
+      },
+      {
+        "kanji": "英",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "エイ",
+            "examples": "英雄，英断，俊英",
+            "sourcePage": 3
+          }
+        ]
+      },
+      {
+        "kanji": "栄",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "エイ",
+            "examples": "栄枯，栄養，繁栄",
+            "sourcePage": 3
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "さかえる",
+            "examples": "栄える，栄え",
+            "sourcePage": 3
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はえ",
+            "examples": "栄えある，見栄え，出来栄え",
+            "sourcePage": 3
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はえる",
+            "examples": "栄える",
+            "sourcePage": 3
+          }
+        ]
+      },
+      {
+        "kanji": "媛",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "エン",
+            "examples": "才媛",
+            "sourcePage": 4
+          }
+        ]
+      },
+      {
+        "kanji": "塩",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "エン",
+            "examples": "塩分，塩酸，食塩",
+            "sourcePage": 5
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "しお",
+            "examples": "塩，塩辛い",
+            "sourcePage": 5
+          }
+        ]
+      },
+      {
+        "kanji": "岡",
+        "readings": [
+          {
+            "readingType": "kun",
+            "canonicalReading": "おか",
+            "examples": "",
+            "sourcePage": 5
+          }
+        ]
+      },
+      {
+        "kanji": "億",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "オク",
+            "examples": "億万，一億",
+            "sourcePage": 5
+          }
+        ]
+      },
+      {
+        "kanji": "加",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カ",
+            "examples": "加入，加減，追加",
+            "sourcePage": 6
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "くわえる",
+            "examples": "加える",
+            "sourcePage": 6
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "くわわる",
+            "examples": "加わる",
+            "sourcePage": 6
+          }
+        ]
+      },
+      {
+        "kanji": "果",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カ",
+            "examples": "果実，果断，結果",
+            "sourcePage": 7
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はたす",
+            "examples": "果たす･果たして〔副〕",
+            "sourcePage": 7
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はてる",
+            "examples": "果てる",
+            "sourcePage": 7
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はて",
+            "examples": "果て",
+            "sourcePage": 7
+          }
+        ]
+      },
+      {
+        "kanji": "貨",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カ",
+            "examples": "貨物，貨幣，通貨",
+            "sourcePage": 7
+          }
+        ]
+      },
+      {
+        "kanji": "課",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カ",
+            "examples": "課，日課，課する",
+            "sourcePage": 8
+          }
+        ]
+      },
+      {
+        "kanji": "芽",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ガ",
+            "examples": "発芽，麦芽，肉芽",
+            "sourcePage": 8
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "め",
+            "examples": "芽，芽生える，新芽",
+            "sourcePage": 8
+          }
+        ]
+      },
+      {
+        "kanji": "賀",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ガ",
+            "examples": "賀状，祝賀，賀する",
+            "sourcePage": 8
+          }
+        ]
+      },
+      {
+        "kanji": "改",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カイ",
+            "examples": "改造，改革，更改",
+            "sourcePage": 8
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あらためる",
+            "examples": "改める，改めて〔副〕",
+            "sourcePage": 8
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あらたまる",
+            "examples": "改まる",
+            "sourcePage": 8
+          }
+        ]
+      },
+      {
+        "kanji": "械",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カイ",
+            "examples": "機械",
+            "sourcePage": 9
+          }
+        ]
+      },
+      {
+        "kanji": "害",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ガイ",
+            "examples": "害悪，被害，損害",
+            "sourcePage": 10
+          }
+        ]
+      },
+      {
+        "kanji": "街",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ガイ",
+            "examples": "街頭，市街，商店街",
+            "sourcePage": 10
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "カイ",
+            "examples": "街道",
+            "sourcePage": 10
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "まち",
+            "examples": "街，街角",
+            "sourcePage": 10
+          }
+        ]
+      },
+      {
+        "kanji": "各",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カク",
+            "examples": "各自，各種，各位",
+            "sourcePage": 10
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おのおの",
+            "examples": "各",
+            "sourcePage": 10
+          }
+        ]
+      },
+      {
+        "kanji": "覚",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カク",
+            "examples": "覚悟，知覚，発覚",
+            "sourcePage": 10
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おぼえる",
+            "examples": "覚える，覚え",
+            "sourcePage": 10
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "さます",
+            "examples": "覚ます，目覚まし",
+            "sourcePage": 10
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "さめる",
+            "examples": "覚める，目覚め",
+            "sourcePage": 10
+          }
+        ]
+      },
+      {
+        "kanji": "潟",
+        "readings": [
+          {
+            "readingType": "kun",
+            "canonicalReading": "かた",
+            "examples": "干潟，○○潟",
+            "sourcePage": 11
+          }
+        ]
+      },
+      {
+        "kanji": "完",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カン",
+            "examples": "完全，完成，未完",
+            "sourcePage": 12
+          }
+        ]
+      },
+      {
+        "kanji": "官",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カン",
+            "examples": "官庁，官能，教官",
+            "sourcePage": 12
+          }
+        ]
+      },
+      {
+        "kanji": "管",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カン",
+            "examples": "管理，管制，鉄管",
+            "sourcePage": 13
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "くだ",
+            "examples": "管",
+            "sourcePage": 13
+          }
+        ]
+      },
+      {
+        "kanji": "関",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カン",
+            "examples": "関節，関係，関する",
+            "sourcePage": 13
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "せき",
+            "examples": "関，関取，関の山",
+            "sourcePage": 13
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かかわる",
+            "examples": "関わる，関わり",
+            "sourcePage": 13
+          }
+        ]
+      },
+      {
+        "kanji": "観",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "カン",
+            "examples": "観察，客観，壮観",
+            "sourcePage": 13
+          }
+        ]
+      },
+      {
+        "kanji": "願",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ガン",
+            "examples": "願望，祈願，志願",
+            "sourcePage": 14
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ねがう",
+            "examples": "願う，願い，願わしい",
+            "sourcePage": 14
+          }
+        ]
+      },
+      {
+        "kanji": "岐",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キ",
+            "examples": "岐路，分岐，多岐",
+            "sourcePage": 14
+          }
+        ]
+      },
+      {
+        "kanji": "希",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キ",
+            "examples": "希望，希少，希薄",
+            "sourcePage": 14
+          }
+        ]
+      },
+      {
+        "kanji": "季",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キ",
+            "examples": "季節，四季，雨季",
+            "sourcePage": 14
+          }
+        ]
+      },
+      {
+        "kanji": "旗",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キ",
+            "examples": "旗手，旗艦，国旗",
+            "sourcePage": 15
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はた",
+            "examples": "旗，旗色，手旗",
+            "sourcePage": 15
+          }
+        ]
+      },
+      {
+        "kanji": "器",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キ",
+            "examples": "器量，器用，陶器",
+            "sourcePage": 15
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "うつわ",
+            "examples": "器",
+            "sourcePage": 15
+          }
+        ]
+      },
+      {
+        "kanji": "機",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キ",
+            "examples": "機械，機会，危機",
+            "sourcePage": 15
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はた",
+            "examples": "機，機織り",
+            "sourcePage": 15
+          }
+        ]
+      },
+      {
+        "kanji": "議",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ギ",
+            "examples": "議論，会議，異議",
+            "sourcePage": 16
+          }
+        ]
+      },
+      {
+        "kanji": "求",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キュウ",
+            "examples": "求職，要求，追求",
+            "sourcePage": 17
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "もとめる",
+            "examples": "求める，求め",
+            "sourcePage": 17
+          }
+        ]
+      },
+      {
+        "kanji": "泣",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キュウ",
+            "examples": "号泣，感泣",
+            "sourcePage": 17
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "なく",
+            "examples": "泣く，泣き沈む",
+            "sourcePage": 17
+          }
+        ]
+      },
+      {
+        "kanji": "給",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キュウ",
+            "examples": "給水，配給，月給",
+            "sourcePage": 17
+          }
+        ]
+      },
+      {
+        "kanji": "挙",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キョ",
+            "examples": "挙手，挙国，壮挙",
+            "sourcePage": 18
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あげる",
+            "examples": "挙げる，挙げて〔副〕",
+            "sourcePage": 18
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あがる",
+            "examples": "挙がる",
+            "sourcePage": 18
+          }
+        ]
+      },
+      {
+        "kanji": "漁",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ギョ",
+            "examples": "漁業，漁船，漁村",
+            "sourcePage": 18
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "リョウ",
+            "examples": "漁師，大漁，不漁",
+            "sourcePage": 18
+          }
+        ]
+      },
+      {
+        "kanji": "共",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キョウ",
+            "examples": "共同，共通，公共",
+            "sourcePage": 18
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "とも",
+            "examples": "共に，共々，共食い",
+            "sourcePage": 18
+          }
+        ]
+      },
+      {
+        "kanji": "協",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キョウ",
+            "examples": "協力，協会，妥協",
+            "sourcePage": 18
+          }
+        ]
+      },
+      {
+        "kanji": "鏡",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キョウ",
+            "examples": "鏡台，望遠鏡，反射鏡",
+            "sourcePage": 19
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かがみ",
+            "examples": "鏡",
+            "sourcePage": 19
+          }
+        ]
+      },
+      {
+        "kanji": "競",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キョウ",
+            "examples": "競争，競技，競泳",
+            "sourcePage": 19
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ケイ",
+            "examples": "競馬，競輪",
+            "sourcePage": 19
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "きそう",
+            "examples": "競う",
+            "sourcePage": 19
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "せる",
+            "examples": "競る，競り合う",
+            "sourcePage": 19
+          }
+        ]
+      },
+      {
+        "kanji": "極",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "キョク",
+            "examples": "極限，終極，積極的",
+            "sourcePage": 20
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ゴク",
+            "examples": "極上，極秘，至極",
+            "sourcePage": 20
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "きわめる",
+            "examples": "極める，極め付き，極めて〔副〕",
+            "sourcePage": 20
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "きわまる",
+            "examples": "極まる，極まり",
+            "sourcePage": 20
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "きわみ",
+            "examples": "極み",
+            "sourcePage": 20
+          }
+        ]
+      },
+      {
+        "kanji": "熊",
+        "readings": [
+          {
+            "readingType": "kun",
+            "canonicalReading": "くま",
+            "examples": "熊",
+            "sourcePage": 21
+          }
+        ]
+      },
+      {
+        "kanji": "訓",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "クン",
+            "examples": "訓練，教訓，音訓",
+            "sourcePage": 21
+          }
+        ]
+      },
+      {
+        "kanji": "軍",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "グン",
+            "examples": "軍隊，軍備，空軍",
+            "sourcePage": 21
+          }
+        ]
+      },
+      {
+        "kanji": "郡",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "グン",
+            "examples": "郡部，○○郡",
+            "sourcePage": 21
+          }
+        ]
+      },
+      {
+        "kanji": "群",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "グン",
+            "examples": "群居，大群，抜群",
+            "sourcePage": 21
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "むれる",
+            "examples": "群れる",
+            "sourcePage": 21
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "むれ",
+            "examples": "群れ",
+            "sourcePage": 21
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "むら",
+            "examples": "群すずめ，群千鳥，群がる",
+            "sourcePage": 21
+          }
+        ]
+      },
+      {
+        "kanji": "径",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ケイ",
+            "examples": "直径，直情径行",
+            "sourcePage": 22
+          }
+        ]
+      },
+      {
+        "kanji": "景",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ケイ",
+            "examples": "景気，風景，光景",
+            "sourcePage": 22
+          }
+        ]
+      },
+      {
+        "kanji": "芸",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ゲイ",
+            "examples": "芸術，芸能，文芸",
+            "sourcePage": 23
+          }
+        ]
+      },
+      {
+        "kanji": "欠",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ケツ",
+            "examples": "欠乏，欠席，補欠",
+            "sourcePage": 23
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かける",
+            "examples": "欠ける",
+            "sourcePage": 23
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かく",
+            "examples": "欠く",
+            "sourcePage": 23
+          }
+        ]
+      },
+      {
+        "kanji": "結",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ケツ",
+            "examples": "結論，結婚，連結",
+            "sourcePage": 23
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "むすぶ",
+            "examples": "結ぶ，結び",
+            "sourcePage": 23
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ゆう",
+            "examples": "結う，元結",
+            "sourcePage": 23
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ゆわえる",
+            "examples": "結わえる",
+            "sourcePage": 23
+          }
+        ]
+      },
+      {
+        "kanji": "建",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ケン",
+            "examples": "建築，建議，封建的",
+            "sourcePage": 24
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "コン",
+            "examples": "建立",
+            "sourcePage": 24
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "たてる",
+            "examples": "建てる，建物，二階建て",
+            "sourcePage": 24
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "たつ",
+            "examples": "建つ，一戸建ち",
+            "sourcePage": 24
+          }
+        ]
+      },
+      {
+        "kanji": "健",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ケン",
+            "examples": "健康，健闘，強健",
+            "sourcePage": 24
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "すこやか",
+            "examples": "健やかだ",
+            "sourcePage": 24
+          }
+        ]
+      },
+      {
+        "kanji": "験",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ケン",
+            "examples": "試験，経験，実験",
+            "sourcePage": 25
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ゲン",
+            "examples": "験がある，霊験",
+            "sourcePage": 25
+          }
+        ]
+      },
+      {
+        "kanji": "固",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "コ",
+            "examples": "固定，固有，堅固",
+            "sourcePage": 26
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かためる",
+            "examples": "固める，固め",
+            "sourcePage": 26
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かたまる",
+            "examples": "固まる，固まり",
+            "sourcePage": 26
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かたい",
+            "examples": "固い，固さ",
+            "sourcePage": 26
+          }
+        ]
+      },
+      {
+        "kanji": "功",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "コウ",
+            "examples": "功名，功績，成功",
+            "sourcePage": 27
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ク",
+            "examples": "功徳",
+            "sourcePage": 27
+          }
+        ]
+      },
+      {
+        "kanji": "好",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "コウ",
+            "examples": "好意，好敵手，良好",
+            "sourcePage": 28
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "このむ",
+            "examples": "好む，好み，好ましい",
+            "sourcePage": 28
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "すく",
+            "examples": "好く，好き嫌い，好きな絵",
+            "sourcePage": 28
+          }
+        ]
+      },
+      {
+        "kanji": "香",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "コウ",
+            "examples": "香水，香気，線香",
+            "sourcePage": 29
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "キョウ",
+            "examples": "香車",
+            "sourcePage": 29
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "か",
+            "examples": "香，色香，移り香",
+            "sourcePage": 29
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かおり",
+            "examples": "香り",
+            "sourcePage": 29
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かおる",
+            "examples": "香る",
+            "sourcePage": 29
+          }
+        ]
+      },
+      {
+        "kanji": "候",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "コウ",
+            "examples": "候補，気候，測候所",
+            "sourcePage": 29
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "そうろう",
+            "examples": "候文，居候",
+            "sourcePage": 29
+          }
+        ]
+      },
+      {
+        "kanji": "康",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "コウ",
+            "examples": "健康，小康",
+            "sourcePage": 29
+          }
+        ]
+      },
+      {
+        "kanji": "佐",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "サ",
+            "examples": "佐幕，補佐，大佐",
+            "sourcePage": 32
+          }
+        ]
+      },
+      {
+        "kanji": "差",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "サ",
+            "examples": "差異，差別，誤差",
+            "sourcePage": 32
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "さす",
+            "examples": "差す",
+            "sourcePage": 32
+          }
+        ]
+      },
+      {
+        "kanji": "菜",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "サイ",
+            "examples": "菜園，菜食，野菜",
+            "sourcePage": 33
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "な",
+            "examples": "菜，青菜",
+            "sourcePage": 33
+          }
+        ]
+      },
+      {
+        "kanji": "最",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "サイ",
+            "examples": "最大，最近，最先端",
+            "sourcePage": 33
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "もっとも",
+            "examples": "最も",
+            "sourcePage": 33
+          }
+        ]
+      },
+      {
+        "kanji": "埼",
+        "readings": [
+          {
+            "readingType": "kun",
+            "canonicalReading": "さい",
+            "examples": "",
+            "sourcePage": 33
+          }
+        ]
+      },
+      {
+        "kanji": "材",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ザイ",
+            "examples": "材木，材料，人材",
+            "sourcePage": 33
+          }
+        ]
+      },
+      {
+        "kanji": "崎",
+        "readings": [
+          {
+            "readingType": "kun",
+            "canonicalReading": "さき",
+            "examples": "○○崎",
+            "sourcePage": 33
+          }
+        ]
+      },
+      {
+        "kanji": "昨",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "サク",
+            "examples": "昨日，昨年，一昨日",
+            "sourcePage": 33
+          }
+        ]
+      },
+      {
+        "kanji": "札",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "サツ",
+            "examples": "札入れ，表札，入札",
+            "sourcePage": 34
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ふだ",
+            "examples": "札，名札",
+            "sourcePage": 34
+          }
+        ]
+      },
+      {
+        "kanji": "刷",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "サツ",
+            "examples": "刷新，印刷，増刷",
+            "sourcePage": 34
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "する",
+            "examples": "刷る",
+            "sourcePage": 34
+          }
+        ]
+      },
+      {
+        "kanji": "察",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "サツ",
+            "examples": "察知，観察，考察",
+            "sourcePage": 34
+          }
+        ]
+      },
+      {
+        "kanji": "参",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "サン",
+            "examples": "参加，参万円，降参",
+            "sourcePage": 34
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "まいる",
+            "examples": "参る，寺参り",
+            "sourcePage": 34
+          }
+        ]
+      },
+      {
+        "kanji": "産",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "サン",
+            "examples": "産業，生産，出産",
+            "sourcePage": 35
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "うむ",
+            "examples": "産む，産み月",
+            "sourcePage": 35
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "うまれる",
+            "examples": "産まれる",
+            "sourcePage": 35
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "うぶ",
+            "examples": "産湯，産着，産毛",
+            "sourcePage": 35
+          }
+        ]
+      },
+      {
+        "kanji": "散",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "サン",
+            "examples": "散歩，散文，解散",
+            "sourcePage": 35
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ちる",
+            "examples": "散る，散り散りに",
+            "sourcePage": 35
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ちらす",
+            "examples": "散らす",
+            "sourcePage": 35
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ちらかす",
+            "examples": "散らかす",
+            "sourcePage": 35
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ちらかる",
+            "examples": "散らかる",
+            "sourcePage": 35
+          }
+        ]
+      },
+      {
+        "kanji": "残",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ザン",
+            "examples": "残留，残念，敗残",
+            "sourcePage": 35
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "のこる",
+            "examples": "残る，残り",
+            "sourcePage": 35
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "のこす",
+            "examples": "残す，食べ残し",
+            "sourcePage": 35
+          }
+        ]
+      },
+      {
+        "kanji": "氏",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シ",
+            "examples": "氏名，姓氏，某氏",
+            "sourcePage": 35
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "うじ",
+            "examples": "氏，氏神",
+            "sourcePage": 35
+          }
+        ]
+      },
+      {
+        "kanji": "司",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シ",
+            "examples": "司会，司令，上司",
+            "sourcePage": 35
+          }
+        ]
+      },
+      {
+        "kanji": "試",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シ",
+            "examples": "試験，試作，追試",
+            "sourcePage": 37
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "こころみる",
+            "examples": "試みる，試み",
+            "sourcePage": 37
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ためす",
+            "examples": "試す，試し",
+            "sourcePage": 37
+          }
+        ]
+      },
+      {
+        "kanji": "児",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ジ",
+            "examples": "児童，幼児，優良児",
+            "sourcePage": 38
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ニ",
+            "examples": "小児科",
+            "sourcePage": 38
+          }
+        ]
+      },
+      {
+        "kanji": "治",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ジ",
+            "examples": "政治，療治",
+            "sourcePage": 38
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "チ",
+            "examples": "治安，治水，自治",
+            "sourcePage": 38
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おさめる",
+            "examples": "治める",
+            "sourcePage": 38
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おさまる",
+            "examples": "治まる",
+            "sourcePage": 38
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "なおる",
+            "examples": "治る",
+            "sourcePage": 38
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "なおす",
+            "examples": "治す",
+            "sourcePage": 38
+          }
+        ]
+      },
+      {
+        "kanji": "滋",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ジ",
+            "examples": "滋味，滋養",
+            "sourcePage": 38
+          }
+        ]
+      },
+      {
+        "kanji": "辞",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ジ",
+            "examples": "辞書，辞職，式辞",
+            "sourcePage": 38
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "やめる",
+            "examples": "辞める",
+            "sourcePage": 38
+          }
+        ]
+      },
+      {
+        "kanji": "鹿",
+        "readings": [
+          {
+            "readingType": "kun",
+            "canonicalReading": "しか",
+            "examples": "鹿",
+            "sourcePage": 38
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "か",
+            "examples": "鹿の子",
+            "sourcePage": 38
+          }
+        ]
+      },
+      {
+        "kanji": "失",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シツ",
+            "examples": "失望，失敗，消失",
+            "sourcePage": 39
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "うしなう",
+            "examples": "失う",
+            "sourcePage": 39
+          }
+        ]
+      },
+      {
+        "kanji": "借",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シャク",
+            "examples": "借用，借金，貸借",
+            "sourcePage": 40
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かりる",
+            "examples": "借りる，借り",
+            "sourcePage": 40
+          }
+        ]
+      },
+      {
+        "kanji": "種",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シュ",
+            "examples": "種類，人種，品種",
+            "sourcePage": 41
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "たね",
+            "examples": "種，菜種，一粒種",
+            "sourcePage": 41
+          }
+        ]
+      },
+      {
+        "kanji": "周",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シュウ",
+            "examples": "周知，周囲，円周",
+            "sourcePage": 41
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "まわり",
+            "examples": "周り",
+            "sourcePage": 41
+          }
+        ]
+      },
+      {
+        "kanji": "祝",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シュク",
+            "examples": "祝賀，祝日，慶祝",
+            "sourcePage": 43
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "シュウ",
+            "examples": "祝儀，祝言",
+            "sourcePage": 43
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "いわう",
+            "examples": "祝う",
+            "sourcePage": 43
+          }
+        ]
+      },
+      {
+        "kanji": "順",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ジュン",
+            "examples": "順序，順調，従順",
+            "sourcePage": 44
+          }
+        ]
+      },
+      {
+        "kanji": "初",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ショ",
+            "examples": "初期，初心者，最初",
+            "sourcePage": 44
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はじめ",
+            "examples": "初め",
+            "sourcePage": 44
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はじめて",
+            "examples": "初めて〔副〕",
+            "sourcePage": 44
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はつ",
+            "examples": "初の受賞，初雪，初耳",
+            "sourcePage": 44
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "うい",
+            "examples": "初陣，初々しい",
+            "sourcePage": 44
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "そめる",
+            "examples": "書き初め，出初め式",
+            "sourcePage": 45
+          }
+        ]
+      },
+      {
+        "kanji": "松",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ショウ",
+            "examples": "松竹梅，白砂青松",
+            "sourcePage": 46
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "まつ",
+            "examples": "松，松原，門松",
+            "sourcePage": 46
+          }
+        ]
+      },
+      {
+        "kanji": "笑",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ショウ",
+            "examples": "笑覧，微笑，談笑",
+            "sourcePage": 46
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "わらう",
+            "examples": "笑う，大笑い",
+            "sourcePage": 46
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "えむ",
+            "examples": "ほくそ笑む，笑み",
+            "sourcePage": 46
+          }
+        ]
+      },
+      {
+        "kanji": "唱",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ショウ",
+            "examples": "唱歌，合唱，提唱",
+            "sourcePage": 46
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "となえる",
+            "examples": "唱える",
+            "sourcePage": 46
+          }
+        ]
+      },
+      {
+        "kanji": "焼",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ショウ",
+            "examples": "焼却，燃焼，全焼",
+            "sourcePage": 46
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "やく",
+            "examples": "焼く，炭焼き",
+            "sourcePage": 46
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "やける",
+            "examples": "焼ける，夕焼け",
+            "sourcePage": 46
+          }
+        ]
+      },
+      {
+        "kanji": "照",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ショウ",
+            "examples": "照明，照会，対照的",
+            "sourcePage": 47
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "てる",
+            "examples": "照る，日照り",
+            "sourcePage": 47
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "てらす",
+            "examples": "照らす",
+            "sourcePage": 47
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "てれる",
+            "examples": "照れる",
+            "sourcePage": 47
+          }
+        ]
+      },
+      {
+        "kanji": "城",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ジョウ",
+            "examples": "城内，城下町，落城",
+            "sourcePage": 48
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "しろ",
+            "examples": "城，城跡",
+            "sourcePage": 48
+          }
+        ]
+      },
+      {
+        "kanji": "縄",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ジョウ",
+            "examples": "縄文，自縄自縛",
+            "sourcePage": 48
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "なわ",
+            "examples": "縄，縄張",
+            "sourcePage": 48
+          }
+        ]
+      },
+      {
+        "kanji": "臣",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シン",
+            "examples": "臣下，君臣",
+            "sourcePage": 49
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ジン",
+            "examples": "大臣",
+            "sourcePage": 49
+          }
+        ]
+      },
+      {
+        "kanji": "信",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "シン",
+            "examples": "信用，信頼，通信",
+            "sourcePage": 49
+          }
+        ]
+      },
+      {
+        "kanji": "井",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "セイ",
+            "examples": "油井，市井",
+            "sourcePage": 52
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ショウ",
+            "examples": "天井",
+            "sourcePage": 52
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "い",
+            "examples": "井戸",
+            "sourcePage": 52
+          }
+        ]
+      },
+      {
+        "kanji": "成",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "セイ",
+            "examples": "成功，完成，賛成",
+            "sourcePage": 52
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ジョウ",
+            "examples": "成就，成仏",
+            "sourcePage": 53
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "なる",
+            "examples": "成る，成り立つ",
+            "sourcePage": 53
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "なす",
+            "examples": "成す，成し遂げる",
+            "sourcePage": 53
+          }
+        ]
+      },
+      {
+        "kanji": "省",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "セイ",
+            "examples": "反省，内省，帰省",
+            "sourcePage": 53
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ショウ",
+            "examples": "省略，各省",
+            "sourcePage": 53
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かえりみる",
+            "examples": "省みる",
+            "sourcePage": 53
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はぶく",
+            "examples": "省く",
+            "sourcePage": 53
+          }
+        ]
+      },
+      {
+        "kanji": "清",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "セイ",
+            "examples": "清潔，清算，粛清",
+            "sourcePage": 53
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ショウ",
+            "examples": "六根清浄",
+            "sourcePage": 53
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "きよい",
+            "examples": "清い，清らかだ",
+            "sourcePage": 53
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "きよまる",
+            "examples": "清まる",
+            "sourcePage": 53
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "きよめる",
+            "examples": "清める",
+            "sourcePage": 53
+          }
+        ]
+      },
+      {
+        "kanji": "静",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "セイ",
+            "examples": "静止，静穏，安静",
+            "sourcePage": 54
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ジョウ",
+            "examples": "静脈",
+            "sourcePage": 54
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "しず",
+            "examples": "静々と，静けさ",
+            "sourcePage": 54
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "しずか",
+            "examples": "静かだ",
+            "sourcePage": 54
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "しずまる",
+            "examples": "静まる",
+            "sourcePage": 54
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "しずめる",
+            "examples": "静める",
+            "sourcePage": 54
+          }
+        ]
+      },
+      {
+        "kanji": "席",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "セキ",
+            "examples": "席上，座席，出席",
+            "sourcePage": 55
+          }
+        ]
+      },
+      {
+        "kanji": "積",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "セキ",
+            "examples": "積雪，蓄積，面積",
+            "sourcePage": 55
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つむ",
+            "examples": "積む，下積み",
+            "sourcePage": 55
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つもる",
+            "examples": "積もる，見積書",
+            "sourcePage": 55
+          }
+        ]
+      },
+      {
+        "kanji": "折",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "セツ",
+            "examples": "折衷，折衝，屈折",
+            "sourcePage": 55
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おる",
+            "examples": "折る，折り紙，折り箱",
+            "sourcePage": 55
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おり",
+            "examples": "折，……する折",
+            "sourcePage": 55
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おれる",
+            "examples": "折れる，名折れ",
+            "sourcePage": 55
+          }
+        ]
+      },
+      {
+        "kanji": "節",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "セツ",
+            "examples": "節約，季節，関節",
+            "sourcePage": 55
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "セチ",
+            "examples": "お節料理",
+            "sourcePage": 55
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ふし",
+            "examples": "節，節穴",
+            "sourcePage": 55
+          }
+        ]
+      },
+      {
+        "kanji": "説",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "セツ",
+            "examples": "説明，小説，演説",
+            "sourcePage": 55
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ゼイ",
+            "examples": "遊説",
+            "sourcePage": 55
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "とく",
+            "examples": "説く",
+            "sourcePage": 56
+          }
+        ]
+      },
+      {
+        "kanji": "浅",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "セン",
+            "examples": "浅薄，浅学，深浅",
+            "sourcePage": 56
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あさい",
+            "examples": "浅い，浅瀬，遠浅",
+            "sourcePage": 56
+          }
+        ]
+      },
+      {
+        "kanji": "戦",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "セン",
+            "examples": "戦争，苦戦，論戦",
+            "sourcePage": 56
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "いくさ",
+            "examples": "戦，勝ち戦",
+            "sourcePage": 56
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "たたかう",
+            "examples": "戦う，戦い",
+            "sourcePage": 56
+          }
+        ]
+      },
+      {
+        "kanji": "選",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "セン",
+            "examples": "選択，選挙，当選",
+            "sourcePage": 57
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "えらぶ",
+            "examples": "選ぶ",
+            "sourcePage": 57
+          }
+        ]
+      },
+      {
+        "kanji": "然",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ゼン",
+            "examples": "当然，自然，必然",
+            "sourcePage": 57
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ネン",
+            "examples": "天然",
+            "sourcePage": 57
+          }
+        ]
+      },
+      {
+        "kanji": "争",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ソウ",
+            "examples": "争議，競争，紛争",
+            "sourcePage": 58
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あらそう",
+            "examples": "争う，争い",
+            "sourcePage": 58
+          }
+        ]
+      },
+      {
+        "kanji": "倉",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ソウ",
+            "examples": "倉庫，穀倉",
+            "sourcePage": 58
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "くら",
+            "examples": "倉，倉敷料",
+            "sourcePage": 58
+          }
+        ]
+      },
+      {
+        "kanji": "巣",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ソウ",
+            "examples": "営巣，卵巣，病巣",
+            "sourcePage": 59
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "す",
+            "examples": "巣，巣箱，巣立つ",
+            "sourcePage": 59
+          }
+        ]
+      },
+      {
+        "kanji": "束",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ソク",
+            "examples": "束縛，結束，約束",
+            "sourcePage": 60
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "たば",
+            "examples": "束，花束，束ねる",
+            "sourcePage": 60
+          }
+        ]
+      },
+      {
+        "kanji": "側",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ソク",
+            "examples": "側面，側近，側壁",
+            "sourcePage": 60
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "がわ",
+            "examples": "側，裏側，片側",
+            "sourcePage": 60
+          }
+        ]
+      },
+      {
+        "kanji": "続",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ゾク",
+            "examples": "続出，続行，連続",
+            "sourcePage": 60
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つづく",
+            "examples": "続く，続き",
+            "sourcePage": 60
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つづける",
+            "examples": "続ける",
+            "sourcePage": 60
+          }
+        ]
+      },
+      {
+        "kanji": "卒",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ソツ",
+            "examples": "卒業，卒中，兵卒",
+            "sourcePage": 61
+          }
+        ]
+      },
+      {
+        "kanji": "孫",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ソン",
+            "examples": "子孫，嫡孫",
+            "sourcePage": 61
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "まご",
+            "examples": "孫",
+            "sourcePage": 61
+          }
+        ]
+      },
+      {
+        "kanji": "帯",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "タイ",
+            "examples": "携帯，地帯，連帯",
+            "sourcePage": 62
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おびる",
+            "examples": "帯びる",
+            "sourcePage": 62
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おび",
+            "examples": "帯，角帯",
+            "sourcePage": 62
+          }
+        ]
+      },
+      {
+        "kanji": "隊",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "タイ",
+            "examples": "隊列，軍隊，部隊",
+            "sourcePage": 62
+          }
+        ]
+      },
+      {
+        "kanji": "達",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "タツ",
+            "examples": "達人，調達，伝達",
+            "sourcePage": 63
+          }
+        ]
+      },
+      {
+        "kanji": "単",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "タン",
+            "examples": "単独，単位，簡単",
+            "sourcePage": 63
+          }
+        ]
+      },
+      {
+        "kanji": "置",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "チ",
+            "examples": "位置，放置，処置",
+            "sourcePage": 65
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おく",
+            "examples": "置く",
+            "sourcePage": 65
+          }
+        ]
+      },
+      {
+        "kanji": "仲",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "チュウ",
+            "examples": "仲介，仲裁，伯仲",
+            "sourcePage": 65
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "なか",
+            "examples": "仲，仲間",
+            "sourcePage": 65
+          }
+        ]
+      },
+      {
+        "kanji": "沖",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "チュウ",
+            "examples": "沖積層，沖天，沖する",
+            "sourcePage": 65
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おき",
+            "examples": "沖",
+            "sourcePage": 65
+          }
+        ]
+      },
+      {
+        "kanji": "兆",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "チョウ",
+            "examples": "兆候，前兆，億兆",
+            "sourcePage": 66
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "きざす",
+            "examples": "兆す",
+            "sourcePage": 66
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "きざし",
+            "examples": "兆し",
+            "sourcePage": 66
+          }
+        ]
+      },
+      {
+        "kanji": "低",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "テイ",
+            "examples": "低級，低気圧，高低",
+            "sourcePage": 68
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ひくい",
+            "examples": "低い，低さ",
+            "sourcePage": 68
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ひくめる",
+            "examples": "低める",
+            "sourcePage": 68
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ひくまる",
+            "examples": "低まる",
+            "sourcePage": 68
+          }
+        ]
+      },
+      {
+        "kanji": "底",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "テイ",
+            "examples": "底流，海底，到底",
+            "sourcePage": 68
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "そこ",
+            "examples": "底，奥底",
+            "sourcePage": 68
+          }
+        ]
+      },
+      {
+        "kanji": "的",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "テキ",
+            "examples": "的中，目的，科学的",
+            "sourcePage": 69
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "まと",
+            "examples": "的，的外れ",
+            "sourcePage": 69
+          }
+        ]
+      },
+      {
+        "kanji": "典",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "テン",
+            "examples": "典拠，古典，式典",
+            "sourcePage": 69
+          }
+        ]
+      },
+      {
+        "kanji": "伝",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "デン",
+            "examples": "伝言，伝統，宣伝",
+            "sourcePage": 70
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つたわる",
+            "examples": "伝わる",
+            "sourcePage": 70
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つたえる",
+            "examples": "伝える，言い伝え",
+            "sourcePage": 70
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つたう",
+            "examples": "伝う",
+            "sourcePage": 70
+          }
+        ]
+      },
+      {
+        "kanji": "徒",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ト",
+            "examples": "徒歩，徒労，信徒",
+            "sourcePage": 70
+          }
+        ]
+      },
+      {
+        "kanji": "努",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ド",
+            "examples": "努力",
+            "sourcePage": 70
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つとめる",
+            "examples": "努める，努めて〔副〕",
+            "sourcePage": 70
+          }
+        ]
+      },
+      {
+        "kanji": "灯",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "トウ",
+            "examples": "灯火，電灯，点灯",
+            "sourcePage": 71
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ひ",
+            "examples": "灯",
+            "sourcePage": 71
+          }
+        ]
+      },
+      {
+        "kanji": "働",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ドウ",
+            "examples": "労働，実働",
+            "sourcePage": 73
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はたらく",
+            "examples": "働く，働き",
+            "sourcePage": 73
+          }
+        ]
+      },
+      {
+        "kanji": "特",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "トク",
+            "examples": "特殊，特産，独特",
+            "sourcePage": 73
+          }
+        ]
+      },
+      {
+        "kanji": "徳",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "トク",
+            "examples": "徳義，徳用，道徳",
+            "sourcePage": 73
+          }
+        ]
+      },
+      {
+        "kanji": "栃",
+        "readings": [
+          {
+            "readingType": "kun",
+            "canonicalReading": "とち",
+            "examples": "",
+            "sourcePage": 73
+          }
+        ]
+      },
+      {
+        "kanji": "奈",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ナ",
+            "examples": "奈落",
+            "sourcePage": 74
+          }
+        ]
+      },
+      {
+        "kanji": "梨",
+        "readings": [
+          {
+            "readingType": "kun",
+            "canonicalReading": "なし",
+            "examples": "梨",
+            "sourcePage": 74
+          }
+        ]
+      },
+      {
+        "kanji": "熱",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ネツ",
+            "examples": "熱病，熱湯，情熱",
+            "sourcePage": 75
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あつい",
+            "examples": "熱い，熱さ",
+            "sourcePage": 75
+          }
+        ]
+      },
+      {
+        "kanji": "念",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ネン",
+            "examples": "念願，信念，断念",
+            "sourcePage": 75
+          }
+        ]
+      },
+      {
+        "kanji": "敗",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ハイ",
+            "examples": "敗北，腐敗，失敗",
+            "sourcePage": 76
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "やぶれる",
+            "examples": "敗れる",
+            "sourcePage": 76
+          }
+        ]
+      },
+      {
+        "kanji": "梅",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "バイ",
+            "examples": "梅園，梅雨，紅梅",
+            "sourcePage": 76
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "うめ",
+            "examples": "梅，梅見，梅酒",
+            "sourcePage": 76
+          }
+        ]
+      },
+      {
+        "kanji": "博",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ハク",
+            "examples": "博識，博覧，博士号",
+            "sourcePage": 77
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "バク",
+            "examples": "博労，博徒",
+            "sourcePage": 77
+          }
+        ]
+      },
+      {
+        "kanji": "阪",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ハン",
+            "examples": "阪神，京阪",
+            "sourcePage": 78
+          }
+        ]
+      },
+      {
+        "kanji": "飯",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ハン",
+            "examples": "御飯，炊飯，赤飯",
+            "sourcePage": 79
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "めし",
+            "examples": "飯，飯粒，五目飯",
+            "sourcePage": 79
+          }
+        ]
+      },
+      {
+        "kanji": "飛",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヒ",
+            "examples": "飛行，飛躍，雄飛",
+            "sourcePage": 79
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "とぶ",
+            "examples": "飛ぶ，飛び火",
+            "sourcePage": 79
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "とばす",
+            "examples": "飛ばす",
+            "sourcePage": 79
+          }
+        ]
+      },
+      {
+        "kanji": "必",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヒツ",
+            "examples": "必然，必死，必要",
+            "sourcePage": 80
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かならず",
+            "examples": "必ず，必ずしも",
+            "sourcePage": 80
+          }
+        ]
+      },
+      {
+        "kanji": "票",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヒョウ",
+            "examples": "票決，投票，伝票",
+            "sourcePage": 81
+          }
+        ]
+      },
+      {
+        "kanji": "標",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヒョウ",
+            "examples": "標準，標本，目標",
+            "sourcePage": 81
+          }
+        ]
+      },
+      {
+        "kanji": "不",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "フ",
+            "examples": "不当，不利，不賛成",
+            "sourcePage": 81
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ブ",
+            "examples": "不作法，不用心",
+            "sourcePage": 81
+          }
+        ]
+      },
+      {
+        "kanji": "夫",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "フ",
+            "examples": "夫妻，農夫，凡夫",
+            "sourcePage": 81
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "フウ",
+            "examples": "夫婦，工夫",
+            "sourcePage": 81
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おっと",
+            "examples": "夫",
+            "sourcePage": 81
+          }
+        ]
+      },
+      {
+        "kanji": "付",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "フ",
+            "examples": "付与，交付，給付",
+            "sourcePage": 81
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つける",
+            "examples": "付ける，名付け",
+            "sourcePage": 81
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つく",
+            "examples": "付く，気付く",
+            "sourcePage": 81
+          }
+        ]
+      },
+      {
+        "kanji": "府",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "フ",
+            "examples": "府県，首府，政府",
+            "sourcePage": 82
+          }
+        ]
+      },
+      {
+        "kanji": "阜",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "フ",
+            "examples": "",
+            "sourcePage": 82
+          }
+        ]
+      },
+      {
+        "kanji": "富",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "フ",
+            "examples": "富強，富裕，貧富",
+            "sourcePage": 82
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "フウ",
+            "examples": "富貴",
+            "sourcePage": 82
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "とむ",
+            "examples": "富む，富み栄える",
+            "sourcePage": 82
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "とみ",
+            "examples": "富",
+            "sourcePage": 82
+          }
+        ]
+      },
+      {
+        "kanji": "副",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "フク",
+            "examples": "副業，副作用，正副",
+            "sourcePage": 83
+          }
+        ]
+      },
+      {
+        "kanji": "兵",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヘイ",
+            "examples": "兵器，兵隊，撤兵",
+            "sourcePage": 84
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ヒョウ",
+            "examples": "兵糧，雑兵",
+            "sourcePage": 84
+          }
+        ]
+      },
+      {
+        "kanji": "別",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ベツ",
+            "examples": "別離，区別，特別",
+            "sourcePage": 85
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "わかれる",
+            "examples": "別れる，別れ",
+            "sourcePage": 85
+          }
+        ]
+      },
+      {
+        "kanji": "辺",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヘン",
+            "examples": "辺境，周辺，その辺",
+            "sourcePage": 85
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あたり",
+            "examples": "辺り",
+            "sourcePage": 85
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "べ",
+            "examples": "海辺，岸辺",
+            "sourcePage": 85
+          }
+        ]
+      },
+      {
+        "kanji": "変",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヘン",
+            "examples": "変化，異変，大変",
+            "sourcePage": 85
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かわる",
+            "examples": "変わる，変わり種",
+            "sourcePage": 85
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かえる",
+            "examples": "変える",
+            "sourcePage": 85
+          }
+        ]
+      },
+      {
+        "kanji": "便",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ベン",
+            "examples": "便利，便法，簡便",
+            "sourcePage": 85
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ビン",
+            "examples": "便乗，郵便，定期便",
+            "sourcePage": 85
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "たより",
+            "examples": "便り，初便り，花便り",
+            "sourcePage": 85
+          }
+        ]
+      },
+      {
+        "kanji": "包",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ホウ",
+            "examples": "包囲，包容力，内包",
+            "sourcePage": 86
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つつむ",
+            "examples": "包む，包み，小包",
+            "sourcePage": 86
+          }
+        ]
+      },
+      {
+        "kanji": "法",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ホウ",
+            "examples": "法律，文法，方法",
+            "sourcePage": 86
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ハッ",
+            "examples": "法度",
+            "sourcePage": 86
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ホッ",
+            "examples": "法主",
+            "sourcePage": 86
+          }
+        ]
+      },
+      {
+        "kanji": "望",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ボウ",
+            "examples": "望郷，希望，人望",
+            "sourcePage": 88
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "モウ",
+            "examples": "所望，大望，本望",
+            "sourcePage": 88
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "のぞむ",
+            "examples": "望む，望み，望ましい",
+            "sourcePage": 88
+          }
+        ]
+      },
+      {
+        "kanji": "牧",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ボク",
+            "examples": "牧場，牧師，遊牧",
+            "sourcePage": 88
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "まき",
+            "examples": "牧場",
+            "sourcePage": 88
+          }
+        ]
+      },
+      {
+        "kanji": "末",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "マツ",
+            "examples": "末代，本末，粉末",
+            "sourcePage": 89
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "バツ",
+            "examples": "末子，末弟",
+            "sourcePage": 89
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "すえ",
+            "examples": "末，末っ子，末頼もしい",
+            "sourcePage": 89
+          }
+        ]
+      },
+      {
+        "kanji": "満",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "マン",
+            "examples": "満月，満足，充満",
+            "sourcePage": 89
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "みちる",
+            "examples": "満ちる，満ち潮",
+            "sourcePage": 89
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "みたす",
+            "examples": "満たす",
+            "sourcePage": 89
+          }
+        ]
+      },
+      {
+        "kanji": "未",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ミ",
+            "examples": "未来，未満，前代未聞",
+            "sourcePage": 89
+          }
+        ]
+      },
+      {
+        "kanji": "民",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ミン",
+            "examples": "民族，民主的，国民",
+            "sourcePage": 90
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "たみ",
+            "examples": "民",
+            "sourcePage": 90
+          }
+        ]
+      },
+      {
+        "kanji": "無",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ム",
+            "examples": "無名，無理，皆無",
+            "sourcePage": 90
+          },
+          {
+            "readingType": "on",
+            "canonicalReading": "ブ",
+            "examples": "無事，無礼，無愛想",
+            "sourcePage": 90
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ない",
+            "examples": "無い，無くす，無くなる",
+            "sourcePage": 90
+          }
+        ]
+      },
+      {
+        "kanji": "約",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヤク",
+            "examples": "約束，約半分，節約",
+            "sourcePage": 92
+          }
+        ]
+      },
+      {
+        "kanji": "勇",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ユウ",
+            "examples": "勇敢，勇気，武勇",
+            "sourcePage": 93
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "いさむ",
+            "examples": "勇む，勇み足，勇ましい",
+            "sourcePage": 93
+          }
+        ]
+      },
+      {
+        "kanji": "要",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヨウ",
+            "examples": "要点，要注意，重要",
+            "sourcePage": 94
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "かなめ",
+            "examples": "要",
+            "sourcePage": 94
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "いる",
+            "examples": "要る",
+            "sourcePage": 94
+          }
+        ]
+      },
+      {
+        "kanji": "養",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヨウ",
+            "examples": "養育，養子，休養",
+            "sourcePage": 94
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "やしなう",
+            "examples": "養う",
+            "sourcePage": 94
+          }
+        ]
+      },
+      {
+        "kanji": "浴",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ヨク",
+            "examples": "浴場，海水浴",
+            "sourcePage": 94
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あびる",
+            "examples": "浴びる，水浴び",
+            "sourcePage": 94
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "あびせる",
+            "examples": "浴びせる",
+            "sourcePage": 95
+          }
+        ]
+      },
+      {
+        "kanji": "利",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "リ",
+            "examples": "利益，鋭利，勝利",
+            "sourcePage": 95
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "きく",
+            "examples": "利く，左利き，口利き",
+            "sourcePage": 95
+          }
+        ]
+      },
+      {
+        "kanji": "陸",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "リク",
+            "examples": "陸地，陸橋，着陸",
+            "sourcePage": 96
+          }
+        ]
+      },
+      {
+        "kanji": "良",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "リョウ",
+            "examples": "良好，良心，優良",
+            "sourcePage": 97
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "よい",
+            "examples": "良い",
+            "sourcePage": 97
+          }
+        ]
+      },
+      {
+        "kanji": "料",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "リョウ",
+            "examples": "料金，料理，材料",
+            "sourcePage": 97
+          }
+        ]
+      },
+      {
+        "kanji": "量",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "リョウ",
+            "examples": "量産，測量，度量",
+            "sourcePage": 97
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "はかる",
+            "examples": "量る",
+            "sourcePage": 97
+          }
+        ]
+      },
+      {
+        "kanji": "輪",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "リン",
+            "examples": "輪番，一輪，車輪",
+            "sourcePage": 97
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "わ",
+            "examples": "輪，輪切り，首輪",
+            "sourcePage": 97
+          }
+        ]
+      },
+      {
+        "kanji": "類",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ルイ",
+            "examples": "類型，種類，分類",
+            "sourcePage": 97
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "たぐい",
+            "examples": "類い，○○の類い",
+            "sourcePage": 97
+          }
+        ]
+      },
+      {
+        "kanji": "令",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "レイ",
+            "examples": "令嬢，法令，命令",
+            "sourcePage": 97
+          }
+        ]
+      },
+      {
+        "kanji": "冷",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "レイ",
+            "examples": "冷却，冷淡，寒冷",
+            "sourcePage": 98
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つめたい",
+            "examples": "冷たい，冷たさ",
+            "sourcePage": 98
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ひえる",
+            "examples": "冷える，底冷え",
+            "sourcePage": 98
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ひや",
+            "examples": "冷や，冷や汗，冷ややかだ",
+            "sourcePage": 98
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ひやす",
+            "examples": "冷やす",
+            "sourcePage": 98
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ひやかす",
+            "examples": "冷やかす，冷やかし",
+            "sourcePage": 98
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "さめる",
+            "examples": "冷める",
+            "sourcePage": 98
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "さます",
+            "examples": "冷ます，湯冷まし",
+            "sourcePage": 98
+          }
+        ]
+      },
+      {
+        "kanji": "例",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "レイ",
+            "examples": "例外，例年，用例",
+            "sourcePage": 98
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "たとえる",
+            "examples": "例える，例え，例えば",
+            "sourcePage": 98
+          }
+        ]
+      },
+      {
+        "kanji": "連",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "レン",
+            "examples": "連合，連続，関連",
+            "sourcePage": 98
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つらなる",
+            "examples": "連なる",
+            "sourcePage": 98
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つらねる",
+            "examples": "連ねる",
+            "sourcePage": 98
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "つれる",
+            "examples": "連れる，連れ",
+            "sourcePage": 98
+          }
+        ]
+      },
+      {
+        "kanji": "老",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ロウ",
+            "examples": "老巧，老人，長老",
+            "sourcePage": 99
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "おいる",
+            "examples": "老いる，老い",
+            "sourcePage": 99
+          },
+          {
+            "readingType": "kun",
+            "canonicalReading": "ふける",
+            "examples": "老ける，老け役",
+            "sourcePage": 99
+          }
+        ]
+      },
+      {
+        "kanji": "労",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ロウ",
+            "examples": "労働，労力，疲労",
+            "sourcePage": 99
+          }
+        ]
+      },
+      {
+        "kanji": "録",
+        "readings": [
+          {
+            "readingType": "on",
+            "canonicalReading": "ロク",
+            "examples": "録音，記録，実録",
+            "sourcePage": 99
+          }
+        ]
+      }
+    ]
+  }
+}

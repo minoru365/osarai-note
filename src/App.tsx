@@ -60,7 +60,7 @@ function App() {
   useEffect(() => {
     if (view !== "writing" || selectedWritingId || pendingWritingQuestion?.mode !== "writing") return;
     setSelectedWritingId(pendingWritingQuestion.id);
-    setProgress(createWordProgress(pendingWritingQuestion.word));
+    setProgress(createWordProgress(pendingWritingQuestion.answerKanji));
   }, [pendingWritingQuestion, selectedWritingId, view]);
 
   const startQuiz = useCallback((writer: HanziWriter) => {
@@ -98,7 +98,7 @@ function App() {
         }
         setWords(questions);
         const firstWritingQuestion = questions.find((question) => question.mode === "writing");
-        if (firstWritingQuestion) setProgress(createWordProgress(firstWritingQuestion.word));
+        if (firstWritingQuestion) setProgress(createWordProgress(firstWritingQuestion.answerKanji));
       },
       (error) => {
         if (active) setContentError(error instanceof Error ? error.message : "問題を読み込めませんでした");
@@ -145,7 +145,7 @@ function App() {
   const chooseWord = (nextQuestion: KanjiWritingQuestion) => {
     writerRef.current?.cancelQuiz();
     setSelectedWritingId(nextQuestion.id);
-    setProgress(createWordProgress(nextQuestion.word));
+    setProgress(createWordProgress(nextQuestion.answerKanji));
     guidePenaltyRef.current = 0;
     setMistakes(0);
     setUsedGuide(false);
@@ -199,7 +199,7 @@ function App() {
       setStatus("できた記録を保存しています");
       try {
         await recordWritingAnswer({
-        answer: selected.word,
+        answer: selected.answerKanji,
         correct: true,
         mistakes: nextProgress.results.reduce((total, result) => total + result.mistakes, 0),
         usedGuide: nextProgress.results.some((result) => result.usedGuide),

@@ -29,6 +29,16 @@ describe("content pack validation", () => {
     })).toHaveLength(1);
   });
 
+  it("新形式では送り仮名を表示し、漢字だけを回答にできる", () => {
+    expect(validateKanjiPack({
+      schemaVersion: 2,
+      questions: [{
+        id: "r-drink", grade: 3, mode: "reading", word: "飲む", reading: "のむ",
+        prompt: "読みましょう", promptBefore: "水を", promptAfter: "。", targetKanji: ["飲"], answerKanji: "飲",
+      }],
+    })[0]).toMatchObject({ word: "飲む", answerKanji: "飲" });
+  });
+
   it("文脈を持つ読み問題を受け入れる", () => {
     expect(validateKanjiPack({
       schemaVersion: 1,
@@ -44,7 +54,7 @@ describe("content pack validation", () => {
       id: "q1", grade: 3, mode: "writing", word: "植物", reading: "しょくぶつ",
       prompt: "書こう", targetKanji: ["植"],
     };
-    expect(() => validateKanjiPack({ schemaVersion: 1, questions: [question] })).toThrow("形式が不正");
+    expect(() => validateKanjiPack({ schemaVersion: 2, questions: [{ ...question, answerKanji: "物" }] })).toThrow("回答文字が不正");
     expect(() => validateKanjiPack({
       schemaVersion: 1,
       questions: [{ ...question, targetKanji: ["植", "物"] }, { ...question, targetKanji: ["植", "物"] }],

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "sourceVersion": "2026.08.14-1",
+  "materials": [
+    {
+      "pairId": "kanji-g3-leaf-kun-ha-01",
+      "questionIds": {
+        "reading": "kanji-g3-reading-leaf-01",
+        "writing": "kanji-g3-writing-leaf-01"
+      },
+      "grade": 3,
+      "primaryKanji": "葉",
+      "readingType": "kun",
+      "canonicalReading": "は",
+      "word": "葉",
+      "wordReading": "は",
+      "promptBefore": "公園で木の",
+      "promptAfter": "をひろいました。",
+      "targetKanji": ["葉"],
+      "writingPrompt": "「はっぱ」の「は」を漢字で書こう",
+      "sourceRef": "文化庁『常用漢字表』（平成22年11月30日内閣告示）",
+      "reviewStatus": "approved"
+    },
+    {
+      "pairId": "kanji-g3-plant-on-shoku-01",
+      "questionIds": {
+        "reading": "kanji-g3-reading-plant-01",
+        "writing": "kanji-g3-writing-plant-01"
+      },
+      "grade": 3,
+      "primaryKanji": "植",
+      "readingType": "on",
+      "canonicalReading": "ショク",
+      "word": "植物",
+      "wordReading": "しょくぶつ",
+      "promptBefore": "理科で",
+      "promptAfter": "を育てます。",
+      "targetKanji": ["植", "物"],
+      "writingPrompt": "「しょくぶつ」を漢字で書こう",
+      "sourceRef": "文化庁『常用漢字表』（平成22年11月30日内閣告示）",
+      "reviewStatus": "approved"
+    }
+  ]
+}
