@@ -1,0 +1,175 @@
+# おさらいノート 引き継ぎ
+
+最終更新：2026-08-14
+
+この文書は、別セッションまたは別の開発担当が作業を再開するための入口である。将来仕様は [study-support-plan.md](./study-support-plan.md)、実装状況は [progress.md](./progress.md)、設計理由は [adr/](./adr/) を正本とする。
+
+## AIツール別の入口
+
+| ツール | 自動読込される入口 | 正本への経路 |
+|---|---|---|
+| Claude Code | ルートの `CLAUDE.md` | `CLAUDE.md` → `AGENTS.md` → この文書・進捗・計画・ADR |
+| GitHub Copilot | `.github/copilot-instructions.md`、対応環境では`AGENTS.md` | Copilot instructions → `AGENTS.md` → この文書・進捗・計画・ADR |
+| Codex・その他のエージェント | ルートの `AGENTS.md` | `AGENTS.md` → この文書・進捗・計画・ADR |
+
+変動する件数、次のバッチ、検証結果はこの文書と `progress.md` だけに記録する。各AIツール用の入口には値を複製せず、正本への読み順だけを置く。
+
+## 1. 現在地
+
+- ブランチ：`main`
+- 最新コミット：`5882fbe fix: remove settings from practice header`
+- 最新素材版：`2026.08.14-8`
+- 問題パック：`kanji-2026.08.14-8`
+- 共通素材：848件
+  - `approved`：311件
+  - `draft`：536件
+  - `needs-fix`：1件
+- 公開問題：読み311問、書き311問、合計622問
+- 収録済みストロークデータ：218字
+- 自動テスト：63件成功
+- 本番ビルド：成功
+
+最新コミット後の変更はまだコミットされていない。内容は、第2〜6レビューバッチ、承認済み311素材と生成物、確認画面生成スクリプト、固定470pxの書き回答領域である。作業開始時は必ず `git status --short` で利用者の変更を確認し、既存変更を破棄しない。
+
+## 2. 固定済みの製品方針
+
+- Xiaomi Pad 6の横向き固定。一般的なレスポンシブ対応は行わない。
+- Android Chromeで動くローカルファーストPWA。配信先はGitHub Pages。
+- 初期版は単一端末・単一利用者。アカウント、クラウド同期、Azureは使わない。
+- 学習履歴と設定はIndexedDB `study-support` に保存し、問題更新やPWA更新で消去しない。
+- 3・4年生の漢字を対象とし、読みと書きを同じ共通素材から1問ずつ生成する。
+- 未履修漢字を1字でも含む問題は、今日の学習と自由練習のどちらにも出さない。
+- 読みは文中の漢字部分だけをひらがなで回答する。カタカナ、長音、小さい「ゎ」は使わない。
+- 書きは複数字でも一字ずつ書き順判定し、正解まで先へ進めない。「分からない」は見本確認後に再回答する。
+- 読みの誤答は `targetKanji` 全字、書きは間違えた文字だけの苦手度へ反映する。
+- 「今日の漢字」は押すたびに練習回数の少ない順、同数ランダムで最大10問を新規抽出する。未完了セットは再開しない。
+- 自由練習は学年ランダム最大10問、または漢字を選んで関連最大10問を直接開始する。
+
+## 3. 直近で完了した内容
+
+- レビューバッチ `kanji-g3-001`〜`006` を反映した。
+- 第2回20件、第3回20件、第4回50件、第5・第6回各100件を自然な例文で確認した。
+- 第4回#30「係る（かかる）」は使用頻度が低いため `needs-fix` とし、公開問題から除外した。物理削除せず判断履歴を残している。
+- 不自然・児童向けでない語句候補は、レビュー時に同じ基準読みを満たす語句へ変更した。例：`客死`→`旅客`、`業病`→`業`、`局部`→`放送局`。
+- バッチJSONから対話型確認画面を生成する `content:review-visualize` を追加した。
+- 書き回答のガイド、入力領域、Hanzi Writer SVGを固定`470×470px`に一致させた。外枠は境界線込み`474×474px`。
+
+## 4. 次に行う作業
+
+優先作業はM2の問題レビュー継続である。
+
+1. `kanji-g3-007` を100件で作る。
+2. 全件を最初から自然な例文へ変更する。
+3. 3年生問題では1〜3年生以外の漢字をひらがなにする。
+4. 使用頻度が低い・意味が難しい語句は、同じ基準読みを満たす自然な語句へ変更する。適切な問題が作れなければ `needs-fix` にする。
+5. 対話型確認画面で人の承認を得る。
+6. 素材版を `2026.08.14-9` へ上げて反映し、生成、テスト、ビルドを行う。
+
+3年生の残りは183件（`draft` 125件、`needs-fix` 1件、未作成57件）、4年生の残りは435件（`draft` 411件、未作成24件）で、合計618件である。3年生レビュー後、4年生、読み要確認候補、書き換え候補、語例なし候補へ進む。
+
+問題レビューと並行しない次の技術課題は、ストロークJSONの増加でViteの生成JavaScriptが500KBを超えた警告への対応である。現状は動作するため、レビューを止める問題ではない。対応時はストロークデータの遅延読み込みまたは静的JSON分離を検討し、オフライン動作とGitHub Pagesのパスを検証する。
+
+## 5. 問題レビュー手順
+
+### 5.1 バッチ作成
+
+```powershell
+npm run content:review-batch -- 3 7 100
+```
+
+生成される正本は `content-review/kanji-g3-007.json`。Markdownは確認用生成物であり、JSON編集後に再生成する。
+
+### 5.2 例文編集の規則
+
+- `promptBefore + word + promptAfter` が自然な一文になるようにする。
+- 読みと書きで同じ例文を使う。
+- 正解漢字を文脈の別の場所へ重ねて表示し、答えを露出させない。
+- `wordReading` はひらがなだけにする。
+- 送り仮名を含む場合、漢字に対応する読みだけが回答になることを確認する。
+- 3年生では1〜3年生、4年生では1〜4年生までの配当漢字だけを表示する。
+- 生成AIの案は自動承認せず、必ず人が自然さと意味を確認する。
+
+### 5.3 Markdownと確認画面
+
+```powershell
+npm run content:review-render -- kanji-g3-007
+npm run content:review-visualize -- kanji-g3-007 <書き込み可能な絶対パス>\kanji-review-batch-007.html
+```
+
+`content:review-visualize` は、問題一覧、全部OK、個別の要修正、Codexへの判定送信を含むHTML断片を作る。判定送信はCodex会話内のVisualizeとして表示したときだけ機能する。単独の`file://`タブでは会話ブリッジがないため、送信結果を会話へ渡せない。
+
+### 5.4 判断反映
+
+- 承認：`decision: "approve"`
+- 除外・再検討：`decision: "needs-fix"` と具体的な `note`
+- 未判断が1件でもあれば取り込みは停止する。
+- 「削除」の要望は、通常は物理削除せず `needs-fix` で公開対象から除外し、判断履歴を保持する。
+
+```powershell
+npm run content:review-render -- kanji-g3-007
+npm run content:review-apply -- kanji-g3-007 2026.08.14-9
+npm run content:generate
+npm test
+npm run build
+```
+
+`content:review-apply` は素材版、元データ指紋、状態遷移、全提案を検査してから正本を置き換える。失敗時に版だけを変えたり、生成ファイルを手編集して回避しない。
+
+## 6. 編集するファイルと生成物
+
+| 目的 | 正本・編集対象 | 直接編集しない生成物 |
+|---|---|---|
+| 問題素材 | `content-source/kanji-materials.json`、`content-review/*.json` | `public/content/kanji-v2.json` |
+| ストローク収録 | `scripts/generate-kanji-character-data.mjs` と素材 | `src/generated/kanjiCharacterData.ts` |
+| レビュー文書 | バッチJSON | `content-review/*.md`、`docs/generated/*.md` |
+| 学習画面 | `src/App.tsx`、`src/ReadingPractice.tsx`、`src/styles.css` | `dist/` |
+| 保存層 | `src/storage/` | ブラウザ内IndexedDB |
+
+主要スクリプト：
+
+- `scripts/create-kanji-review-batch.mjs`
+- `scripts/render-kanji-review-batch.mjs`
+- `scripts/render-kanji-review-visualization.mjs`
+- `scripts/apply-kanji-review-batch.mjs`
+- `scripts/generate-kanji-content.mjs`
+- `scripts/kanji-content-lib.mjs`
+
+## 7. 起動と検証
+
+```powershell
+npm install
+npm test
+npm run build
+npm run dev
+```
+
+`npm run dev` はLAN公開を有効にしている。Xiaomi Pad 6とPCを同じネットワークへ接続し、開発PCの現在のIPv4アドレスとViteのポートを使う。IPアドレスは固定値として文書やコードへ埋め込まない。
+
+最低限の実画面確認：
+
+1. ホームから今日の漢字を開始できる。
+2. 読みの強調範囲と回答範囲が漢字部分だけになっている。
+3. 読みの「分からない」後、答えを隠して正解入力まで進めない。
+4. 書き枠、入力領域、SVGがそれぞれ`474px`、`470px`、`470px`になっている。
+5. 複数字を一字ずつ書ける。
+6. 未履修漢字を含む問題が今日の学習と自由練習に出ない。
+7. 回答後に再読み込みしても履歴と苦手度が残る。
+
+## 8. データ安全上の注意
+
+- IndexedDBの削除、初期化、復元、DB名変更を行わない。
+- DBスキーマ変更では、既存履歴・履修設定・カスタム問題を保持する移行テストを先に作る。
+- 回答保存は履歴、セッション進捗、漢字別集計を同じトランザクションで確定する。
+- 問題IDと`pairId`を不用意に変更しない。既存学習履歴との参照を維持する。
+- 問題パックへ学習履歴、氏名、端末情報、筆跡を含めない。
+- GitHub Pagesの公開、コミット、push、デプロイは利用者から明示された場合だけ行う。
+
+## 9. 文書更新ルール
+
+- 仕様変更：`study-support-plan.md`
+- 現在地、件数、検証結果：`progress.md`
+- 後で理由を忘れる重要判断：新しいADR
+- 再開手順と直近の注意：この文書
+- 開発者向け入口：`README.md`
+
+作業完了時は、素材版、承認・未確認件数、問題数、テスト数、ビルド警告、次のバッチIDをこの文書と `progress.md` でそろえる。

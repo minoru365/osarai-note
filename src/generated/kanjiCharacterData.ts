@@ -7,24 +7,217 @@ import character3 from "@jamsch/hanzi-writer-data-jp/委.json";
 import character4 from "@jamsch/hanzi-writer-data-jp/意.json";
 import character5 from "@jamsch/hanzi-writer-data-jp/医.json";
 import character6 from "@jamsch/hanzi-writer-data-jp/育.json";
-import character7 from "@jamsch/hanzi-writer-data-jp/員.json";
-import character8 from "@jamsch/hanzi-writer-data-jp/飲.json";
-import character9 from "@jamsch/hanzi-writer-data-jp/院.json";
-import character10 from "@jamsch/hanzi-writer-data-jp/運.json";
-import character11 from "@jamsch/hanzi-writer-data-jp/学.json";
-import character12 from "@jamsch/hanzi-writer-data-jp/寒.json";
-import character13 from "@jamsch/hanzi-writer-data-jp/教.json";
-import character14 from "@jamsch/hanzi-writer-data-jp/見.json";
-import character15 from "@jamsch/hanzi-writer-data-jp/事.json";
-import character16 from "@jamsch/hanzi-writer-data-jp/植.json";
-import character17 from "@jamsch/hanzi-writer-data-jp/食.json";
-import character18 from "@jamsch/hanzi-writer-data-jp/全.json";
-import character19 from "@jamsch/hanzi-writer-data-jp/定.json";
-import character20 from "@jamsch/hanzi-writer-data-jp/動.json";
-import character21 from "@jamsch/hanzi-writer-data-jp/内.json";
-import character22 from "@jamsch/hanzi-writer-data-jp/物.json";
-import character23 from "@jamsch/hanzi-writer-data-jp/明.json";
-import character24 from "@jamsch/hanzi-writer-data-jp/葉.json";
+import character7 from "@jamsch/hanzi-writer-data-jp/一.json";
+import character8 from "@jamsch/hanzi-writer-data-jp/員.json";
+import character9 from "@jamsch/hanzi-writer-data-jp/飲.json";
+import character10 from "@jamsch/hanzi-writer-data-jp/院.json";
+import character11 from "@jamsch/hanzi-writer-data-jp/運.json";
+import character12 from "@jamsch/hanzi-writer-data-jp/泳.json";
+import character13 from "@jamsch/hanzi-writer-data-jp/駅.json";
+import character14 from "@jamsch/hanzi-writer-data-jp/円.json";
+import character15 from "@jamsch/hanzi-writer-data-jp/園.json";
+import character16 from "@jamsch/hanzi-writer-data-jp/央.json";
+import character17 from "@jamsch/hanzi-writer-data-jp/横.json";
+import character18 from "@jamsch/hanzi-writer-data-jp/屋.json";
+import character19 from "@jamsch/hanzi-writer-data-jp/温.json";
+import character20 from "@jamsch/hanzi-writer-data-jp/下.json";
+import character21 from "@jamsch/hanzi-writer-data-jp/化.json";
+import character22 from "@jamsch/hanzi-writer-data-jp/科.json";
+import character23 from "@jamsch/hanzi-writer-data-jp/歌.json";
+import character24 from "@jamsch/hanzi-writer-data-jp/荷.json";
+import character25 from "@jamsch/hanzi-writer-data-jp/会.json";
+import character26 from "@jamsch/hanzi-writer-data-jp/回.json";
+import character27 from "@jamsch/hanzi-writer-data-jp/界.json";
+import character28 from "@jamsch/hanzi-writer-data-jp/開.json";
+import character29 from "@jamsch/hanzi-writer-data-jp/階.json";
+import character30 from "@jamsch/hanzi-writer-data-jp/外.json";
+import character31 from "@jamsch/hanzi-writer-data-jp/角.json";
+import character32 from "@jamsch/hanzi-writer-data-jp/学.json";
+import character33 from "@jamsch/hanzi-writer-data-jp/寒.json";
+import character34 from "@jamsch/hanzi-writer-data-jp/感.json";
+import character35 from "@jamsch/hanzi-writer-data-jp/漢.json";
+import character36 from "@jamsch/hanzi-writer-data-jp/間.json";
+import character37 from "@jamsch/hanzi-writer-data-jp/館.json";
+import character38 from "@jamsch/hanzi-writer-data-jp/岸.json";
+import character39 from "@jamsch/hanzi-writer-data-jp/期.json";
+import character40 from "@jamsch/hanzi-writer-data-jp/気.json";
+import character41 from "@jamsch/hanzi-writer-data-jp/汽.json";
+import character42 from "@jamsch/hanzi-writer-data-jp/起.json";
+import character43 from "@jamsch/hanzi-writer-data-jp/客.json";
+import character44 from "@jamsch/hanzi-writer-data-jp/休.json";
+import character45 from "@jamsch/hanzi-writer-data-jp/宮.json";
+import character46 from "@jamsch/hanzi-writer-data-jp/急.json";
+import character47 from "@jamsch/hanzi-writer-data-jp/球.json";
+import character48 from "@jamsch/hanzi-writer-data-jp/究.json";
+import character49 from "@jamsch/hanzi-writer-data-jp/級.json";
+import character50 from "@jamsch/hanzi-writer-data-jp/去.json";
+import character51 from "@jamsch/hanzi-writer-data-jp/教.json";
+import character52 from "@jamsch/hanzi-writer-data-jp/橋.json";
+import character53 from "@jamsch/hanzi-writer-data-jp/業.json";
+import character54 from "@jamsch/hanzi-writer-data-jp/局.json";
+import character55 from "@jamsch/hanzi-writer-data-jp/曲.json";
+import character56 from "@jamsch/hanzi-writer-data-jp/銀.json";
+import character57 from "@jamsch/hanzi-writer-data-jp/苦.json";
+import character58 from "@jamsch/hanzi-writer-data-jp/具.json";
+import character59 from "@jamsch/hanzi-writer-data-jp/君.json";
+import character60 from "@jamsch/hanzi-writer-data-jp/係.json";
+import character61 from "@jamsch/hanzi-writer-data-jp/形.json";
+import character62 from "@jamsch/hanzi-writer-data-jp/軽.json";
+import character63 from "@jamsch/hanzi-writer-data-jp/決.json";
+import character64 from "@jamsch/hanzi-writer-data-jp/血.json";
+import character65 from "@jamsch/hanzi-writer-data-jp/研.json";
+import character66 from "@jamsch/hanzi-writer-data-jp/県.json";
+import character67 from "@jamsch/hanzi-writer-data-jp/見.json";
+import character68 from "@jamsch/hanzi-writer-data-jp/言.json";
+import character69 from "@jamsch/hanzi-writer-data-jp/庫.json";
+import character70 from "@jamsch/hanzi-writer-data-jp/湖.json";
+import character71 from "@jamsch/hanzi-writer-data-jp/交.json";
+import character72 from "@jamsch/hanzi-writer-data-jp/向.json";
+import character73 from "@jamsch/hanzi-writer-data-jp/幸.json";
+import character74 from "@jamsch/hanzi-writer-data-jp/校.json";
+import character75 from "@jamsch/hanzi-writer-data-jp/港.json";
+import character76 from "@jamsch/hanzi-writer-data-jp/行.json";
+import character77 from "@jamsch/hanzi-writer-data-jp/号.json";
+import character78 from "@jamsch/hanzi-writer-data-jp/合.json";
+import character79 from "@jamsch/hanzi-writer-data-jp/国.json";
+import character80 from "@jamsch/hanzi-writer-data-jp/根.json";
+import character81 from "@jamsch/hanzi-writer-data-jp/祭.json";
+import character82 from "@jamsch/hanzi-writer-data-jp/皿.json";
+import character83 from "@jamsch/hanzi-writer-data-jp/山.json";
+import character84 from "@jamsch/hanzi-writer-data-jp/仕.json";
+import character85 from "@jamsch/hanzi-writer-data-jp/使.json";
+import character86 from "@jamsch/hanzi-writer-data-jp/始.json";
+import character87 from "@jamsch/hanzi-writer-data-jp/指.json";
+import character88 from "@jamsch/hanzi-writer-data-jp/死.json";
+import character89 from "@jamsch/hanzi-writer-data-jp/詩.json";
+import character90 from "@jamsch/hanzi-writer-data-jp/歯.json";
+import character91 from "@jamsch/hanzi-writer-data-jp/事.json";
+import character92 from "@jamsch/hanzi-writer-data-jp/字.json";
+import character93 from "@jamsch/hanzi-writer-data-jp/持.json";
+import character94 from "@jamsch/hanzi-writer-data-jp/時.json";
+import character95 from "@jamsch/hanzi-writer-data-jp/次.json";
+import character96 from "@jamsch/hanzi-writer-data-jp/式.json";
+import character97 from "@jamsch/hanzi-writer-data-jp/実.json";
+import character98 from "@jamsch/hanzi-writer-data-jp/写.json";
+import character99 from "@jamsch/hanzi-writer-data-jp/社.json";
+import character100 from "@jamsch/hanzi-writer-data-jp/者.json";
+import character101 from "@jamsch/hanzi-writer-data-jp/車.json";
+import character102 from "@jamsch/hanzi-writer-data-jp/主.json";
+import character103 from "@jamsch/hanzi-writer-data-jp/取.json";
+import character104 from "@jamsch/hanzi-writer-data-jp/守.json";
+import character105 from "@jamsch/hanzi-writer-data-jp/手.json";
+import character106 from "@jamsch/hanzi-writer-data-jp/酒.json";
+import character107 from "@jamsch/hanzi-writer-data-jp/首.json";
+import character108 from "@jamsch/hanzi-writer-data-jp/受.json";
+import character109 from "@jamsch/hanzi-writer-data-jp/州.json";
+import character110 from "@jamsch/hanzi-writer-data-jp/拾.json";
+import character111 from "@jamsch/hanzi-writer-data-jp/終.json";
+import character112 from "@jamsch/hanzi-writer-data-jp/習.json";
+import character113 from "@jamsch/hanzi-writer-data-jp/集.json";
+import character114 from "@jamsch/hanzi-writer-data-jp/住.json";
+import character115 from "@jamsch/hanzi-writer-data-jp/重.json";
+import character116 from "@jamsch/hanzi-writer-data-jp/宿.json";
+import character117 from "@jamsch/hanzi-writer-data-jp/出.json";
+import character118 from "@jamsch/hanzi-writer-data-jp/所.json";
+import character119 from "@jamsch/hanzi-writer-data-jp/暑.json";
+import character120 from "@jamsch/hanzi-writer-data-jp/書.json";
+import character121 from "@jamsch/hanzi-writer-data-jp/助.json";
+import character122 from "@jamsch/hanzi-writer-data-jp/勝.json";
+import character123 from "@jamsch/hanzi-writer-data-jp/商.json";
+import character124 from "@jamsch/hanzi-writer-data-jp/消.json";
+import character125 from "@jamsch/hanzi-writer-data-jp/章.json";
+import character126 from "@jamsch/hanzi-writer-data-jp/上.json";
+import character127 from "@jamsch/hanzi-writer-data-jp/乗.json";
+import character128 from "@jamsch/hanzi-writer-data-jp/植.json";
+import character129 from "@jamsch/hanzi-writer-data-jp/食.json";
+import character130 from "@jamsch/hanzi-writer-data-jp/心.json";
+import character131 from "@jamsch/hanzi-writer-data-jp/深.json";
+import character132 from "@jamsch/hanzi-writer-data-jp/申.json";
+import character133 from "@jamsch/hanzi-writer-data-jp/真.json";
+import character134 from "@jamsch/hanzi-writer-data-jp/神.json";
+import character135 from "@jamsch/hanzi-writer-data-jp/身.json";
+import character136 from "@jamsch/hanzi-writer-data-jp/進.json";
+import character137 from "@jamsch/hanzi-writer-data-jp/人.json";
+import character138 from "@jamsch/hanzi-writer-data-jp/水.json";
+import character139 from "@jamsch/hanzi-writer-data-jp/世.json";
+import character140 from "@jamsch/hanzi-writer-data-jp/整.json";
+import character141 from "@jamsch/hanzi-writer-data-jp/昔.json";
+import character142 from "@jamsch/hanzi-writer-data-jp/石.json";
+import character143 from "@jamsch/hanzi-writer-data-jp/線.json";
+import character144 from "@jamsch/hanzi-writer-data-jp/全.json";
+import character145 from "@jamsch/hanzi-writer-data-jp/想.json";
+import character146 from "@jamsch/hanzi-writer-data-jp/相.json";
+import character147 from "@jamsch/hanzi-writer-data-jp/送.json";
+import character148 from "@jamsch/hanzi-writer-data-jp/息.json";
+import character149 from "@jamsch/hanzi-writer-data-jp/速.json";
+import character150 from "@jamsch/hanzi-writer-data-jp/族.json";
+import character151 from "@jamsch/hanzi-writer-data-jp/村.json";
+import character152 from "@jamsch/hanzi-writer-data-jp/他.json";
+import character153 from "@jamsch/hanzi-writer-data-jp/太.json";
+import character154 from "@jamsch/hanzi-writer-data-jp/打.json";
+import character155 from "@jamsch/hanzi-writer-data-jp/体.json";
+import character156 from "@jamsch/hanzi-writer-data-jp/対.json";
+import character157 from "@jamsch/hanzi-writer-data-jp/待.json";
+import character158 from "@jamsch/hanzi-writer-data-jp/代.json";
+import character159 from "@jamsch/hanzi-writer-data-jp/大.json";
+import character160 from "@jamsch/hanzi-writer-data-jp/第.json";
+import character161 from "@jamsch/hanzi-writer-data-jp/題.json";
+import character162 from "@jamsch/hanzi-writer-data-jp/炭.json";
+import character163 from "@jamsch/hanzi-writer-data-jp/短.json";
+import character164 from "@jamsch/hanzi-writer-data-jp/談.json";
+import character165 from "@jamsch/hanzi-writer-data-jp/着.json";
+import character166 from "@jamsch/hanzi-writer-data-jp/中.json";
+import character167 from "@jamsch/hanzi-writer-data-jp/柱.json";
+import character168 from "@jamsch/hanzi-writer-data-jp/注.json";
+import character169 from "@jamsch/hanzi-writer-data-jp/丁.json";
+import character170 from "@jamsch/hanzi-writer-data-jp/帳.json";
+import character171 from "@jamsch/hanzi-writer-data-jp/調.json";
+import character172 from "@jamsch/hanzi-writer-data-jp/長.json";
+import character173 from "@jamsch/hanzi-writer-data-jp/追.json";
+import character174 from "@jamsch/hanzi-writer-data-jp/定.json";
+import character175 from "@jamsch/hanzi-writer-data-jp/庭.json";
+import character176 from "@jamsch/hanzi-writer-data-jp/笛.json";
+import character177 from "@jamsch/hanzi-writer-data-jp/鉄.json";
+import character178 from "@jamsch/hanzi-writer-data-jp/転.json";
+import character179 from "@jamsch/hanzi-writer-data-jp/登.json";
+import character180 from "@jamsch/hanzi-writer-data-jp/都.json";
+import character181 from "@jamsch/hanzi-writer-data-jp/度.json";
+import character182 from "@jamsch/hanzi-writer-data-jp/刀.json";
+import character183 from "@jamsch/hanzi-writer-data-jp/島.json";
+import character184 from "@jamsch/hanzi-writer-data-jp/投.json";
+import character185 from "@jamsch/hanzi-writer-data-jp/湯.json";
+import character186 from "@jamsch/hanzi-writer-data-jp/当.json";
+import character187 from "@jamsch/hanzi-writer-data-jp/等.json";
+import character188 from "@jamsch/hanzi-writer-data-jp/豆.json";
+import character189 from "@jamsch/hanzi-writer-data-jp/動.json";
+import character190 from "@jamsch/hanzi-writer-data-jp/道.json";
+import character191 from "@jamsch/hanzi-writer-data-jp/内.json";
+import character192 from "@jamsch/hanzi-writer-data-jp/南.json";
+import character193 from "@jamsch/hanzi-writer-data-jp/日.json";
+import character194 from "@jamsch/hanzi-writer-data-jp/入.json";
+import character195 from "@jamsch/hanzi-writer-data-jp/年.json";
+import character196 from "@jamsch/hanzi-writer-data-jp/売.json";
+import character197 from "@jamsch/hanzi-writer-data-jp/半.json";
+import character198 from "@jamsch/hanzi-writer-data-jp/部.json";
+import character199 from "@jamsch/hanzi-writer-data-jp/福.json";
+import character200 from "@jamsch/hanzi-writer-data-jp/物.json";
+import character201 from "@jamsch/hanzi-writer-data-jp/文.json";
+import character202 from "@jamsch/hanzi-writer-data-jp/放.json";
+import character203 from "@jamsch/hanzi-writer-data-jp/名.json";
+import character204 from "@jamsch/hanzi-writer-data-jp/明.json";
+import character205 from "@jamsch/hanzi-writer-data-jp/面.json";
+import character206 from "@jamsch/hanzi-writer-data-jp/木.json";
+import character207 from "@jamsch/hanzi-writer-data-jp/夜.json";
+import character208 from "@jamsch/hanzi-writer-data-jp/用.json";
+import character209 from "@jamsch/hanzi-writer-data-jp/葉.json";
+import character210 from "@jamsch/hanzi-writer-data-jp/理.json";
+import character211 from "@jamsch/hanzi-writer-data-jp/立.json";
+import character212 from "@jamsch/hanzi-writer-data-jp/旅.json";
+import character213 from "@jamsch/hanzi-writer-data-jp/力.json";
+import character214 from "@jamsch/hanzi-writer-data-jp/練.json";
+import character215 from "@jamsch/hanzi-writer-data-jp/路.json";
+import character216 from "@jamsch/hanzi-writer-data-jp/和.json";
+import character217 from "@jamsch/hanzi-writer-data-jp/話.json";
 
 export const generatedCharacterData: Record<string, CharacterJson> = {
   "悪": character0 as CharacterJson,
@@ -34,22 +227,215 @@ export const generatedCharacterData: Record<string, CharacterJson> = {
   "意": character4 as CharacterJson,
   "医": character5 as CharacterJson,
   "育": character6 as CharacterJson,
-  "員": character7 as CharacterJson,
-  "飲": character8 as CharacterJson,
-  "院": character9 as CharacterJson,
-  "運": character10 as CharacterJson,
-  "学": character11 as CharacterJson,
-  "寒": character12 as CharacterJson,
-  "教": character13 as CharacterJson,
-  "見": character14 as CharacterJson,
-  "事": character15 as CharacterJson,
-  "植": character16 as CharacterJson,
-  "食": character17 as CharacterJson,
-  "全": character18 as CharacterJson,
-  "定": character19 as CharacterJson,
-  "動": character20 as CharacterJson,
-  "内": character21 as CharacterJson,
-  "物": character22 as CharacterJson,
-  "明": character23 as CharacterJson,
-  "葉": character24 as CharacterJson,
+  "一": character7 as CharacterJson,
+  "員": character8 as CharacterJson,
+  "飲": character9 as CharacterJson,
+  "院": character10 as CharacterJson,
+  "運": character11 as CharacterJson,
+  "泳": character12 as CharacterJson,
+  "駅": character13 as CharacterJson,
+  "円": character14 as CharacterJson,
+  "園": character15 as CharacterJson,
+  "央": character16 as CharacterJson,
+  "横": character17 as CharacterJson,
+  "屋": character18 as CharacterJson,
+  "温": character19 as CharacterJson,
+  "下": character20 as CharacterJson,
+  "化": character21 as CharacterJson,
+  "科": character22 as CharacterJson,
+  "歌": character23 as CharacterJson,
+  "荷": character24 as CharacterJson,
+  "会": character25 as CharacterJson,
+  "回": character26 as CharacterJson,
+  "界": character27 as CharacterJson,
+  "開": character28 as CharacterJson,
+  "階": character29 as CharacterJson,
+  "外": character30 as CharacterJson,
+  "角": character31 as CharacterJson,
+  "学": character32 as CharacterJson,
+  "寒": character33 as CharacterJson,
+  "感": character34 as CharacterJson,
+  "漢": character35 as CharacterJson,
+  "間": character36 as CharacterJson,
+  "館": character37 as CharacterJson,
+  "岸": character38 as CharacterJson,
+  "期": character39 as CharacterJson,
+  "気": character40 as CharacterJson,
+  "汽": character41 as CharacterJson,
+  "起": character42 as CharacterJson,
+  "客": character43 as CharacterJson,
+  "休": character44 as CharacterJson,
+  "宮": character45 as CharacterJson,
+  "急": character46 as CharacterJson,
+  "球": character47 as CharacterJson,
+  "究": character48 as CharacterJson,
+  "級": character49 as CharacterJson,
+  "去": character50 as CharacterJson,
+  "教": character51 as CharacterJson,
+  "橋": character52 as CharacterJson,
+  "業": character53 as CharacterJson,
+  "局": character54 as CharacterJson,
+  "曲": character55 as CharacterJson,
+  "銀": character56 as CharacterJson,
+  "苦": character57 as CharacterJson,
+  "具": character58 as CharacterJson,
+  "君": character59 as CharacterJson,
+  "係": character60 as CharacterJson,
+  "形": character61 as CharacterJson,
+  "軽": character62 as CharacterJson,
+  "決": character63 as CharacterJson,
+  "血": character64 as CharacterJson,
+  "研": character65 as CharacterJson,
+  "県": character66 as CharacterJson,
+  "見": character67 as CharacterJson,
+  "言": character68 as CharacterJson,
+  "庫": character69 as CharacterJson,
+  "湖": character70 as CharacterJson,
+  "交": character71 as CharacterJson,
+  "向": character72 as CharacterJson,
+  "幸": character73 as CharacterJson,
+  "校": character74 as CharacterJson,
+  "港": character75 as CharacterJson,
+  "行": character76 as CharacterJson,
+  "号": character77 as CharacterJson,
+  "合": character78 as CharacterJson,
+  "国": character79 as CharacterJson,
+  "根": character80 as CharacterJson,
+  "祭": character81 as CharacterJson,
+  "皿": character82 as CharacterJson,
+  "山": character83 as CharacterJson,
+  "仕": character84 as CharacterJson,
+  "使": character85 as CharacterJson,
+  "始": character86 as CharacterJson,
+  "指": character87 as CharacterJson,
+  "死": character88 as CharacterJson,
+  "詩": character89 as CharacterJson,
+  "歯": character90 as CharacterJson,
+  "事": character91 as CharacterJson,
+  "字": character92 as CharacterJson,
+  "持": character93 as CharacterJson,
+  "時": character94 as CharacterJson,
+  "次": character95 as CharacterJson,
+  "式": character96 as CharacterJson,
+  "実": character97 as CharacterJson,
+  "写": character98 as CharacterJson,
+  "社": character99 as CharacterJson,
+  "者": character100 as CharacterJson,
+  "車": character101 as CharacterJson,
+  "主": character102 as CharacterJson,
+  "取": character103 as CharacterJson,
+  "守": character104 as CharacterJson,
+  "手": character105 as CharacterJson,
+  "酒": character106 as CharacterJson,
+  "首": character107 as CharacterJson,
+  "受": character108 as CharacterJson,
+  "州": character109 as CharacterJson,
+  "拾": character110 as CharacterJson,
+  "終": character111 as CharacterJson,
+  "習": character112 as CharacterJson,
+  "集": character113 as CharacterJson,
+  "住": character114 as CharacterJson,
+  "重": character115 as CharacterJson,
+  "宿": character116 as CharacterJson,
+  "出": character117 as CharacterJson,
+  "所": character118 as CharacterJson,
+  "暑": character119 as CharacterJson,
+  "書": character120 as CharacterJson,
+  "助": character121 as CharacterJson,
+  "勝": character122 as CharacterJson,
+  "商": character123 as CharacterJson,
+  "消": character124 as CharacterJson,
+  "章": character125 as CharacterJson,
+  "上": character126 as CharacterJson,
+  "乗": character127 as CharacterJson,
+  "植": character128 as CharacterJson,
+  "食": character129 as CharacterJson,
+  "心": character130 as CharacterJson,
+  "深": character131 as CharacterJson,
+  "申": character132 as CharacterJson,
+  "真": character133 as CharacterJson,
+  "神": character134 as CharacterJson,
+  "身": character135 as CharacterJson,
+  "進": character136 as CharacterJson,
+  "人": character137 as CharacterJson,
+  "水": character138 as CharacterJson,
+  "世": character139 as CharacterJson,
+  "整": character140 as CharacterJson,
+  "昔": character141 as CharacterJson,
+  "石": character142 as CharacterJson,
+  "線": character143 as CharacterJson,
+  "全": character144 as CharacterJson,
+  "想": character145 as CharacterJson,
+  "相": character146 as CharacterJson,
+  "送": character147 as CharacterJson,
+  "息": character148 as CharacterJson,
+  "速": character149 as CharacterJson,
+  "族": character150 as CharacterJson,
+  "村": character151 as CharacterJson,
+  "他": character152 as CharacterJson,
+  "太": character153 as CharacterJson,
+  "打": character154 as CharacterJson,
+  "体": character155 as CharacterJson,
+  "対": character156 as CharacterJson,
+  "待": character157 as CharacterJson,
+  "代": character158 as CharacterJson,
+  "大": character159 as CharacterJson,
+  "第": character160 as CharacterJson,
+  "題": character161 as CharacterJson,
+  "炭": character162 as CharacterJson,
+  "短": character163 as CharacterJson,
+  "談": character164 as CharacterJson,
+  "着": character165 as CharacterJson,
+  "中": character166 as CharacterJson,
+  "柱": character167 as CharacterJson,
+  "注": character168 as CharacterJson,
+  "丁": character169 as CharacterJson,
+  "帳": character170 as CharacterJson,
+  "調": character171 as CharacterJson,
+  "長": character172 as CharacterJson,
+  "追": character173 as CharacterJson,
+  "定": character174 as CharacterJson,
+  "庭": character175 as CharacterJson,
+  "笛": character176 as CharacterJson,
+  "鉄": character177 as CharacterJson,
+  "転": character178 as CharacterJson,
+  "登": character179 as CharacterJson,
+  "都": character180 as CharacterJson,
+  "度": character181 as CharacterJson,
+  "刀": character182 as CharacterJson,
+  "島": character183 as CharacterJson,
+  "投": character184 as CharacterJson,
+  "湯": character185 as CharacterJson,
+  "当": character186 as CharacterJson,
+  "等": character187 as CharacterJson,
+  "豆": character188 as CharacterJson,
+  "動": character189 as CharacterJson,
+  "道": character190 as CharacterJson,
+  "内": character191 as CharacterJson,
+  "南": character192 as CharacterJson,
+  "日": character193 as CharacterJson,
+  "入": character194 as CharacterJson,
+  "年": character195 as CharacterJson,
+  "売": character196 as CharacterJson,
+  "半": character197 as CharacterJson,
+  "部": character198 as CharacterJson,
+  "福": character199 as CharacterJson,
+  "物": character200 as CharacterJson,
+  "文": character201 as CharacterJson,
+  "放": character202 as CharacterJson,
+  "名": character203 as CharacterJson,
+  "明": character204 as CharacterJson,
+  "面": character205 as CharacterJson,
+  "木": character206 as CharacterJson,
+  "夜": character207 as CharacterJson,
+  "用": character208 as CharacterJson,
+  "葉": character209 as CharacterJson,
+  "理": character210 as CharacterJson,
+  "立": character211 as CharacterJson,
+  "旅": character212 as CharacterJson,
+  "力": character213 as CharacterJson,
+  "練": character214 as CharacterJson,
+  "路": character215 as CharacterJson,
+  "和": character216 as CharacterJson,
+  "話": character217 as CharacterJson,
 };

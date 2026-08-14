@@ -1,0 +1,1959 @@
+{
+  "schemaVersion": 1,
+  "batchId": "kanji-g3-006",
+  "materialSourceVersion": "2026.08.14-7",
+  "grade": 3,
+  "entries": [
+    {
+      "pairId": "kanji-g3-神-kun-5b991adc9e15",
+      "primaryKanji": "神",
+      "readingType": "kun",
+      "canonicalReading": "かん",
+      "fingerprint": "6b98cb2d1281e19b67ad1eb2377e090ec544b5c06f6aa8d74f25f4ac487ed2cd",
+      "proposed": {
+        "word": "神主",
+        "wordReading": "かんぬし",
+        "promptBefore": "お祭りで",
+        "promptAfter": "さんにお話を聞きました。",
+        "targetKanji": [
+          "神",
+          "主"
+        ],
+        "writingPrompt": "「かんぬし」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-真-on-3f1f21e386a4",
+      "primaryKanji": "真",
+      "readingType": "on",
+      "canonicalReading": "シン",
+      "fingerprint": "e2be17c64c1ede1ca321262213e50756cb1c605879104223733fe073e07b73f5",
+      "proposed": {
+        "word": "写真",
+        "wordReading": "しゃしん",
+        "promptBefore": "旅行でとった",
+        "promptAfter": "を家族に見せました。",
+        "targetKanji": [
+          "写",
+          "真"
+        ],
+        "writingPrompt": "「しゃしん」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-真-kun-68a0e2f3877c",
+      "primaryKanji": "真",
+      "readingType": "kun",
+      "canonicalReading": "ま",
+      "fingerprint": "11f7a497a29bb7c150a070512ed71aa2974e1ad29c2b9af26e954a60b7ec3c72",
+      "proposed": {
+        "word": "真南",
+        "wordReading": "まみなみ",
+        "promptBefore": "校門から",
+        "promptAfter": "に向かって歩きます。",
+        "targetKanji": [
+          "真",
+          "南"
+        ],
+        "writingPrompt": "「まみなみ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-深-on-c05909671588",
+      "primaryKanji": "深",
+      "readingType": "on",
+      "canonicalReading": "シン",
+      "fingerprint": "fc1cde82c845f5515ed95e76356dfe4381b9e1043dccfe3faef35f1a264c4436",
+      "proposed": {
+        "word": "深夜",
+        "wordReading": "しんや",
+        "promptBefore": "",
+        "promptAfter": "まで起きていると、朝ねむくなります。",
+        "targetKanji": [
+          "深",
+          "夜"
+        ],
+        "writingPrompt": "「しんや」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-深-kun-16f44ab373c2",
+      "primaryKanji": "深",
+      "readingType": "kun",
+      "canonicalReading": "ふかい",
+      "fingerprint": "6454b78c3d362f63123ec68900ca55af156450c71e4d808e471fcc8b50a87c39",
+      "proposed": {
+        "word": "深い",
+        "wordReading": "ふかい",
+        "promptBefore": "この池はとても",
+        "promptAfter": "ので、近づきません。",
+        "targetKanji": [
+          "深"
+        ],
+        "writingPrompt": "「ふかい」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-深-kun-7593297a4f06",
+      "primaryKanji": "深",
+      "readingType": "kun",
+      "canonicalReading": "ふかまる",
+      "fingerprint": "1ed1d785e6e1f3655b6f9a279a5c06dcf0534d0ce01575d92a37eccba41e6723",
+      "proposed": {
+        "word": "深まる",
+        "wordReading": "ふかまる",
+        "promptBefore": "秋が進むと、木の葉の色が",
+        "promptAfter": "。",
+        "targetKanji": [
+          "深"
+        ],
+        "writingPrompt": "「ふかまる」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-深-kun-f596a9410af0",
+      "primaryKanji": "深",
+      "readingType": "kun",
+      "canonicalReading": "ふかめる",
+      "fingerprint": "0bc9816dd5962bddfd11d126818559d474866bcf71fa6517605a63f6f47969eb",
+      "proposed": {
+        "word": "深める",
+        "wordReading": "ふかめる",
+        "promptBefore": "話し合って考えを",
+        "promptAfter": "。",
+        "targetKanji": [
+          "深"
+        ],
+        "writingPrompt": "「ふかめる」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-進-on-228e2b146dd5",
+      "primaryKanji": "進",
+      "readingType": "on",
+      "canonicalReading": "シン",
+      "fingerprint": "f83ac9187adb4e1d07bee9ca59df45a46b71432302d435660fc8a1689027fbdf",
+      "proposed": {
+        "word": "進級",
+        "wordReading": "しんきゅう",
+        "promptBefore": "四月に",
+        "promptAfter": "して、新しい教室で学びます。",
+        "targetKanji": [
+          "進",
+          "級"
+        ],
+        "writingPrompt": "「しんきゅう」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-進-kun-56c1d44f1748",
+      "primaryKanji": "進",
+      "readingType": "kun",
+      "canonicalReading": "すすむ",
+      "fingerprint": "b09ec23cd4a65d78377158b689a0b2ed3b271ed534c574d97247f2d72d91de98",
+      "proposed": {
+        "word": "進む",
+        "wordReading": "すすむ",
+        "promptBefore": "列が少しずつ前へ",
+        "promptAfter": "。",
+        "targetKanji": [
+          "進"
+        ],
+        "writingPrompt": "「すすむ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-進-kun-c2041cf06cd3",
+      "primaryKanji": "進",
+      "readingType": "kun",
+      "canonicalReading": "すすめる",
+      "fingerprint": "96bee67a96fefb99a54ff07ae15ed180b2063547dc7f3dae1daaf1b950d61ba1",
+      "proposed": {
+        "word": "進める",
+        "wordReading": "すすめる",
+        "promptBefore": "時計を見ながら宿題を",
+        "promptAfter": "。",
+        "targetKanji": [
+          "進"
+        ],
+        "writingPrompt": "「すすめる」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-世-on-a5015da0ff86",
+      "primaryKanji": "世",
+      "readingType": "on",
+      "canonicalReading": "セイ",
+      "fingerprint": "6ccd3d175a8d140e4e5d275f12bf289382868b6a932c58a42c17552032643c4a",
+      "proposed": {
+        "word": "時世",
+        "wordReading": "じせい",
+        "promptBefore": "古い本から、そのころの",
+        "promptAfter": "を学びます。",
+        "targetKanji": [
+          "時",
+          "世"
+        ],
+        "writingPrompt": "「じせい」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-世-on-6e25439e5600",
+      "primaryKanji": "世",
+      "readingType": "on",
+      "canonicalReading": "セ",
+      "fingerprint": "342c710b89abd28a0bc945d992701aa020d397a59ce0090e11256d588c58fba7",
+      "proposed": {
+        "word": "世界",
+        "wordReading": "せかい",
+        "promptBefore": "地図を広げて",
+        "promptAfter": "のいろいろな国を調べます。",
+        "targetKanji": [
+          "世",
+          "界"
+        ],
+        "writingPrompt": "「せかい」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-世-kun-01432f63ff8c",
+      "primaryKanji": "世",
+      "readingType": "kun",
+      "canonicalReading": "よ",
+      "fingerprint": "23b882b3ef768851f79569ae38037dd870db407116b5a8b2f7d52f195fb2f365",
+      "proposed": {
+        "word": "世",
+        "wordReading": "よ",
+        "promptBefore": "この",
+        "promptAfter": "には、まだ知らないことがたくさんあります。",
+        "targetKanji": [
+          "世"
+        ],
+        "writingPrompt": "「よ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-整-on-2d5201ec092c",
+      "primaryKanji": "整",
+      "readingType": "on",
+      "canonicalReading": "セイ",
+      "fingerprint": "6a77e6a392138da9a01ce39aead87a9cb6ff0a23f571600ea135ef4f158d2e88",
+      "proposed": {
+        "word": "整理",
+        "wordReading": "せいり",
+        "promptBefore": "使った道具を",
+        "promptAfter": "して、たなにもどします。",
+        "targetKanji": [
+          "整",
+          "理"
+        ],
+        "writingPrompt": "「せいり」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-整-kun-fdfbe07eea40",
+      "primaryKanji": "整",
+      "readingType": "kun",
+      "canonicalReading": "ととのえる",
+      "fingerprint": "554887f093bcdd82083feb14e82555a65a332bb66d28666d7b242d90d50e9e58",
+      "proposed": {
+        "word": "整える",
+        "wordReading": "ととのえる",
+        "promptBefore": "出かける前に服そうを",
+        "promptAfter": "。",
+        "targetKanji": [
+          "整"
+        ],
+        "writingPrompt": "「ととのえる」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-整-kun-3fe8bf90c36e",
+      "primaryKanji": "整",
+      "readingType": "kun",
+      "canonicalReading": "ととのう",
+      "fingerprint": "c05579d05b5398219ff60dd611d05daabb6a6bf681cd22dddb45511342692ded",
+      "proposed": {
+        "word": "整う",
+        "wordReading": "ととのう",
+        "promptBefore": "教室のつくえがきれいに",
+        "promptAfter": "。",
+        "targetKanji": [
+          "整"
+        ],
+        "writingPrompt": "「ととのう」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-昔-on-2b987fbc0fa5",
+      "primaryKanji": "昔",
+      "readingType": "on",
+      "canonicalReading": "セキ",
+      "fingerprint": "fb65a0338d3b51db3e2d7f832002fe77114f0966a254c1f23670546f8ed91685",
+      "proposed": {
+        "word": "昔日",
+        "wordReading": "せきじつ",
+        "promptBefore": "古い本を読んで、町の",
+        "promptAfter": "のすがたをそうぞうします。",
+        "targetKanji": [
+          "昔",
+          "日"
+        ],
+        "writingPrompt": "「せきじつ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-昔-kun-f78d0ca7913b",
+      "primaryKanji": "昔",
+      "readingType": "kun",
+      "canonicalReading": "むかし",
+      "fingerprint": "a3654f57a7bdfb921ec026a1184c0f6c735c31f434d825c569e20610a6efc30e",
+      "proposed": {
+        "word": "昔",
+        "wordReading": "むかし",
+        "promptBefore": "おじいさんから",
+        "promptAfter": "の遊びについて聞きました。",
+        "targetKanji": [
+          "昔"
+        ],
+        "writingPrompt": "「むかし」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-全-on-1ff75bbf8497",
+      "primaryKanji": "全",
+      "readingType": "on",
+      "canonicalReading": "ゼン",
+      "fingerprint": "edfd7f405d3273665e8261d6c1c9222823e7118ef6b5a16c5c0345fcdca57994",
+      "proposed": {
+        "word": "全部",
+        "wordReading": "ぜんぶ",
+        "promptBefore": "箱の中身を",
+        "promptAfter": "つくえの上に出しました。",
+        "targetKanji": [
+          "全",
+          "部"
+        ],
+        "writingPrompt": "「ぜんぶ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-全-kun-5462c8a734b7",
+      "primaryKanji": "全",
+      "readingType": "kun",
+      "canonicalReading": "まったく",
+      "fingerprint": "219fb9559419ff79f133344fd6dacc0b4d0d3ca0fc7754e002a14815c102b198",
+      "proposed": {
+        "word": "全く",
+        "wordReading": "まったく",
+        "promptBefore": "その話は",
+        "promptAfter": "知りませんでした。",
+        "targetKanji": [
+          "全"
+        ],
+        "writingPrompt": "「まったく」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-全-kun-b751c9cc30e0",
+      "primaryKanji": "全",
+      "readingType": "kun",
+      "canonicalReading": "すべて",
+      "fingerprint": "42a818f1692f34e441a9e3f5e272f9b4f826974c62e985b4e9b44154b12179f1",
+      "proposed": {
+        "word": "全て",
+        "wordReading": "すべて",
+        "promptBefore": "今日の宿題を",
+        "promptAfter": "終えました。",
+        "targetKanji": [
+          "全"
+        ],
+        "writingPrompt": "「すべて」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-相-on-7820a3ff289d",
+      "primaryKanji": "相",
+      "readingType": "on",
+      "canonicalReading": "ソウ",
+      "fingerprint": "cca7bcb8f075d3dacdf4f36449ba881be08887f4a4967f6c0e3f75fec3a5e413",
+      "proposed": {
+        "word": "相当",
+        "wordReading": "そうとう",
+        "promptBefore": "この問題は",
+        "promptAfter": "むずかしいです。",
+        "targetKanji": [
+          "相",
+          "当"
+        ],
+        "writingPrompt": "「そうとう」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-相-on-6d216e52defe",
+      "primaryKanji": "相",
+      "readingType": "on",
+      "canonicalReading": "ショウ",
+      "fingerprint": "62238055923d8029406a5855e3488d8101387834f7053ff402d3b17e219637db",
+      "proposed": {
+        "word": "首相",
+        "wordReading": "しゅしょう",
+        "promptBefore": "ニュースで",
+        "promptAfter": "の話を聞きました。",
+        "targetKanji": [
+          "首",
+          "相"
+        ],
+        "writingPrompt": "「しゅしょう」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-相-kun-4d9263d9ec82",
+      "primaryKanji": "相",
+      "readingType": "kun",
+      "canonicalReading": "あい",
+      "fingerprint": "b138bbd217e6da242d2baf0223a7b3d44541d8082ba1baf603ccb4ebe7f8cde9",
+      "proposed": {
+        "word": "相手",
+        "wordReading": "あいて",
+        "promptBefore": "サッカーの",
+        "promptAfter": "に元気よくあいさつしました。",
+        "targetKanji": [
+          "相",
+          "手"
+        ],
+        "writingPrompt": "「あいて」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-送-on-c9f3b6e83d94",
+      "primaryKanji": "送",
+      "readingType": "on",
+      "canonicalReading": "ソウ",
+      "fingerprint": "c1808fc936e08b0b2cd8d6cc25309015c1c4b4b9e5be542f72aea0aac2e62192",
+      "proposed": {
+        "word": "放送",
+        "wordReading": "ほうそう",
+        "promptBefore": "昼の",
+        "promptAfter": "で、明日の予定を知らせます。",
+        "targetKanji": [
+          "放",
+          "送"
+        ],
+        "writingPrompt": "「ほうそう」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-送-kun-8e4ae2b96d16",
+      "primaryKanji": "送",
+      "readingType": "kun",
+      "canonicalReading": "おくる",
+      "fingerprint": "238b6a31e840a5d74d4a6c77c1486370a83d5905b107ada5af2d824370671551",
+      "proposed": {
+        "word": "送る",
+        "wordReading": "おくる",
+        "promptBefore": "遠くに住む友だちへ手紙を",
+        "promptAfter": "。",
+        "targetKanji": [
+          "送"
+        ],
+        "writingPrompt": "「おくる」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-想-on-73fb9ea607b0",
+      "primaryKanji": "想",
+      "readingType": "on",
+      "canonicalReading": "ソウ",
+      "fingerprint": "822039b79a41e0e80124e7c96ebf537b2c431eef648681f1c1fd36f9a1f36a33",
+      "proposed": {
+        "word": "感想",
+        "wordReading": "かんそう",
+        "promptBefore": "読書の",
+        "promptAfter": "をノートに書きました。",
+        "targetKanji": [
+          "感",
+          "想"
+        ],
+        "writingPrompt": "「かんそう」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-息-on-69c6984be847",
+      "primaryKanji": "息",
+      "readingType": "on",
+      "canonicalReading": "ソク",
+      "fingerprint": "728d0ff3678153566f67dab9f879271ffc22df0b9e54105ce9a6d9f2a74ee49a",
+      "proposed": {
+        "word": "休息",
+        "wordReading": "きゅうそく",
+        "promptBefore": "運動の後は、しっかり",
+        "promptAfter": "を取ります。",
+        "targetKanji": [
+          "休",
+          "息"
+        ],
+        "writingPrompt": "「きゅうそく」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-息-kun-1f91d4a79b58",
+      "primaryKanji": "息",
+      "readingType": "kun",
+      "canonicalReading": "いき",
+      "fingerprint": "3d81b444865817d1b87273f010f1d9db2b56e4f43c822077b791c2eb758acc11",
+      "proposed": {
+        "word": "息",
+        "wordReading": "いき",
+        "promptBefore": "走った後、ゆっくり",
+        "promptAfter": "を整えました。",
+        "targetKanji": [
+          "息"
+        ],
+        "writingPrompt": "「いき」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-速-on-883fc13e3739",
+      "primaryKanji": "速",
+      "readingType": "on",
+      "canonicalReading": "ソク",
+      "fingerprint": "1909314d01af62385090d78994fcb98c04f0d947bd8040e9b40fa76bb141442c",
+      "proposed": {
+        "word": "速度",
+        "wordReading": "そくど",
+        "promptBefore": "自転車の",
+        "promptAfter": "を落として、角を曲がります。",
+        "targetKanji": [
+          "速",
+          "度"
+        ],
+        "writingPrompt": "「そくど」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-速-kun-312676c96256",
+      "primaryKanji": "速",
+      "readingType": "kun",
+      "canonicalReading": "はやい",
+      "fingerprint": "cb6493f313f13ca6d542355992b455ebe512b07d73dedb87f050e9d52b68e852",
+      "proposed": {
+        "word": "速い",
+        "wordReading": "はやい",
+        "promptBefore": "あの電車はとても",
+        "promptAfter": "です。",
+        "targetKanji": [
+          "速"
+        ],
+        "writingPrompt": "「はやい」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-速-kun-3a2cb4ae0be3",
+      "primaryKanji": "速",
+      "readingType": "kun",
+      "canonicalReading": "はやめる",
+      "fingerprint": "7950ca5c4c24a91264d817fa00310b7a9fe0e26329b9070bcd8f2717f045cd0f",
+      "proposed": {
+        "word": "速める",
+        "wordReading": "はやめる",
+        "promptBefore": "雨がふりそうなので、歩く速さを",
+        "promptAfter": "。",
+        "targetKanji": [
+          "速"
+        ],
+        "writingPrompt": "「はやめる」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-速-kun-c138a8b5c1dc",
+      "primaryKanji": "速",
+      "readingType": "kun",
+      "canonicalReading": "はやまる",
+      "fingerprint": "627f4f3c539e686e304ff3e28dc89f0c21582c073fab68d1fa28d5ca23b4d93e",
+      "proposed": {
+        "word": "速まる",
+        "wordReading": "はやまる",
+        "promptBefore": "坂道で自転車の動きが",
+        "promptAfter": "。",
+        "targetKanji": [
+          "速"
+        ],
+        "writingPrompt": "「はやまる」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-速-kun-67c5577a3607",
+      "primaryKanji": "速",
+      "readingType": "kun",
+      "canonicalReading": "すみやか",
+      "fingerprint": "b2b42279c62c4fc72c763ec013d0024fe91f562d275140fd26fe19909d3a32fe",
+      "proposed": {
+        "word": "速やか",
+        "wordReading": "すみやか",
+        "promptBefore": "先生の返事はいつも",
+        "promptAfter": "だ。",
+        "targetKanji": [
+          "速"
+        ],
+        "writingPrompt": "「すみやか」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-族-on-1fde2a2e7460",
+      "primaryKanji": "族",
+      "readingType": "on",
+      "canonicalReading": "ゾク",
+      "fingerprint": "e41afaa19bccb5050424b272b5aa31db036a072e9b1b0828d0520a3de4b33354",
+      "proposed": {
+        "word": "一族",
+        "wordReading": "いちぞく",
+        "promptBefore": "物語には王さまの",
+        "promptAfter": "が登場します。",
+        "targetKanji": [
+          "一",
+          "族"
+        ],
+        "writingPrompt": "「いちぞく」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-他-on-f58b1b52e773",
+      "primaryKanji": "他",
+      "readingType": "on",
+      "canonicalReading": "タ",
+      "fingerprint": "e746963697b8ef21924ab9a0eee5aa010b0ce3e1da359fcd494ea8075c19ee50",
+      "proposed": {
+        "word": "他国",
+        "wordReading": "たこく",
+        "promptBefore": "図書館で",
+        "promptAfter": "のくらしを調べます。",
+        "targetKanji": [
+          "他",
+          "国"
+        ],
+        "writingPrompt": "「たこく」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-他-kun-28d2b3d8c507",
+      "primaryKanji": "他",
+      "readingType": "kun",
+      "canonicalReading": "ほか",
+      "fingerprint": "c2341b331057efe1d8e7d52f61c1aef2d7911d57d49419ce080c0ca02402f2cb",
+      "proposed": {
+        "word": "他",
+        "wordReading": "ほか",
+        "promptBefore": "学校の",
+        "promptAfter": "にも図書館があります。",
+        "targetKanji": [
+          "他"
+        ],
+        "writingPrompt": "「ほか」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-打-kun-caefe23613d0",
+      "primaryKanji": "打",
+      "readingType": "kun",
+      "canonicalReading": "うつ",
+      "fingerprint": "281a9bb429bce114ad655bd0100665bdf12b6970b25abe4b4ec4e718d7c9d221",
+      "proposed": {
+        "word": "打つ",
+        "wordReading": "うつ",
+        "promptBefore": "公園で友だちとボールを",
+        "promptAfter": "。",
+        "targetKanji": [
+          "打"
+        ],
+        "writingPrompt": "「うつ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-対-on-4386868a209c",
+      "primaryKanji": "対",
+      "readingType": "on",
+      "canonicalReading": "タイ",
+      "fingerprint": "11bcf058e5c800826a7fe613a375c1164aa4a232aab0382dbdef5bcb96981bb1",
+      "proposed": {
+        "word": "対立",
+        "wordReading": "たいりつ",
+        "promptBefore": "二人の意見が",
+        "promptAfter": "して、話し合いになりました。",
+        "targetKanji": [
+          "対",
+          "立"
+        ],
+        "writingPrompt": "「たいりつ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-待-on-a8cc789e38e8",
+      "primaryKanji": "待",
+      "readingType": "on",
+      "canonicalReading": "タイ",
+      "fingerprint": "c9b21bc9b5bc7212d920b9ff5d369fd49a999f4f97556f540b1b5b186cfa01d0",
+      "proposed": {
+        "word": "期待",
+        "wordReading": "きたい",
+        "promptBefore": "明日の遠足に",
+        "promptAfter": "して、じゅんびをします。",
+        "targetKanji": [
+          "期",
+          "待"
+        ],
+        "writingPrompt": "「きたい」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-待-kun-b21025f5c4a6",
+      "primaryKanji": "待",
+      "readingType": "kun",
+      "canonicalReading": "まつ",
+      "fingerprint": "5f7aa75d9e626bc52955bce23ed09e2c505d9357f79824a22ec21fb515ffb4ce",
+      "proposed": {
+        "word": "待つ",
+        "wordReading": "まつ",
+        "promptBefore": "駅で電車が来るのを",
+        "promptAfter": "。",
+        "targetKanji": [
+          "待"
+        ],
+        "writingPrompt": "「まつ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-代-on-1a77a561a1e6",
+      "primaryKanji": "代",
+      "readingType": "on",
+      "canonicalReading": "ダイ",
+      "fingerprint": "1411bd5c6be82d5b814b975708f2734a3098de8d0f2a71b2c76a147676d994a3",
+      "proposed": {
+        "word": "代理",
+        "wordReading": "だいり",
+        "promptBefore": "先生の",
+        "promptAfter": "で、係の人が話しました。",
+        "targetKanji": [
+          "代",
+          "理"
+        ],
+        "writingPrompt": "「だいり」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-代-on-79346747cddf",
+      "primaryKanji": "代",
+      "readingType": "on",
+      "canonicalReading": "タイ",
+      "fingerprint": "5dcf0854c53423a7d2f95d751e2b84b0c8240f68786c10b60d65e5f3a42de997",
+      "proposed": {
+        "word": "交代",
+        "wordReading": "こうたい",
+        "promptBefore": "十ぷんごとに見はりを",
+        "promptAfter": "します。",
+        "targetKanji": [
+          "交",
+          "代"
+        ],
+        "writingPrompt": "「こうたい」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-代-kun-d4ffcca5c4c4",
+      "primaryKanji": "代",
+      "readingType": "kun",
+      "canonicalReading": "かわる",
+      "fingerprint": "4c336605f2b4ab9587fe3e88967cf2744ee86c4ce11e7638b43a4cf9ec3d6e05",
+      "proposed": {
+        "word": "代わる",
+        "wordReading": "かわる",
+        "promptBefore": "母がいないので、今日は父が",
+        "promptAfter": "。",
+        "targetKanji": [
+          "代"
+        ],
+        "writingPrompt": "「かわる」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-代-kun-f4dff16c4806",
+      "primaryKanji": "代",
+      "readingType": "kun",
+      "canonicalReading": "かえる",
+      "fingerprint": "b51f3d1bddca9d210b26c26b2039240d0c0f872fcbd73ae13471224a0da35808",
+      "proposed": {
+        "word": "代える",
+        "wordReading": "かえる",
+        "promptBefore": "古い電池を新しい物に",
+        "promptAfter": "。",
+        "targetKanji": [
+          "代"
+        ],
+        "writingPrompt": "「かえる」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-代-kun-4b45164c2d72",
+      "primaryKanji": "代",
+      "readingType": "kun",
+      "canonicalReading": "よ",
+      "fingerprint": "a3b6ec410b822cdc78541ef38a7e9fb1765b4aa45806ea6962de103fa3abbf7b",
+      "proposed": {
+        "word": "代",
+        "wordReading": "よ",
+        "promptBefore": "わたしたちの",
+        "promptAfter": "でも、この歌は人気です。",
+        "targetKanji": [
+          "代"
+        ],
+        "writingPrompt": "「よ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-代-kun-e7aef20f69bf",
+      "primaryKanji": "代",
+      "readingType": "kun",
+      "canonicalReading": "しろ",
+      "fingerprint": "64beb48d331e91250665bf087db40a53cb488db35585467a54d544e36eb9c811",
+      "proposed": {
+        "word": "代物",
+        "wordReading": "しろもの",
+        "promptBefore": "店の中から古そうな",
+        "promptAfter": "が出てきました。",
+        "targetKanji": [
+          "代",
+          "物"
+        ],
+        "writingPrompt": "「しろもの」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-第-on-c1e57fe6bfec",
+      "primaryKanji": "第",
+      "readingType": "on",
+      "canonicalReading": "ダイ",
+      "fingerprint": "104fcd1534cf3eb696c11b412e562e43a88920d4d53752e501bd846cd8ea813c",
+      "proposed": {
+        "word": "第一",
+        "wordReading": "だいいち",
+        "promptBefore": "安全を",
+        "promptAfter": "に考えて行動します。",
+        "targetKanji": [
+          "第",
+          "一"
+        ],
+        "writingPrompt": "「だいいち」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-題-on-3cc7667902fd",
+      "primaryKanji": "題",
+      "readingType": "on",
+      "canonicalReading": "ダイ",
+      "fingerprint": "18f71bc707bcff007e56fcbd6c586a7573b7406245bf019b495ca1ebeec9e7ce",
+      "proposed": {
+        "word": "題名",
+        "wordReading": "だいめい",
+        "promptBefore": "作文にぴったりの",
+        "promptAfter": "をつけました。",
+        "targetKanji": [
+          "題",
+          "名"
+        ],
+        "writingPrompt": "「だいめい」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-炭-on-49e1601000fd",
+      "primaryKanji": "炭",
+      "readingType": "on",
+      "canonicalReading": "タン",
+      "fingerprint": "e302201f6eef8f88e37884bcf46c8fdffc57463a442fa705583a4edafc03497a",
+      "proposed": {
+        "word": "木炭",
+        "wordReading": "もくたん",
+        "promptBefore": "理科のじっけんで",
+        "promptAfter": "を使いました。",
+        "targetKanji": [
+          "木",
+          "炭"
+        ],
+        "writingPrompt": "「もくたん」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-炭-kun-82d38009736b",
+      "primaryKanji": "炭",
+      "readingType": "kun",
+      "canonicalReading": "すみ",
+      "fingerprint": "4aa2488ef7626783d8564cb8c347a58000b52b1fbd1e3e19214c170ea2c7a87a",
+      "proposed": {
+        "word": "炭",
+        "wordReading": "すみ",
+        "promptBefore": "火ばちに",
+        "promptAfter": "を入れます。",
+        "targetKanji": [
+          "炭"
+        ],
+        "writingPrompt": "「すみ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-短-on-bfa4c5501a7a",
+      "primaryKanji": "短",
+      "readingType": "on",
+      "canonicalReading": "タン",
+      "fingerprint": "fa6c951d73fa8e6797fd2aefb36dfd5f66cdcaa3a8a16ca21d904ab4a41e8199",
+      "proposed": {
+        "word": "短歌",
+        "wordReading": "たんか",
+        "promptBefore": "五七五の言葉で",
+        "promptAfter": "を作りました。",
+        "targetKanji": [
+          "短",
+          "歌"
+        ],
+        "writingPrompt": "「たんか」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-短-kun-496665f88060",
+      "primaryKanji": "短",
+      "readingType": "kun",
+      "canonicalReading": "みじかい",
+      "fingerprint": "ba37c44570d7d497ca1f15bf9b729201d9be8307abb96aae3209127f34e1d0b2",
+      "proposed": {
+        "word": "短い",
+        "wordReading": "みじかい",
+        "promptBefore": "このえんぴつは",
+        "promptAfter": "ので、新しい物にかえます。",
+        "targetKanji": [
+          "短"
+        ],
+        "writingPrompt": "「みじかい」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-談-on-e6306362728a",
+      "primaryKanji": "談",
+      "readingType": "on",
+      "canonicalReading": "ダン",
+      "fingerprint": "b44de55574e2475c49c82dee757b3e3896451d12c9999f781aefb69103c81ac5",
+      "proposed": {
+        "word": "談話",
+        "wordReading": "だんわ",
+        "promptBefore": "校長先生の",
+        "promptAfter": "を聞きました。",
+        "targetKanji": [
+          "談",
+          "話"
+        ],
+        "writingPrompt": "「だんわ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-着-on-0e19bdfbc840",
+      "primaryKanji": "着",
+      "readingType": "on",
+      "canonicalReading": "チャク",
+      "fingerprint": "b46e94b9b83bc069ad006558484fe0c05149412d8ede93896a3516f4752e60c6",
+      "proposed": {
+        "word": "着用",
+        "wordReading": "ちゃくよう",
+        "promptBefore": "体育の時間は、赤白ぼうを",
+        "promptAfter": "します。",
+        "targetKanji": [
+          "着",
+          "用"
+        ],
+        "writingPrompt": "「ちゃくよう」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-着-kun-5b84c6788e7c",
+      "primaryKanji": "着",
+      "readingType": "kun",
+      "canonicalReading": "きる",
+      "fingerprint": "e84727ecf2fa5ef55d216855b96f403205177ea0d6e6f4edac6831da8eea70a1",
+      "proposed": {
+        "word": "着る",
+        "wordReading": "きる",
+        "promptBefore": "寒いので、上着を",
+        "promptAfter": "。",
+        "targetKanji": [
+          "着"
+        ],
+        "writingPrompt": "「きる」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-着-kun-cf408a422878",
+      "primaryKanji": "着",
+      "readingType": "kun",
+      "canonicalReading": "きせる",
+      "fingerprint": "de0643c9e25a5173d7d9424f98d602fc4420c2b202e8e6171b85acc3361553b3",
+      "proposed": {
+        "word": "着せる",
+        "wordReading": "きせる",
+        "promptBefore": "ぬいぐるみに小さな服を",
+        "promptAfter": "。",
+        "targetKanji": [
+          "着"
+        ],
+        "writingPrompt": "「きせる」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-着-kun-dca5e0271dea",
+      "primaryKanji": "着",
+      "readingType": "kun",
+      "canonicalReading": "つく",
+      "fingerprint": "799a96d1cc2763529e36cab77dca1dd34790259e9d2489be477fcdd19b907047",
+      "proposed": {
+        "word": "着く",
+        "wordReading": "つく",
+        "promptBefore": "バスが学校に",
+        "promptAfter": "じこくを調べます。",
+        "targetKanji": [
+          "着"
+        ],
+        "writingPrompt": "「つく」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-着-kun-21928579fc2d",
+      "primaryKanji": "着",
+      "readingType": "kun",
+      "canonicalReading": "つける",
+      "fingerprint": "6276d43be70d7831f74aa3aa8d17aee536429f706092fcd7cfa47ee4ff064613",
+      "proposed": {
+        "word": "着ける",
+        "wordReading": "つける",
+        "promptBefore": "出かける前に安全ベルトを",
+        "promptAfter": "。",
+        "targetKanji": [
+          "着"
+        ],
+        "writingPrompt": "「つける」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-注-on-79ad18e3e105",
+      "primaryKanji": "注",
+      "readingType": "on",
+      "canonicalReading": "チュウ",
+      "fingerprint": "4acc063a01fb776abcac523b3eec5d1f22a3d4fd04d5ae083d52ba145bf4fd39",
+      "proposed": {
+        "word": "注入",
+        "wordReading": "ちゅうにゅう",
+        "promptBefore": "タイヤに空気を",
+        "promptAfter": "します。",
+        "targetKanji": [
+          "注",
+          "入"
+        ],
+        "writingPrompt": "「ちゅうにゅう」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-注-kun-4866c2bb3468",
+      "primaryKanji": "注",
+      "readingType": "kun",
+      "canonicalReading": "そそぐ",
+      "fingerprint": "96998d284059738389c7a8994107f153721b42d8fcd8c96b03a624c017c2f3cf",
+      "proposed": {
+        "word": "注ぐ",
+        "wordReading": "そそぐ",
+        "promptBefore": "コップに水をゆっくり",
+        "promptAfter": "。",
+        "targetKanji": [
+          "注"
+        ],
+        "writingPrompt": "「そそぐ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-柱-on-233c7b024fb6",
+      "primaryKanji": "柱",
+      "readingType": "on",
+      "canonicalReading": "チュウ",
+      "fingerprint": "67743e4d16282b51afe555a646eb36b26f09c8db46cfe3bd43a8998b42fc3502",
+      "proposed": {
+        "word": "円柱",
+        "wordReading": "えんちゅう",
+        "promptBefore": "工作で",
+        "promptAfter": "の形をしたつつを作ります。",
+        "targetKanji": [
+          "円",
+          "柱"
+        ],
+        "writingPrompt": "「えんちゅう」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-柱-kun-c98b63d07ba0",
+      "primaryKanji": "柱",
+      "readingType": "kun",
+      "canonicalReading": "はしら",
+      "fingerprint": "c1d70de6d089dbc2f14b19e498e3c5edd761bca91edea5dd7c0168dcb3605728",
+      "proposed": {
+        "word": "柱",
+        "wordReading": "はしら",
+        "promptBefore": "家の",
+        "promptAfter": "に身長のしるしをつけました。",
+        "targetKanji": [
+          "柱"
+        ],
+        "writingPrompt": "「はしら」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-丁-on-de5f270b5969",
+      "primaryKanji": "丁",
+      "readingType": "on",
+      "canonicalReading": "チョウ",
+      "fingerprint": "9d36722bb0e64a9b8434ee4e7941216ddd7bddd5f1a2eedf35643c4b165018e8",
+      "proposed": {
+        "word": "一丁",
+        "wordReading": "いっちょう",
+        "promptBefore": "とうふを",
+        "promptAfter": "買いました。",
+        "targetKanji": [
+          "一",
+          "丁"
+        ],
+        "writingPrompt": "「いっちょう」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-丁-on-cd38bdd39907",
+      "primaryKanji": "丁",
+      "readingType": "on",
+      "canonicalReading": "テイ",
+      "fingerprint": "d7edb393acb4dec924d4da17e524793849028436e4b4ae9453dbcf2f0404f802",
+      "proposed": {
+        "word": "丁字路",
+        "wordReading": "ていじろ",
+        "promptBefore": "次の",
+        "promptAfter": "を右に曲がります。",
+        "targetKanji": [
+          "丁",
+          "字",
+          "路"
+        ],
+        "writingPrompt": "「ていじろ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-帳-on-5e85a5916977",
+      "primaryKanji": "帳",
+      "readingType": "on",
+      "canonicalReading": "チョウ",
+      "fingerprint": "55818c635e133aadc26065edd19c192aa2f21ba41fbc21f49877d949c73a1291",
+      "proposed": {
+        "word": "帳面",
+        "wordReading": "ちょうめん",
+        "promptBefore": "新しい",
+        "promptAfter": "に、今日のできごとを書きます。",
+        "targetKanji": [
+          "帳",
+          "面"
+        ],
+        "writingPrompt": "「ちょうめん」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-調-on-736e5d16094d",
+      "primaryKanji": "調",
+      "readingType": "on",
+      "canonicalReading": "チョウ",
+      "fingerprint": "9b4c8f4929646d4dc0cfcc2b4e78256f82d3398bd5af83e10d2c3e8d1530e840",
+      "proposed": {
+        "word": "調和",
+        "wordReading": "ちょうわ",
+        "promptBefore": "いろいろな色が",
+        "promptAfter": "した絵です。",
+        "targetKanji": [
+          "調",
+          "和"
+        ],
+        "writingPrompt": "「ちょうわ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-調-kun-dbc574908893",
+      "primaryKanji": "調",
+      "readingType": "kun",
+      "canonicalReading": "しらべる",
+      "fingerprint": "2e71c6d404affe7811b661a7fd6684e8cf45cfe79cb6252d2759b5c75070ed9c",
+      "proposed": {
+        "word": "調べる",
+        "wordReading": "しらべる",
+        "promptBefore": "図かんでこん虫の育ち方を",
+        "promptAfter": "。",
+        "targetKanji": [
+          "調"
+        ],
+        "writingPrompt": "「しらべる」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-調-kun-b240fd4c9815",
+      "primaryKanji": "調",
+      "readingType": "kun",
+      "canonicalReading": "ととのう",
+      "fingerprint": "82365978d8890ff4ab20537f6fac1b1987aa5588584098a03d868447eb80bda2",
+      "proposed": {
+        "word": "調う",
+        "wordReading": "ととのう",
+        "promptBefore": "出発のじゅんびが",
+        "promptAfter": "。",
+        "targetKanji": [
+          "調"
+        ],
+        "writingPrompt": "「ととのう」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-調-kun-c11d77e8abab",
+      "primaryKanji": "調",
+      "readingType": "kun",
+      "canonicalReading": "ととのえる",
+      "fingerprint": "df8474998b0d7cdce8abc1ccc842ae38e58af57d328b008f0f59d27fcb0264ad",
+      "proposed": {
+        "word": "調える",
+        "wordReading": "ととのえる",
+        "promptBefore": "スープの味を",
+        "promptAfter": "。",
+        "targetKanji": [
+          "調"
+        ],
+        "writingPrompt": "「ととのえる」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-追-on-2715389ce16a",
+      "primaryKanji": "追",
+      "readingType": "on",
+      "canonicalReading": "ツイ",
+      "fingerprint": "61a1468a9b4bb3b3dac08cfaa9d38ecf9aad2468adcef36900f95a1f973329ee",
+      "proposed": {
+        "word": "追放",
+        "wordReading": "ついほう",
+        "promptBefore": "悪者を町から",
+        "promptAfter": "する物語を読みました。",
+        "targetKanji": [
+          "追",
+          "放"
+        ],
+        "writingPrompt": "「ついほう」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-追-kun-d2c00a8c05b5",
+      "primaryKanji": "追",
+      "readingType": "kun",
+      "canonicalReading": "おう",
+      "fingerprint": "f23940ba723b5ed40759f6aad12d02942babcfb02c4a2fa39328cfdb799d8f91",
+      "proposed": {
+        "word": "追う",
+        "wordReading": "おう",
+        "promptBefore": "虫取りあみを持って、ちょうを",
+        "promptAfter": "。",
+        "targetKanji": [
+          "追"
+        ],
+        "writingPrompt": "「おう」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-定-on-19352f4fc928",
+      "primaryKanji": "定",
+      "readingType": "on",
+      "canonicalReading": "テイ",
+      "fingerprint": "b082225079f274f05f9f3137e8d417332fc9d2a131dd7d55840b77f3fa0f5862",
+      "proposed": {
+        "word": "安定",
+        "wordReading": "あんてい",
+        "promptBefore": "四本の足でつくえが",
+        "promptAfter": "しています。",
+        "targetKanji": [
+          "安",
+          "定"
+        ],
+        "writingPrompt": "「あんてい」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-定-on-e87a8aa45f27",
+      "primaryKanji": "定",
+      "readingType": "on",
+      "canonicalReading": "ジョウ",
+      "fingerprint": "54bc1b0d580b8685d4be60d04ee955937c97952a3e583c6af4f612251ba60a79",
+      "proposed": {
+        "word": "定石",
+        "wordReading": "じょうせき",
+        "promptBefore": "しょうぎの",
+        "promptAfter": "を本で学びました。",
+        "targetKanji": [
+          "定",
+          "石"
+        ],
+        "writingPrompt": "「じょうせき」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-定-kun-7ae130d3acfb",
+      "primaryKanji": "定",
+      "readingType": "kun",
+      "canonicalReading": "さだめる",
+      "fingerprint": "31a0b00265a601a68399cd739cd7c1ee6badfb99e17773f2448cca7415b7dac6",
+      "proposed": {
+        "word": "定める",
+        "wordReading": "さだめる",
+        "promptBefore": "学級会で新しいきまりを",
+        "promptAfter": "。",
+        "targetKanji": [
+          "定"
+        ],
+        "writingPrompt": "「さだめる」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-定-kun-deb695ad36c3",
+      "primaryKanji": "定",
+      "readingType": "kun",
+      "canonicalReading": "さだまる",
+      "fingerprint": "55fae47e54f7a6e9e6c49901870c6b2917b09fed8c43f8335917d550c37d9e39",
+      "proposed": {
+        "word": "定まる",
+        "wordReading": "さだまる",
+        "promptBefore": "話し合いで遠足の行き先が",
+        "promptAfter": "。",
+        "targetKanji": [
+          "定"
+        ],
+        "writingPrompt": "「さだまる」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-定-kun-f0fdbdfa5806",
+      "primaryKanji": "定",
+      "readingType": "kun",
+      "canonicalReading": "さだか",
+      "fingerprint": "a5239c0971cefedf7179757c842c57f61d1dd000f53ed5fb0c3d252443fd7c16",
+      "proposed": {
+        "word": "定か",
+        "wordReading": "さだか",
+        "promptBefore": "その話が本当かどうかは",
+        "promptAfter": "ではありません。",
+        "targetKanji": [
+          "定"
+        ],
+        "writingPrompt": "「さだか」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-庭-on-2ebdec8a0c71",
+      "primaryKanji": "庭",
+      "readingType": "on",
+      "canonicalReading": "テイ",
+      "fingerprint": "34915316b708310e51acb86c28c45f08bfaa2bcb8a50596ab68261c2f0f6eab5",
+      "proposed": {
+        "word": "庭園",
+        "wordReading": "ていえん",
+        "promptBefore": "大きな",
+        "promptAfter": "をゆっくり歩きました。",
+        "targetKanji": [
+          "庭",
+          "園"
+        ],
+        "writingPrompt": "「ていえん」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-庭-kun-6a57af106afc",
+      "primaryKanji": "庭",
+      "readingType": "kun",
+      "canonicalReading": "にわ",
+      "fingerprint": "15d4f0a441784bf8da945f0f2f10bc812a3bf77f61f6d39cf1573ed470855cee",
+      "proposed": {
+        "word": "庭",
+        "wordReading": "にわ",
+        "promptBefore": "家の",
+        "promptAfter": "で花に水をやります。",
+        "targetKanji": [
+          "庭"
+        ],
+        "writingPrompt": "「にわ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-笛-on-80d4488a0738",
+      "primaryKanji": "笛",
+      "readingType": "on",
+      "canonicalReading": "テキ",
+      "fingerprint": "742812f1f5ee29711838761875234e7408b3f69ed446df24263f61ac9490ab1f",
+      "proposed": {
+        "word": "汽笛",
+        "wordReading": "きてき",
+        "promptBefore": "港に船の",
+        "promptAfter": "がひびきました。",
+        "targetKanji": [
+          "汽",
+          "笛"
+        ],
+        "writingPrompt": "「きてき」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-笛-kun-134c4a8539fd",
+      "primaryKanji": "笛",
+      "readingType": "kun",
+      "canonicalReading": "ふえ",
+      "fingerprint": "eb64fecd221d8b403ae7d297243707d4596a637c30c636826b285fc654f558c1",
+      "proposed": {
+        "word": "笛",
+        "wordReading": "ふえ",
+        "promptBefore": "音楽の時間に",
+        "promptAfter": "をふきました。",
+        "targetKanji": [
+          "笛"
+        ],
+        "writingPrompt": "「ふえ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-鉄-on-c2ad9797b82f",
+      "primaryKanji": "鉄",
+      "readingType": "on",
+      "canonicalReading": "テツ",
+      "fingerprint": "28ec88a5b9c2affe64ba7e4d7b3c25edb3caf2700c9cd8c163fdeb62569c8a92",
+      "proposed": {
+        "word": "鉄道",
+        "wordReading": "てつどう",
+        "promptBefore": "旅行で",
+        "promptAfter": "を使いました。",
+        "targetKanji": [
+          "鉄",
+          "道"
+        ],
+        "writingPrompt": "「てつどう」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-転-on-d521854e2a94",
+      "primaryKanji": "転",
+      "readingType": "on",
+      "canonicalReading": "テン",
+      "fingerprint": "8188e3767c358426a84a512c701ad5a8318d7ac09de445d362b55ee619b07a21",
+      "proposed": {
+        "word": "転出",
+        "wordReading": "てんしゅつ",
+        "promptBefore": "父の仕事で、この町から",
+        "promptAfter": "します。",
+        "targetKanji": [
+          "転",
+          "出"
+        ],
+        "writingPrompt": "「てんしゅつ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-転-kun-023ffc1aa04f",
+      "primaryKanji": "転",
+      "readingType": "kun",
+      "canonicalReading": "ころがる",
+      "fingerprint": "155bd0eb3efb2550fb627933c5049655e7ee25742ca162fdcacbf9c84bed2ee3",
+      "proposed": {
+        "word": "転がる",
+        "wordReading": "ころがる",
+        "promptBefore": "坂道をボールが",
+        "promptAfter": "。",
+        "targetKanji": [
+          "転"
+        ],
+        "writingPrompt": "「ころがる」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-転-kun-fa1fdc2f8fe0",
+      "primaryKanji": "転",
+      "readingType": "kun",
+      "canonicalReading": "ころげる",
+      "fingerprint": "88547eff1e5e9ac12bfca83db7a5e7fb538130b153b4a1693bda5e8491a744a9",
+      "proposed": {
+        "word": "転げる",
+        "wordReading": "ころげる",
+        "promptBefore": "走っていて、しばふに",
+        "promptAfter": "。",
+        "targetKanji": [
+          "転"
+        ],
+        "writingPrompt": "「ころげる」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-転-kun-d69863e78856",
+      "primaryKanji": "転",
+      "readingType": "kun",
+      "canonicalReading": "ころがす",
+      "fingerprint": "6d7d4845b11fcf2c88a20f481b4164feaadc57edd26286346af2422f54eb63e4",
+      "proposed": {
+        "word": "転がす",
+        "wordReading": "ころがす",
+        "promptBefore": "友だちに向かってボールを",
+        "promptAfter": "。",
+        "targetKanji": [
+          "転"
+        ],
+        "writingPrompt": "「ころがす」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-転-kun-254285786540",
+      "primaryKanji": "転",
+      "readingType": "kun",
+      "canonicalReading": "ころぶ",
+      "fingerprint": "9e6f03291250c8508939eac6c25b3ef46533ee5f4a816501f6442f9c77d46b5a",
+      "proposed": {
+        "word": "転ぶ",
+        "wordReading": "ころぶ",
+        "promptBefore": "石につまずいて",
+        "promptAfter": "。",
+        "targetKanji": [
+          "転"
+        ],
+        "writingPrompt": "「ころぶ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-都-on-2a599e7fb2e5",
+      "primaryKanji": "都",
+      "readingType": "on",
+      "canonicalReading": "ト",
+      "fingerprint": "5b076b9c5817dcdc07578184529d641a16849130377f1ea49ec968d1c2f01917",
+      "proposed": {
+        "word": "都会",
+        "wordReading": "とかい",
+        "promptBefore": "夏休みに大きな",
+        "promptAfter": "へ出かけました。",
+        "targetKanji": [
+          "都",
+          "会"
+        ],
+        "writingPrompt": "「とかい」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-都-on-666803b892a0",
+      "primaryKanji": "都",
+      "readingType": "on",
+      "canonicalReading": "ツ",
+      "fingerprint": "938d32684b5df9d90734b38e2f4227d5db9864ebaa99a01697d2cd3f4ccd0a75",
+      "proposed": {
+        "word": "都合",
+        "wordReading": "つごう",
+        "promptBefore": "明日は",
+        "promptAfter": "がよいので、いっしょに遊べます。",
+        "targetKanji": [
+          "都",
+          "合"
+        ],
+        "writingPrompt": "「つごう」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-都-kun-a37d4a9c007b",
+      "primaryKanji": "都",
+      "readingType": "kun",
+      "canonicalReading": "みやこ",
+      "fingerprint": "f91bce903c06245e963d1c364839179f6f1791f009feba84f3814f944744b006",
+      "proposed": {
+        "word": "都",
+        "wordReading": "みやこ",
+        "promptBefore": "むかし、京の",
+        "promptAfter": "には多くの人が集まりました。",
+        "targetKanji": [
+          "都"
+        ],
+        "writingPrompt": "「みやこ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-度-kun-0854131f90d7",
+      "primaryKanji": "度",
+      "readingType": "kun",
+      "canonicalReading": "たび",
+      "fingerprint": "e70a1cfba61f3e5d26c1d995c15eb0d63f97b15f6c3210d99c18739d02609db8",
+      "proposed": {
+        "word": "度",
+        "wordReading": "たび",
+        "promptBefore": "その",
+        "promptAfter": "に、同じことを思い出します。",
+        "targetKanji": [
+          "度"
+        ],
+        "writingPrompt": "「たび」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-投-on-228237a2bd32",
+      "primaryKanji": "投",
+      "readingType": "on",
+      "canonicalReading": "トウ",
+      "fingerprint": "95b7bd811281c0cfde6a0df6a541e686fd8a081a33155996ff874499c6f58ddb",
+      "proposed": {
+        "word": "投下",
+        "wordReading": "とうか",
+        "promptBefore": "ひこうきから荷物を",
+        "promptAfter": "するくんれんを見ました。",
+        "targetKanji": [
+          "投",
+          "下"
+        ],
+        "writingPrompt": "「とうか」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-投-kun-8f336c98457c",
+      "primaryKanji": "投",
+      "readingType": "kun",
+      "canonicalReading": "なげる",
+      "fingerprint": "d02dd8fb4ab66510ccd5c24cad04b059ae50ef976c1378dbe451de653684208f",
+      "proposed": {
+        "word": "投げる",
+        "wordReading": "なげる",
+        "promptBefore": "遠くのかごへボールを",
+        "promptAfter": "。",
+        "targetKanji": [
+          "投"
+        ],
+        "writingPrompt": "「なげる」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-豆-on-003b3a8042ec",
+      "primaryKanji": "豆",
+      "readingType": "on",
+      "canonicalReading": "ズ",
+      "fingerprint": "faba80dea0eecd88a3418272d2612c37fd3ee386f4cba0ec2020ea9302504896",
+      "proposed": {
+        "word": "大豆",
+        "wordReading": "だいず",
+        "promptBefore": "きなこは",
+        "promptAfter": "から作られます。",
+        "targetKanji": [
+          "大",
+          "豆"
+        ],
+        "writingPrompt": "「だいず」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-豆-kun-17c1bf4d5155",
+      "primaryKanji": "豆",
+      "readingType": "kun",
+      "canonicalReading": "まめ",
+      "fingerprint": "41ae8b3518432a7c14166dc193894276885a831f4982d6d8f2f39314f5a350ed",
+      "proposed": {
+        "word": "豆",
+        "wordReading": "まめ",
+        "promptBefore": "畑でとれた",
+        "promptAfter": "をゆでて食べました。",
+        "targetKanji": [
+          "豆"
+        ],
+        "writingPrompt": "「まめ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-島-on-619b7ec0b01b",
+      "primaryKanji": "島",
+      "readingType": "on",
+      "canonicalReading": "トウ",
+      "fingerprint": "c39d93c4b57cb4a79358db787e8fb516d3c8fcdda0d8f271e162aa87127378e4",
+      "proposed": {
+        "word": "半島",
+        "wordReading": "はんとう",
+        "promptBefore": "地図で日本の",
+        "promptAfter": "をさがしました。",
+        "targetKanji": [
+          "半",
+          "島"
+        ],
+        "writingPrompt": "「はんとう」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-島-kun-6633856602f6",
+      "primaryKanji": "島",
+      "readingType": "kun",
+      "canonicalReading": "しま",
+      "fingerprint": "52ea5c239a46ea6e7b71a0ade5d30bce577cd213a6435a0ac51c8fd3c9f060b7",
+      "proposed": {
+        "word": "島",
+        "wordReading": "しま",
+        "promptBefore": "船に乗って小さな",
+        "promptAfter": "へ行きました。",
+        "targetKanji": [
+          "島"
+        ],
+        "writingPrompt": "「しま」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-湯-kun-f84d5fbf1a8d",
+      "primaryKanji": "湯",
+      "readingType": "kun",
+      "canonicalReading": "ゆ",
+      "fingerprint": "aaf22b0aca7bb82746bd934946a2dbd29e1b8a22cdfea2433a7d9fc78017501a",
+      "proposed": {
+        "word": "湯",
+        "wordReading": "ゆ",
+        "promptBefore": "やかんで",
+        "promptAfter": "をわかします。",
+        "targetKanji": [
+          "湯"
+        ],
+        "writingPrompt": "「ゆ」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-登-on-fbbfe78008fb",
+      "primaryKanji": "登",
+      "readingType": "on",
+      "canonicalReading": "トウ",
+      "fingerprint": "d5195671dec926e111d232ce888adee9dc724e36752c5e9a84365ca1b8180405",
+      "proposed": {
+        "word": "登校",
+        "wordReading": "とうこう",
+        "promptBefore": "毎朝、友だちといっしょに",
+        "promptAfter": "します。",
+        "targetKanji": [
+          "登",
+          "校"
+        ],
+        "writingPrompt": "「とうこう」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    },
+    {
+      "pairId": "kanji-g3-登-on-c866286b98bf",
+      "primaryKanji": "登",
+      "readingType": "on",
+      "canonicalReading": "ト",
+      "fingerprint": "c95c79a67476503660908714f7ac931ccb680123c55b1e54cdfeace5e275a8e3",
+      "proposed": {
+        "word": "登山",
+        "wordReading": "とざん",
+        "promptBefore": "家族で山へ",
+        "promptAfter": "に行きました。",
+        "targetKanji": [
+          "登",
+          "山"
+        ],
+        "writingPrompt": "「とざん」の漢字の部分を書こう"
+      },
+      "decision": "approve",
+      "note": ""
+    }
+  ]
+}

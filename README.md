@@ -8,8 +8,10 @@
 
 ## ドキュメント
 
+- AI開発ツールの入口：Codex等は [AGENTS.md](./AGENTS.md)、Claude Codeは [CLAUDE.md](./CLAUDE.md)、GitHub Copilotは [.github/copilot-instructions.md](./.github/copilot-instructions.md)
 - [開発計画](./docs/study-support-plan.md)：今後の仕様、制約、ロードマップ
 - [進捗](./docs/progress.md)：現在地、完了、次の作業、検証結果
+- [引き継ぎ](./docs/handoff.md)：別セッション・別担当向けの現在地、再開手順、注意事項
 - [ADR](./docs/adr/)：重要な設計判断と採用理由
 - [IndexedDB v2設計](./docs/db-v2-design.md)：移行、状態遷移、原子的保存の受け入れ条件
 - [問題生成の実装境界](./docs/content-generation-design.md)：素材状態、公開条件、機械ゲート
@@ -57,9 +59,11 @@ npm audit
 
 文化庁語例から候補を再作成するときは、`requirements-content.txt` を導入して `scripts/build-kanji-word-candidates.py` を実行します。`scripts/seed-kanji-materials.py` は既存素材を上書きせず、読み照合済み候補だけを `draft` として追加します。Janomeの読みは候補専用で、人が確認するまで公開されません。
 
-3年生の未確認素材から20件のレビュー票を作る場合は `npm run content:review-batch -- 3 1 20`、編集後の一覧を再描画する場合は `npm run content:review-render -- kanji-g3-001` を使います。レビュー票を作っただけでは問題は公開されません。
+3年生の未確認素材から100件のレビュー票を作る場合は `npm run content:review-batch -- 3 7 100`、編集後の一覧を再描画する場合は `npm run content:review-render -- kanji-g3-007` を使います。レビュー票を作っただけでは問題は公開されません。
 
-判断済みの票は `npm run content:review-apply -- kanji-g3-001 2026.08.14-3` のように新しい素材版を指定して取り込みます。未判断項目、古い票、不正な状態遷移がある場合は素材を変更せず停止します。
+バッチJSONから対話型の確認画面を作る場合は `npm run content:review-visualize -- kanji-g3-007 <出力先HTMLの絶対パス>` を使います。この画面からの判定送信は、Codex会話内のVisualizeとして表示した場合だけ利用できます。
+
+判断済みの票は `npm run content:review-apply -- kanji-g3-007 2026.08.14-9` のように新しい素材版を指定して取り込みます。未判断項目、古い票、不正な状態遷移がある場合は素材を変更せず停止します。
 
 公開前に `npm test` と `npm run build` を実行し、問題IDの重複、読み書きペア、学年配当、ひらがな回答を確認します。学習履歴、未習設定、カスタム問題はIndexedDBにあり、問題パックには含めません。
 
