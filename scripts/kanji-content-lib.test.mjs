@@ -106,8 +106,8 @@ it("全基準読みに対する素材作成・確認状況を出力する", asyn
   const actualSource = JSON.parse(await readFile(resolve("content-source/kanji-materials.json"), "utf8"));
   const coverage = createCoverageMarkdown(actualSource, reference);
   expect(coverage).toContain("基準読み：929");
-  expect(coverage).toContain("素材作成済み：848");
-  expect(coverage).toContain("未作成：81");
+  expect(coverage).toContain("素材作成済み：905");
+  expect(coverage).toContain("未作成：24");
 });
 
 it("文化庁語例から作った929件の未確認候補を検証する", async () => {

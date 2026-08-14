@@ -1240,15 +1240,16 @@
       "canonicalReading": "チョウ",
       "fingerprint": "9d36722bb0e64a9b8434ee4e7941216ddd7bddd5f1a2eedf35643c4b165018e8",
       "proposed": {
-        "word": "一丁",
-        "wordReading": "いっちょう",
-        "promptBefore": "とうふを",
-        "promptAfter": "買いました。",
+        "word": "三丁目",
+        "wordReading": "さんちょうめ",
+        "promptBefore": "わたしの家は",
+        "promptAfter": "にあります。",
         "targetKanji": [
-          "一",
-          "丁"
+          "三",
+          "丁",
+          "目"
         ],
-        "writingPrompt": "「いっちょう」の漢字の部分を書こう"
+        "writingPrompt": "「さんちょうめ」の漢字の部分を書こう"
       },
       "decision": "approve",
       "note": ""
@@ -1271,8 +1272,8 @@
         ],
         "writingPrompt": "「ていじろ」の漢字の部分を書こう"
       },
-      "decision": "approve",
-      "note": ""
+      "decision": "needs-fix",
+      "note": "古い単語で使用頻度が低いため出題対象から除外"
     },
     {
       "pairId": "kanji-g3-帳-on-5e85a5916977",
