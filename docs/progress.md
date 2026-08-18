@@ -93,7 +93,7 @@
 - カスタム問題の管理画面は未実装
 - 学習履歴・がんばり記録画面は未実装
 - JSONバックアップ、復元、初期化は未実装
-- GitHub Pagesは手動実行で公開済み。mainへのpushによる自動公開は未実施
+- GitHub Pagesは`.github/workflows/pages.yml`で`push`（main）と`workflow_dispatch`の両方から実行される（2026-08-19変更、以前は手動実行のみ）
 - 全402字の日本字形・書き順レビューは未実施
 - 単位、分数、日本地図、理科は未実装
 
