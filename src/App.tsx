@@ -24,7 +24,7 @@ import { useDailyKanjiSession } from "./useDailyKanjiSession";
 import { createId } from "./id";
 import { studyStorage } from "./storage/indexedDb";
 
-type QuizState = "loading" | "writing" | "guide" | "character-complete" | "word-complete" | "saving" | "error";
+type QuizState = "loading" | "writing" | "guide" | "character-complete" | "word-complete" | "saving" | "save-error" | "error";
 
 function App() {
   const [view, setView] = useState<"home" | "reading" | "writing" | "kanji-settings" | "free-practice">("home");
@@ -276,6 +276,41 @@ function App() {
     startQuiz(writer);
   };
 
+  const saveWordCompletion = async (finalProgress: WordProgress) => {
+    if (!selected) return;
+    setQuizState("saving");
+    setStatus("できた記録を保存しています");
+    try {
+      const answerResult = {
+        answer: selected.answerKanji,
+        correct: true,
+        mistakes: finalProgress.results.reduce((total, result) => total + result.mistakes, 0),
+        usedGuide: finalProgress.results.some((result) => result.usedGuide),
+        firstTryCorrect: finalProgress.results.every((result) => result.mistakes === 0 && !result.usedGuide),
+        characterResults: finalProgress.results,
+      };
+      if (freePracticeQuestion?.mode === "writing") {
+        await studyStorage.recordKanjiFreePracticeAttempt({
+          id: freeWritingAttemptIdRef.current,
+          sessionId: "free-practice",
+          questionId: selected.id,
+          subject: "kanji",
+          mode: "writing",
+          targetKanji: selected.targetKanji,
+          answeredAt: freeWritingAnsweredAtRef.current ||= new Date().toISOString(),
+          ...answerResult,
+        });
+      } else {
+        await recordWritingAnswer(answerResult);
+      }
+      setQuizState("word-complete");
+      setStatus(`${selected.word}を最後まで書けました`);
+    } catch {
+      setQuizState("save-error");
+      setStatus("保存できませんでした。もう一度「次へ」を押してね");
+    }
+  };
+
   const continueWord = async () => {
     if (!selected || !currentCharacter) return;
     const nextProgress = completeCurrentCharacter(progress, {
@@ -289,44 +324,20 @@ function App() {
     setUsedGuide(false);
 
     if (isWordComplete(nextProgress)) {
-      setQuizState("saving");
-      setStatus("できた記録を保存しています");
-      try {
-        const answerResult = {
-          answer: selected.answerKanji,
-          correct: true,
-          mistakes: nextProgress.results.reduce((total, result) => total + result.mistakes, 0),
-          usedGuide: nextProgress.results.some((result) => result.usedGuide),
-          firstTryCorrect: nextProgress.results.every((result) => result.mistakes === 0 && !result.usedGuide),
-          characterResults: nextProgress.results,
-        };
-        if (freePracticeQuestion?.mode === "writing") {
-          await studyStorage.recordKanjiFreePracticeAttempt({
-            id: freeWritingAttemptIdRef.current,
-            sessionId: "free-practice",
-            questionId: selected.id,
-            subject: "kanji",
-            mode: "writing",
-            targetKanji: selected.targetKanji,
-            answeredAt: freeWritingAnsweredAtRef.current ||= new Date().toISOString(),
-            ...answerResult,
-          });
-        } else {
-          await recordWritingAnswer(answerResult);
-        }
-        setQuizState("word-complete");
-        setStatus(`${selected.word}を最後まで書けました`);
-      } catch {
-        setQuizState("character-complete");
-        setStatus("保存できませんでした。もう一度「次へ」を押してね");
-      }
+      await saveWordCompletion(nextProgress);
     } else {
       setQuizState("loading");
     }
   };
 
+  const retrySaveWord = () => void saveWordCompletion(progress);
+
   const nextWord = () => {
-    if (pendingWritingQuestion?.mode === "writing") chooseWord(pendingWritingQuestion);
+    if (pendingWritingQuestion?.mode === "writing") {
+      chooseWord(pendingWritingQuestion);
+    } else {
+      setSelectedWritingId("");
+    }
   };
 
   const nextWritingBatch = async () => {
@@ -475,11 +486,12 @@ function App() {
             </div>
 
             <div className="actions">
-              <button type="button" onClick={resetCharacter} disabled={quizState === "loading" || quizState === "word-complete"}>最初から</button>
-              <button type="button" className="help" onClick={showGuide} disabled={quizState === "loading" || quizState === "guide" || quizState === "character-complete" || quizState === "word-complete"}>分からない</button>
+              <button type="button" onClick={resetCharacter} disabled={quizState === "loading" || quizState === "word-complete" || quizState === "save-error"}>最初から</button>
+              <button type="button" className="help" onClick={showGuide} disabled={quizState === "loading" || quizState === "guide" || quizState === "character-complete" || quizState === "word-complete" || quizState === "save-error"}>分からない</button>
               {quizState === "guide" && <button type="button" className="primary" onClick={retryAfterGuide}>もう一度書く</button>}
               {quizState === "character-complete" && <button type="button" className="primary" onClick={() => void continueWord()}>次へ</button>}
               {quizState === "saving" && <button type="button" className="primary" disabled>保存中…</button>}
+              {quizState === "save-error" && <button type="button" className="primary" onClick={retrySaveWord}>次へ</button>}
               {quizState === "word-complete" && freePracticeQuestion?.mode === "writing" && <button type="button" className="primary" onClick={advanceFreePractice}>{freePracticeIndex + 1 < freePracticeQueue.length ? "次へ" : "練習を終える"}</button>}
               {quizState === "word-complete" && !freePracticeQuestion && !writingComplete && <button type="button" className="primary" onClick={nextWord}>次へ</button>}
               {quizState === "word-complete" && writingComplete && <button type="button" className="primary" onClick={() => setSelectedWritingId("")}>結果を見る</button>}
