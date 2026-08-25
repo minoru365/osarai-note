@@ -20,6 +20,7 @@ ADRは、後から理由を忘れると手戻りになる重要判断だけを�
 | [0004](./0004-paired-question-generation.md) | Accepted | 共通素材から読み・書きペアを生成 |
 | [0004b](./0004-practice-frequency-first.md) | Superseded | 今日の漢字は練習回数の少ない順にする |
 | [0005](./0005-fresh-daily-practice.md) | Accepted | 「今日の漢字」は押すたびに新しく抽出する |
+| [0006](./0006-motivation-points-and-pet.md) | Accepted | 教科横断ポイントとペット育成 |
 
 ## テンプレート
 
