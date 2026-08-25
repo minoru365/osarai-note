@@ -1,7 +1,7 @@
 import { IDBFactory } from "fake-indexeddb";
 import { beforeEach, describe, expect, it } from "vitest";
 import { StudyStorage, openStudyDatabase } from "./indexedDb";
-import { createEmptyKanjiSkillStats, STORE_NAMES, STUDY_DB_VERSION, type StudyAttempt } from "./schema";
+import { createEmptyKanjiSkillStats, STORE_NAMES, STUDY_DB_VERSION, type MotivationState, type StudyAttempt } from "./schema";
 
 const attempt: StudyAttempt = {
   id: "attempt-1",
@@ -187,6 +187,7 @@ describe("StudyStorage", () => {
       "localDate",
       "localDateMode",
     ]);
+    expect(database.objectStoreNames.contains(STORE_NAMES.motivation)).toBe(true);
     database.close();
   });
 
@@ -442,7 +443,121 @@ describe("StudyStorage", () => {
     expect(await storage.getKanjiState("葉")).toEqual(before);
     expect(await storage.listAttempts()).toHaveLength(1);
   });
+
+  it("未保存の状態ではポイント0・最初のペットの初期状態を返す", async () => {
+    expect(await storage.getMotivationState()).toMatchObject({
+      pointsBalance: 0,
+      activePetSpecies: "hiyoko",
+      activePetInvestedPoints: 0,
+      completedPets: [],
+      lastAnsweredAt: null,
+    });
+  });
+
+  it("当日セッションの回答は正誤や分からないによらず1問1ポイントを加算する", async () => {
+    const dailySession = createSession("reading", ["kanji-reading-葉"]);
+    await storage.createDailySession(dailySession);
+    await storage.recordKanjiSessionAttempt(createSessionAttempt({
+      id: "reading-points-1",
+      sessionId: dailySession.id,
+      sessionItemId: dailySession.items[0].id,
+      questionId: "kanji-reading-葉",
+      mode: "reading",
+      answer: "は",
+      correct: false,
+      mistakes: 1,
+      firstTryCorrect: false,
+      targetKanji: ["葉"],
+      answeredAt: "2026-08-14T10:00:30.000Z",
+    }));
+
+    expect(await storage.getMotivationState()).toMatchObject({
+      pointsBalance: 1,
+      lastAnsweredAt: "2026-08-14T10:00:30.000Z",
+    });
+  });
+
+  it("同じ回答IDの重複保存ではポイントを二重加算しない", async () => {
+    const attempt = createFreePracticeAttempt({ id: "free-points-dup" });
+    expect(await storage.recordKanjiFreePracticeAttempt(attempt)).toBe("added");
+    expect(await storage.recordKanjiFreePracticeAttempt(attempt)).toBe("duplicate");
+
+    expect(await storage.getMotivationState()).toMatchObject({ pointsBalance: 1 });
+  });
+
+  it("自由練習の回答でもポイントを加算する", async () => {
+    await storage.recordKanjiFreePracticeAttempt(createFreePracticeAttempt({ id: "free-points-1" }));
+
+    expect(await storage.getMotivationState()).toMatchObject({ pointsBalance: 1 });
+  });
+
+  it("エサをあげるとポイントを消費し育成ポイントが増える", async () => {
+    await storage.recordKanjiFreePracticeAttempt(createFreePracticeAttempt({ id: "free-feed-1" }));
+    await storage.recordKanjiFreePracticeAttempt(createFreePracticeAttempt({
+      id: "free-feed-2",
+      answeredAt: "2026-08-14T10:02:00.000Z",
+    }));
+
+    const state = await storage.feedPet(1, "2026-08-14T10:03:00.000Z");
+
+    expect(state).toMatchObject({
+      pointsBalance: 1,
+      activePetSpecies: "hiyoko",
+      activePetInvestedPoints: 1,
+    });
+  });
+
+  it("ポイントが足りないとエサをあげられない", async () => {
+    await expect(storage.feedPet(1, "2026-08-14T10:03:00.000Z")).rejects.toThrow("ポイントが足りません");
+  });
+
+  it("1匹分のポイントを満たすと次のペットへ切り替わる", async () => {
+    await seedMotivationState(factory, "study-support-test", {
+      id: "app",
+      pointsBalance: 5,
+      activePetSpecies: "hiyoko",
+      activePetInvestedPoints: 495,
+      completedPets: [],
+      lastAnsweredAt: "2026-08-14T10:00:00.000Z",
+      updatedAt: "2026-08-14T10:00:00.000Z",
+    });
+
+    const state = await storage.feedPet(5, "2026-08-14T11:00:00.000Z");
+
+    expect(state.pointsBalance).toBe(0);
+    expect(state.activePetInvestedPoints).toBe(0);
+    expect(state.activePetSpecies).toBe("usagi");
+    expect(state.completedPets).toEqual([{ species: "hiyoko", completedAt: "2026-08-14T11:00:00.000Z" }]);
+  });
+
+  it("最後の1匹まで育て終えるとこれ以上エサをあげられない", async () => {
+    await seedMotivationState(factory, "study-support-test", {
+      id: "app",
+      pointsBalance: 5,
+      activePetSpecies: null,
+      activePetInvestedPoints: 0,
+      completedPets: [
+        { species: "hiyoko", completedAt: "2026-08-14T10:00:00.000Z" },
+        { species: "usagi", completedAt: "2026-08-14T10:30:00.000Z" },
+      ],
+      lastAnsweredAt: "2026-08-14T10:30:00.000Z",
+      updatedAt: "2026-08-14T10:30:00.000Z",
+    });
+
+    await expect(storage.feedPet(1, "2026-08-14T11:00:00.000Z")).rejects.toThrow("これ以上育てられるペットがいません");
+  });
 });
+
+async function seedMotivationState(factory: IDBFactory, name: string, state: MotivationState): Promise<void> {
+  const database = await openStudyDatabase(factory, name);
+  const transaction = database.transaction(STORE_NAMES.motivation, "readwrite");
+  transaction.objectStore(STORE_NAMES.motivation).put(state);
+  await new Promise<void>((resolve, reject) => {
+    transaction.oncomplete = () => resolve();
+    transaction.onerror = () => reject(transaction.error);
+  });
+  database.close();
+}
 
 function createSession(mode: "reading" | "writing", questionIds: string[]) {
   return {

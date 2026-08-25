@@ -1,5 +1,5 @@
 export const STUDY_DB_NAME = "study-support";
-export const STUDY_DB_VERSION = 2;
+export const STUDY_DB_VERSION = 3;
 
 export const STORE_NAMES = {
   attempts: "attempts",
@@ -7,6 +7,7 @@ export const STORE_NAMES = {
   customQuestions: "customQuestions",
   sessions: "sessions",
   settings: "settings",
+  motivation: "motivation",
 } as const;
 
 export type CharacterAttemptResult = {
@@ -119,3 +120,47 @@ export type AppSettings = {
 };
 
 export type SaveAttemptResult = "added" | "duplicate";
+
+// Motivation feature (ADR-0006): a single subject-independent point ledger and
+// pet growth state, kept in its own store so existing progress data never moves.
+export const PET_SPECIES = ["hiyoko", "usagi"] as const;
+export type PetSpeciesId = typeof PET_SPECIES[number];
+
+export const FOOD_COSTS = [1, 3, 5] as const;
+export type FoodCost = typeof FOOD_COSTS[number];
+
+export const POINTS_PER_GROWTH_STAGE = 100;
+export const GROWTH_STAGE_COUNT = 5;
+export const POINTS_TO_COMPLETE_PET = POINTS_PER_GROWTH_STAGE * GROWTH_STAGE_COUNT;
+export const NEGLECT_THRESHOLD_DAYS = 3;
+
+export function growthStage(investedPoints: number): number {
+  return Math.min(GROWTH_STAGE_COUNT, Math.floor(investedPoints / POINTS_PER_GROWTH_STAGE) + 1);
+}
+
+export type CompletedPet = {
+  species: PetSpeciesId;
+  completedAt: string;
+};
+
+export type MotivationState = {
+  id: "app";
+  pointsBalance: number;
+  activePetSpecies: PetSpeciesId | null;
+  activePetInvestedPoints: number;
+  completedPets: CompletedPet[];
+  lastAnsweredAt: string | null;
+  updatedAt: string;
+};
+
+export function createInitialMotivationState(updatedAt: string): MotivationState {
+  return {
+    id: "app",
+    pointsBalance: 0,
+    activePetSpecies: PET_SPECIES[0],
+    activePetInvestedPoints: 0,
+    completedPets: [],
+    lastAnsweredAt: null,
+    updatedAt,
+  };
+}

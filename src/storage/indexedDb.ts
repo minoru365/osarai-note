@@ -1,16 +1,22 @@
 import {
+  FOOD_COSTS,
+  PET_SPECIES,
+  POINTS_TO_COMPLETE_PET,
   STORE_NAMES,
   STUDY_DB_NAME,
   STUDY_DB_VERSION,
   createEmptyKanjiSkillStats,
+  createInitialMotivationState,
   type AppSettings,
   type DailyKanjiSession,
   type DailySessionItem,
+  type FoodCost,
   type KanjiState,
   type KanjiFreePracticeAttempt,
   type KanjiSessionAttempt,
   type KanjiSkillStats,
   type KanjiStudyMode,
+  type MotivationState,
   type SaveAttemptResult,
   type SkillImpact,
   type StudyAttempt,
@@ -205,6 +211,51 @@ function applyImpact(
   return next;
 }
 
+async function readMotivationState(
+  store: IDBObjectStore,
+  fallbackUpdatedAt: string,
+): Promise<MotivationState> {
+  const existing = await requestResult(
+    store.get("app") as IDBRequest<MotivationState | undefined>,
+  );
+  return existing ?? createInitialMotivationState(fallbackUpdatedAt);
+}
+
+function applyPointsEarned(state: MotivationState, answeredAt: string): MotivationState {
+  return {
+    ...state,
+    pointsBalance: state.pointsBalance + 1,
+    lastAnsweredAt: answeredAt,
+    updatedAt: answeredAt,
+  };
+}
+
+function applyFeed(state: MotivationState, cost: FoodCost, now: string): MotivationState {
+  if (!state.activePetSpecies) throw new Error("これ以上育てられるペットがいません");
+  if (state.pointsBalance < cost) throw new Error("ポイントが足りません");
+
+  const investedPoints = state.activePetInvestedPoints + cost;
+  const pointsBalance = state.pointsBalance - cost;
+
+  if (investedPoints < POINTS_TO_COMPLETE_PET) {
+    return { ...state, pointsBalance, activePetInvestedPoints: investedPoints, updatedAt: now };
+  }
+
+  const completedPets = [
+    ...state.completedPets,
+    { species: state.activePetSpecies, completedAt: now },
+  ];
+  const nextSpecies = PET_SPECIES[completedPets.length] ?? null;
+  return {
+    ...state,
+    pointsBalance,
+    activePetSpecies: nextSpecies,
+    activePetInvestedPoints: 0,
+    completedPets,
+    updatedAt: now,
+  };
+}
+
 export function openStudyDatabase(
   factory: IDBFactory = indexedDB,
   name = STUDY_DB_NAME,
@@ -238,6 +289,10 @@ export function openStudyDatabase(
 
       if (!database.objectStoreNames.contains(STORE_NAMES.settings)) {
         database.createObjectStore(STORE_NAMES.settings, { keyPath: "id" });
+      }
+
+      if (!database.objectStoreNames.contains(STORE_NAMES.motivation)) {
+        database.createObjectStore(STORE_NAMES.motivation, { keyPath: "id" });
       }
 
       const sessions = upgradeTransaction.objectStore(STORE_NAMES.sessions);
@@ -363,13 +418,14 @@ export class StudyStorage {
     validateKanjiSessionAttempt(attempt);
     const database = await this.database();
     const transaction = database.transaction(
-      [STORE_NAMES.attempts, STORE_NAMES.sessions, STORE_NAMES.kanjiStates],
+      [STORE_NAMES.attempts, STORE_NAMES.sessions, STORE_NAMES.kanjiStates, STORE_NAMES.motivation],
       "readwrite",
     );
     const completion = transactionComplete(transaction);
     const attemptsStore = transaction.objectStore(STORE_NAMES.attempts);
     const sessionsStore = transaction.objectStore(STORE_NAMES.sessions);
     const statesStore = transaction.objectStore(STORE_NAMES.kanjiStates);
+    const motivationStore = transaction.objectStore(STORE_NAMES.motivation);
 
     try {
       const existingAttempt = await requestResult(
@@ -441,10 +497,16 @@ export class StudyStorage {
         completedAt: nextIndex === session.items.length ? attempt.answeredAt : null,
       };
 
+      const motivationState = applyPointsEarned(
+        await readMotivationState(motivationStore, attempt.answeredAt),
+        attempt.answeredAt,
+      );
+
       await Promise.all([
         requestResult(attemptsStore.add(attempt)),
         requestResult(sessionsStore.put(nextSession)),
         ...stateUpdates.map((state) => requestResult(statesStore.put(state))),
+        requestResult(motivationStore.put(motivationState)),
       ]);
       await completion;
       return "added";
@@ -463,12 +525,13 @@ export class StudyStorage {
     validateKanjiFreePracticeAttempt(attempt);
     const database = await this.database();
     const transaction = database.transaction(
-      [STORE_NAMES.attempts, STORE_NAMES.kanjiStates],
+      [STORE_NAMES.attempts, STORE_NAMES.kanjiStates, STORE_NAMES.motivation],
       "readwrite",
     );
     const completion = transactionComplete(transaction);
     const attemptsStore = transaction.objectStore(STORE_NAMES.attempts);
     const statesStore = transaction.objectStore(STORE_NAMES.kanjiStates);
+    const motivationStore = transaction.objectStore(STORE_NAMES.motivation);
 
     try {
       const existingAttempt = await requestResult(
@@ -505,9 +568,15 @@ export class StudyStorage {
         return { ...currentState, [attempt.mode]: skill, updatedAt: attempt.answeredAt };
       });
 
+      const motivationState = applyPointsEarned(
+        await readMotivationState(motivationStore, attempt.answeredAt),
+        attempt.answeredAt,
+      );
+
       await Promise.all([
         requestResult(attemptsStore.add(attempt)),
         ...stateUpdates.map((state) => requestResult(statesStore.put(state))),
+        requestResult(motivationStore.put(motivationState)),
       ]);
       await completion;
       return "added";
@@ -556,6 +625,41 @@ export class StudyStorage {
 
   async getSettings(): Promise<AppSettings | undefined> {
     return this.get<AppSettings>(STORE_NAMES.settings, "app");
+  }
+
+  async getMotivationState(): Promise<MotivationState> {
+    const database = await this.database();
+    const transaction = database.transaction(STORE_NAMES.motivation, "readonly");
+    const state = await readMotivationState(
+      transaction.objectStore(STORE_NAMES.motivation),
+      new Date().toISOString(),
+    );
+    await transactionComplete(transaction);
+    return state;
+  }
+
+  async feedPet(cost: FoodCost, now: string): Promise<MotivationState> {
+    if (!FOOD_COSTS.includes(cost)) throw new Error("エサの種類が不正です");
+    const database = await this.database();
+    const transaction = database.transaction(STORE_NAMES.motivation, "readwrite");
+    const completion = transactionComplete(transaction);
+    const store = transaction.objectStore(STORE_NAMES.motivation);
+
+    try {
+      const current = await readMotivationState(store, now);
+      const next = applyFeed(current, cost, now);
+      await requestResult(store.put(next));
+      await completion;
+      return next;
+    } catch (error) {
+      try {
+        transaction.abort();
+      } catch {
+        // The transaction may already be complete after a validation error.
+      }
+      await completion.catch(() => undefined);
+      throw error;
+    }
   }
 
   close(): void {
