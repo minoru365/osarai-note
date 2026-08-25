@@ -138,6 +138,12 @@ export function growthStage(investedPoints: number): number {
   return Math.min(GROWTH_STAGE_COUNT, Math.floor(investedPoints / POINTS_PER_GROWTH_STAGE) + 1);
 }
 
+export function isPetNeglected(lastAnsweredAt: string | null, now: Date): boolean {
+  if (!lastAnsweredAt) return false;
+  const elapsedMs = now.getTime() - new Date(lastAnsweredAt).getTime();
+  return elapsedMs >= NEGLECT_THRESHOLD_DAYS * 24 * 60 * 60 * 1000;
+}
+
 export type CompletedPet = {
   species: PetSpeciesId;
   completedAt: string;

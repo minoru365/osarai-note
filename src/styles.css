@@ -204,6 +204,22 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
 .subject-card.ready .subject-icon { background: #3b7d65; }
 .subject-card strong { align-self: end; font-size: 19px; }
 .subject-card small { align-self: start; margin-top: 3px; }
+.pet-card { grid-column: 1 / 3; display: flex; align-items: center; gap: 20px; padding: 18px 26px; }
+.pet-figure { width: 64px; height: 64px; flex: none; display: grid; place-items: center; border-radius: 16px; background: #eaf3e9; animation: pet-bob 1.1s ease-in-out infinite; }
+.pet-figure.pet-sad { background: #f2ede1; animation: none; filter: grayscale(.35); opacity: .8; }
+@keyframes pet-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.pet-feeding .pet-figure { animation: pet-feed-bounce .5s ease; }
+@keyframes pet-feed-bounce { 0% { transform: scale(1); } 40% { transform: scale(1.25); } 100% { transform: scale(1); } }
+.pet-info { flex: 1; min-width: 0; }
+.pet-name { display: flex; align-items: baseline; gap: 10px; color: #304f42; font-size: 18px; font-weight: 700; }
+.pet-name small { color: #6f7d75; font-size: 13px; font-weight: 500; }
+.pet-mood { margin-top: 4px; color: #66736c; font-size: 14px; }
+.pet-thanks { margin-top: 4px; color: #2d6450; font-size: 14px; font-weight: 700; }
+.pet-error { margin-top: 4px; color: #975c47; font-size: 13px; }
+.pet-complete { color: #2d6450; font-size: 16px; font-weight: 700; }
+.pet-food-row { display: flex; gap: 8px; }
+.pet-food-button { min-height: 44px; padding: 0 16px; border: 1px solid #bcd1c3; border-radius: 12px; color: #304f42; background: #f1f7f1; cursor: pointer; font-size: 14px; font-weight: 700; }
+.pet-food-button:disabled { opacity: .4; cursor: default; }
 .home-status-row { grid-column: 1 / 3; display: grid; grid-template-columns: repeat(3, 1fr); }
 .home-status-row div { min-height: 108px; display: grid; align-content: center; gap: 4px; padding: 20px 26px; border-right: 1px solid #e0e6e0; }
 .home-status-row div:last-child { border-right: 0; }

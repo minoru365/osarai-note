@@ -61,6 +61,7 @@
 - GitHub PagesをActions方式で有効化し、公開ページ、JavaScript、CSSのHTTPS 200応答を確認した。
 - Pagesワークフローの公式ActionをNode.js 24対応世代へ更新した。
 - 書き回答のガイド、入力領域、Hanzi Writer SVGを固定`470×470px`に一致させた。外枠は境界線込み`474×474px`。
+- ADR-0006（教科横断ポイントとペット育成）に基づき、DB v3データ層とホーム常駐UIを実装した（`docs/progress.md`参照）。この作業セッションでは`npm install`がレジストリ403で失敗し、`npm test`・`npm run build`が未実行。次回作業開始時に必ず実行して確認すること。
 
 ## 4. 次に行う作業
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getLocalDate } from "./dailySession";
+import { PetWidget } from "./PetWidget";
 import { studyStorage } from "./storage/indexedDb";
 
 type Props = {
@@ -97,6 +98,8 @@ export function Home({ questionCount, readingQuestionCount, writingQuestionCount
             ))}
           </div>
         </section>
+
+        <PetWidget />
       </main>
     </div>
   );
