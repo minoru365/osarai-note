@@ -16,9 +16,9 @@
 
 ## 1. 現在地
 
-- ブランチ：`claude/next-step-7k0850`（`main` へは未統合）
-- 最新コミット：`d5d5591 content: approve the 39 reviewed units materials`
-- 未コミットの変更：`src/unitPractice.ts` → `src/unitQuizModel.ts` の改名（大文字小文字衝突の修正）と、この文書・`progress.md` の更新
+- ブランチ：`main`
+- 最新コミット：`be74639 docs: record the local verification of the motivation and units work`
+- 未コミットの変更：なし
 - 最新素材版：`2026.08.15-4`
 - 問題パック：`kanji-2026.08.15-4`
 - 共通素材：905件
@@ -29,7 +29,7 @@
 - 収録済みストロークデータ：368字
 - 自動テスト：147件成功
 - 本番ビルド：成功
-- GitHub Pages：`https://minoru365.github.io/osarai-note/` で公開済み
+- GitHub Pages：`https://minoru365.github.io/osarai-note/` で公開済み。2026-08-26に単位教科とモチベーション機能を反映し、公開サイトで「単位」カードが有効・ペット表示ありを確認した
 
 3年生第2〜9バッチ、4年生第1バッチ、承認済み558素材と生成物、確認画面生成スクリプト、固定470pxの書き回答領域は最新コミットまでに反映済み。GitHub Pagesの初回手動デプロイも成功している。作業開始時は必ず `git status --short` で利用者の変更を確認し、既存変更を破棄しない。
 
