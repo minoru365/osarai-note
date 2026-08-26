@@ -12,6 +12,8 @@
 import { writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { KANJI_CATALOG } from "../src/kanjiCatalog.ts";
+import { buildReviewedQuestions, countByStatus, readMaterials, stableHash } from "./unit-content-lib.mjs";
 import {
   UNIT_CATEGORIES,
   formatBaseValue,
@@ -22,6 +24,7 @@ import {
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const OUTPUT = join(ROOT, "public", "content", "units-v1.json");
+const MATERIALS = join(ROOT, "content-source", "unit-materials.json");
 
 /** The app only teaches grades 3 and 4; earlier units are assumed known. */
 const MIN_GRADE = 3;
@@ -39,16 +42,6 @@ const CONVERSION_VALUES = [1, 2, 3, 5, 8, 12];
 /** Answers, in the larger unit, for questions that convert upwards. */
 const UPWARD_ANSWERS = [1, 2, 3, 5];
 const COMPARISON_VALUES = [2, 3, 5];
-
-/** FNV-1a, so the correct side is fixed per question but varies across them. */
-function stableHash(value) {
-  let hash = 2166136261;
-  for (const character of value) {
-    hash ^= character.codePointAt(0) ?? 0;
-    hash = Math.imul(hash, 16777619);
-  }
-  return hash >>> 0;
-}
 
 function questionGrade(units) {
   return Math.max(MIN_GRADE, ...units.map((unit) => unit.introducedGrade));
@@ -179,10 +172,38 @@ function comparisonQuestions(category) {
   return questions.slice(0, MAX_PER_CATEGORY_PER_TYPE);
 }
 
-const questions = UNIT_CATEGORIES.flatMap((category) => [
-  ...conversionQuestions(category),
-  ...comparisonQuestions(category),
-]);
+const materials = readMaterials(MATERIALS);
+
+const questions = [
+  ...UNIT_CATEGORIES.flatMap((category) => [
+    ...conversionQuestions(category),
+    ...comparisonQuestions(category),
+  ]),
+  ...buildReviewedQuestions(materials),
+];
+
+const KANJI_GRADE = new Map(KANJI_CATALOG.map((entry) => [entry.character, entry.grade]));
+
+/**
+ * Grade 3 questions may only show kanji from grades 1-3, grade 4 from 1-4
+ * (docs/units-plan.md 7.2). The catalog covers grades 3 and 4 only, so a kanji
+ * it does not list is from grades 1-2 and always allowed.
+ */
+function assertKanjiWithinGrade(question) {
+  const text = [
+    question.prompt,
+    question.explanation,
+    ...(question.choices ?? []).map((choice) => choice.label),
+  ].join("");
+  for (const character of text) {
+    const grade = KANJI_GRADE.get(character);
+    if (grade !== undefined && grade > question.grade) {
+      throw new Error(
+        `${question.id}: ${question.grade}年生の問題に${grade}年生の漢字「${character}」を使っています`,
+      );
+    }
+  }
+}
 
 const ids = new Set();
 for (const question of questions) {
@@ -192,17 +213,22 @@ for (const question of questions) {
   if (!Number.isSafeInteger(question.answerBaseValue ?? 0)) {
     throw new Error(`答えが整数ではありません: ${question.id}`);
   }
+  assertKanjiWithinGrade(question);
 }
+
+// materialId and answerText exist for the review page; keep them out of the pack.
+const published = questions.map(({ materialId, answerText, ...question }) => question);
 
 writeFileSync(
   OUTPUT,
-  `${JSON.stringify({ schemaVersion: 1, packId: "units-v1", questions }, null, 2)}\n`,
+  `${JSON.stringify({ schemaVersion: 1, packId: "units-v1", questions: published }, null, 2)}\n`,
   "utf8",
 );
 
-const byType = questions.reduce((counts, question) => {
+const byType = published.reduce((counts, question) => {
   counts[question.questionType] = (counts[question.questionType] ?? 0) + 1;
   return counts;
 }, {});
 console.log(`generated ${OUTPUT}`);
-console.log(`questions: ${questions.length}`, byType);
+console.log(`questions: ${published.length}`, byType);
+console.log("reviewed material:", countByStatus(materials));

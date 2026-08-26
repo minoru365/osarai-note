@@ -65,6 +65,26 @@
 
 ## 4. 次に行う作業
 
+### 4.0 ローカル環境が用意できたら最初に行う検証（持ち越し）
+
+2026-08-25以降のリモート作業では `npm install` がレジストリ403で失敗し、`node_modules` が無いまま実装を進めた。次にnpmレジストリへアクセスできる環境で作業するとき、**他の作業より先に**次を実行して結果を `progress.md` の検証結果へ反映する。
+
+```powershell
+npm install
+npm test
+npm run build
+```
+
+確認したい点は次のとおり。
+
+1. 追加したテストが通ること。`src/units.test.ts`、`src/unitContent.test.ts`、`src/unitSession.test.ts`、`src/unitPractice.test.ts`、`src/Achievements.test.ts`、`src/storage/schema.test.ts`、および `src/storage/indexedDb.test.ts` へ追加した単位・ポイント・当日セッションの `subject` に関する検査。
+2. 既存63件のテストが壊れていないこと。特に `src/dailySession.test.ts` は当日セッションIDを `2026-08-14:kanji:reading:1` 形式へ変えたため、期待値の更新が正しいか。
+3. `npm run build` が成功すること（`tsc -b` を含む）。**リモートでは `react` などの型が無いため `.tsx` を型チェックできていない。** `src/UnitPractice.tsx`、`src/NumberPad.tsx`、`src/Achievements.tsx`、`src/PetWidget.tsx`、`src/Home.tsx`、`src/App.tsx` の型エラーはここで初めて出る可能性がある。
+4. 実画面での確認。ホームのペット表示とエサやり、がんばり記録画面、ホームの「単位」カードからの単位10問（テンキー入力、選択タップ、「分からない」、最後の1問の正解表示、完了画面の「もう10問」）。
+5. 型チェックは `npx tsc --noEmit` ではなく `npx tsc -p tsconfig.app.json --noEmit` を使う。ルートの `tsconfig.json` は `"files": []` のプロジェクト参照構成のため、前者は1ファイルも検査せず常に成功する。
+
+### 4.1 問題レビューの継続
+
 優先作業はM2の問題レビュー継続である。
 
 1. `kanji-g4-002` を100件で作る。
