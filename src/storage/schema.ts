@@ -10,6 +10,15 @@ export const STORE_NAMES = {
   motivation: "motivation",
 } as const;
 
+// Single source of truth for the subjects the app knows about (ADR-0007).
+// Used by attempts, daily sessions, and the content manifest alike.
+export const SUBJECTS = ["kanji", "units", "fractions", "japan-map", "science"] as const;
+export type Subject = typeof SUBJECTS[number];
+
+export function isSubject(value: unknown): value is Subject {
+  return typeof value === "string" && (SUBJECTS as readonly string[]).includes(value);
+}
+
 export type CharacterAttemptResult = {
   character: string;
   mistakes: number;
@@ -20,7 +29,7 @@ export type StudyAttempt = {
   id: string;
   sessionId: string;
   questionId: string;
-  subject: "kanji" | "units" | "fractions" | "japan-map" | "science";
+  subject: Subject;
   mode: "reading" | "writing" | "quiz";
   answer: string;
   correct: boolean;
@@ -86,6 +95,8 @@ export type DailySessionItem = {
 
 export type DailyKanjiSession = {
   id: string;
+  // Absent on records written before DB v4; read back as "kanji" (ADR-0007).
+  subject: "kanji";
   localDate: string;
   mode: KanjiStudyMode;
   batchNumber: number;
@@ -96,6 +107,18 @@ export type DailyKanjiSession = {
   updatedAt: string;
   completedAt: string | null;
 };
+
+// Widens into a union as subjects are added; the discriminator is `subject`.
+export type DailyStudySession = DailyKanjiSession;
+
+export function dailySessionId(
+  localDate: string,
+  subject: Subject,
+  mode: string,
+  batchNumber: number,
+): string {
+  return `${localDate}:${subject}:${mode}:${batchNumber}`;
+}
 
 export type KanjiSessionAttempt = StudyAttempt & {
   subject: "kanji";

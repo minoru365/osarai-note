@@ -444,6 +444,30 @@ describe("StudyStorage", () => {
     expect(await storage.listAttempts()).toHaveLength(1);
   });
 
+  it("教科を持たない既存の当日セッションを漢字として読み出す", async () => {
+    const legacy = { ...createSession("reading", ["kanji-reading-葉"]), id: "2026-08-14:reading:1" };
+    delete (legacy as { subject?: unknown }).subject;
+    await seedSession(factory, "study-support-test", legacy);
+
+    expect(await storage.getDailySession(legacy.id)).toMatchObject({ subject: "kanji" });
+    expect(await storage.listDailySessions("2026-08-14", "kanji")).toHaveLength(1);
+  });
+
+  it("当日セッション一覧を教科で絞る", async () => {
+    await storage.createDailySession(createSession("reading", ["kanji-reading-葉"]));
+
+    expect(await storage.listDailySessions("2026-08-14", "kanji")).toHaveLength(1);
+    expect(await storage.listDailySessions("2026-08-14", "units")).toEqual([]);
+    expect(await storage.listDailySessions("2026-08-14", "kanji", "writing")).toEqual([]);
+  });
+
+  it("教科が不正な当日セッションを拒否する", async () => {
+    await expect(storage.createDailySession({
+      ...createSession("reading", ["kanji-reading-葉"]),
+      subject: "algebra",
+    } as never)).rejects.toThrow("教科が不正");
+  });
+
   it("未保存の状態ではポイント0・最初のペットの初期状態を返す", async () => {
     expect(await storage.getMotivationState()).toMatchObject({
       pointsBalance: 0,
@@ -548,10 +572,18 @@ describe("StudyStorage", () => {
   });
 });
 
+async function seedSession(factory: IDBFactory, name: string, session: unknown): Promise<void> {
+  await seedRecord(factory, name, STORE_NAMES.sessions, session);
+}
+
 async function seedMotivationState(factory: IDBFactory, name: string, state: MotivationState): Promise<void> {
+  await seedRecord(factory, name, STORE_NAMES.motivation, state);
+}
+
+async function seedRecord(factory: IDBFactory, name: string, storeName: string, record: unknown): Promise<void> {
   const database = await openStudyDatabase(factory, name);
-  const transaction = database.transaction(STORE_NAMES.motivation, "readwrite");
-  transaction.objectStore(STORE_NAMES.motivation).put(state);
+  const transaction = database.transaction(storeName, "readwrite");
+  transaction.objectStore(storeName).put(record);
   await new Promise<void>((resolve, reject) => {
     transaction.oncomplete = () => resolve();
     transaction.onerror = () => reject(transaction.error);
@@ -561,7 +593,8 @@ async function seedMotivationState(factory: IDBFactory, name: string, state: Mot
 
 function createSession(mode: "reading" | "writing", questionIds: string[]) {
   return {
-    id: `2026-08-14:${mode}:1`,
+    id: `2026-08-14:kanji:${mode}:1`,
+    subject: "kanji" as const,
     localDate: "2026-08-14",
     mode,
     batchNumber: 1,

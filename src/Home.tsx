@@ -30,7 +30,7 @@ export function Home({ questionCount, readingQuestionCount, writingQuestionCount
 
   useEffect(() => {
     let active = true;
-    void studyStorage.listDailySessions(getLocalDate()).then((sessions) => {
+    void studyStorage.listDailySessions(getLocalDate(), "kanji").then((sessions) => {
       if (!active) return;
       const summarize = (mode: "reading" | "writing") => sessions
         .filter((session) => session.mode === mode)

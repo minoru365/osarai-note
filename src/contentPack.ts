@@ -1,3 +1,5 @@
+import { isSubject, type Subject } from "./storage/schema";
+
 type KanjiQuestionBase = {
   id: string;
   pairId?: string;
@@ -105,7 +107,7 @@ export function getKanjiAnswerParts(question: WritingReadingSource): {
 type ContentManifest = {
   schemaVersion: 1;
   contentVersion: string;
-  packs: Array<{ subject: "kanji"; url: string }>;
+  packs: Array<{ subject: Subject; url: string }>;
 };
 
 function isObject(value: unknown): value is Record<string, unknown> {
@@ -117,10 +119,10 @@ export function validateManifest(value: unknown): ContentManifest {
     throw new Error("問題パック一覧の形式が不正です");
   }
   const packs = value.packs.map((pack) => {
-    if (!isObject(pack) || pack.subject !== "kanji" || typeof pack.url !== "string" || !pack.url.endsWith(".json") || pack.url.includes("..") || pack.url.startsWith("/")) {
+    if (!isObject(pack) || !isSubject(pack.subject) || typeof pack.url !== "string" || !pack.url.endsWith(".json") || pack.url.includes("..") || pack.url.startsWith("/")) {
       throw new Error("問題パックの参照先が不正です");
     }
-    return { subject: "kanji" as const, url: pack.url };
+    return { subject: pack.subject, url: pack.url };
   });
   return { schemaVersion: 1, contentVersion: value.contentVersion, packs };
 }

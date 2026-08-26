@@ -1,10 +1,11 @@
 import type { KanjiQuestion } from "./contentPack";
 import { createId } from "./id";
 import type { StudyStorage } from "./storage/indexedDb";
-import type {
-  DailyKanjiSession,
-  KanjiState,
-  KanjiStudyMode,
+import {
+  dailySessionId,
+  type DailyKanjiSession,
+  type KanjiState,
+  type KanjiStudyMode,
 } from "./storage/schema";
 
 export const DEFAULT_DAILY_QUESTION_COUNT = 10;
@@ -97,10 +98,11 @@ function createSession(
   questions: KanjiQuestion[],
   now: Date,
 ): DailyKanjiSession {
-  const id = `${localDate}:${mode}:${batchNumber}`;
+  const id = dailySessionId(localDate, "kanji", mode, batchNumber);
   const timestamp = now.toISOString();
   return {
     id,
+    subject: "kanji",
     localDate,
     mode,
     batchNumber,
@@ -150,7 +152,7 @@ export async function getOrCreateDailySession(
   mode: KanjiStudyMode,
   now = new Date(),
 ): Promise<DailyKanjiSession | null> {
-  const sessions = (await storage.listDailySessions(getLocalDate(now), mode))
+  const sessions = (await storage.listDailySessions(getLocalDate(now), "kanji", mode))
     .sort((left, right) => left.batchNumber - right.batchNumber);
   const incomplete = [...sessions].reverse().find((session) => session.completedAt === null);
   if (incomplete) return incomplete;
@@ -165,7 +167,7 @@ export async function startNextDailyBatch(
   now = new Date(),
   seed = createId(),
 ): Promise<DailyKanjiSession | null> {
-  const sessions = (await storage.listDailySessions(getLocalDate(now), mode))
+  const sessions = (await storage.listDailySessions(getLocalDate(now), "kanji", mode))
     .sort((left, right) => left.batchNumber - right.batchNumber);
   return createBatch(storage, questions, mode, now, sessions, seed);
 }

@@ -8,8 +8,10 @@ import {
   createEmptyKanjiSkillStats,
   createInitialMotivationState,
   type AppSettings,
+  isSubject,
   type DailyKanjiSession,
   type DailySessionItem,
+  type DailyStudySession,
   type FoodCost,
   type KanjiState,
   type KanjiFreePracticeAttempt,
@@ -20,6 +22,7 @@ import {
   type SaveAttemptResult,
   type SkillImpact,
   type StudyAttempt,
+  type Subject,
 } from "./schema";
 
 function requestResult<T>(request: IDBRequest<T>): Promise<T> {
@@ -78,9 +81,17 @@ function validateAttempt(attempt: StudyAttempt): void {
   });
 }
 
-function validateDailySession(session: DailyKanjiSession): void {
+// Records written before DB v4 have no `subject`; they are all kanji (ADR-0007).
+function normalizeDailySession(session: DailyStudySession): DailyStudySession {
+  return session.subject ? session : { ...session, subject: "kanji" };
+}
+
+function validateDailySession(session: DailyStudySession): void {
   if (!session.id || !/^\d{4}-\d{2}-\d{2}$/.test(session.localDate)) {
     throw new Error("当日セッションの識別情報が不正です");
+  }
+  if (!isSubject(session.subject)) {
+    throw new Error("当日セッションの教科が不正です");
   }
   if ((session.mode !== "reading" && session.mode !== "writing")
     || !Number.isInteger(session.batchNumber) || session.batchNumber < 1
@@ -400,18 +411,27 @@ export class StudyStorage {
     }
   }
 
-  async getDailySession(id: string): Promise<DailyKanjiSession | undefined> {
-    return this.get<DailyKanjiSession>(STORE_NAMES.sessions, id);
+  async getDailySession(id: string): Promise<DailyStudySession | undefined> {
+    const session = await this.get<DailyStudySession>(STORE_NAMES.sessions, id);
+    return session && normalizeDailySession(session);
   }
 
-  async listDailySessions(localDate: string, mode?: KanjiStudyMode): Promise<DailyKanjiSession[]> {
+  // The stored index stays [localDate, mode]; subject is filtered in memory so
+  // that pre-v4 records, which carry no subject key, are never skipped by it.
+  async listDailySessions(
+    localDate: string,
+    subject?: Subject,
+    mode?: string,
+  ): Promise<DailyStudySession[]> {
     const database = await this.database();
     const transaction = database.transaction(STORE_NAMES.sessions, "readonly");
-    const sessions = await requestResult(
-      transaction.objectStore(STORE_NAMES.sessions).index("localDate").getAll(localDate) as IDBRequest<DailyKanjiSession[]>,
+    const stored = await requestResult(
+      transaction.objectStore(STORE_NAMES.sessions).index("localDate").getAll(localDate) as IDBRequest<DailyStudySession[]>,
     );
     await transactionComplete(transaction);
-    return mode ? sessions.filter((session) => session.mode === mode) : sessions;
+    return stored
+      .map(normalizeDailySession)
+      .filter((session) => (!subject || session.subject === subject) && (!mode || session.mode === mode));
   }
 
   async recordKanjiSessionAttempt(attempt: KanjiSessionAttempt): Promise<SaveAttemptResult> {
@@ -437,10 +457,12 @@ export class StudyStorage {
         throw new Error(`回答ID ${attempt.id} は別の内容です`);
       }
 
-      const session = await requestResult(
+      const stored = await requestResult(
         sessionsStore.get(attempt.sessionId) as IDBRequest<DailyKanjiSession | undefined>,
       );
-      if (!session) throw new Error("当日セッションが見つかりません");
+      if (!stored) throw new Error("当日セッションが見つかりません");
+      const session = normalizeDailySession(stored) as DailyKanjiSession;
+      if (session.subject !== "kanji") throw new Error("漢字以外の当日セッションです");
       if (session.mode !== attempt.mode) throw new Error("回答形式が当日セッションと一致しません");
 
       const currentItem = session.items[session.currentIndex];
