@@ -1,0 +1,3186 @@
+{
+  "schemaVersion": 1,
+  "packId": "units-v1",
+  "questions": [
+    {
+      "id": "units:conversion:mm:cm:1",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "10mmは 何cmですか。",
+      "explanation": "1cm = 10mm だから、10mm は 1cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 10
+    },
+    {
+      "id": "units:conversion:mm:cm:2",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "20mmは 何cmですか。",
+      "explanation": "1cm = 10mm だから、20mm は 2cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 20
+    },
+    {
+      "id": "units:conversion:mm:cm:3",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "30mmは 何cmですか。",
+      "explanation": "1cm = 10mm だから、30mm は 3cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 30
+    },
+    {
+      "id": "units:conversion:mm:cm:5",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "50mmは 何cmですか。",
+      "explanation": "1cm = 10mm だから、50mm は 5cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 50
+    },
+    {
+      "id": "units:conversion:mm:m:1",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "1000mmは 何mですか。",
+      "explanation": "1m = 1000mm だから、1000mm は 1m です。",
+      "requiredUnits": [
+        "mm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 1000
+    },
+    {
+      "id": "units:conversion:mm:m:2",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "2000mmは 何mですか。",
+      "explanation": "1m = 1000mm だから、2000mm は 2m です。",
+      "requiredUnits": [
+        "mm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 2000
+    },
+    {
+      "id": "units:conversion:mm:m:3",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "3000mmは 何mですか。",
+      "explanation": "1m = 1000mm だから、3000mm は 3m です。",
+      "requiredUnits": [
+        "mm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 3000
+    },
+    {
+      "id": "units:conversion:mm:m:5",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "5000mmは 何mですか。",
+      "explanation": "1m = 1000mm だから、5000mm は 5m です。",
+      "requiredUnits": [
+        "mm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 5000
+    },
+    {
+      "id": "units:conversion:cm:mm:1",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "1cmは 何mmですか。",
+      "explanation": "1cm = 10mm だから、1cm は 10mm です。",
+      "requiredUnits": [
+        "cm",
+        "mm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 10
+    },
+    {
+      "id": "units:conversion:cm:mm:2",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "2cmは 何mmですか。",
+      "explanation": "1cm = 10mm だから、2cm は 20mm です。",
+      "requiredUnits": [
+        "cm",
+        "mm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 20
+    },
+    {
+      "id": "units:conversion:cm:mm:3",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "3cmは 何mmですか。",
+      "explanation": "1cm = 10mm だから、3cm は 30mm です。",
+      "requiredUnits": [
+        "cm",
+        "mm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 30
+    },
+    {
+      "id": "units:conversion:cm:mm:5",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "5cmは 何mmですか。",
+      "explanation": "1cm = 10mm だから、5cm は 50mm です。",
+      "requiredUnits": [
+        "cm",
+        "mm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 50
+    },
+    {
+      "id": "units:conversion:cm:mm:8",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "8cmは 何mmですか。",
+      "explanation": "1cm = 10mm だから、8cm は 80mm です。",
+      "requiredUnits": [
+        "cm",
+        "mm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 80
+    },
+    {
+      "id": "units:conversion:cm:mm:12",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "12cmは 何mmですか。",
+      "explanation": "1cm = 10mm だから、12cm は 120mm です。",
+      "requiredUnits": [
+        "cm",
+        "mm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 120
+    },
+    {
+      "id": "units:conversion:cm:m:1",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "100cmは 何mですか。",
+      "explanation": "1m = 100cm だから、100cm は 1m です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 1000
+    },
+    {
+      "id": "units:conversion:cm:m:2",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "200cmは 何mですか。",
+      "explanation": "1m = 100cm だから、200cm は 2m です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 2000
+    },
+    {
+      "id": "units:conversion:cm:m:3",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "300cmは 何mですか。",
+      "explanation": "1m = 100cm だから、300cm は 3m です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 3000
+    },
+    {
+      "id": "units:conversion:cm:m:5",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "500cmは 何mですか。",
+      "explanation": "1m = 100cm だから、500cm は 5m です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 5000
+    },
+    {
+      "id": "units:conversion:m:mm:1",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "1mは 何mmですか。",
+      "explanation": "1m = 1000mm だから、1m は 1000mm です。",
+      "requiredUnits": [
+        "m",
+        "mm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 1000
+    },
+    {
+      "id": "units:conversion:m:mm:2",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "2mは 何mmですか。",
+      "explanation": "1m = 1000mm だから、2m は 2000mm です。",
+      "requiredUnits": [
+        "m",
+        "mm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 2000
+    },
+    {
+      "id": "units:conversion:m:mm:3",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "3mは 何mmですか。",
+      "explanation": "1m = 1000mm だから、3m は 3000mm です。",
+      "requiredUnits": [
+        "m",
+        "mm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 3000
+    },
+    {
+      "id": "units:conversion:m:mm:5",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "5mは 何mmですか。",
+      "explanation": "1m = 1000mm だから、5m は 5000mm です。",
+      "requiredUnits": [
+        "m",
+        "mm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 5000
+    },
+    {
+      "id": "units:conversion:m:mm:8",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "8mは 何mmですか。",
+      "explanation": "1m = 1000mm だから、8m は 8000mm です。",
+      "requiredUnits": [
+        "m",
+        "mm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 8000
+    },
+    {
+      "id": "units:conversion:m:mm:12",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "conversion",
+      "prompt": "12mは 何mmですか。",
+      "explanation": "1m = 1000mm だから、12m は 12000mm です。",
+      "requiredUnits": [
+        "m",
+        "mm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 12000
+    },
+    {
+      "id": "units:comparison:cm:mm:2",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "comparison",
+      "prompt": "10mmと 2cm、大きいのはどちらですか。",
+      "explanation": "2cm は 20mm なので、2cm のほうが大きいです。",
+      "requiredUnits": [
+        "cm",
+        "mm"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "10mm"
+        },
+        {
+          "id": "right",
+          "label": "2cm"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:cm:mm:3",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "comparison",
+      "prompt": "3cmと 20mm、大きいのはどちらですか。",
+      "explanation": "3cm は 30mm なので、3cm のほうが大きいです。",
+      "requiredUnits": [
+        "cm",
+        "mm"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "3cm"
+        },
+        {
+          "id": "right",
+          "label": "20mm"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:cm:mm:5",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "comparison",
+      "prompt": "5cmと 40mm、大きいのはどちらですか。",
+      "explanation": "5cm は 50mm なので、5cm のほうが大きいです。",
+      "requiredUnits": [
+        "cm",
+        "mm"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "5cm"
+        },
+        {
+          "id": "right",
+          "label": "40mm"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:m:mm:2",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "comparison",
+      "prompt": "2mと 1900mm、大きいのはどちらですか。",
+      "explanation": "2m は 2000mm なので、2m のほうが大きいです。",
+      "requiredUnits": [
+        "m",
+        "mm"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "2m"
+        },
+        {
+          "id": "right",
+          "label": "1900mm"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:m:mm:3",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "comparison",
+      "prompt": "2900mmと 3m、大きいのはどちらですか。",
+      "explanation": "3m は 3000mm なので、3m のほうが大きいです。",
+      "requiredUnits": [
+        "m",
+        "mm"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "2900mm"
+        },
+        {
+          "id": "right",
+          "label": "3m"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:m:mm:5",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "comparison",
+      "prompt": "4900mmと 5m、大きいのはどちらですか。",
+      "explanation": "5m は 5000mm なので、5m のほうが大きいです。",
+      "requiredUnits": [
+        "m",
+        "mm"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "4900mm"
+        },
+        {
+          "id": "right",
+          "label": "5m"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:m:cm:2",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "comparison",
+      "prompt": "2mと 100cm、大きいのはどちらですか。",
+      "explanation": "2m は 200cm なので、2m のほうが大きいです。",
+      "requiredUnits": [
+        "m",
+        "cm"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "2m"
+        },
+        {
+          "id": "right",
+          "label": "100cm"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:m:cm:3",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "comparison",
+      "prompt": "200cmと 3m、大きいのはどちらですか。",
+      "explanation": "3m は 300cm なので、3m のほうが大きいです。",
+      "requiredUnits": [
+        "m",
+        "cm"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "200cm"
+        },
+        {
+          "id": "right",
+          "label": "3m"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:m:cm:5",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "comparison",
+      "prompt": "400cmと 5m、大きいのはどちらですか。",
+      "explanation": "5m は 500cm なので、5m のほうが大きいです。",
+      "requiredUnits": [
+        "m",
+        "cm"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "400cm"
+        },
+        {
+          "id": "right",
+          "label": "5m"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:km:m:2",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "comparison",
+      "prompt": "2kmと 1900m、大きいのはどちらですか。",
+      "explanation": "2km は 2000m なので、2km のほうが大きいです。",
+      "requiredUnits": [
+        "km",
+        "m"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "2km"
+        },
+        {
+          "id": "right",
+          "label": "1900m"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:km:m:3",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "comparison",
+      "prompt": "2900mと 3km、大きいのはどちらですか。",
+      "explanation": "3km は 3000m なので、3km のほうが大きいです。",
+      "requiredUnits": [
+        "km",
+        "m"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "2900m"
+        },
+        {
+          "id": "right",
+          "label": "3km"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:km:m:5",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "comparison",
+      "prompt": "4900mと 5km、大きいのはどちらですか。",
+      "explanation": "5km は 5000m なので、5km のほうが大きいです。",
+      "requiredUnits": [
+        "km",
+        "m"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "4900m"
+        },
+        {
+          "id": "right",
+          "label": "5km"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:conversion:g:kg:1",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "1000gは 何kgですか。",
+      "explanation": "1kg = 1000g だから、1000g は 1kg です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 1000
+    },
+    {
+      "id": "units:conversion:g:kg:2",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "2000gは 何kgですか。",
+      "explanation": "1kg = 1000g だから、2000g は 2kg です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 2000
+    },
+    {
+      "id": "units:conversion:g:kg:3",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "3000gは 何kgですか。",
+      "explanation": "1kg = 1000g だから、3000g は 3kg です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 3000
+    },
+    {
+      "id": "units:conversion:g:kg:5",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "5000gは 何kgですか。",
+      "explanation": "1kg = 1000g だから、5000g は 5kg です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 5000
+    },
+    {
+      "id": "units:conversion:kg:g:1",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "1kgは 何gですか。",
+      "explanation": "1kg = 1000g だから、1kg は 1000g です。",
+      "requiredUnits": [
+        "kg",
+        "g"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 1000
+    },
+    {
+      "id": "units:conversion:kg:g:2",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "2kgは 何gですか。",
+      "explanation": "1kg = 1000g だから、2kg は 2000g です。",
+      "requiredUnits": [
+        "kg",
+        "g"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 2000
+    },
+    {
+      "id": "units:conversion:kg:g:3",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "3kgは 何gですか。",
+      "explanation": "1kg = 1000g だから、3kg は 3000g です。",
+      "requiredUnits": [
+        "kg",
+        "g"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 3000
+    },
+    {
+      "id": "units:conversion:kg:g:5",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "5kgは 何gですか。",
+      "explanation": "1kg = 1000g だから、5kg は 5000g です。",
+      "requiredUnits": [
+        "kg",
+        "g"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 5000
+    },
+    {
+      "id": "units:conversion:kg:g:8",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "8kgは 何gですか。",
+      "explanation": "1kg = 1000g だから、8kg は 8000g です。",
+      "requiredUnits": [
+        "kg",
+        "g"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 8000
+    },
+    {
+      "id": "units:conversion:kg:g:12",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "12kgは 何gですか。",
+      "explanation": "1kg = 1000g だから、12kg は 12000g です。",
+      "requiredUnits": [
+        "kg",
+        "g"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 12000
+    },
+    {
+      "id": "units:conversion:kg:t:1",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "1000kgは 何tですか。",
+      "explanation": "1t = 1000kg だから、1000kg は 1t です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "t",
+      "answerBaseValue": 1000000
+    },
+    {
+      "id": "units:conversion:kg:t:2",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "2000kgは 何tですか。",
+      "explanation": "1t = 1000kg だから、2000kg は 2t です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "t",
+      "answerBaseValue": 2000000
+    },
+    {
+      "id": "units:conversion:kg:t:3",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "3000kgは 何tですか。",
+      "explanation": "1t = 1000kg だから、3000kg は 3t です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "t",
+      "answerBaseValue": 3000000
+    },
+    {
+      "id": "units:conversion:kg:t:5",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "5000kgは 何tですか。",
+      "explanation": "1t = 1000kg だから、5000kg は 5t です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "t",
+      "answerBaseValue": 5000000
+    },
+    {
+      "id": "units:conversion:t:kg:1",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "1tは 何kgですか。",
+      "explanation": "1t = 1000kg だから、1t は 1000kg です。",
+      "requiredUnits": [
+        "t",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 1000000
+    },
+    {
+      "id": "units:conversion:t:kg:2",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "2tは 何kgですか。",
+      "explanation": "1t = 1000kg だから、2t は 2000kg です。",
+      "requiredUnits": [
+        "t",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 2000000
+    },
+    {
+      "id": "units:conversion:t:kg:3",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "3tは 何kgですか。",
+      "explanation": "1t = 1000kg だから、3t は 3000kg です。",
+      "requiredUnits": [
+        "t",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 3000000
+    },
+    {
+      "id": "units:conversion:t:kg:5",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "5tは 何kgですか。",
+      "explanation": "1t = 1000kg だから、5t は 5000kg です。",
+      "requiredUnits": [
+        "t",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 5000000
+    },
+    {
+      "id": "units:conversion:t:kg:8",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "8tは 何kgですか。",
+      "explanation": "1t = 1000kg だから、8t は 8000kg です。",
+      "requiredUnits": [
+        "t",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 8000000
+    },
+    {
+      "id": "units:conversion:t:kg:12",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "conversion",
+      "prompt": "12tは 何kgですか。",
+      "explanation": "1t = 1000kg だから、12t は 12000kg です。",
+      "requiredUnits": [
+        "t",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 12000000
+    },
+    {
+      "id": "units:comparison:kg:g:2",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "comparison",
+      "prompt": "2kgと 1900g、大きいのはどちらですか。",
+      "explanation": "2kg は 2000g なので、2kg のほうが大きいです。",
+      "requiredUnits": [
+        "kg",
+        "g"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "2kg"
+        },
+        {
+          "id": "right",
+          "label": "1900g"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:kg:g:3",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "comparison",
+      "prompt": "2900gと 3kg、大きいのはどちらですか。",
+      "explanation": "3kg は 3000g なので、3kg のほうが大きいです。",
+      "requiredUnits": [
+        "kg",
+        "g"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "2900g"
+        },
+        {
+          "id": "right",
+          "label": "3kg"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:kg:g:5",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "comparison",
+      "prompt": "4900gと 5kg、大きいのはどちらですか。",
+      "explanation": "5kg は 5000g なので、5kg のほうが大きいです。",
+      "requiredUnits": [
+        "kg",
+        "g"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "4900g"
+        },
+        {
+          "id": "right",
+          "label": "5kg"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:t:kg:2",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "comparison",
+      "prompt": "1900kgと 2t、大きいのはどちらですか。",
+      "explanation": "2t は 2000kg なので、2t のほうが大きいです。",
+      "requiredUnits": [
+        "t",
+        "kg"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "1900kg"
+        },
+        {
+          "id": "right",
+          "label": "2t"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:t:kg:3",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "comparison",
+      "prompt": "3tと 2900kg、大きいのはどちらですか。",
+      "explanation": "3t は 3000kg なので、3t のほうが大きいです。",
+      "requiredUnits": [
+        "t",
+        "kg"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "3t"
+        },
+        {
+          "id": "right",
+          "label": "2900kg"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:t:kg:5",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "comparison",
+      "prompt": "5tと 4900kg、大きいのはどちらですか。",
+      "explanation": "5t は 5000kg なので、5t のほうが大きいです。",
+      "requiredUnits": [
+        "t",
+        "kg"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "5t"
+        },
+        {
+          "id": "right",
+          "label": "4900kg"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:conversion:mL:dL:1",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "100mLは 何dLですか。",
+      "explanation": "1dL = 100mL だから、100mL は 1dL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 100
+    },
+    {
+      "id": "units:conversion:mL:dL:2",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "200mLは 何dLですか。",
+      "explanation": "1dL = 100mL だから、200mL は 2dL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 200
+    },
+    {
+      "id": "units:conversion:mL:dL:3",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "300mLは 何dLですか。",
+      "explanation": "1dL = 100mL だから、300mL は 3dL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 300
+    },
+    {
+      "id": "units:conversion:mL:dL:5",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "500mLは 何dLですか。",
+      "explanation": "1dL = 100mL だから、500mL は 5dL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 500
+    },
+    {
+      "id": "units:conversion:mL:L:1",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "1000mLは 何Lですか。",
+      "explanation": "1L = 1000mL だから、1000mL は 1L です。",
+      "requiredUnits": [
+        "mL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 1000
+    },
+    {
+      "id": "units:conversion:mL:L:2",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "2000mLは 何Lですか。",
+      "explanation": "1L = 1000mL だから、2000mL は 2L です。",
+      "requiredUnits": [
+        "mL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 2000
+    },
+    {
+      "id": "units:conversion:mL:L:3",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "3000mLは 何Lですか。",
+      "explanation": "1L = 1000mL だから、3000mL は 3L です。",
+      "requiredUnits": [
+        "mL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 3000
+    },
+    {
+      "id": "units:conversion:mL:L:5",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "5000mLは 何Lですか。",
+      "explanation": "1L = 1000mL だから、5000mL は 5L です。",
+      "requiredUnits": [
+        "mL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 5000
+    },
+    {
+      "id": "units:conversion:dL:mL:1",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "1dLは 何mLですか。",
+      "explanation": "1dL = 100mL だから、1dL は 100mL です。",
+      "requiredUnits": [
+        "dL",
+        "mL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 100
+    },
+    {
+      "id": "units:conversion:dL:mL:2",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "2dLは 何mLですか。",
+      "explanation": "1dL = 100mL だから、2dL は 200mL です。",
+      "requiredUnits": [
+        "dL",
+        "mL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 200
+    },
+    {
+      "id": "units:conversion:dL:mL:3",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "3dLは 何mLですか。",
+      "explanation": "1dL = 100mL だから、3dL は 300mL です。",
+      "requiredUnits": [
+        "dL",
+        "mL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 300
+    },
+    {
+      "id": "units:conversion:dL:mL:5",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "5dLは 何mLですか。",
+      "explanation": "1dL = 100mL だから、5dL は 500mL です。",
+      "requiredUnits": [
+        "dL",
+        "mL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 500
+    },
+    {
+      "id": "units:conversion:dL:mL:8",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "8dLは 何mLですか。",
+      "explanation": "1dL = 100mL だから、8dL は 800mL です。",
+      "requiredUnits": [
+        "dL",
+        "mL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 800
+    },
+    {
+      "id": "units:conversion:dL:mL:12",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "12dLは 何mLですか。",
+      "explanation": "1dL = 100mL だから、12dL は 1200mL です。",
+      "requiredUnits": [
+        "dL",
+        "mL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 1200
+    },
+    {
+      "id": "units:conversion:dL:L:1",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "10dLは 何Lですか。",
+      "explanation": "1L = 10dL だから、10dL は 1L です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 1000
+    },
+    {
+      "id": "units:conversion:dL:L:2",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "20dLは 何Lですか。",
+      "explanation": "1L = 10dL だから、20dL は 2L です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 2000
+    },
+    {
+      "id": "units:conversion:dL:L:3",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "30dLは 何Lですか。",
+      "explanation": "1L = 10dL だから、30dL は 3L です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 3000
+    },
+    {
+      "id": "units:conversion:dL:L:5",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "50dLは 何Lですか。",
+      "explanation": "1L = 10dL だから、50dL は 5L です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 5000
+    },
+    {
+      "id": "units:conversion:L:mL:1",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "1Lは 何mLですか。",
+      "explanation": "1L = 1000mL だから、1L は 1000mL です。",
+      "requiredUnits": [
+        "L",
+        "mL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 1000
+    },
+    {
+      "id": "units:conversion:L:mL:2",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "2Lは 何mLですか。",
+      "explanation": "1L = 1000mL だから、2L は 2000mL です。",
+      "requiredUnits": [
+        "L",
+        "mL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 2000
+    },
+    {
+      "id": "units:conversion:L:mL:3",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "3Lは 何mLですか。",
+      "explanation": "1L = 1000mL だから、3L は 3000mL です。",
+      "requiredUnits": [
+        "L",
+        "mL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 3000
+    },
+    {
+      "id": "units:conversion:L:mL:5",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "5Lは 何mLですか。",
+      "explanation": "1L = 1000mL だから、5L は 5000mL です。",
+      "requiredUnits": [
+        "L",
+        "mL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 5000
+    },
+    {
+      "id": "units:conversion:L:mL:8",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "8Lは 何mLですか。",
+      "explanation": "1L = 1000mL だから、8L は 8000mL です。",
+      "requiredUnits": [
+        "L",
+        "mL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 8000
+    },
+    {
+      "id": "units:conversion:L:mL:12",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "conversion",
+      "prompt": "12Lは 何mLですか。",
+      "explanation": "1L = 1000mL だから、12L は 12000mL です。",
+      "requiredUnits": [
+        "L",
+        "mL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 12000
+    },
+    {
+      "id": "units:comparison:dL:mL:2",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "comparison",
+      "prompt": "2dLと 100mL、大きいのはどちらですか。",
+      "explanation": "2dL は 200mL なので、2dL のほうが大きいです。",
+      "requiredUnits": [
+        "dL",
+        "mL"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "2dL"
+        },
+        {
+          "id": "right",
+          "label": "100mL"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:dL:mL:3",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "comparison",
+      "prompt": "200mLと 3dL、大きいのはどちらですか。",
+      "explanation": "3dL は 300mL なので、3dL のほうが大きいです。",
+      "requiredUnits": [
+        "dL",
+        "mL"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "200mL"
+        },
+        {
+          "id": "right",
+          "label": "3dL"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:dL:mL:5",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "comparison",
+      "prompt": "400mLと 5dL、大きいのはどちらですか。",
+      "explanation": "5dL は 500mL なので、5dL のほうが大きいです。",
+      "requiredUnits": [
+        "dL",
+        "mL"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "400mL"
+        },
+        {
+          "id": "right",
+          "label": "5dL"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:L:mL:2",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "comparison",
+      "prompt": "2Lと 1900mL、大きいのはどちらですか。",
+      "explanation": "2L は 2000mL なので、2L のほうが大きいです。",
+      "requiredUnits": [
+        "L",
+        "mL"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "2L"
+        },
+        {
+          "id": "right",
+          "label": "1900mL"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:L:mL:3",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "comparison",
+      "prompt": "2900mLと 3L、大きいのはどちらですか。",
+      "explanation": "3L は 3000mL なので、3L のほうが大きいです。",
+      "requiredUnits": [
+        "L",
+        "mL"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "2900mL"
+        },
+        {
+          "id": "right",
+          "label": "3L"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:L:mL:5",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "comparison",
+      "prompt": "4900mLと 5L、大きいのはどちらですか。",
+      "explanation": "5L は 5000mL なので、5L のほうが大きいです。",
+      "requiredUnits": [
+        "L",
+        "mL"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "4900mL"
+        },
+        {
+          "id": "right",
+          "label": "5L"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:L:dL:2",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "comparison",
+      "prompt": "10dLと 2L、大きいのはどちらですか。",
+      "explanation": "2L は 20dL なので、2L のほうが大きいです。",
+      "requiredUnits": [
+        "L",
+        "dL"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "10dL"
+        },
+        {
+          "id": "right",
+          "label": "2L"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:L:dL:3",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "comparison",
+      "prompt": "3Lと 20dL、大きいのはどちらですか。",
+      "explanation": "3L は 30dL なので、3L のほうが大きいです。",
+      "requiredUnits": [
+        "L",
+        "dL"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "3L"
+        },
+        {
+          "id": "right",
+          "label": "20dL"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:L:dL:5",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "comparison",
+      "prompt": "5Lと 40dL、大きいのはどちらですか。",
+      "explanation": "5L は 50dL なので、5L のほうが大きいです。",
+      "requiredUnits": [
+        "L",
+        "dL"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "5L"
+        },
+        {
+          "id": "right",
+          "label": "40dL"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:conversion:sec:min:1",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "60秒は 何分ですか。",
+      "explanation": "1分 = 60秒 だから、60秒 は 1分 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 60
+    },
+    {
+      "id": "units:conversion:sec:min:2",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "120秒は 何分ですか。",
+      "explanation": "1分 = 60秒 だから、120秒 は 2分 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 120
+    },
+    {
+      "id": "units:conversion:sec:min:3",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "180秒は 何分ですか。",
+      "explanation": "1分 = 60秒 だから、180秒 は 3分 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 180
+    },
+    {
+      "id": "units:conversion:sec:min:5",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "300秒は 何分ですか。",
+      "explanation": "1分 = 60秒 だから、300秒 は 5分 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 300
+    },
+    {
+      "id": "units:conversion:sec:hour:1",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "3600秒は 何時間ですか。",
+      "explanation": "1時間 = 3600秒 だから、3600秒 は 1時間 です。",
+      "requiredUnits": [
+        "sec",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "hour",
+      "answerBaseValue": 3600
+    },
+    {
+      "id": "units:conversion:sec:hour:2",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "7200秒は 何時間ですか。",
+      "explanation": "1時間 = 3600秒 だから、7200秒 は 2時間 です。",
+      "requiredUnits": [
+        "sec",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "hour",
+      "answerBaseValue": 7200
+    },
+    {
+      "id": "units:conversion:sec:hour:3",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "10800秒は 何時間ですか。",
+      "explanation": "1時間 = 3600秒 だから、10800秒 は 3時間 です。",
+      "requiredUnits": [
+        "sec",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "hour",
+      "answerBaseValue": 10800
+    },
+    {
+      "id": "units:conversion:sec:hour:5",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "18000秒は 何時間ですか。",
+      "explanation": "1時間 = 3600秒 だから、18000秒 は 5時間 です。",
+      "requiredUnits": [
+        "sec",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "hour",
+      "answerBaseValue": 18000
+    },
+    {
+      "id": "units:conversion:min:sec:1",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "1分は 何秒ですか。",
+      "explanation": "1分 = 60秒 だから、1分 は 60秒 です。",
+      "requiredUnits": [
+        "min",
+        "sec"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 60
+    },
+    {
+      "id": "units:conversion:min:sec:2",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "2分は 何秒ですか。",
+      "explanation": "1分 = 60秒 だから、2分 は 120秒 です。",
+      "requiredUnits": [
+        "min",
+        "sec"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 120
+    },
+    {
+      "id": "units:conversion:min:sec:3",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "3分は 何秒ですか。",
+      "explanation": "1分 = 60秒 だから、3分 は 180秒 です。",
+      "requiredUnits": [
+        "min",
+        "sec"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 180
+    },
+    {
+      "id": "units:conversion:min:sec:5",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "5分は 何秒ですか。",
+      "explanation": "1分 = 60秒 だから、5分 は 300秒 です。",
+      "requiredUnits": [
+        "min",
+        "sec"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 300
+    },
+    {
+      "id": "units:conversion:min:sec:8",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "8分は 何秒ですか。",
+      "explanation": "1分 = 60秒 だから、8分 は 480秒 です。",
+      "requiredUnits": [
+        "min",
+        "sec"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 480
+    },
+    {
+      "id": "units:conversion:min:sec:12",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "12分は 何秒ですか。",
+      "explanation": "1分 = 60秒 だから、12分 は 720秒 です。",
+      "requiredUnits": [
+        "min",
+        "sec"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 720
+    },
+    {
+      "id": "units:conversion:min:hour:1",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "60分は 何時間ですか。",
+      "explanation": "1時間 = 60分 だから、60分 は 1時間 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "hour",
+      "answerBaseValue": 3600
+    },
+    {
+      "id": "units:conversion:min:hour:2",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "120分は 何時間ですか。",
+      "explanation": "1時間 = 60分 だから、120分 は 2時間 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "hour",
+      "answerBaseValue": 7200
+    },
+    {
+      "id": "units:conversion:min:hour:3",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "180分は 何時間ですか。",
+      "explanation": "1時間 = 60分 だから、180分 は 3時間 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "hour",
+      "answerBaseValue": 10800
+    },
+    {
+      "id": "units:conversion:min:hour:5",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "300分は 何時間ですか。",
+      "explanation": "1時間 = 60分 だから、300分 は 5時間 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "hour",
+      "answerBaseValue": 18000
+    },
+    {
+      "id": "units:conversion:min:day:1",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "1440分は 何日ですか。",
+      "explanation": "1日 = 1440分 だから、1440分 は 1日 です。",
+      "requiredUnits": [
+        "min",
+        "day"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "day",
+      "answerBaseValue": 86400
+    },
+    {
+      "id": "units:conversion:min:day:2",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "2880分は 何日ですか。",
+      "explanation": "1日 = 1440分 だから、2880分 は 2日 です。",
+      "requiredUnits": [
+        "min",
+        "day"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "day",
+      "answerBaseValue": 172800
+    },
+    {
+      "id": "units:conversion:min:day:3",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "4320分は 何日ですか。",
+      "explanation": "1日 = 1440分 だから、4320分 は 3日 です。",
+      "requiredUnits": [
+        "min",
+        "day"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "day",
+      "answerBaseValue": 259200
+    },
+    {
+      "id": "units:conversion:min:day:5",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "7200分は 何日ですか。",
+      "explanation": "1日 = 1440分 だから、7200分 は 5日 です。",
+      "requiredUnits": [
+        "min",
+        "day"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "day",
+      "answerBaseValue": 432000
+    },
+    {
+      "id": "units:conversion:hour:sec:1",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "1時間は 何秒ですか。",
+      "explanation": "1時間 = 3600秒 だから、1時間 は 3600秒 です。",
+      "requiredUnits": [
+        "hour",
+        "sec"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 3600
+    },
+    {
+      "id": "units:conversion:hour:sec:2",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "conversion",
+      "prompt": "2時間は 何秒ですか。",
+      "explanation": "1時間 = 3600秒 だから、2時間 は 7200秒 です。",
+      "requiredUnits": [
+        "hour",
+        "sec"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 7200
+    },
+    {
+      "id": "units:comparison:min:sec:2",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "comparison",
+      "prompt": "2分と 110秒、大きいのはどちらですか。",
+      "explanation": "2分 は 120秒 なので、2分 のほうが大きいです。",
+      "requiredUnits": [
+        "min",
+        "sec"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "2分"
+        },
+        {
+          "id": "right",
+          "label": "110秒"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:min:sec:3",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "comparison",
+      "prompt": "170秒と 3分、大きいのはどちらですか。",
+      "explanation": "3分 は 180秒 なので、3分 のほうが大きいです。",
+      "requiredUnits": [
+        "min",
+        "sec"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "170秒"
+        },
+        {
+          "id": "right",
+          "label": "3分"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:min:sec:5",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "comparison",
+      "prompt": "200秒と 5分、大きいのはどちらですか。",
+      "explanation": "5分 は 300秒 なので、5分 のほうが大きいです。",
+      "requiredUnits": [
+        "min",
+        "sec"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "200秒"
+        },
+        {
+          "id": "right",
+          "label": "5分"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:hour:sec:2",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "comparison",
+      "prompt": "2時間と 7100秒、大きいのはどちらですか。",
+      "explanation": "2時間 は 7200秒 なので、2時間 のほうが大きいです。",
+      "requiredUnits": [
+        "hour",
+        "sec"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "2時間"
+        },
+        {
+          "id": "right",
+          "label": "7100秒"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:hour:sec:3",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "comparison",
+      "prompt": "10700秒と 3時間、大きいのはどちらですか。",
+      "explanation": "3時間 は 10800秒 なので、3時間 のほうが大きいです。",
+      "requiredUnits": [
+        "hour",
+        "sec"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "10700秒"
+        },
+        {
+          "id": "right",
+          "label": "3時間"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:hour:sec:5",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "comparison",
+      "prompt": "17900秒と 5時間、大きいのはどちらですか。",
+      "explanation": "5時間 は 18000秒 なので、5時間 のほうが大きいです。",
+      "requiredUnits": [
+        "hour",
+        "sec"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "17900秒"
+        },
+        {
+          "id": "right",
+          "label": "5時間"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:hour:min:2",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "comparison",
+      "prompt": "110分と 2時間、大きいのはどちらですか。",
+      "explanation": "2時間 は 120分 なので、2時間 のほうが大きいです。",
+      "requiredUnits": [
+        "hour",
+        "min"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "110分"
+        },
+        {
+          "id": "right",
+          "label": "2時間"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:hour:min:3",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "comparison",
+      "prompt": "3時間と 170分、大きいのはどちらですか。",
+      "explanation": "3時間 は 180分 なので、3時間 のほうが大きいです。",
+      "requiredUnits": [
+        "hour",
+        "min"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "3時間"
+        },
+        {
+          "id": "right",
+          "label": "170分"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:hour:min:5",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "comparison",
+      "prompt": "5時間と 200分、大きいのはどちらですか。",
+      "explanation": "5時間 は 300分 なので、5時間 のほうが大きいです。",
+      "requiredUnits": [
+        "hour",
+        "min"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "5時間"
+        },
+        {
+          "id": "right",
+          "label": "200分"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:day:min:2",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "comparison",
+      "prompt": "2780分と 2日、大きいのはどちらですか。",
+      "explanation": "2日 は 2880分 なので、2日 のほうが大きいです。",
+      "requiredUnits": [
+        "day",
+        "min"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "2780分"
+        },
+        {
+          "id": "right",
+          "label": "2日"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:day:min:3",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "comparison",
+      "prompt": "3日と 4220分、大きいのはどちらですか。",
+      "explanation": "3日 は 4320分 なので、3日 のほうが大きいです。",
+      "requiredUnits": [
+        "day",
+        "min"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "3日"
+        },
+        {
+          "id": "right",
+          "label": "4220分"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:day:min:5",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "comparison",
+      "prompt": "5日と 7100分、大きいのはどちらですか。",
+      "explanation": "5日 は 7200分 なので、5日 のほうが大きいです。",
+      "requiredUnits": [
+        "day",
+        "min"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "5日"
+        },
+        {
+          "id": "right",
+          "label": "7100分"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:day:hour:2",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "comparison",
+      "prompt": "38時間と 2日、大きいのはどちらですか。",
+      "explanation": "2日 は 48時間 なので、2日 のほうが大きいです。",
+      "requiredUnits": [
+        "day",
+        "hour"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "38時間"
+        },
+        {
+          "id": "right",
+          "label": "2日"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:day:hour:3",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "comparison",
+      "prompt": "3日と 62時間、大きいのはどちらですか。",
+      "explanation": "3日 は 72時間 なので、3日 のほうが大きいです。",
+      "requiredUnits": [
+        "day",
+        "hour"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "3日"
+        },
+        {
+          "id": "right",
+          "label": "62時間"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:day:hour:5",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "comparison",
+      "prompt": "5日と 110時間、大きいのはどちらですか。",
+      "explanation": "5日 は 120時間 なので、5日 のほうが大きいです。",
+      "requiredUnits": [
+        "day",
+        "hour"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "5日"
+        },
+        {
+          "id": "right",
+          "label": "110時間"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:conversion:cm2:m2:1",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "10000cm²は 何m²ですか。",
+      "explanation": "1m² = 10000cm² だから、10000cm² は 1m² です。",
+      "requiredUnits": [
+        "cm2",
+        "m2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 10000
+    },
+    {
+      "id": "units:conversion:cm2:m2:1h",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "15000cm²は 何m²ですか。",
+      "explanation": "1m² = 10000cm² だから、15000cm² は 1.5m² です。",
+      "requiredUnits": [
+        "cm2",
+        "m2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 15000
+    },
+    {
+      "id": "units:conversion:cm2:m2:2",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "20000cm²は 何m²ですか。",
+      "explanation": "1m² = 10000cm² だから、20000cm² は 2m² です。",
+      "requiredUnits": [
+        "cm2",
+        "m2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 20000
+    },
+    {
+      "id": "units:conversion:cm2:m2:2h",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "25000cm²は 何m²ですか。",
+      "explanation": "1m² = 10000cm² だから、25000cm² は 2.5m² です。",
+      "requiredUnits": [
+        "cm2",
+        "m2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 25000
+    },
+    {
+      "id": "units:conversion:cm2:m2:3",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "30000cm²は 何m²ですか。",
+      "explanation": "1m² = 10000cm² だから、30000cm² は 3m² です。",
+      "requiredUnits": [
+        "cm2",
+        "m2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 30000
+    },
+    {
+      "id": "units:conversion:cm2:m2:3h",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "35000cm²は 何m²ですか。",
+      "explanation": "1m² = 10000cm² だから、35000cm² は 3.5m² です。",
+      "requiredUnits": [
+        "cm2",
+        "m2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 35000
+    },
+    {
+      "id": "units:conversion:cm2:m2:5",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "50000cm²は 何m²ですか。",
+      "explanation": "1m² = 10000cm² だから、50000cm² は 5m² です。",
+      "requiredUnits": [
+        "cm2",
+        "m2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 50000
+    },
+    {
+      "id": "units:conversion:cm2:m2:5h",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "55000cm²は 何m²ですか。",
+      "explanation": "1m² = 10000cm² だから、55000cm² は 5.5m² です。",
+      "requiredUnits": [
+        "cm2",
+        "m2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 55000
+    },
+    {
+      "id": "units:conversion:m2:cm2:1",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "1m²は 何cm²ですか。",
+      "explanation": "1m² = 10000cm² だから、1m² は 10000cm² です。",
+      "requiredUnits": [
+        "m2",
+        "cm2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm2",
+      "answerBaseValue": 10000
+    },
+    {
+      "id": "units:conversion:m2:cm2:2",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "2m²は 何cm²ですか。",
+      "explanation": "1m² = 10000cm² だから、2m² は 20000cm² です。",
+      "requiredUnits": [
+        "m2",
+        "cm2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm2",
+      "answerBaseValue": 20000
+    },
+    {
+      "id": "units:conversion:m2:cm2:3",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "3m²は 何cm²ですか。",
+      "explanation": "1m² = 10000cm² だから、3m² は 30000cm² です。",
+      "requiredUnits": [
+        "m2",
+        "cm2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm2",
+      "answerBaseValue": 30000
+    },
+    {
+      "id": "units:conversion:m2:cm2:5",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "5m²は 何cm²ですか。",
+      "explanation": "1m² = 10000cm² だから、5m² は 50000cm² です。",
+      "requiredUnits": [
+        "m2",
+        "cm2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm2",
+      "answerBaseValue": 50000
+    },
+    {
+      "id": "units:conversion:m2:cm2:8",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "8m²は 何cm²ですか。",
+      "explanation": "1m² = 10000cm² だから、8m² は 80000cm² です。",
+      "requiredUnits": [
+        "m2",
+        "cm2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm2",
+      "answerBaseValue": 80000
+    },
+    {
+      "id": "units:conversion:m2:cm2:12",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "12m²は 何cm²ですか。",
+      "explanation": "1m² = 10000cm² だから、12m² は 120000cm² です。",
+      "requiredUnits": [
+        "m2",
+        "cm2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm2",
+      "answerBaseValue": 120000
+    },
+    {
+      "id": "units:conversion:m2:a:1",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "100m²は 何aですか。",
+      "explanation": "1a = 100m² だから、100m² は 1a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 1000000
+    },
+    {
+      "id": "units:conversion:m2:a:1h",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "150m²は 何aですか。",
+      "explanation": "1a = 100m² だから、150m² は 1.5a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 1500000
+    },
+    {
+      "id": "units:conversion:m2:a:2",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "200m²は 何aですか。",
+      "explanation": "1a = 100m² だから、200m² は 2a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 2000000
+    },
+    {
+      "id": "units:conversion:m2:a:2h",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "250m²は 何aですか。",
+      "explanation": "1a = 100m² だから、250m² は 2.5a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 2500000
+    },
+    {
+      "id": "units:conversion:m2:a:3",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "300m²は 何aですか。",
+      "explanation": "1a = 100m² だから、300m² は 3a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 3000000
+    },
+    {
+      "id": "units:conversion:m2:a:3h",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "350m²は 何aですか。",
+      "explanation": "1a = 100m² だから、350m² は 3.5a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 3500000
+    },
+    {
+      "id": "units:conversion:m2:a:5",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "500m²は 何aですか。",
+      "explanation": "1a = 100m² だから、500m² は 5a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 5000000
+    },
+    {
+      "id": "units:conversion:m2:a:5h",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "550m²は 何aですか。",
+      "explanation": "1a = 100m² だから、550m² は 5.5a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 5500000
+    },
+    {
+      "id": "units:conversion:m2:ha:1",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "10000m²は 何haですか。",
+      "explanation": "1ha = 10000m² だから、10000m² は 1ha です。",
+      "requiredUnits": [
+        "m2",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "ha",
+      "answerBaseValue": 100000000
+    },
+    {
+      "id": "units:conversion:m2:ha:1h",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "conversion",
+      "prompt": "15000m²は 何haですか。",
+      "explanation": "1ha = 10000m² だから、15000m² は 1.5ha です。",
+      "requiredUnits": [
+        "m2",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "ha",
+      "answerBaseValue": 150000000
+    },
+    {
+      "id": "units:comparison:m2:cm2:2",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "comparison",
+      "prompt": "2m²と 19900cm²、大きいのはどちらですか。",
+      "explanation": "2m² は 20000cm² なので、2m² のほうが大きいです。",
+      "requiredUnits": [
+        "m2",
+        "cm2"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "2m²"
+        },
+        {
+          "id": "right",
+          "label": "19900cm²"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:m2:cm2:3",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "comparison",
+      "prompt": "29900cm²と 3m²、大きいのはどちらですか。",
+      "explanation": "3m² は 30000cm² なので、3m² のほうが大きいです。",
+      "requiredUnits": [
+        "m2",
+        "cm2"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "29900cm²"
+        },
+        {
+          "id": "right",
+          "label": "3m²"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:m2:cm2:5",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "comparison",
+      "prompt": "49900cm²と 5m²、大きいのはどちらですか。",
+      "explanation": "5m² は 50000cm² なので、5m² のほうが大きいです。",
+      "requiredUnits": [
+        "m2",
+        "cm2"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "49900cm²"
+        },
+        {
+          "id": "right",
+          "label": "5m²"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:a:m2:2",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "comparison",
+      "prompt": "100m²と 2a、大きいのはどちらですか。",
+      "explanation": "2a は 200m² なので、2a のほうが大きいです。",
+      "requiredUnits": [
+        "a",
+        "m2"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "100m²"
+        },
+        {
+          "id": "right",
+          "label": "2a"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:a:m2:3",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "comparison",
+      "prompt": "3aと 200m²、大きいのはどちらですか。",
+      "explanation": "3a は 300m² なので、3a のほうが大きいです。",
+      "requiredUnits": [
+        "a",
+        "m2"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "3a"
+        },
+        {
+          "id": "right",
+          "label": "200m²"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:a:m2:5",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "comparison",
+      "prompt": "5aと 400m²、大きいのはどちらですか。",
+      "explanation": "5a は 500m² なので、5a のほうが大きいです。",
+      "requiredUnits": [
+        "a",
+        "m2"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "5a"
+        },
+        {
+          "id": "right",
+          "label": "400m²"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:ha:m2:2",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "comparison",
+      "prompt": "19900m²と 2ha、大きいのはどちらですか。",
+      "explanation": "2ha は 20000m² なので、2ha のほうが大きいです。",
+      "requiredUnits": [
+        "ha",
+        "m2"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "19900m²"
+        },
+        {
+          "id": "right",
+          "label": "2ha"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:ha:m2:3",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "comparison",
+      "prompt": "3haと 29900m²、大きいのはどちらですか。",
+      "explanation": "3ha は 30000m² なので、3ha のほうが大きいです。",
+      "requiredUnits": [
+        "ha",
+        "m2"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "3ha"
+        },
+        {
+          "id": "right",
+          "label": "29900m²"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:ha:m2:5",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "comparison",
+      "prompt": "5haと 49900m²、大きいのはどちらですか。",
+      "explanation": "5ha は 50000m² なので、5ha のほうが大きいです。",
+      "requiredUnits": [
+        "ha",
+        "m2"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "5ha"
+        },
+        {
+          "id": "right",
+          "label": "49900m²"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:ha:a:2",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "comparison",
+      "prompt": "100aと 2ha、大きいのはどちらですか。",
+      "explanation": "2ha は 200a なので、2ha のほうが大きいです。",
+      "requiredUnits": [
+        "ha",
+        "a"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "100a"
+        },
+        {
+          "id": "right",
+          "label": "2ha"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:ha:a:3",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "comparison",
+      "prompt": "3haと 200a、大きいのはどちらですか。",
+      "explanation": "3ha は 300a なので、3ha のほうが大きいです。",
+      "requiredUnits": [
+        "ha",
+        "a"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "3ha"
+        },
+        {
+          "id": "right",
+          "label": "200a"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:ha:a:5",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "comparison",
+      "prompt": "5haと 400a、大きいのはどちらですか。",
+      "explanation": "5ha は 500a なので、5ha のほうが大きいです。",
+      "requiredUnits": [
+        "ha",
+        "a"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "5ha"
+        },
+        {
+          "id": "right",
+          "label": "400a"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:km2:a:2",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "comparison",
+      "prompt": "2km²と 19900a、大きいのはどちらですか。",
+      "explanation": "2km² は 20000a なので、2km² のほうが大きいです。",
+      "requiredUnits": [
+        "km2",
+        "a"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "2km²"
+        },
+        {
+          "id": "right",
+          "label": "19900a"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:km2:a:3",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "comparison",
+      "prompt": "29900aと 3km²、大きいのはどちらですか。",
+      "explanation": "3km² は 30000a なので、3km² のほうが大きいです。",
+      "requiredUnits": [
+        "km2",
+        "a"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "29900a"
+        },
+        {
+          "id": "right",
+          "label": "3km²"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:km2:a:5",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "comparison",
+      "prompt": "49900aと 5km²、大きいのはどちらですか。",
+      "explanation": "5km² は 50000a なので、5km² のほうが大きいです。",
+      "requiredUnits": [
+        "km2",
+        "a"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "49900a"
+        },
+        {
+          "id": "right",
+          "label": "5km²"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:km2:ha:2",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "comparison",
+      "prompt": "2km²と 100ha、大きいのはどちらですか。",
+      "explanation": "2km² は 200ha なので、2km² のほうが大きいです。",
+      "requiredUnits": [
+        "km2",
+        "ha"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "2km²"
+        },
+        {
+          "id": "right",
+          "label": "100ha"
+        }
+      ],
+      "answerChoiceId": "left"
+    },
+    {
+      "id": "units:comparison:km2:ha:3",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "comparison",
+      "prompt": "200haと 3km²、大きいのはどちらですか。",
+      "explanation": "3km² は 300ha なので、3km² のほうが大きいです。",
+      "requiredUnits": [
+        "km2",
+        "ha"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "200ha"
+        },
+        {
+          "id": "right",
+          "label": "3km²"
+        }
+      ],
+      "answerChoiceId": "right"
+    },
+    {
+      "id": "units:comparison:km2:ha:5",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "comparison",
+      "prompt": "400haと 5km²、大きいのはどちらですか。",
+      "explanation": "5km² は 500ha なので、5km² のほうが大きいです。",
+      "requiredUnits": [
+        "km2",
+        "ha"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "left",
+          "label": "400ha"
+        },
+        {
+          "id": "right",
+          "label": "5km²"
+        }
+      ],
+      "answerChoiceId": "right"
+    }
+  ]
+}

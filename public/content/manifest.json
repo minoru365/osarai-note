@@ -5,6 +5,10 @@
     {
       "subject": "kanji",
       "url": "kanji-v2.json"
+    },
+    {
+      "subject": "units",
+      "url": "units-v1.json"
     }
   ]
 }
