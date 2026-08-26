@@ -12,19 +12,22 @@ type Props = {
   onOpenFreePractice: () => void;
   onOpenKanjiSettings: () => void;
   onOpenAchievements: () => void;
+  unitQuestionCount: number;
+  onStartUnits: () => void;
 };
 
-const SUBJECTS = [
-  { icon: "字", name: "漢字", note: "3・4年生", ready: true },
-  { icon: "単", name: "単位", note: "準備中", ready: false },
-  { icon: "分", name: "分数", note: "準備中", ready: false },
-  { icon: "地", name: "日本地図", note: "準備中", ready: false },
-  { icon: "理", name: "理科", note: "準備中", ready: false },
-];
+type Subject = {
+  icon: string;
+  name: string;
+  note: string;
+  ready: boolean;
+  hint: string;
+  start?: () => void;
+};
 
 type TodayProgress = { reading: number; writing: number };
 
-export function Home({ questionCount, readingQuestionCount, writingQuestionCount, contentError, onStartKanji, onOpenFreePractice, onOpenKanjiSettings, onOpenAchievements }: Props) {
+export function Home({ questionCount, readingQuestionCount, writingQuestionCount, contentError, onStartKanji, onOpenFreePractice, onOpenKanjiSettings, onOpenAchievements, unitQuestionCount, onStartUnits }: Props) {
   const canStart = questionCount > 0 && !contentError;
   const [today, setToday] = useState<TodayProgress>({ reading: 0, writing: 0 });
 
@@ -44,6 +47,20 @@ export function Home({ questionCount, readingQuestionCount, writingQuestionCount
   }, [readingQuestionCount, writingQuestionCount]);
 
   const startMode = today.reading <= today.writing ? "reading" as const : "writing" as const;
+
+  const subjects: Subject[] = [
+    {
+      icon: "字", name: "漢字", note: "3・4年生", ready: canStart,
+      hint: "読み・書きを練習", start: () => onStartKanji(startMode),
+    },
+    {
+      icon: "単", name: "単位", note: "準備中", ready: unitQuestionCount > 0,
+      hint: "長さ・重さ・かさ・時間・面積", start: onStartUnits,
+    },
+    { icon: "分", name: "分数", note: "準備中", ready: false, hint: "" },
+    { icon: "地", name: "日本地図", note: "準備中", ready: false, hint: "" },
+    { icon: "理", name: "理科", note: "準備中", ready: false, hint: "" },
+  ];
 
   return (
     <div className="app-shell home-shell">
@@ -87,17 +104,17 @@ export function Home({ questionCount, readingQuestionCount, writingQuestionCount
             <div className="section-actions"><button type="button" disabled={!canStart} onClick={onOpenFreePractice}>問題を選んで自由練習</button><button type="button" onClick={onOpenKanjiSettings}>未習漢字を設定</button></div>
           </div>
           <div className="subject-grid">
-            {SUBJECTS.map((subject) => (
+            {subjects.map((subject) => (
               <button
                 className={`subject-card ${subject.ready ? "ready" : ""}`}
                 type="button"
-                disabled={!subject.ready || !canStart}
-                onClick={subject.ready ? () => onStartKanji(startMode) : undefined}
+                disabled={!subject.ready}
+                onClick={subject.start}
                 key={subject.name}
               >
                 <span className="subject-icon">{subject.icon}</span>
                 <strong>{subject.name}</strong>
-                <small>{subject.ready ? "読み・書きを練習" : subject.note}</small>
+                <small>{subject.ready ? subject.hint : subject.note}</small>
               </button>
             ))}
           </div>

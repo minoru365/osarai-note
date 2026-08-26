@@ -221,6 +221,22 @@ export type AppSettings = {
   updatedAt: string;
 };
 
+/**
+ * Which units the child has not been taught yet, as `category:grade` groups
+ * (docs/units-plan.md 1.2) — e.g. "area:4". Everything is treated as taught
+ * until a parent marks it otherwise, matching how kanji default to learned.
+ * Lives in the existing settings store, so it needs no schema version bump.
+ */
+export type UnitLearningSettings = {
+  id: "units";
+  unlearnedGroups: string[];
+  updatedAt: string;
+};
+
+export function unitLearningGroup(category: string, grade: number): string {
+  return `${category}:${grade}`;
+}
+
 export type SaveAttemptResult = "added" | "duplicate";
 
 // Motivation feature (ADR-0006): a single subject-independent point ledger and

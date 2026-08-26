@@ -1,5 +1,6 @@
 // Units question pack format and validation (docs/units-plan.md 4, 8, 9).
 
+import { validateManifest } from "./contentPack";
 import {
   UNIT_CATEGORIES,
   UNIT_QUESTION_TYPES,
@@ -129,4 +130,18 @@ export function validateUnitPack(value: unknown): UnitQuestion[] {
   }
   const seen = new Set<string>();
   return value.questions.map((question) => validateQuestion(question, seen));
+}
+
+export async function loadUnitQuestions(fetcher: typeof fetch = fetch): Promise<UnitQuestion[]> {
+  const contentRoot = new URL(`${import.meta.env.BASE_URL}content/`, document.baseURI);
+  const manifestResponse = await fetcher(new URL("manifest.json", contentRoot), { cache: "no-cache" });
+  if (!manifestResponse.ok) throw new Error("問題パック一覧を取得できませんでした");
+  const manifest = validateManifest(await manifestResponse.json());
+  const pack = manifest.packs.find((entry) => entry.subject === "units");
+  // The units pack is optional; the app still runs with kanji alone.
+  if (!pack) return [];
+
+  const packResponse = await fetcher(new URL(pack.url, contentRoot), { cache: "no-cache" });
+  if (!packResponse.ok) throw new Error("単位問題パックを取得できませんでした");
+  return validateUnitPack(await packResponse.json());
 }

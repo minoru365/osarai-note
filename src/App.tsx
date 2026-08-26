@@ -10,6 +10,8 @@ import {
 } from "./contentPack";
 import { startNextDailyBatch, summarizeDailySession } from "./dailySession";
 import { japaneseCharDataLoader } from "./kanjiData";
+import { loadUnitQuestions, type UnitQuestion } from "./unitContent";
+import { UnitPractice } from "./UnitPractice";
 import { Achievements } from "./Achievements";
 import { Home } from "./Home";
 import { FreePracticeBrowser } from "./FreePracticeBrowser";
@@ -28,7 +30,8 @@ import { studyStorage } from "./storage/indexedDb";
 type QuizState = "loading" | "writing" | "guide" | "character-complete" | "word-complete" | "saving" | "save-error" | "error";
 
 function App() {
-  const [view, setView] = useState<"home" | "reading" | "writing" | "kanji-settings" | "free-practice" | "achievements">("home");
+  const [view, setView] = useState<"home" | "reading" | "writing" | "kanji-settings" | "free-practice" | "achievements" | "units">("home");
+  const [unitQuestions, setUnitQuestions] = useState<UnitQuestion[]>([]);
   const [freePracticeQuestion, setFreePracticeQuestion] = useState<KanjiQuestion | null>(null);
   const [freePracticeQueue, setFreePracticeQueue] = useState<KanjiQuestion[]>([]);
   const [freePracticeIndex, setFreePracticeIndex] = useState(0);
@@ -200,6 +203,16 @@ function App() {
     return () => { active = false; };
   }, []);
 
+  // The units pack is optional: a failure here must not block kanji practice.
+  useEffect(() => {
+    let active = true;
+    void loadUnitQuestions().then(
+      (questions) => { if (active) setUnitQuestions(questions); },
+      () => undefined,
+    );
+    return () => { active = false; };
+  }, []);
+
   useEffect(() => {
     if (view !== "writing" || !selected || !currentCharacter || !targetRef.current || completed) return;
 
@@ -365,6 +378,10 @@ function App() {
     return <Achievements onBack={goHome} />;
   }
 
+  if (view === "units") {
+    return <UnitPractice questions={unitQuestions} onHome={goHome} />;
+  }
+
   if (view === "free-practice") {
     return <FreePracticeBrowser questions={words} onBack={goHome} onStart={startFreePracticeBatch} />;
   }
@@ -380,6 +397,8 @@ function App() {
         onOpenFreePractice={openFreePractice}
         onOpenKanjiSettings={() => setView("kanji-settings")}
         onOpenAchievements={() => setView("achievements")}
+        unitQuestionCount={unitQuestions.length}
+        onStartUnits={() => setView("units")}
       />
     );
   }

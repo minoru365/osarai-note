@@ -26,6 +26,7 @@ import {
   type SkillImpact,
   type StudyAttempt,
   type Subject,
+  type UnitLearningSettings,
   type UnitSessionAttempt,
   type UnitSessionItem,
   type UnitState,
@@ -794,6 +795,15 @@ export class StudyStorage {
 
   async getSettings(): Promise<AppSettings | undefined> {
     return this.get<AppSettings>(STORE_NAMES.settings, "app");
+  }
+
+  async saveUnitLearningSettings(settings: UnitLearningSettings): Promise<void> {
+    await this.put(STORE_NAMES.settings, settings);
+  }
+
+  async getUnitLearningSettings(): Promise<UnitLearningSettings> {
+    return (await this.get<UnitLearningSettings>(STORE_NAMES.settings, "units"))
+      ?? { id: "units", unlearnedGroups: [], updatedAt: "" };
   }
 
   async getMotivationState(): Promise<MotivationState> {
