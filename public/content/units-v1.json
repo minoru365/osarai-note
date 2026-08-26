@@ -3181,6 +3181,944 @@
         }
       ],
       "answerChoiceId": "right"
+    },
+    {
+      "id": "units:appropriateUnit:au-textbook-thickness",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "appropriateUnit",
+      "prompt": "教科書のあつさは、どのたんいではかりますか。",
+      "explanation": "教科書のあつさは mm ではかります。",
+      "requiredUnits": [
+        "mm",
+        "m",
+        "km"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "mm",
+          "label": "mm"
+        },
+        {
+          "id": "m",
+          "label": "m"
+        },
+        {
+          "id": "km",
+          "label": "km"
+        }
+      ],
+      "answerChoiceId": "mm"
+    },
+    {
+      "id": "units:appropriateUnit:au-pencil-length",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "appropriateUnit",
+      "prompt": "えんぴつの長さは、どのたんいではかりますか。",
+      "explanation": "えんぴつの長さは cm ではかります。",
+      "requiredUnits": [
+        "cm",
+        "mm",
+        "km"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "cm",
+          "label": "cm"
+        },
+        {
+          "id": "km",
+          "label": "km"
+        },
+        {
+          "id": "mm",
+          "label": "mm"
+        }
+      ],
+      "answerChoiceId": "cm"
+    },
+    {
+      "id": "units:appropriateUnit:au-classroom-width",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "appropriateUnit",
+      "prompt": "教室のよこはばは、どのたんいではかりますか。",
+      "explanation": "教室のよこはばは m ではかります。",
+      "requiredUnits": [
+        "m",
+        "mm",
+        "km"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "m",
+          "label": "m"
+        },
+        {
+          "id": "mm",
+          "label": "mm"
+        },
+        {
+          "id": "km",
+          "label": "km"
+        }
+      ],
+      "answerChoiceId": "m"
+    },
+    {
+      "id": "units:appropriateUnit:au-school-to-station",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "appropriateUnit",
+      "prompt": "学校から駅までのきょりは、どのたんいではかりますか。",
+      "explanation": "学校から駅までのきょりは km ではかります。",
+      "requiredUnits": [
+        "km",
+        "cm",
+        "mm"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "mm",
+          "label": "mm"
+        },
+        {
+          "id": "cm",
+          "label": "cm"
+        },
+        {
+          "id": "km",
+          "label": "km"
+        }
+      ],
+      "answerChoiceId": "km"
+    },
+    {
+      "id": "units:appropriateUnit:au-eraser-weight",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "appropriateUnit",
+      "prompt": "消しゴムの重さは、どのたんいではかりますか。",
+      "explanation": "消しゴムの重さは g ではかります。",
+      "requiredUnits": [
+        "g",
+        "kg",
+        "t"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "g",
+          "label": "g"
+        },
+        {
+          "id": "kg",
+          "label": "kg"
+        },
+        {
+          "id": "t",
+          "label": "t"
+        }
+      ],
+      "answerChoiceId": "g"
+    },
+    {
+      "id": "units:appropriateUnit:au-schoolbag-weight",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "appropriateUnit",
+      "prompt": "ランドセルの重さは、どのたんいではかりますか。",
+      "explanation": "ランドセルの重さは kg ではかります。",
+      "requiredUnits": [
+        "kg",
+        "g",
+        "t"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "t",
+          "label": "t"
+        },
+        {
+          "id": "g",
+          "label": "g"
+        },
+        {
+          "id": "kg",
+          "label": "kg"
+        }
+      ],
+      "answerChoiceId": "kg"
+    },
+    {
+      "id": "units:appropriateUnit:au-truck-weight",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "appropriateUnit",
+      "prompt": "トラックの重さは、どのたんいではかりますか。",
+      "explanation": "トラックの重さは t ではかります。",
+      "requiredUnits": [
+        "t",
+        "g",
+        "kg"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "g",
+          "label": "g"
+        },
+        {
+          "id": "t",
+          "label": "t"
+        },
+        {
+          "id": "kg",
+          "label": "kg"
+        }
+      ],
+      "answerChoiceId": "t"
+    },
+    {
+      "id": "units:appropriateUnit:au-spoon-volume",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "appropriateUnit",
+      "prompt": "スプーン1ぱいの水のかさは、どのたんいではかりますか。",
+      "explanation": "スプーン1ぱいの水のかさは mL ではかります。",
+      "requiredUnits": [
+        "mL",
+        "L",
+        "dL"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "L",
+          "label": "L"
+        },
+        {
+          "id": "mL",
+          "label": "mL"
+        },
+        {
+          "id": "dL",
+          "label": "dL"
+        }
+      ],
+      "answerChoiceId": "mL"
+    },
+    {
+      "id": "units:appropriateUnit:au-milk-carton",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "appropriateUnit",
+      "prompt": "牛にゅうパック1本のかさは、どのたんいではかりますか。",
+      "explanation": "牛にゅうパック1本のかさは L ではかります。",
+      "requiredUnits": [
+        "L",
+        "mL",
+        "dL"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "mL",
+          "label": "mL"
+        },
+        {
+          "id": "L",
+          "label": "L"
+        },
+        {
+          "id": "dL",
+          "label": "dL"
+        }
+      ],
+      "answerChoiceId": "L"
+    },
+    {
+      "id": "units:appropriateUnit:au-blink",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "appropriateUnit",
+      "prompt": "まばたきをする時間は、どのたんいではかりますか。",
+      "explanation": "まばたきをする時間は 秒 ではかります。",
+      "requiredUnits": [
+        "sec",
+        "min",
+        "hour"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "hour",
+          "label": "時間"
+        },
+        {
+          "id": "min",
+          "label": "分"
+        },
+        {
+          "id": "sec",
+          "label": "秒"
+        }
+      ],
+      "answerChoiceId": "sec"
+    },
+    {
+      "id": "units:appropriateUnit:au-lunch-time",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "appropriateUnit",
+      "prompt": "きゅう食を食べる時間は、どのたんいではかりますか。",
+      "explanation": "きゅう食を食べる時間は 分 ではかります。",
+      "requiredUnits": [
+        "min",
+        "sec",
+        "day"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "sec",
+          "label": "秒"
+        },
+        {
+          "id": "min",
+          "label": "分"
+        },
+        {
+          "id": "day",
+          "label": "日"
+        }
+      ],
+      "answerChoiceId": "min"
+    },
+    {
+      "id": "units:appropriateUnit:au-sleep-time",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "appropriateUnit",
+      "prompt": "1日にねむる時間は、どのたんいではかりますか。",
+      "explanation": "1日にねむる時間は 時間 ではかります。",
+      "requiredUnits": [
+        "hour",
+        "sec",
+        "min"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "hour",
+          "label": "時間"
+        },
+        {
+          "id": "min",
+          "label": "分"
+        },
+        {
+          "id": "sec",
+          "label": "秒"
+        }
+      ],
+      "answerChoiceId": "hour"
+    },
+    {
+      "id": "units:appropriateUnit:au-notebook-area",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "appropriateUnit",
+      "prompt": "ノートの表紙の面積は、どのたんいではかりますか。",
+      "explanation": "ノートの表紙の面積は cm² ではかります。",
+      "requiredUnits": [
+        "cm2",
+        "m2",
+        "km2"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "m2",
+          "label": "m²"
+        },
+        {
+          "id": "cm2",
+          "label": "cm²"
+        },
+        {
+          "id": "km2",
+          "label": "km²"
+        }
+      ],
+      "answerChoiceId": "cm2"
+    },
+    {
+      "id": "units:appropriateUnit:au-classroom-area",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "appropriateUnit",
+      "prompt": "教室のゆかの面積は、どのたんいではかりますか。",
+      "explanation": "教室のゆかの面積は m² ではかります。",
+      "requiredUnits": [
+        "m2",
+        "cm2",
+        "km2"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "cm2",
+          "label": "cm²"
+        },
+        {
+          "id": "m2",
+          "label": "m²"
+        },
+        {
+          "id": "km2",
+          "label": "km²"
+        }
+      ],
+      "answerChoiceId": "m2"
+    },
+    {
+      "id": "units:appropriateUnit:au-city-area",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "appropriateUnit",
+      "prompt": "市の面積は、どのたんいではかりますか。",
+      "explanation": "市の面積は km² ではかります。",
+      "requiredUnits": [
+        "km2",
+        "cm2",
+        "m2"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "cm2",
+          "label": "cm²"
+        },
+        {
+          "id": "m2",
+          "label": "m²"
+        },
+        {
+          "id": "km2",
+          "label": "km²"
+        }
+      ],
+      "answerChoiceId": "km2"
+    },
+    {
+      "id": "units:senseEstimate:se-milk-carton",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "senseEstimate",
+      "prompt": "牛にゅうパック1本は、だいたいどれくらいですか。",
+      "explanation": "牛にゅうパック1本は だいたい 1L です。",
+      "requiredUnits": [
+        "mL",
+        "L"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "10",
+          "label": "10mL"
+        },
+        {
+          "id": "1000",
+          "label": "1L"
+        },
+        {
+          "id": "100000",
+          "label": "100L"
+        }
+      ],
+      "answerChoiceId": "1000"
+    },
+    {
+      "id": "units:senseEstimate:se-bath",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "senseEstimate",
+      "prompt": "おふろにためる水は、だいたいどれくらいですか。",
+      "explanation": "おふろにためる水は だいたい 200L です。",
+      "requiredUnits": [
+        "L"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "200000",
+          "label": "200L"
+        },
+        {
+          "id": "20000000",
+          "label": "20000L"
+        },
+        {
+          "id": "2000",
+          "label": "2L"
+        }
+      ],
+      "answerChoiceId": "200000"
+    },
+    {
+      "id": "units:senseEstimate:se-spoon",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "senseEstimate",
+      "prompt": "スプーン1ぱいの水は、だいたいどれくらいですか。",
+      "explanation": "スプーン1ぱいの水は だいたい 5mL です。",
+      "requiredUnits": [
+        "mL"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "5",
+          "label": "5mL"
+        },
+        {
+          "id": "500",
+          "label": "500mL"
+        },
+        {
+          "id": "5000",
+          "label": "5000mL"
+        }
+      ],
+      "answerChoiceId": "5"
+    },
+    {
+      "id": "units:senseEstimate:se-egg",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "senseEstimate",
+      "prompt": "たまご1こは、だいたいどれくらいですか。",
+      "explanation": "たまご1こは だいたい 60g です。",
+      "requiredUnits": [
+        "g"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "600",
+          "label": "600g"
+        },
+        {
+          "id": "60",
+          "label": "60g"
+        },
+        {
+          "id": "6",
+          "label": "6g"
+        }
+      ],
+      "answerChoiceId": "60"
+    },
+    {
+      "id": "units:senseEstimate:se-elementary-child",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "senseEstimate",
+      "prompt": "小学生の体重は、だいたいどれくらいですか。",
+      "explanation": "小学生の体重は だいたい 30kg です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "300",
+          "label": "300g"
+        },
+        {
+          "id": "3000000",
+          "label": "3000kg"
+        },
+        {
+          "id": "30000",
+          "label": "30kg"
+        }
+      ],
+      "answerChoiceId": "30000"
+    },
+    {
+      "id": "units:senseEstimate:se-car",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "senseEstimate",
+      "prompt": "自動車1台は、だいたいどれくらいですか。",
+      "explanation": "自動車1台は だいたい 1t です。",
+      "requiredUnits": [
+        "g",
+        "kg",
+        "t"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "1000000",
+          "label": "1t"
+        },
+        {
+          "id": "100000",
+          "label": "100kg"
+        },
+        {
+          "id": "1000",
+          "label": "1000g"
+        }
+      ],
+      "answerChoiceId": "1000000"
+    },
+    {
+      "id": "units:senseEstimate:se-eraser-length",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "senseEstimate",
+      "prompt": "消しゴムの長さは、だいたいどれくらいですか。",
+      "explanation": "消しゴムの長さは だいたい 5cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "5",
+          "label": "5mm"
+        },
+        {
+          "id": "500",
+          "label": "50cm"
+        },
+        {
+          "id": "50",
+          "label": "5cm"
+        }
+      ],
+      "answerChoiceId": "50"
+    },
+    {
+      "id": "units:senseEstimate:se-door-height",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "senseEstimate",
+      "prompt": "教室のドアの高さは、だいたいどれくらいですか。",
+      "explanation": "教室のドアの高さは だいたい 2m です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "200",
+          "label": "20cm"
+        },
+        {
+          "id": "20000",
+          "label": "20m"
+        },
+        {
+          "id": "2000",
+          "label": "2m"
+        }
+      ],
+      "answerChoiceId": "2000"
+    },
+    {
+      "id": "units:senseEstimate:se-pool-length",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "senseEstimate",
+      "prompt": "学校のプールのたての長さは、だいたいどれくらいですか。",
+      "explanation": "学校のプールのたての長さは だいたい 25m です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "2500",
+          "label": "250cm"
+        },
+        {
+          "id": "250000",
+          "label": "250m"
+        },
+        {
+          "id": "25000",
+          "label": "25m"
+        }
+      ],
+      "answerChoiceId": "25000"
+    },
+    {
+      "id": "units:senseEstimate:se-brush-teeth",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "senseEstimate",
+      "prompt": "歯をみがく時間は、だいたいどれくらいですか。",
+      "explanation": "歯をみがく時間は だいたい 3分 です。",
+      "requiredUnits": [
+        "sec",
+        "min",
+        "hour"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "3",
+          "label": "3秒"
+        },
+        {
+          "id": "180",
+          "label": "3分"
+        },
+        {
+          "id": "10800",
+          "label": "3時間"
+        }
+      ],
+      "answerChoiceId": "180"
+    },
+    {
+      "id": "units:senseEstimate:se-school-day",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "senseEstimate",
+      "prompt": "学校にいる時間は、だいたいどれくらいですか。",
+      "explanation": "学校にいる時間は だいたい 6時間 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "21600",
+          "label": "6時間"
+        },
+        {
+          "id": "216000",
+          "label": "60時間"
+        },
+        {
+          "id": "360",
+          "label": "6分"
+        }
+      ],
+      "answerChoiceId": "21600"
+    },
+    {
+      "id": "units:senseEstimate:se-tatami",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "senseEstimate",
+      "prompt": "たたみ1まいの面積は、だいたいどれくらいですか。",
+      "explanation": "たたみ1まいの面積は だいたい 1.62m² です。",
+      "requiredUnits": [
+        "cm2",
+        "m2"
+      ],
+      "answerType": "choice",
+      "choices": [
+        {
+          "id": "1620000",
+          "label": "162m²"
+        },
+        {
+          "id": "16200",
+          "label": "1.62m²"
+        },
+        {
+          "id": "162",
+          "label": "162cm²"
+        }
+      ],
+      "answerChoiceId": "16200"
+    },
+    {
+      "id": "units:wordProblem:wp-juice-share",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "wordProblem",
+      "prompt": "1Lのジュースを、200mLずつコップに分けます。3ばい分けたあと、のこりは何mLですか。",
+      "explanation": "1L = 1000mL で、200 × 3 = 600 使うので、1000 − 600 = 400 で 400mL のこります。",
+      "requiredUnits": [
+        "mL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 400
+    },
+    {
+      "id": "units:wordProblem:wp-ribbon-cut",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "wordProblem",
+      "prompt": "2mのリボンから、30cmを1本切り取りました。のこりは何cmですか。",
+      "explanation": "2m = 200cm なので、200 − 30 = 170 で、170cm のこります。",
+      "requiredUnits": [
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 1700
+    },
+    {
+      "id": "units:wordProblem:wp-walk-time",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "wordProblem",
+      "prompt": "サッカーの練習は9時30分に始まり、11時に終わります。練習は何分間ですか。",
+      "explanation": "9時30分から11時までは1時間30分です。1時間 = 60分なので、60 + 30 = 90 で 90分間です。",
+      "requiredUnits": [
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 5400
+    },
+    {
+      "id": "units:wordProblem:wp-sugar-weight",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "wordProblem",
+      "prompt": "1kgのさとうから、300gを使いました。のこりは何gですか。",
+      "explanation": "1kg = 1000g なので、1000 − 300 = 700 で、700g のこります。",
+      "requiredUnits": [
+        "g"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 700
+    },
+    {
+      "id": "units:wordProblem:wp-water-bottles",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "wordProblem",
+      "prompt": "500mLの水とうが3本あります。水は全部で何mLですか。",
+      "explanation": "500 × 3 = 1500 で、1500mL です。",
+      "requiredUnits": [
+        "mL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 1500
+    },
+    {
+      "id": "units:wordProblem:wp-run-distance",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "wordProblem",
+      "prompt": "1しゅう400mのトラックを3しゅう走りました。走ったきょりは何mですか。",
+      "explanation": "400 × 3 = 1200 で、1200m 走りました。",
+      "requiredUnits": [
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 1200000
+    },
+    {
+      "id": "units:wordProblem:wp-rest-time",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "wordProblem",
+      "prompt": "20分の休み時間が2回ありました。合わせて何分ですか。",
+      "explanation": "20 × 2 = 40 で、40分です。",
+      "requiredUnits": [
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 2400
+    },
+    {
+      "id": "units:wordProblem:wp-flour-bags",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "wordProblem",
+      "prompt": "250gの小麦こが4ふくろあります。合わせて何gですか。",
+      "explanation": "250 × 4 = 1000 で、1000g です。",
+      "requiredUnits": [
+        "g"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 1000
+    },
+    {
+      "id": "units:wordProblem:wp-garden-area",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "wordProblem",
+      "prompt": "たて4m、よこ6mの花だんがあります。面積は何m²ですか。",
+      "explanation": "4 × 6 = 24 で、24m² です。",
+      "requiredUnits": [
+        "m2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 240000
+    },
+    {
+      "id": "units:wordProblem:wp-room-area",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "wordProblem",
+      "prompt": "たて300cm、よこ200cmのシートがあります。面積は何cm²ですか。",
+      "explanation": "300 × 200 = 60000 で、60000cm² です。",
+      "requiredUnits": [
+        "cm2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm2",
+      "answerBaseValue": 60000
+    },
+    {
+      "id": "units:wordProblem:wp-field-area",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "wordProblem",
+      "prompt": "たて100m、よこ100mの正方形の土地の面積は何haですか。",
+      "explanation": "100 × 100 = 10000 で 10000m²、10000m² = 1ha です。",
+      "requiredUnits": [
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "ha",
+      "answerBaseValue": 100000000
+    },
+    {
+      "id": "units:wordProblem:wp-tape-total",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "wordProblem",
+      "prompt": "1.5mのテープと80cmのテープをつなぎます。全部で何cmになりますか。",
+      "explanation": "1.5m = 150cm なので、150 + 80 = 230 で、230cm です。",
+      "requiredUnits": [
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 2300
     }
   ]
 }

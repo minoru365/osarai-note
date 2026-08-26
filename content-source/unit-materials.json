@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "materialVersion": "2026.08.26-1",
+  "materialVersion": "2026.08.26-2",
   "note": "適切な単位・量感・文章題の素材。docs/units-plan.md 7.2 のとおり人が全件確認する。reviewStatus が approved のものだけが公開パックへ入る。",
   "appropriateUnit": [
     {
@@ -13,7 +13,7 @@
         "m",
         "km"
       ],
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "au-pencil-length",
@@ -25,7 +25,7 @@
         "mm",
         "km"
       ],
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "au-classroom-width",
@@ -37,7 +37,7 @@
         "mm",
         "km"
       ],
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "au-school-to-station",
@@ -49,7 +49,7 @@
         "cm",
         "mm"
       ],
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "au-eraser-weight",
@@ -61,7 +61,7 @@
         "kg",
         "t"
       ],
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "au-schoolbag-weight",
@@ -73,7 +73,7 @@
         "g",
         "t"
       ],
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "au-truck-weight",
@@ -85,7 +85,7 @@
         "g",
         "kg"
       ],
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "au-spoon-volume",
@@ -97,7 +97,7 @@
         "L",
         "dL"
       ],
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "au-milk-carton",
@@ -109,7 +109,7 @@
         "mL",
         "dL"
       ],
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "au-blink",
@@ -121,7 +121,7 @@
         "min",
         "hour"
       ],
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "au-lunch-time",
@@ -133,7 +133,7 @@
         "sec",
         "day"
       ],
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "au-sleep-time",
@@ -145,7 +145,7 @@
         "sec",
         "min"
       ],
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "au-notebook-area",
@@ -157,7 +157,7 @@
         "m2",
         "km2"
       ],
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "au-classroom-area",
@@ -169,7 +169,7 @@
         "cm2",
         "km2"
       ],
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "au-city-area",
@@ -181,7 +181,7 @@
         "cm2",
         "m2"
       ],
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     }
   ],
   "senseEstimate": [
@@ -191,7 +191,7 @@
       "unitCategory": "volume",
       "target": "牛にゅうパック1本",
       "answerBaseValue": 1000,
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "choices": [
         {
           "baseValue": 10,
@@ -214,7 +214,7 @@
       "unitCategory": "volume",
       "target": "おふろにためる水",
       "answerBaseValue": 200000,
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "choices": [
         {
           "baseValue": 2000,
@@ -237,7 +237,7 @@
       "unitCategory": "volume",
       "target": "スプーン1ぱいの水",
       "answerBaseValue": 5,
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "choices": [
         {
           "baseValue": 5,
@@ -260,7 +260,7 @@
       "unitCategory": "weight",
       "target": "たまご1こ",
       "answerBaseValue": 60,
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "choices": [
         {
           "baseValue": 6,
@@ -283,7 +283,7 @@
       "unitCategory": "weight",
       "target": "小学生の体重",
       "answerBaseValue": 30000,
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "choices": [
         {
           "baseValue": 300,
@@ -306,7 +306,7 @@
       "unitCategory": "weight",
       "target": "自動車1台",
       "answerBaseValue": 1000000,
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "choices": [
         {
           "baseValue": 1000,
@@ -329,7 +329,7 @@
       "unitCategory": "length",
       "target": "消しゴムの長さ",
       "answerBaseValue": 50,
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "choices": [
         {
           "baseValue": 5,
@@ -352,7 +352,7 @@
       "unitCategory": "length",
       "target": "教室のドアの高さ",
       "answerBaseValue": 2000,
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "choices": [
         {
           "baseValue": 200,
@@ -375,7 +375,7 @@
       "unitCategory": "length",
       "target": "学校のプールのたての長さ",
       "answerBaseValue": 25000,
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "choices": [
         {
           "baseValue": 2500,
@@ -398,7 +398,7 @@
       "unitCategory": "time",
       "target": "歯をみがく時間",
       "answerBaseValue": 180,
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "choices": [
         {
           "baseValue": 3,
@@ -421,7 +421,7 @@
       "unitCategory": "time",
       "target": "学校にいる時間",
       "answerBaseValue": 21600,
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "choices": [
         {
           "baseValue": 360,
@@ -444,7 +444,7 @@
       "unitCategory": "area",
       "target": "たたみ1まいの面積",
       "answerBaseValue": 16200,
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "choices": [
         {
           "baseValue": 162,
@@ -471,7 +471,7 @@
       "answerBaseValue": 400,
       "answerUnit": "mL",
       "explanation": "1L = 1000mL で、200 × 3 = 600 使うので、1000 − 600 = 400 で 400mL のこります。",
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "wp-ribbon-cut",
@@ -481,7 +481,7 @@
       "answerBaseValue": 1700,
       "answerUnit": "cm",
       "explanation": "2m = 200cm なので、200 − 30 = 170 で、170cm のこります。",
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "wp-walk-time",
@@ -491,7 +491,7 @@
       "answerBaseValue": 5400,
       "answerUnit": "min",
       "explanation": "9時30分から11時までは1時間30分です。1時間 = 60分なので、60 + 30 = 90 で 90分間です。",
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "wp-sugar-weight",
@@ -501,7 +501,7 @@
       "answerBaseValue": 700,
       "answerUnit": "g",
       "explanation": "1kg = 1000g なので、1000 − 300 = 700 で、700g のこります。",
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "wp-water-bottles",
@@ -511,7 +511,7 @@
       "answerBaseValue": 1500,
       "answerUnit": "mL",
       "explanation": "500 × 3 = 1500 で、1500mL です。",
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "wp-run-distance",
@@ -521,7 +521,7 @@
       "answerBaseValue": 1200000,
       "answerUnit": "m",
       "explanation": "400 × 3 = 1200 で、1200m 走りました。",
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "wp-rest-time",
@@ -531,7 +531,7 @@
       "answerBaseValue": 2400,
       "answerUnit": "min",
       "explanation": "20 × 2 = 40 で、40分です。",
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "wp-flour-bags",
@@ -541,7 +541,7 @@
       "answerBaseValue": 1000,
       "answerUnit": "g",
       "explanation": "250 × 4 = 1000 で、1000g です。",
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "wp-garden-area",
@@ -551,7 +551,7 @@
       "answerBaseValue": 240000,
       "answerUnit": "m2",
       "explanation": "4 × 6 = 24 で、24m² です。",
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "wp-room-area",
@@ -561,7 +561,7 @@
       "answerBaseValue": 60000,
       "answerUnit": "cm2",
       "explanation": "300 × 200 = 60000 で、60000cm² です。",
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "wp-field-area",
@@ -571,7 +571,7 @@
       "answerBaseValue": 100000000,
       "answerUnit": "ha",
       "explanation": "100 × 100 = 10000 で 10000m²、10000m² = 1ha です。",
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "id": "wp-tape-total",
@@ -581,7 +581,7 @@
       "answerBaseValue": 2300,
       "answerUnit": "cm",
       "explanation": "1.5m = 150cm なので、150 + 80 = 230 で、230cm です。",
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     }
   ]
 }
