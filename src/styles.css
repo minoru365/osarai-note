@@ -298,6 +298,21 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
 .tile-check { display: flex; align-items: center; gap: 4px; color: #66736c; font-size: 12px; }
 .tile-check input { width: 19px; height: 19px; margin: 0; accent-color: #d09535; }
 
+.achievements-shell { height: 100vh; min-height: 0; overflow: hidden; }
+.achievements-workspace { min-height: 0; height: 100%; overflow-y: auto; display: grid; gap: 18px; padding: 24px; align-content: start; }
+.achievements-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.achievements-stat { display: grid; gap: 6px; padding: 20px 22px; border: 1px solid #d9e2d7; border-radius: 18px; background: #fffefa; box-shadow: 0 12px 30px rgba(53, 77, 65, .07); }
+.achievements-stat span { color: #66736c; font-size: 14px; }
+.achievements-stat strong { color: #2d6450; font-size: 27px; }
+.achievements-panel { padding: 22px 26px; border: 1px solid #d9e2d7; border-radius: 18px; background: #fffefa; box-shadow: 0 12px 30px rgba(53, 77, 65, .07); }
+.achievements-panel h2 { margin: 0 0 12px; font-size: 19px; color: #304f42; }
+.achievements-empty { margin: 0; color: #68766e; }
+.achievements-kanji-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.achievements-kanji-list span { min-width: 44px; padding: 8px; border: 1px solid #d8e1da; border-radius: 10px; background: #f5f6f3; color: #294f40; font-family: "Yu Mincho", "Noto Serif JP", serif; font-size: 22px; text-align: center; }
+.achievements-pet-list { display: flex; flex-wrap: wrap; gap: 12px; }
+.achievements-pet { display: flex; align-items: center; gap: 8px; padding: 10px 16px; border: 1px solid #bcd1c3; border-radius: 14px; background: #f1f7f1; color: #304f42; font-weight: 700; }
+.achievements-pet-emoji { font-size: 24px; }
+
 @media (max-height: 850px) {
   .app-shell { grid-template-rows: 64px 1fr; }
   .workspace { padding: 18px; }

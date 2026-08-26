@@ -11,6 +11,7 @@ type Props = {
   onStartKanji: (mode: "reading" | "writing") => void;
   onOpenFreePractice: () => void;
   onOpenKanjiSettings: () => void;
+  onOpenAchievements: () => void;
 };
 
 const SUBJECTS = [
@@ -23,7 +24,7 @@ const SUBJECTS = [
 
 type TodayProgress = { reading: number; writing: number };
 
-export function Home({ questionCount, readingQuestionCount, writingQuestionCount, contentError, onStartKanji, onOpenFreePractice, onOpenKanjiSettings }: Props) {
+export function Home({ questionCount, readingQuestionCount, writingQuestionCount, contentError, onStartKanji, onOpenFreePractice, onOpenKanjiSettings, onOpenAchievements }: Props) {
   const canStart = questionCount > 0 && !contentError;
   const [today, setToday] = useState<TodayProgress>({ reading: 0, writing: 0 });
 
@@ -49,7 +50,10 @@ export function Home({ questionCount, readingQuestionCount, writingQuestionCount
       <header className="topbar">
         <div className="brand"><span className="brand-mark">学</span><span>おさらいノート</span></div>
         <div className="spike-label">おうちの復習</div>
-        <button className="header-action" type="button" onClick={onOpenKanjiSettings}>保護者設定</button>
+        <div className="header-nav">
+          <button className="header-action" type="button" onClick={onOpenAchievements}>がんばり記録</button>
+          <button className="header-action" type="button" onClick={onOpenKanjiSettings}>保護者設定</button>
+        </div>
       </header>
 
       <main className="home-workspace">

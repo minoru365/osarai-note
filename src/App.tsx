@@ -10,6 +10,7 @@ import {
 } from "./contentPack";
 import { startNextDailyBatch, summarizeDailySession } from "./dailySession";
 import { japaneseCharDataLoader } from "./kanjiData";
+import { Achievements } from "./Achievements";
 import { Home } from "./Home";
 import { FreePracticeBrowser } from "./FreePracticeBrowser";
 import { KanjiSettings } from "./KanjiSettings";
@@ -27,7 +28,7 @@ import { studyStorage } from "./storage/indexedDb";
 type QuizState = "loading" | "writing" | "guide" | "character-complete" | "word-complete" | "saving" | "save-error" | "error";
 
 function App() {
-  const [view, setView] = useState<"home" | "reading" | "writing" | "kanji-settings" | "free-practice">("home");
+  const [view, setView] = useState<"home" | "reading" | "writing" | "kanji-settings" | "free-practice" | "achievements">("home");
   const [freePracticeQuestion, setFreePracticeQuestion] = useState<KanjiQuestion | null>(null);
   const [freePracticeQueue, setFreePracticeQueue] = useState<KanjiQuestion[]>([]);
   const [freePracticeIndex, setFreePracticeIndex] = useState(0);
@@ -360,6 +361,10 @@ function App() {
     return <KanjiSettings onBack={goHome} />;
   }
 
+  if (view === "achievements") {
+    return <Achievements onBack={goHome} />;
+  }
+
   if (view === "free-practice") {
     return <FreePracticeBrowser questions={words} onBack={goHome} onStart={startFreePracticeBatch} />;
   }
@@ -374,6 +379,7 @@ function App() {
         onStartKanji={(mode) => void startDailyPractice(mode === "reading" && readingQuestions.length === 0 ? "writing" : mode)}
         onOpenFreePractice={openFreePractice}
         onOpenKanjiSettings={() => setView("kanji-settings")}
+        onOpenAchievements={() => setView("achievements")}
       />
     );
   }

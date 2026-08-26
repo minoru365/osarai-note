@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { PET_EMOJI, PET_LABEL } from "./petPresentation";
 import { studyStorage } from "./storage/indexedDb";
 import {
   FOOD_COSTS,
@@ -7,20 +8,7 @@ import {
   isPetNeglected,
   type FoodCost,
   type MotivationState,
-  type PetSpeciesId,
 } from "./storage/schema";
-
-// Placeholder art: emoji + CSS animation stand in for the per-stage
-// illustrations planned in ADR-0006 until those assets are drawn.
-const PET_EMOJI: Record<PetSpeciesId, string> = {
-  hiyoko: "🐣",
-  usagi: "🐰",
-};
-
-const PET_LABEL: Record<PetSpeciesId, string> = {
-  hiyoko: "ひよこ",
-  usagi: "うさぎ",
-};
 
 export function PetWidget() {
   const [state, setState] = useState<MotivationState | null>(null);
