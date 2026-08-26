@@ -468,6 +468,165 @@ describe("StudyStorage", () => {
     } as never)).rejects.toThrow("教科が不正");
   });
 
+  it("単位の回答を集計・進捗・ポイントへ原子的に反映する", async () => {
+    const session = createUnitSession(["units-conv-1"]);
+    await storage.createDailySession(session);
+
+    expect(await storage.recordUnitSessionAttempt(createUnitAttempt({
+      id: "unit-1",
+      sessionId: session.id,
+      sessionItemId: session.items[0].id,
+      questionId: "units-conv-1",
+      answer: "3000",
+      correct: true,
+      firstTryCorrect: true,
+    }))).toBe("added");
+
+    expect(await storage.getUnitState("length:conversion")).toMatchObject({
+      presentations: 1,
+      firstTryCorrect: 1,
+      mistakePresentations: 0,
+      weakness: 0,
+    });
+    expect(await storage.getDailySession(session.id)).toMatchObject({
+      subject: "units",
+      currentIndex: 1,
+      items: [{ status: "completed", counted: true }],
+    });
+    expect(await storage.getMotivationState()).toMatchObject({ pointsBalance: 1 });
+  });
+
+  it("単位の誤答は1回だけ苦手度へ加算し、その後の正解で相殺しない", async () => {
+    const session = createUnitSession(["units-conv-1"]);
+    await storage.createDailySession(session);
+    const wrong = createUnitAttempt({
+      id: "unit-wrong",
+      sessionId: session.id,
+      sessionItemId: session.items[0].id,
+      questionId: "units-conv-1",
+      answer: "300",
+      correct: false,
+      firstTryCorrect: false,
+    });
+
+    await storage.recordUnitSessionAttempt(wrong);
+    await storage.recordUnitSessionAttempt({
+      ...wrong,
+      id: "unit-right",
+      answer: "3000",
+      correct: true,
+      answeredAt: "2026-08-14T10:02:00.000Z",
+    });
+
+    expect(await storage.getUnitState("length:conversion")).toMatchObject({
+      presentations: 1,
+      mistakePresentations: 1,
+      firstTryCorrect: 0,
+      weakness: 1,
+    });
+    // Both answers count for points even though only one moves the aggregate.
+    expect(await storage.getMotivationState()).toMatchObject({ pointsBalance: 2 });
+  });
+
+  it("2回目以降に押した単位の「分からない」も未知として一度だけ数える", async () => {
+    const session = createUnitSession(["units-conv-1"]);
+    await storage.createDailySession(session);
+    const base = {
+      sessionId: session.id,
+      sessionItemId: session.items[0].id,
+      questionId: "units-conv-1",
+    };
+
+    await storage.recordUnitSessionAttempt(createUnitAttempt({
+      ...base, id: "unit-miss", answer: "300", correct: false, firstTryCorrect: false,
+    }));
+    await storage.recordUnitSessionAttempt(createUnitAttempt({
+      ...base,
+      id: "unit-unknown",
+      answer: "300",
+      correct: false,
+      firstTryCorrect: false,
+      usedGuide: true,
+      answeredAt: "2026-08-14T10:02:00.000Z",
+    }));
+    await storage.recordUnitSessionAttempt(createUnitAttempt({
+      ...base,
+      id: "unit-unknown-again",
+      answer: "300",
+      correct: false,
+      firstTryCorrect: false,
+      usedGuide: true,
+      answeredAt: "2026-08-14T10:03:00.000Z",
+    }));
+
+    expect(await storage.getUnitState("length:conversion")).toMatchObject({
+      presentations: 1,
+      unknownCount: 1,
+      weakness: 1,
+    });
+  });
+
+  it("単位の回答が漢字の集計とホームの漢字当日集計に混ざらない", async () => {
+    const session = createUnitSession(["units-conv-1"]);
+    await storage.createDailySession(session);
+    await storage.recordUnitSessionAttempt(createUnitAttempt({
+      id: "unit-isolated",
+      sessionId: session.id,
+      sessionItemId: session.items[0].id,
+      questionId: "units-conv-1",
+    }));
+
+    expect(await storage.listKanjiStates()).toEqual([]);
+    expect(await storage.listDailySessions("2026-08-14", "kanji")).toEqual([]);
+    expect(await storage.listDailySessions("2026-08-14", "units")).toHaveLength(1);
+  });
+
+  it("漢字の回答保存で単位セッションを更新しない", async () => {
+    const session = createUnitSession(["units-conv-1"]);
+    await storage.createDailySession(session);
+
+    await expect(storage.recordKanjiSessionAttempt(createSessionAttempt({
+      id: "kanji-into-units",
+      sessionId: session.id,
+      sessionItemId: session.items[0].id,
+      questionId: "units-conv-1",
+      correct: true,
+      firstTryCorrect: true,
+    }))).rejects.toThrow("漢字以外の当日セッション");
+    expect(await storage.listAttempts()).toEqual([]);
+  });
+
+  it("単位の回答で同じ回答IDの別内容を拒否し二重計上しない", async () => {
+    const session = createUnitSession(["units-conv-1"]);
+    await storage.createDailySession(session);
+    const attempt = createUnitAttempt({
+      id: "unit-conflict",
+      sessionId: session.id,
+      sessionItemId: session.items[0].id,
+      questionId: "units-conv-1",
+    });
+
+    expect(await storage.recordUnitSessionAttempt(attempt)).toBe("added");
+    expect(await storage.recordUnitSessionAttempt(attempt)).toBe("duplicate");
+    await expect(storage.recordUnitSessionAttempt({ ...attempt, answer: "9" }))
+      .rejects.toThrow("別の内容です");
+    expect(await storage.getMotivationState()).toMatchObject({ pointsBalance: 1 });
+  });
+
+  it("集計キーが当日セッションと違う単位回答を拒否する", async () => {
+    const session = createUnitSession(["units-conv-1"]);
+    await storage.createDailySession(session);
+
+    await expect(storage.recordUnitSessionAttempt(createUnitAttempt({
+      id: "unit-key-mismatch",
+      sessionId: session.id,
+      sessionItemId: session.items[0].id,
+      questionId: "units-conv-1",
+      unitStateKey: "weight:conversion",
+    }))).rejects.toThrow("集計キーが当日セッションと一致しません");
+    expect(await storage.listUnitStates()).toEqual([]);
+  });
+
   it("未保存の状態ではポイント0・最初のペットの初期状態を返す", async () => {
     expect(await storage.getMotivationState()).toMatchObject({
       pointsBalance: 0,
@@ -613,6 +772,52 @@ function createSession(mode: "reading" | "writing", questionIds: string[]) {
     startedAt: "2026-08-14T10:00:00.000Z",
     updatedAt: "2026-08-14T10:00:00.000Z",
     completedAt: null,
+  };
+}
+
+function createUnitSession(questionIds: string[]) {
+  const id = "2026-08-14:units:quiz:1";
+  return {
+    id,
+    subject: "units" as const,
+    localDate: "2026-08-14",
+    mode: "quiz" as const,
+    batchNumber: 1,
+    questionIds,
+    items: questionIds.map((questionId, index) => ({
+      id: `${id}:item:${index + 1}`,
+      questionId,
+      status: "pending" as const,
+      mistakeCount: 0,
+      usedGuide: false,
+      unitStateKey: "length:conversion",
+      counted: false,
+      unknownCounted: false,
+      completedAt: null,
+    })),
+    currentIndex: 0,
+    startedAt: "2026-08-14T10:00:00.000Z",
+    updatedAt: "2026-08-14T10:00:00.000Z",
+    completedAt: null,
+  };
+}
+
+function createUnitAttempt(overrides: Record<string, unknown>) {
+  return {
+    id: "unit-attempt",
+    sessionId: "2026-08-14:units:quiz:1",
+    sessionItemId: "2026-08-14:units:quiz:1:item:1",
+    questionId: "units-conv-1",
+    subject: "units" as const,
+    mode: "quiz" as const,
+    answer: "3000",
+    correct: true,
+    mistakes: 0,
+    usedGuide: false,
+    firstTryCorrect: true,
+    unitStateKey: "length:conversion",
+    answeredAt: "2026-08-14T10:01:00.000Z",
+    ...overrides,
   };
 }
 

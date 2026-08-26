@@ -64,10 +64,10 @@ describe("daily session service", () => {
     const now = new Date("2026-08-14T10:00:00+09:00");
 
     const first = await getOrCreateDailySession(storage, questions, "reading", now);
-    expect(first).toMatchObject({ id: "2026-08-14:reading:1", currentIndex: 0 });
+    expect(first).toMatchObject({ id: "2026-08-14:kanji:reading:1", currentIndex: 0 });
     expect(await getOrCreateDailySession(storage, questions, "reading", now)).toEqual(first);
     const second = await startNextDailyBatch(storage, questions, "reading", now, "second-press");
-    expect(second).toMatchObject({ id: "2026-08-14:reading:2", currentIndex: 0 });
+    expect(second).toMatchObject({ id: "2026-08-14:kanji:reading:2", currentIndex: 0 });
     expect(second?.questionIds).toHaveLength(2);
   });
 });
@@ -83,6 +83,7 @@ it("完了結果を初回正解・ミス後正解・分からないへ重複な�
   };
   expect(summarizeDailySession({
     id: "summary",
+    subject: "kanji",
     localDate: "2026-08-14",
     mode: "reading",
     batchNumber: 1,

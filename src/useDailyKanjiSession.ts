@@ -3,11 +3,12 @@ import type { KanjiQuestion } from "./contentPack";
 import { getOrCreateDailySession, startNextDailyBatch } from "./dailySession";
 import { createId } from "./id";
 import { studyStorage } from "./storage/indexedDb";
-import type {
-  CharacterAttemptResult,
-  DailyKanjiSession,
-  KanjiSessionAttempt,
-  KanjiStudyMode,
+import {
+  isKanjiSession,
+  type CharacterAttemptResult,
+  type DailyKanjiSession,
+  type KanjiSessionAttempt,
+  type KanjiStudyMode,
 } from "./storage/schema";
 
 type AnswerInput = {
@@ -67,7 +68,7 @@ export function useDailyKanjiSession(
     };
     await studyStorage.recordKanjiSessionAttempt(attempt);
     const updated = await studyStorage.getDailySession(session.id);
-    if (!updated) throw new Error("学習の進み具合を読み込めませんでした");
+    if (!updated || !isKanjiSession(updated)) throw new Error("学習の進み具合を読み込めませんでした");
     setSession(updated);
     return updated;
   }, [mode, questionMap, session]);

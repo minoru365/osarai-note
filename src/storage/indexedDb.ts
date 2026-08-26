@@ -6,12 +6,15 @@ import {
   STUDY_DB_NAME,
   STUDY_DB_VERSION,
   createEmptyKanjiSkillStats,
+  createEmptyUnitState,
   createInitialMotivationState,
   type AppSettings,
   isSubject,
+  isUnitSession,
   type DailyKanjiSession,
   type DailySessionItem,
   type DailyStudySession,
+  type DailyUnitSession,
   type FoodCost,
   type KanjiState,
   type KanjiFreePracticeAttempt,
@@ -23,6 +26,9 @@ import {
   type SkillImpact,
   type StudyAttempt,
   type Subject,
+  type UnitSessionAttempt,
+  type UnitSessionItem,
+  type UnitState,
 } from "./schema";
 
 function requestResult<T>(request: IDBRequest<T>): Promise<T> {
@@ -64,7 +70,7 @@ function validateAttempt(attempt: StudyAttempt): void {
   assertAllowedKeys(attempt, [
     "id", "sessionId", "questionId", "subject", "mode", "answer", "correct",
     "mistakes", "usedGuide", "answeredAt", "characterResults", "sessionItemId",
-    "targetKanji", "firstTryCorrect",
+    "targetKanji", "firstTryCorrect", "unitStateKey",
   ], "回答");
 
   if (!attempt.id || !attempt.sessionId || !attempt.questionId || !attempt.answeredAt) {
@@ -82,8 +88,10 @@ function validateAttempt(attempt: StudyAttempt): void {
 }
 
 // Records written before DB v4 have no `subject`; they are all kanji (ADR-0007).
-function normalizeDailySession(session: DailyStudySession): DailyStudySession {
-  return session.subject ? session : { ...session, subject: "kanji" };
+function normalizeDailySession(stored: DailyStudySession): DailyStudySession {
+  const session = stored as DailyStudySession & { subject?: Subject };
+  if (session.subject) return session as DailyStudySession;
+  return { ...(session as DailyKanjiSession), subject: "kanji" };
 }
 
 function validateDailySession(session: DailyStudySession): void {
@@ -93,7 +101,10 @@ function validateDailySession(session: DailyStudySession): void {
   if (!isSubject(session.subject)) {
     throw new Error("当日セッションの教科が不正です");
   }
-  if ((session.mode !== "reading" && session.mode !== "writing")
+  const modeAllowed = session.subject === "kanji"
+    ? session.mode === "reading" || session.mode === "writing"
+    : session.mode === "quiz";
+  if (!modeAllowed
     || !Number.isInteger(session.batchNumber) || session.batchNumber < 1
     || session.questionIds.length === 0
     || session.questionIds.length !== session.items.length
@@ -129,6 +140,19 @@ function validateKanjiSessionAttempt(attempt: KanjiSessionAttempt): void {
       || !attempt.targetKanji.every((kanji) => resultCharacters.includes(kanji))) {
       throw new Error("書き問題の文字別結果が不足しています");
     }
+  }
+}
+
+function validateUnitSessionAttempt(attempt: UnitSessionAttempt): void {
+  validateAttempt(attempt);
+  if (attempt.subject !== "units" || attempt.mode !== "quiz"
+    || !attempt.sessionItemId || typeof attempt.firstTryCorrect !== "boolean"
+    || typeof attempt.unitStateKey !== "string" || !/^[a-z]+:[a-zA-Z]+$/u.test(attempt.unitStateKey)
+    || attempt.targetKanji !== undefined || attempt.characterResults !== undefined) {
+    throw new Error("単位セッション回答の形式が不正です");
+  }
+  if (attempt.firstTryCorrect && (!attempt.correct || attempt.mistakes > 0 || attempt.usedGuide)) {
+    throw new Error("初回正解と回答結果が一致しません");
   }
 }
 
@@ -306,6 +330,10 @@ export function openStudyDatabase(
         database.createObjectStore(STORE_NAMES.motivation, { keyPath: "id" });
       }
 
+      if (!database.objectStoreNames.contains(STORE_NAMES.unitStates)) {
+        database.createObjectStore(STORE_NAMES.unitStates, { keyPath: "key" });
+      }
+
       const sessions = upgradeTransaction.objectStore(STORE_NAMES.sessions);
       if (!sessions.indexNames.contains("localDate")) {
         sessions.createIndex("localDate", "localDate");
@@ -392,7 +420,7 @@ export class StudyStorage {
     return result;
   }
 
-  async createDailySession(session: DailyKanjiSession): Promise<SaveAttemptResult> {
+  async createDailySession(session: DailyStudySession): Promise<SaveAttemptResult> {
     validateDailySession(session);
     const database = await this.database();
     const transaction = database.transaction(STORE_NAMES.sessions, "readwrite");
@@ -541,6 +569,125 @@ export class StudyStorage {
       await completion.catch(() => undefined);
       throw error;
     }
+  }
+
+  async recordUnitSessionAttempt(attempt: UnitSessionAttempt): Promise<SaveAttemptResult> {
+    validateUnitSessionAttempt(attempt);
+    const database = await this.database();
+    const transaction = database.transaction(
+      [STORE_NAMES.attempts, STORE_NAMES.sessions, STORE_NAMES.unitStates, STORE_NAMES.motivation],
+      "readwrite",
+    );
+    const completion = transactionComplete(transaction);
+    const attemptsStore = transaction.objectStore(STORE_NAMES.attempts);
+    const sessionsStore = transaction.objectStore(STORE_NAMES.sessions);
+    const statesStore = transaction.objectStore(STORE_NAMES.unitStates);
+    const motivationStore = transaction.objectStore(STORE_NAMES.motivation);
+
+    try {
+      const existingAttempt = await requestResult(
+        attemptsStore.get(attempt.id) as IDBRequest<StudyAttempt | undefined>,
+      );
+      if (existingAttempt) {
+        await completion;
+        if (sameRecord(existingAttempt, attempt)) return "duplicate";
+        throw new Error(`回答ID ${attempt.id} は別の内容です`);
+      }
+
+      const stored = await requestResult(
+        sessionsStore.get(attempt.sessionId) as IDBRequest<DailyStudySession | undefined>,
+      );
+      if (!stored) throw new Error("当日セッションが見つかりません");
+      const session = normalizeDailySession(stored);
+      if (!isUnitSession(session)) throw new Error("単位以外の当日セッションです");
+
+      const currentItem = session.items[session.currentIndex];
+      if (!currentItem || currentItem.id !== attempt.sessionItemId) {
+        throw new Error("現在の問題ではありません");
+      }
+      if (currentItem.status === "completed") throw new Error("完了済みの問題です");
+      if (currentItem.questionId !== attempt.questionId) throw new Error("問題IDが当日セッションと一致しません");
+      if (currentItem.unitStateKey !== attempt.unitStateKey) {
+        throw new Error("集計キーが当日セッションと一致しません");
+      }
+
+      // Only the first result for a question moves the aggregate, mirroring the
+      // one-update-per-presentation rule in ADR-0002. "分からない" is counted the
+      // first time it happens, which may be a later try.
+      const firstImpact = !currentItem.counted;
+      const firstUnknown = attempt.usedGuide && !currentItem.unknownCounted;
+      const currentState = await requestResult(
+        statesStore.get(attempt.unitStateKey) as IDBRequest<UnitState | undefined>,
+      ) ?? createEmptyUnitState(attempt.unitStateKey, attempt.answeredAt);
+      const nextState: UnitState = { ...currentState, updatedAt: attempt.answeredAt };
+      if (firstImpact) {
+        nextState.presentations += 1;
+        nextState.lastPresentedAt = attempt.answeredAt;
+        if (attempt.firstTryCorrect) {
+          nextState.firstTryCorrect += 1;
+          nextState.weakness = Math.max(0, nextState.weakness - 1);
+          nextState.lastFirstTryCorrectAt = attempt.answeredAt;
+        } else {
+          nextState.mistakePresentations += 1;
+          nextState.weakness = Math.min(10, nextState.weakness + 1);
+        }
+      }
+      if (firstUnknown) nextState.unknownCount += 1;
+
+      const nextItem: UnitSessionItem = {
+        ...currentItem,
+        status: attempt.correct ? "completed" : "in-progress",
+        mistakeCount: currentItem.mistakeCount + attempt.mistakes,
+        usedGuide: currentItem.usedGuide || attempt.usedGuide,
+        counted: true,
+        unknownCounted: currentItem.unknownCounted || attempt.usedGuide,
+        completedAt: attempt.correct ? attempt.answeredAt : null,
+      };
+      const nextIndex = attempt.correct ? session.currentIndex + 1 : session.currentIndex;
+      const nextSession: DailyUnitSession = {
+        ...session,
+        items: session.items.map((item, index) => index === session.currentIndex ? nextItem : item),
+        currentIndex: nextIndex,
+        updatedAt: attempt.answeredAt,
+        completedAt: nextIndex === session.items.length ? attempt.answeredAt : null,
+      };
+
+      const motivationState = applyPointsEarned(
+        await readMotivationState(motivationStore, attempt.answeredAt),
+        attempt.answeredAt,
+      );
+
+      await Promise.all([
+        requestResult(attemptsStore.add(attempt)),
+        requestResult(sessionsStore.put(nextSession)),
+        requestResult(statesStore.put(nextState)),
+        requestResult(motivationStore.put(motivationState)),
+      ]);
+      await completion;
+      return "added";
+    } catch (error) {
+      try {
+        transaction.abort();
+      } catch {
+        // The transaction may already be complete after a duplicate read.
+      }
+      await completion.catch(() => undefined);
+      throw error;
+    }
+  }
+
+  async getUnitState(key: string): Promise<UnitState | undefined> {
+    return this.get<UnitState>(STORE_NAMES.unitStates, key);
+  }
+
+  async listUnitStates(): Promise<UnitState[]> {
+    const database = await this.database();
+    const transaction = database.transaction(STORE_NAMES.unitStates, "readonly");
+    const result = await requestResult(
+      transaction.objectStore(STORE_NAMES.unitStates).getAll() as IDBRequest<UnitState[]>,
+    );
+    await transactionComplete(transaction);
+    return result;
   }
 
   async recordKanjiFreePracticeAttempt(attempt: KanjiFreePracticeAttempt): Promise<SaveAttemptResult> {

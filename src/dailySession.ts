@@ -3,6 +3,7 @@ import { createId } from "./id";
 import type { StudyStorage } from "./storage/indexedDb";
 import {
   dailySessionId,
+  isKanjiSession,
   type DailyKanjiSession,
   type KanjiState,
   type KanjiStudyMode,
@@ -143,7 +144,18 @@ async function createBatch(
   const batchNumber = Math.max(0, ...sessions.map((session) => session.batchNumber)) + 1;
   const session = createSession(mode, localDate, batchNumber, selected, now);
   await storage.createDailySession(session);
-  return (await storage.getDailySession(session.id)) ?? session;
+  const stored = await storage.getDailySession(session.id);
+  return stored && isKanjiSession(stored) ? stored : session;
+}
+
+async function listKanjiSessions(
+  storage: StudyStorage,
+  localDate: string,
+  mode: KanjiStudyMode,
+): Promise<DailyKanjiSession[]> {
+  return (await storage.listDailySessions(localDate, "kanji", mode))
+    .filter(isKanjiSession)
+    .sort((left, right) => left.batchNumber - right.batchNumber);
 }
 
 export async function getOrCreateDailySession(
@@ -152,8 +164,7 @@ export async function getOrCreateDailySession(
   mode: KanjiStudyMode,
   now = new Date(),
 ): Promise<DailyKanjiSession | null> {
-  const sessions = (await storage.listDailySessions(getLocalDate(now), "kanji", mode))
-    .sort((left, right) => left.batchNumber - right.batchNumber);
+  const sessions = await listKanjiSessions(storage, getLocalDate(now), mode);
   const incomplete = [...sessions].reverse().find((session) => session.completedAt === null);
   if (incomplete) return incomplete;
   if (sessions.length > 0) return sessions.at(-1) ?? null;
@@ -167,7 +178,6 @@ export async function startNextDailyBatch(
   now = new Date(),
   seed = createId(),
 ): Promise<DailyKanjiSession | null> {
-  const sessions = (await storage.listDailySessions(getLocalDate(now), "kanji", mode))
-    .sort((left, right) => left.batchNumber - right.batchNumber);
+  const sessions = await listKanjiSessions(storage, getLocalDate(now), mode);
   return createBatch(storage, questions, mode, now, sessions, seed);
 }

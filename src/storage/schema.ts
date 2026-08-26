@@ -1,5 +1,5 @@
 export const STUDY_DB_NAME = "study-support";
-export const STUDY_DB_VERSION = 3;
+export const STUDY_DB_VERSION = 4;
 
 export const STORE_NAMES = {
   attempts: "attempts",
@@ -8,6 +8,7 @@ export const STORE_NAMES = {
   sessions: "sessions",
   settings: "settings",
   motivation: "motivation",
+  unitStates: "unitStates",
 } as const;
 
 // Single source of truth for the subjects the app knows about (ADR-0007).
@@ -78,6 +79,34 @@ export type KanjiState = {
   nextReviewAt?: string | null;
 };
 
+// Units weakness aggregate, keyed by `unitCategory:questionType` (ADR-0007).
+// Kept in its own store because the key space does not map onto kanji's.
+export type UnitState = {
+  key: string;
+  presentations: number;
+  firstTryCorrect: number;
+  mistakePresentations: number;
+  unknownCount: number;
+  weakness: number;
+  lastPresentedAt: string | null;
+  lastFirstTryCorrectAt: string | null;
+  updatedAt: string;
+};
+
+export function createEmptyUnitState(key: string, updatedAt: string): UnitState {
+  return {
+    key,
+    presentations: 0,
+    firstTryCorrect: 0,
+    mistakePresentations: 0,
+    unknownCount: 0,
+    weakness: 0,
+    lastPresentedAt: null,
+    lastFirstTryCorrectAt: null,
+    updatedAt,
+  };
+}
+
 export type KanjiStudyMode = "reading" | "writing";
 export type SkillImpact = "increase" | "decrease";
 export type DailySessionItemStatus = "pending" | "in-progress" | "completed";
@@ -108,8 +137,49 @@ export type DailyKanjiSession = {
   completedAt: string | null;
 };
 
-// Widens into a union as subjects are added; the discriminator is `subject`.
-export type DailyStudySession = DailyKanjiSession;
+export type UnitSessionItem = {
+  id: string;
+  questionId: string;
+  status: DailySessionItemStatus;
+  mistakeCount: number;
+  usedGuide: boolean;
+  /** `unitCategory:questionType` this question counts towards. */
+  unitStateKey: string;
+  /** Set once the weakness aggregate has taken this question's first result. */
+  counted: boolean;
+  /**
+   * Set once "分からない" has been counted for this question. Tracked apart from
+   * `counted` so that pressing it on a later try is still recorded, matching
+   * how kanji tracks `unknownKanji`.
+   */
+  unknownCounted: boolean;
+  completedAt: string | null;
+};
+
+export type DailyUnitSession = {
+  id: string;
+  subject: "units";
+  localDate: string;
+  mode: "quiz";
+  batchNumber: number;
+  questionIds: string[];
+  items: UnitSessionItem[];
+  currentIndex: number;
+  startedAt: string;
+  updatedAt: string;
+  completedAt: string | null;
+};
+
+// Widens as subjects are added; the discriminator is `subject` (ADR-0007).
+export type DailyStudySession = DailyKanjiSession | DailyUnitSession;
+
+export function isKanjiSession(session: DailyStudySession): session is DailyKanjiSession {
+  return session.subject === "kanji";
+}
+
+export function isUnitSession(session: DailyStudySession): session is DailyUnitSession {
+  return session.subject === "units";
+}
 
 export function dailySessionId(
   localDate: string,
@@ -125,6 +195,15 @@ export type KanjiSessionAttempt = StudyAttempt & {
   mode: KanjiStudyMode;
   sessionItemId: string;
   targetKanji: string[];
+  firstTryCorrect: boolean;
+};
+
+export type UnitSessionAttempt = StudyAttempt & {
+  subject: "units";
+  mode: "quiz";
+  sessionItemId: string;
+  /** `unitCategory:questionType`, the units weakness aggregate key. */
+  unitStateKey: string;
   firstTryCorrect: boolean;
 };
 
