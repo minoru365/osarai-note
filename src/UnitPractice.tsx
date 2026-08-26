@@ -14,7 +14,7 @@ import {
   toAttemptInput,
   toRevealAttemptInput,
   type UnitAttemptInput,
-} from "./unitPractice";
+} from "./unitQuizModel";
 import { startNextUnitBatch, summarizeUnitSession } from "./unitSession";
 import { isUnitSession, type DailyUnitSession } from "./storage/schema";
 

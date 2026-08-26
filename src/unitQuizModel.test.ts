@@ -10,7 +10,7 @@ import {
   submitUnitAnswer,
   toAttemptInput,
   toRevealAttemptInput,
-} from "./unitPractice";
+} from "./unitQuizModel";
 
 const numeric = {
   id: "n", grade: 3, unitCategory: "length", questionType: "conversion",
