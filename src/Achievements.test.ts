@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { countStudyDays, masteredKanji, weakKanji } from "./Achievements";
-import { createEmptyKanjiSkillStats, type KanjiState, type StudyAttempt } from "./storage/schema";
+import { countStudyDays, masteredKanji, rankUnitStates, weakKanji } from "./Achievements";
+import {
+  createEmptyKanjiSkillStats,
+  createEmptyUnitState,
+  type KanjiState,
+  type StudyAttempt,
+} from "./storage/schema";
 
 function state(kanji: string, readingWeakness: number, writingWeakness: number, presentations = 1): KanjiState {
   return {
@@ -41,5 +46,29 @@ describe("countStudyDays", () => {
 
   it("回答が無ければ0日", () => {
     expect(countStudyDays([])).toBe(0);
+  });
+});
+
+describe("rankUnitStates", () => {
+  const unitState = (key: string, weakness: number, presentations: number) => ({
+    ...createEmptyUnitState(key, ""),
+    weakness,
+    presentations,
+  });
+
+  it("苦手度の高い順に並べる", () => {
+    expect(rankUnitStates([
+      unitState("length:conversion", 2, 5),
+      unitState("weight:comparison", 7, 3),
+      unitState("time:conversion", 5, 4),
+    ]).map((state) => state.key)).toEqual([
+      "weight:comparison",
+      "time:conversion",
+      "length:conversion",
+    ]);
+  });
+
+  it("まだ出題されていない集計は載せない", () => {
+    expect(rankUnitStates([unitState("length:conversion", 0, 0)])).toEqual([]);
   });
 });

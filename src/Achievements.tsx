@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { getLocalDate } from "./dailySession";
 import { PET_EMOJI, PET_LABEL } from "./petPresentation";
 import { studyStorage } from "./storage/indexedDb";
-import type { CompletedPet, KanjiState, StudyAttempt } from "./storage/schema";
+import { describeUnitStateKey } from "./units";
+import type { CompletedPet, KanjiState, StudyAttempt, UnitState } from "./storage/schema";
 
 type Props = {
   onBack: () => void;
@@ -32,12 +33,20 @@ export function countStudyDays(attempts: StudyAttempt[]): number {
   return new Set(attempts.map((attempt) => getLocalDate(new Date(attempt.answeredAt)))).size;
 }
 
+/** Units the child has answered, weakest first, for the units panel. */
+export function rankUnitStates(states: UnitState[]): UnitState[] {
+  return states
+    .filter((state) => state.presentations > 0)
+    .sort((left, right) => right.weakness - left.weakness || left.key.localeCompare(right.key));
+}
+
 export function Achievements({ onBack }: Props) {
   const [loading, setLoading] = useState(true);
   const [studyDays, setStudyDays] = useState(0);
   const [mastered, setMastered] = useState<string[]>([]);
   const [weak, setWeak] = useState<string[]>([]);
   const [completedPets, setCompletedPets] = useState<CompletedPet[]>([]);
+  const [unitStates, setUnitStates] = useState<UnitState[]>([]);
 
   useEffect(() => {
     let active = true;
@@ -45,12 +54,14 @@ export function Achievements({ onBack }: Props) {
       studyStorage.listAttempts(),
       studyStorage.listKanjiStates(),
       studyStorage.getMotivationState(),
-    ]).then(([attempts, states, motivation]) => {
+      studyStorage.listUnitStates(),
+    ]).then(([attempts, states, motivation, units]) => {
       if (!active) return;
       setStudyDays(countStudyDays(attempts));
       setMastered(masteredKanji(states));
       setWeak(weakKanji(states));
       setCompletedPets(motivation.completedPets);
+      setUnitStates(rankUnitStates(units));
       setLoading(false);
     }).catch(() => {
       if (active) setLoading(false);
@@ -96,6 +107,23 @@ export function Achievements({ onBack }: Props) {
           {weak.length === 0
             ? <p className="achievements-empty">今のところ無いよ</p>
             : <div className="achievements-kanji-list">{weak.map((kanji) => <span key={kanji}>{kanji}</span>)}</div>}
+        </section>
+
+        <section className="achievements-panel">
+          <h2>たんい</h2>
+          {unitStates.length === 0
+            ? <p className="achievements-empty">まだ練習していないよ</p>
+            : (
+              <ul className="achievements-unit-list">
+                {unitStates.map((state) => (
+                  <li key={state.key}>
+                    <span>{describeUnitStateKey(state.key)}</span>
+                    <i aria-hidden="true"><b style={{ width: `${state.weakness * 10}%` }} /></i>
+                    <em>{state.presentations}問</em>
+                  </li>
+                ))}
+              </ul>
+            )}
         </section>
 
         <section className="achievements-panel">

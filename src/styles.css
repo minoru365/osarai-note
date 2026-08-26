@@ -341,6 +341,11 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
 .achievements-pet-list { display: flex; flex-wrap: wrap; gap: 12px; }
 .achievements-pet { display: flex; align-items: center; gap: 8px; padding: 10px 16px; border: 1px solid #bcd1c3; border-radius: 14px; background: #f1f7f1; color: #304f42; font-weight: 700; }
 .achievements-pet-emoji { font-size: 24px; }
+.achievements-unit-list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.achievements-unit-list li { display: grid; grid-template-columns: minmax(0, 12rem) 1fr auto; align-items: center; gap: 12px; color: #52675d; font-size: 14px; }
+.achievements-unit-list i { height: 9px; overflow: hidden; border-radius: 99px; background: #e2e8e1; }
+.achievements-unit-list i b { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #7eaf96, #e2a33c); }
+.achievements-unit-list em { color: #68766e; font-style: normal; font-variant-numeric: tabular-nums; }
 
 @media (max-height: 850px) {
   .app-shell { grid-template-rows: 64px 1fr; }

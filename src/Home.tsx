@@ -25,26 +25,35 @@ type Subject = {
   start?: () => void;
 };
 
-type TodayProgress = { reading: number; writing: number };
+type TodayProgress = { reading: number; writing: number; units: number };
+
+function countCompleted(sessions: { items: { status: string }[] }[]): number {
+  return sessions.reduce(
+    (total, session) => total + session.items.filter((item) => item.status === "completed").length,
+    0,
+  );
+}
 
 export function Home({ questionCount, readingQuestionCount, writingQuestionCount, contentError, onStartKanji, onOpenFreePractice, onOpenKanjiSettings, onOpenAchievements, unitQuestionCount, onStartUnits }: Props) {
   const canStart = questionCount > 0 && !contentError;
-  const [today, setToday] = useState<TodayProgress>({ reading: 0, writing: 0 });
+  const [today, setToday] = useState<TodayProgress>({ reading: 0, writing: 0, units: 0 });
 
   useEffect(() => {
     let active = true;
-    void studyStorage.listDailySessions(getLocalDate(), "kanji").then((sessions) => {
+    const localDate = getLocalDate();
+    void Promise.all([
+      studyStorage.listDailySessions(localDate, "kanji"),
+      studyStorage.listDailySessions(localDate, "units"),
+    ]).then(([kanjiSessions, unitSessions]) => {
       if (!active) return;
-      const summarize = (mode: "reading" | "writing") => sessions
-        .filter((session) => session.mode === mode)
-        .reduce((total, session) => total + session.items.filter((item) => item.status === "completed").length, 0);
       setToday({
-        reading: summarize("reading"),
-        writing: summarize("writing"),
+        reading: countCompleted(kanjiSessions.filter((session) => session.mode === "reading")),
+        writing: countCompleted(kanjiSessions.filter((session) => session.mode === "writing")),
+        units: countCompleted(unitSessions),
       });
     }).catch(() => undefined);
     return () => { active = false; };
-  }, [readingQuestionCount, writingQuestionCount]);
+  }, [readingQuestionCount, writingQuestionCount, unitQuestionCount]);
 
   const startMode = today.reading <= today.writing ? "reading" as const : "writing" as const;
 
@@ -82,6 +91,7 @@ export function Home({ questionCount, readingQuestionCount, writingQuestionCount
             <div className="today-progress" aria-label="今日の漢字学習の進み具合">
               <div><span>読み</span><strong>{today.reading}問</strong></div>
               <div><span>書き</span><strong>{today.writing}問</strong></div>
+              {unitQuestionCount > 0 && <div><span>たんい</span><strong>{today.units}問</strong></div>}
             </div>
             <button className="start-button" type="button" disabled={!canStart} onClick={() => onStartKanji(startMode)}>
               {contentError ? "問題を読み込めません" : questionCount > 0 ? "今日の漢字をはじめる" : "問題を読み込み中…"}

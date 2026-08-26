@@ -147,3 +147,28 @@ export function isWholeIn(baseValue: number, unitId: string): boolean {
 export function unitStateKey(category: UnitCategory, questionType: UnitQuestionType): string {
   return `${category}:${questionType}`;
 }
+
+export const UNIT_CATEGORY_LABEL: Record<UnitCategory, string> = {
+  length: "長さ",
+  weight: "重さ",
+  volume: "かさ",
+  time: "時間",
+  area: "面積",
+};
+
+export const UNIT_QUESTION_TYPE_LABEL: Record<UnitQuestionType, string> = {
+  conversion: "たんい変かん",
+  comparison: "大小くらべ",
+  appropriateUnit: "あうたんい",
+  senseEstimate: "だいたいの量",
+  wordProblem: "文しょうだい",
+};
+
+/** Renders a `category:questionType` aggregate key for display. */
+export function describeUnitStateKey(key: string): string {
+  const [category, questionType] = key.split(":");
+  const categoryLabel = UNIT_CATEGORY_LABEL[category as UnitCategory];
+  const typeLabel = UNIT_QUESTION_TYPE_LABEL[questionType as UnitQuestionType];
+  if (!categoryLabel || !typeLabel) return key;
+  return `${categoryLabel}の${typeLabel}`;
+}
