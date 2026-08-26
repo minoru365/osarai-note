@@ -27,6 +27,9 @@ import {
   type StudyAttempt,
   type Subject,
   type UnitLearningSettings,
+  type GradeSettings,
+  createDefaultGradeSettings,
+  isSelectableGrade,
   type UnitSessionAttempt,
   type UnitSessionItem,
   type UnitState,
@@ -804,6 +807,17 @@ export class StudyStorage {
   async getUnitLearningSettings(): Promise<UnitLearningSettings> {
     return (await this.get<UnitLearningSettings>(STORE_NAMES.settings, "units"))
       ?? { id: "units", unlearnedGroups: [], updatedAt: "" };
+  }
+
+  async saveGradeSettings(settings: GradeSettings): Promise<void> {
+    await this.put(STORE_NAMES.settings, settings);
+  }
+
+  async getGradeSettings(): Promise<GradeSettings> {
+    const stored = await this.get<GradeSettings>(STORE_NAMES.settings, "grades");
+    if (!stored) return createDefaultGradeSettings();
+    // Guard against a hand-edited or partially written record.
+    return { ...stored, grades: stored.grades.filter(isSelectableGrade) };
   }
 
   async getMotivationState(): Promise<MotivationState> {

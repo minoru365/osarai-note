@@ -1,6 +1,14 @@
 import { describe, expect, it } from "vitest";
 import type { KanjiQuestion } from "./contentPack";
-import { createFreePracticeBatch, filterFreePracticeQuestions, stableRandomOrder } from "./FreePracticeBrowser";
+import {
+  buildReadingIndex,
+  countQuestionsPerKanji,
+  createFreePracticeBatch,
+  filterFreePracticeQuestions,
+  matchesKanjiSearch,
+  normalizeReading,
+  stableRandomOrder,
+} from "./FreePracticeBrowser";
 import { createEmptyKanjiSkillStats, type KanjiState } from "./storage/schema";
 
 const question = (id: string, targetKanji: string[]): KanjiQuestion => ({
@@ -49,5 +57,56 @@ describe("free practice browser", () => {
     expect(batch).toHaveLength(10);
     expect(batch.every((item) => item.mode === "reading" && item.targetKanji.includes("暗"))).toBe(true);
     expect(new Set(batch.map((item) => item.pairId)).size).toBe(10);
+  });
+});
+
+describe("読みでの漢字検索", () => {
+  const readingQuestion = (id: string, primaryKanji: string, canonicalReading: string): KanjiQuestion => ({
+    ...question(id, [primaryKanji]), primaryKanji, canonicalReading,
+  });
+
+  it("カタカナの音読みをひらがなへそろえる", () => {
+    expect(normalizeReading("ショク")).toBe("しょく");
+    expect(normalizeReading(" わるい ")).toBe("わるい");
+  });
+
+  it("1つの漢字が持つ読みを重複なく集める", () => {
+    const index = buildReadingIndex([
+      readingQuestion("a", "悪", "アク"),
+      readingQuestion("b", "悪", "わるい"),
+      readingQuestion("c", "悪", "アク"),
+    ]);
+    expect(index.get("悪")).toEqual(["アク", "わるい"]);
+  });
+
+  it("ひらがなでもカタカナでも同じ漢字に当たり、漢字そのものでも引ける", () => {
+    const readings = ["アク", "わるい"];
+    expect(matchesKanjiSearch("悪", readings, "あく")).toBe(true);
+    expect(matchesKanjiSearch("悪", readings, "アク")).toBe(true);
+    expect(matchesKanjiSearch("悪", readings, "わる")).toBe(true);
+    expect(matchesKanjiSearch("悪", readings, "悪")).toBe(true);
+    expect(matchesKanjiSearch("悪", readings, "ようこ")).toBe(false);
+  });
+
+  it("空の検索語はすべてを通す", () => {
+    expect(matchesKanjiSearch("悪", ["アク"], "")).toBe(true);
+    expect(matchesKanjiSearch("悪", [], "   ")).toBe(true);
+  });
+
+  it("読みを持たない漢字は検索語があると外れる", () => {
+    expect(matchesKanjiSearch("葉", [], "は")).toBe(false);
+  });
+
+  it("問題数はペア単位で数え、10問で頭打ちにする", () => {
+    const questions = Array.from({ length: 12 }, (_, index) => ({
+      ...question(`pair-${index}:reading`, ["暗"]), pairId: `pair-${index}`,
+    }));
+    const counts = countQuestionsPerKanji([
+      ...questions,
+      ...questions.map((item) => ({ ...item, id: item.id.replace("reading", "writing") })),
+      { ...question("leaf:reading", ["葉"]), pairId: "leaf" },
+    ]);
+    expect(counts.get("暗")).toBe(10);
+    expect(counts.get("葉")).toBe(1);
   });
 });

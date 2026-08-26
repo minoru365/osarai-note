@@ -32,6 +32,10 @@ function state(key: string, presentations: number): UnitState {
   return { ...createEmptyUnitState(key, ""), presentations };
 }
 
+function weakState(key: string, weakness: number, lastPresentedAt = ""): UnitState {
+  return { ...createEmptyUnitState(key, ""), presentations: 5, weakness, lastPresentedAt };
+}
+
 const questions: UnitQuestion[] = [
   question("len-conv-1", "length", "conversion"),
   question("len-conv-2", "length", "conversion"),
@@ -41,6 +45,45 @@ const questions: UnitQuestion[] = [
 ];
 
 describe("selectUnitQuestions", () => {
+  it("苦手な集計キーを先に出す", () => {
+    // ADR-0008: weight:conversion だけ苦手なので、練習回数に関係なく先頭へ。
+    const selected = selectUnitQuestions(questions, {
+      limit: 2,
+      seed: "weak",
+      states: [weakState("weight:conversion", 6), state("length:conversion", 0)],
+    });
+
+    expect(getUnitStateKey(selected[0])).toBe("weight:conversion");
+  });
+
+  it("苦手枠は最大4問までにする", () => {
+    const many = Array.from({ length: 8 }, (_, i) => question(`extra-${i}`, "time", "conversion"));
+    const weakKeys = ["length:conversion", "length:comparison", "weight:conversion", "area:conversion"];
+    const selected = selectUnitQuestions([...questions, ...many], {
+      limit: 10,
+      seed: "cap",
+      states: weakKeys.map((key) => weakState(key, 7)),
+    });
+
+    const weakCount = selected.filter((q) => weakKeys.includes(getUnitStateKey(q))).length;
+    expect(weakCount).toBeLessThanOrEqual(4);
+  });
+
+  it("学年選択で候補を絞り、未履修設定を優先する", () => {
+    const onlyGrade4 = selectUnitQuestions(questions, { limit: 10, seed: "g", grades: [4] });
+    expect(onlyGrade4.every((q) => q.grade === 4)).toBe(true);
+    expect(onlyGrade4.length).toBeGreaterThan(0);
+
+    // ADR-0009: 4年を選んでも、未履修グループは出さない。
+    const blocked = selectUnitQuestions(questions, {
+      limit: 10,
+      seed: "g",
+      grades: [4],
+      unlearnedGroups: ["area:4"],
+    });
+    expect(blocked).toEqual([]);
+  });
+
   it("集計キーが重ならないよう散らしてから同じキーを許す", () => {
     const selected = selectUnitQuestions(questions, { limit: 3, seed: "spread" });
 

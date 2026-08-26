@@ -16,7 +16,6 @@ import { studyStorage } from "./storage/indexedDb";
 type Props = {
   questions: KanjiReadingQuestion[];
   onHome: () => void;
-  onWriting: () => void;
   freeQuestion?: KanjiReadingQuestion;
   onFreePracticeList?: () => void;
   onFreePracticeNext?: () => void;
@@ -24,7 +23,7 @@ type Props = {
   freeQuestionCount?: number;
 };
 
-export function ReadingPractice({ questions, onHome, onWriting, freeQuestion, onFreePracticeList, onFreePracticeNext, freeQuestionNumber = 1, freeQuestionCount = 1 }: Props) {
+export function ReadingPractice({ questions, onHome, freeQuestion, onFreePracticeList, onFreePracticeNext, freeQuestionNumber = 1, freeQuestionCount = 1 }: Props) {
   const [answer, setAnswer] = useState("");
   const [mistakes, setMistakes] = useState(0);
   const [result, setResult] = useState<"input" | "correct" | "incorrect" | "guide">("input");
@@ -173,7 +172,7 @@ export function ReadingPractice({ questions, onHome, onWriting, freeQuestion, on
   if ((!freeQuestion && (loading || error)) || (!question && !completed)) {
     return (
       <div className="app-shell">
-        <PracticeHeader mode="reading" progress={0} onHome={onHome} onReading={() => undefined} onWriting={onWriting} onBrowse={onFreePracticeList} />
+        <PracticeHeader mode="reading" progress={0} onHome={onHome} onBrowse={onFreePracticeList} />
         <main className="content-loading"><strong>{loading ? "今日の読み問題を準備しています…" : error || "出題できる読み問題がありません"}</strong>{!loading && !error && <span>未習漢字の設定を確認してください。</span>}</main>
       </div>
     );
@@ -182,7 +181,7 @@ export function ReadingPractice({ questions, onHome, onWriting, freeQuestion, on
   if (completed && result !== "correct") {
     return (
       <div className="app-shell">
-        <PracticeHeader mode="reading" progress={100} onHome={onHome} onReading={() => undefined} onWriting={onWriting} />
+        <PracticeHeader mode="reading" progress={100} onHome={onHome} />
         <main className="content-loading practice-complete"><strong>読みの学習、おつかれさま！</strong><span>{questionCount}問できました</span><div className="completion-summary"><span>一回で正解<strong>{summary?.firstTryCorrect ?? 0}</strong></span><span>やり直して正解<strong>{summary?.correctedAfterMistake ?? 0}</strong></span><span>分からない<strong>{summary?.unknown ?? 0}</strong></span></div><button className="start-button" type="button" onClick={() => void nextBatch()}>もう10問</button><button type="button" onClick={onHome}>ホームへ</button></main>
       </div>
     );
@@ -192,7 +191,7 @@ export function ReadingPractice({ questions, onHome, onWriting, freeQuestion, on
 
   return (
     <div className="app-shell reading-shell">
-      <PracticeHeader mode="reading" progress={progress} onHome={onHome} onReading={() => undefined} onWriting={onWriting} onBrowse={onFreePracticeList} />
+      <PracticeHeader mode="reading" progress={progress} onHome={onHome} onBrowse={onFreePracticeList} />
       <main className="reading-workspace">
         <section className="reading-question-card">
           <p className="eyebrow">漢字の読み</p>
@@ -248,19 +247,18 @@ type HeaderProps = {
   mode: "reading" | "writing";
   progress: number;
   onHome: () => void;
-  onReading: () => void;
-  onWriting: () => void;
   onBrowse?: () => void;
 };
 
-export function PracticeHeader({ mode, progress, onHome, onReading, onWriting, onBrowse }: HeaderProps) {
+/**
+ * The reading/writing choice is made before a batch starts, so the header only
+ * labels the current form. Switching mid-batch is deliberately not offered.
+ */
+export function PracticeHeader({ mode, progress, onHome, onBrowse }: HeaderProps) {
   return (
     <header className="topbar practice-topbar">
       <button className="brand brand-button" type="button" onClick={onHome}><span className="brand-mark">学</span><span>おさらいノート</span></button>
-      <div className="practice-mode-switch" aria-label="問題形式">
-        <button type="button" aria-pressed={mode === "reading"} onClick={onReading}>読み</button>
-        <button type="button" aria-pressed={mode === "writing"} onClick={onWriting}>書き</button>
-      </div>
+      <div className="spike-label">{mode === "reading" ? "漢字の読み" : "漢字の書き"}</div>
       <div className="practice-header-end">
         <div className="practice-progress"><span className="practice-progress-fill" style={{ width: `${progress}%` }} /></div>
         {onBrowse && <button className="compact-header-button" type="button" onClick={onBrowse}>問題一覧</button>}

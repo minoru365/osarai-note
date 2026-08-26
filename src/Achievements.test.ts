@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { countStudyDays, masteredKanji, rankUnitStates, weakKanji } from "./Achievements";
+import {
+  countStudyDays,
+  masteredKanji,
+  rankUnitStates,
+  skillLevel,
+  summarizeUnitCategories,
+  weakKanji,
+} from "./Achievements";
 import {
   createEmptyKanjiSkillStats,
   createEmptyUnitState,
@@ -70,5 +77,59 @@ describe("rankUnitStates", () => {
 
   it("まだ出題されていない集計は載せない", () => {
     expect(rankUnitStates([unitState("length:conversion", 0, 0)])).toEqual([]);
+  });
+});
+
+describe("たんいを単位ごとにまとめる", () => {
+  const unitState = (key: string, weakness: number, presentations: number, firstTryCorrect = 0) => ({
+    ...createEmptyUnitState(key, ""),
+    weakness,
+    presentations,
+    firstTryCorrect,
+  });
+
+  it("問題タイプをまたいで1つの単位へ集約する", () => {
+    const summaries = summarizeUnitCategories([
+      unitState("length:conversion", 4, 6, 2),
+      unitState("length:comparison", 1, 4, 3),
+      unitState("time:conversion", 2, 5, 4),
+    ]);
+
+    expect(summaries.map((item) => item.category)).toEqual(["length", "time"]);
+    const length = summaries.find((item) => item.category === "length");
+    expect(length?.label).toBe("長さ");
+    expect(length?.presentations).toBe(10);
+    expect(length?.firstTryCorrect).toBe(5);
+    // (4×6 + 1×4) / 10 = 2.8 -> 3
+    expect(length?.weakness).toBe(3);
+  });
+
+  it("練習していない単位は出さない", () => {
+    expect(summarizeUnitCategories([unitState("area:conversion", 0, 0)])).toEqual([]);
+  });
+
+  it("出題の多い問題タイプの苦手度を重く見る", () => {
+    const [summary] = summarizeUnitCategories([
+      unitState("weight:conversion", 0, 20),
+      unitState("weight:wordProblem", 10, 1),
+    ]);
+    // One stray answer must not brand the whole unit にがて.
+    expect(summary.weakness).toBe(0);
+    expect(skillLevel(summary.weakness, summary.presentations).label).toBe("とくい");
+  });
+});
+
+describe("skillLevel", () => {
+  it("未挑戦と、ミス無しで終えた状態を区別する", () => {
+    expect(skillLevel(0, 0)).toEqual({ key: "none", label: "まだ" });
+    expect(skillLevel(0, 3)).toEqual({ key: "good", label: "とくい" });
+  });
+
+  it("苦手度3以上をにがて、1〜2をもう少しとする", () => {
+    // 1〜4の帯が丸ごと見えていなかったので、しきい値を5から3へ下げた。
+    expect(skillLevel(3, 5).label).toBe("にがて");
+    expect(skillLevel(10, 5).label).toBe("にがて");
+    expect(skillLevel(1, 5).label).toBe("もう少し");
+    expect(skillLevel(2, 5).label).toBe("もう少し");
   });
 });

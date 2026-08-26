@@ -3,6 +3,7 @@
 // by kanji, per ADR-0007.
 
 import { createId } from "./id";
+import { WEAK_SLOTS, WEAK_SLOT_THRESHOLD } from "./dailySession";
 import { getUnitStateKey, type UnitQuestion } from "./unitContent";
 import type { StudyStorage } from "./storage/indexedDb";
 import {
@@ -34,6 +35,8 @@ type SelectionOptions = {
   states?: UnitState[];
   unlearnedGroups?: string[];
   seed?: string;
+  /** Grades to draw from (ADR-0009). Undefined means every grade. */
+  grades?: number[];
 };
 
 /**
@@ -47,31 +50,56 @@ export function selectUnitQuestions(
     states = [],
     unlearnedGroups = [],
     seed = "units",
+    grades,
   }: SelectionOptions = {},
 ): UnitQuestion[] {
   const stateMap = new Map(states.map((state) => [state.key, state]));
 
-  const ranked = questions
+  // Unlearned groups first, then the grade choice (ADR-0009), then ranking.
+  const eligible = questions
     .filter((question) => isUnitQuestionAllowed(question, unlearnedGroups))
-    .map((question) => ({
-      question,
-      key: getUnitStateKey(question),
-      presentations: stateMap.get(getUnitStateKey(question))?.presentations ?? 0,
-      tie: stableHash(`${seed}:${question.id}`),
-    }))
-    .sort((left, right) => left.presentations - right.presentations || left.tie - right.tie);
+    .filter((question) => !grades || grades.includes(question.grade))
+    .map((question) => {
+      const key = getUnitStateKey(question);
+      const state = stateMap.get(key);
+      return {
+        question,
+        key,
+        presentations: state?.presentations ?? 0,
+        weakness: state?.weakness ?? 0,
+        lastPresentedAt: state?.lastPresentedAt ?? "",
+        tie: stableHash(`${seed}:${question.id}`),
+      };
+    });
+
+  const byCoverage = [...eligible].sort((left, right) =>
+    left.presentations - right.presentations || left.tie - right.tie,
+  );
+  const byWeakness = eligible
+    .filter((candidate) => candidate.weakness >= WEAK_SLOT_THRESHOLD)
+    .sort((left, right) =>
+      right.weakness - left.weakness
+      || left.lastPresentedAt.localeCompare(right.lastPresentedAt)
+      || left.tie - right.tie,
+    );
 
   const selected: UnitQuestion[] = [];
   const usedKeys = new Set<string>();
-  for (const allowRepeatKey of [false, true]) {
-    for (const candidate of ranked) {
-      if (selected.length >= limit) break;
-      if (selected.some((question) => question.id === candidate.question.id)) continue;
-      if (usedKeys.has(candidate.key) !== allowRepeatKey) continue;
-      selected.push(candidate.question);
-      usedKeys.add(candidate.key);
+  const take = (candidates: typeof eligible, upTo: number) => {
+    for (const allowRepeatKey of [false, true]) {
+      for (const candidate of candidates) {
+        if (selected.length >= upTo) return;
+        if (selected.some((question) => question.id === candidate.question.id)) continue;
+        if (usedKeys.has(candidate.key) !== allowRepeatKey) continue;
+        selected.push(candidate.question);
+        usedKeys.add(candidate.key);
+      }
     }
-  }
+  };
+
+  // Weak slots are an upper bound; anything they leave goes back to coverage.
+  take(byWeakness, Math.min(WEAK_SLOTS, limit));
+  take(byCoverage, limit);
   return selected;
 }
 
@@ -126,15 +154,17 @@ export async function startNextUnitBatch(
   now = new Date(),
   seed = createId(),
 ): Promise<DailyUnitSession | null> {
-  const [sessions, states, learning] = await Promise.all([
+  const [sessions, states, learning, gradeSettings] = await Promise.all([
     listUnitSessions(storage, localDate),
     storage.listUnitStates(),
     storage.getUnitLearningSettings(),
+    storage.getGradeSettings(),
   ]);
   const selected = selectUnitQuestions(questions, {
     states,
     unlearnedGroups: learning.unlearnedGroups,
     seed,
+    grades: gradeSettings.grades,
   });
   if (selected.length === 0) return null;
 

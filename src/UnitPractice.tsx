@@ -261,9 +261,11 @@ function Shell({ children, onHome, progress }: {
           <span className="brand-mark">学</span><span>おさらいノート</span>
         </button>
         <div className="spike-label">たんい</div>
-        {progress
-          ? <div className="question-progress">{progress}</div>
-          : <button className="header-action" type="button" onClick={onHome}>ホームへ</button>}
+        {/* Home stays reachable mid-batch; progress sits beside it, not instead of it. */}
+        <div className="practice-header-end">
+          {progress && <div className="question-progress">{progress}</div>}
+          <button className="compact-header-button" type="button" onClick={onHome}>ホーム</button>
+        </div>
       </header>
       {children}
     </div>

@@ -9,6 +9,13 @@ type KanjiQuestionBase = {
   prompt: string;
   targetKanji: string[];
   answerKanji: string;
+  /**
+   * The kanji this question's reading belongs to, and that reading on its own
+   * (on-yomi in katakana, kun-yomi in hiragana). Optional so older packs still
+   * validate; the generator has emitted both for every question since v2.
+   */
+  primaryKanji?: string;
+  canonicalReading?: string;
 };
 
 export type KanjiWritingQuestion = KanjiQuestionBase & {

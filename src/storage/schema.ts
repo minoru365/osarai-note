@@ -237,6 +237,29 @@ export function unitLearningGroup(category: string, grade: number): string {
   return `${category}:${grade}`;
 }
 
+/**
+ * Which grades the child is practising, shared by every subject (ADR-0009).
+ * Lives in the settings store next to the other `id`-keyed records, so adding
+ * it needs no schema version bump. Empty means nothing is selected, which the
+ * screens surface rather than silently falling back to every grade.
+ */
+export const SELECTABLE_GRADES = [3, 4] as const;
+export type SelectableGrade = typeof SELECTABLE_GRADES[number];
+
+export type GradeSettings = {
+  id: "grades";
+  grades: SelectableGrade[];
+  updatedAt: string;
+};
+
+export function createDefaultGradeSettings(updatedAt = ""): GradeSettings {
+  return { id: "grades", grades: [...SELECTABLE_GRADES], updatedAt };
+}
+
+export function isSelectableGrade(value: unknown): value is SelectableGrade {
+  return SELECTABLE_GRADES.some((grade) => grade === value);
+}
+
 export type SaveAttemptResult = "added" | "duplicate";
 
 // Motivation feature (ADR-0006): a single subject-independent point ledger and

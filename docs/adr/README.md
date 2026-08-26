@@ -19,9 +19,11 @@ ADRは、後から理由を忘れると手戻りになる重要判断だけを�
 | [0003](./0003-daily-kanji-sessions.md) | Superseded | 読み・書き各10問の当日セッション |
 | [0004](./0004-paired-question-generation.md) | Accepted | 共通素材から読み・書きペアを生成 |
 | [0004b](./0004-practice-frequency-first.md) | Superseded | 今日の漢字は練習回数の少ない順にする |
-| [0005](./0005-fresh-daily-practice.md) | Accepted | 「今日の漢字」は押すたびに新しく抽出する |
+| [0005](./0005-fresh-daily-practice.md) | Accepted | 「今日の漢字」は押すたびに新しく抽出する（出題順位はADR-0008が置き換え） |
 | [0006](./0006-motivation-points-and-pet.md) | Accepted | 教科横断ポイントとペット育成 |
 | [0007](./0007-multi-subject-data-model.md) | Accepted | 教科を追加するときの保存モデル |
+| [0008](./0008-weak-slot-mixing.md) | Accepted | 出題の一部を苦手枠にあてる |
+| [0009](./0009-shared-grade-selection.md) | Accepted | 学年選択を教科横断の保存設定にする |
 
 ## テンプレート
 

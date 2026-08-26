@@ -33,7 +33,14 @@ type SelectionOptions = {
   limit?: number;
   states?: KanjiState[];
   seed?: string;
+  /** Grades to draw from (ADR-0009). Undefined means every grade. */
+  grades?: number[];
 };
+
+/** Slots reserved for weak questions in one batch, as an upper bound (ADR-0008). */
+export const WEAK_SLOTS = 4;
+/** Weakness at which a question is eligible for the weak slots. */
+export const WEAK_SLOT_THRESHOLD = 1;
 
 function stableHash(value: string): number {
   let hash = 2166136261;
@@ -58,37 +65,60 @@ export function selectDailyQuestions(
     limit = DEFAULT_DAILY_QUESTION_COUNT,
     states = [],
     seed = "daily",
+    grades,
   }: SelectionOptions,
 ): KanjiQuestion[] {
   const stateMap = new Map(states.map((state) => [state.kanji, state]));
 
-  const ranked = questions
+  // Order matters and is fixed by ADR-0009: drop unlearned kanji first, then
+  // narrow to the selected grades, and only then rank. A grade choice must
+  // never re-admit something a parent marked unlearned.
+  const eligible = questions
     .filter((question) => question.mode === mode)
     .filter((question) => question.targetKanji.every((kanji) => stateMap.get(kanji)?.learned !== false))
-    .map((question) => {
-      return {
-        question,
-        presentations: Math.min(...question.targetKanji.map((kanji) => stateMap.get(kanji)?.[mode].presentations ?? 0)),
-        tie: stableHash(`${seed}:${question.id}`),
-      };
-    })
+    .filter((question) => !grades || grades.includes(question.grade))
+    .map((question) => ({
+      question,
+      presentations: Math.min(...question.targetKanji.map((kanji) => stateMap.get(kanji)?.[mode].presentations ?? 0)),
+      weakness: Math.max(...question.targetKanji.map((kanji) => stateMap.get(kanji)?.[mode].weakness ?? 0)),
+      // Oldest first, so equally weak candidates rotate instead of repeating.
+      lastPresentedAt: question.targetKanji
+        .map((kanji) => stateMap.get(kanji)?.[mode].lastPresentedAt ?? "")
+        .sort()[0] ?? "",
+      tie: stableHash(`${seed}:${question.id}`),
+    }));
+
+  const byCoverage = [...eligible].sort((left, right) =>
+    left.presentations - right.presentations
+    || left.tie - right.tie,
+  );
+  const byWeakness = eligible
+    .filter((candidate) => candidate.weakness >= WEAK_SLOT_THRESHOLD)
     .sort((left, right) =>
-      left.presentations - right.presentations
+      right.weakness - left.weakness
+      || left.lastPresentedAt.localeCompare(right.lastPresentedAt)
       || left.tie - right.tie,
     );
 
   const selected: KanjiQuestion[] = [];
   const selectedKanji = new Set<string>();
-  for (const allowOverlap of [false, true]) {
-    for (const candidate of ranked) {
-      if (selected.length >= limit) break;
-      if (selected.some((question) => question.id === candidate.question.id)) continue;
-      const overlaps = candidate.question.targetKanji.some((kanji) => selectedKanji.has(kanji));
-      if (overlaps !== allowOverlap) continue;
-      selected.push(candidate.question);
-      candidate.question.targetKanji.forEach((kanji) => selectedKanji.add(kanji));
+  const take = (candidates: typeof eligible, upTo: number) => {
+    for (const allowOverlap of [false, true]) {
+      for (const candidate of candidates) {
+        if (selected.length >= upTo) return;
+        if (selected.some((question) => question.id === candidate.question.id)) continue;
+        const overlaps = candidate.question.targetKanji.some((kanji) => selectedKanji.has(kanji));
+        if (overlaps !== allowOverlap) continue;
+        selected.push(candidate.question);
+        candidate.question.targetKanji.forEach((kanji) => selectedKanji.add(kanji));
+      }
     }
-  }
+  };
+
+  // The weak slots are a cap, not a quota: whatever they leave unused goes
+  // straight back to coverage, so a batch is still up to `limit` questions.
+  take(byWeakness, Math.min(WEAK_SLOTS, limit));
+  take(byCoverage, limit);
   return selected;
 }
 
@@ -134,11 +164,15 @@ async function createBatch(
   seed: string,
 ): Promise<DailyKanjiSession | null> {
   const localDate = getLocalDate(now);
-  const states = await storage.listKanjiStates();
+  const [states, gradeSettings] = await Promise.all([
+    storage.listKanjiStates(),
+    storage.getGradeSettings(),
+  ]);
   const selected = selectDailyQuestions(questions, {
     mode,
     states,
     seed,
+    grades: gradeSettings.grades,
   });
   if (selected.length === 0) return null;
   const batchNumber = Math.max(0, ...sessions.map((session) => session.batchNumber)) + 1;

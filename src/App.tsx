@@ -11,10 +11,12 @@ import {
 import { startNextDailyBatch, summarizeDailySession } from "./dailySession";
 import { japaneseCharDataLoader } from "./kanjiData";
 import { loadUnitQuestions, type UnitQuestion } from "./unitContent";
+import type { UnitCategory } from "./units";
 import { UnitPractice } from "./UnitPractice";
 import { Achievements } from "./Achievements";
 import { Home } from "./Home";
-import { FreePracticeBrowser } from "./FreePracticeBrowser";
+import { FreePracticeBrowser, createFreePracticeBatch, filterFreePracticeQuestions } from "./FreePracticeBrowser";
+import { KanjiModeChoice } from "./KanjiModeChoice";
 import { KanjiSettings } from "./KanjiSettings";
 import { PracticeHeader, ReadingPractice } from "./ReadingPractice";
 import {
@@ -30,7 +32,11 @@ import { studyStorage } from "./storage/indexedDb";
 type QuizState = "loading" | "writing" | "guide" | "character-complete" | "word-complete" | "saving" | "save-error" | "error";
 
 function App() {
-  const [view, setView] = useState<"home" | "reading" | "writing" | "kanji-settings" | "free-practice" | "achievements" | "units">("home");
+  const [view, setView] = useState<"home" | "reading" | "writing" | "kanji-settings" | "free-practice" | "achievements" | "units" | "kanji-mode">("home");
+  /** Which kanji the pending mode choice is for; empty object means today's batch. */
+  const [modeChoice, setModeChoice] = useState<{ kanji?: string } | null>(null);
+  /** Restricts a units batch to one category, e.g. from がんばり記録. */
+  const [unitCategory, setUnitCategory] = useState<UnitCategory | null>(null);
   const [unitQuestions, setUnitQuestions] = useState<UnitQuestion[]>([]);
   const [freePracticeQuestion, setFreePracticeQuestion] = useState<KanjiQuestion | null>(null);
   const [freePracticeQueue, setFreePracticeQueue] = useState<KanjiQuestion[]>([]);
@@ -150,13 +156,25 @@ function App() {
     startFreePractice(nextQuestion);
   };
 
-  const switchPracticeMode = (mode: "reading" | "writing") => {
-    if (!freePracticeQuestion) {
-      void startDailyPractice(mode);
-      return;
+  const openModeChoice = (kanji?: string) => {
+    setModeChoice({ kanji });
+    setView("kanji-mode");
+  };
+
+  /**
+   * Practises one kanji picked in がんばり記録. Unlearned kanji are filtered out
+   * first so a batch never smuggles in a character the child has not met.
+   */
+  const startKanjiBatchFor = async (kanji: string, mode: "reading" | "writing") => {
+    const source = mode === "reading" ? readingQuestions : writingQuestions;
+    try {
+      const states = new Map((await studyStorage.listKanjiStates()).map((state) => [state.kanji, state]));
+      const batch = createFreePracticeBatch(filterFreePracticeQuestions(source, states), createId(), kanji);
+      if (batch.length > 0) startFreePracticeBatch(batch);
+      else setView("achievements");
+    } catch {
+      setView("achievements");
     }
-    const counterpart = findPairedQuestion(words, freePracticeQuestion, mode);
-    if (counterpart) startFreePractice(counterpart);
   };
 
   const startQuiz = useCallback((writer: HanziWriter) => {
@@ -375,11 +393,40 @@ function App() {
   }
 
   if (view === "achievements") {
-    return <Achievements onBack={goHome} />;
+    return (
+      <Achievements
+        onBack={goHome}
+        onPracticeKanji={openModeChoice}
+        onPracticeUnit={(category) => { setUnitCategory(category); setView("units"); }}
+      />
+    );
+  }
+
+  if (view === "kanji-mode") {
+    const kanji = modeChoice?.kanji;
+    const inMode = (mode: "reading" | "writing") => (kanji
+      ? (mode === "reading" ? readingQuestions : writingQuestions).filter((question) => question.targetKanji.includes(kanji))
+      : mode === "reading" ? readingQuestions : writingQuestions).length;
+    return (
+      <KanjiModeChoice
+        subject={kanji}
+        readingCount={inMode("reading")}
+        writingCount={inMode("writing")}
+        onBack={kanji ? () => setView("achievements") : goHome}
+        onChoose={(mode) => {
+          if (kanji) void startKanjiBatchFor(kanji, mode);
+          else void startDailyPractice(mode);
+        }}
+      />
+    );
   }
 
   if (view === "units") {
-    return <UnitPractice questions={unitQuestions} onHome={goHome} />;
+    // A category picked in がんばり記録 narrows the batch; otherwise all units.
+    const pool = unitCategory
+      ? unitQuestions.filter((question) => question.unitCategory === unitCategory)
+      : unitQuestions;
+    return <UnitPractice questions={pool} onHome={() => { setUnitCategory(null); goHome(); }} />;
   }
 
   if (view === "free-practice") {
@@ -393,12 +440,12 @@ function App() {
         readingQuestionCount={readingQuestions.length}
         writingQuestionCount={writingQuestions.length}
         contentError={contentError}
-        onStartKanji={(mode) => void startDailyPractice(mode === "reading" && readingQuestions.length === 0 ? "writing" : mode)}
+        onStartKanji={() => openModeChoice()}
         onOpenFreePractice={openFreePractice}
         onOpenKanjiSettings={() => setView("kanji-settings")}
         onOpenAchievements={() => setView("achievements")}
         unitQuestionCount={unitQuestions.length}
-        onStartUnits={() => setView("units")}
+        onStartUnits={() => { setUnitCategory(null); setView("units"); }}
       />
     );
   }
@@ -413,7 +460,6 @@ function App() {
         freeQuestionNumber={freePracticeIndex + 1}
         freeQuestionCount={freePracticeQueue.length}
         onHome={goHome}
-        onWriting={() => switchPracticeMode("writing")}
       />
     );
   }
@@ -421,7 +467,7 @@ function App() {
   if (view === "writing" && writingComplete && !selectedWritingId) {
     return (
       <div className="app-shell">
-        <PracticeHeader mode="writing" progress={100} onHome={goHome} onReading={() => void startDailyPractice("reading")} onWriting={() => undefined} />
+        <PracticeHeader mode="writing" progress={100} onHome={goHome} />
         <main className="content-loading practice-complete"><strong>書きの学習、おつかれさま！</strong><span>{writingQuestionCount}問できました</span><div className="completion-summary"><span>一回で正解<strong>{writingSummary?.firstTryCorrect ?? 0}</strong></span><span>やり直して正解<strong>{writingSummary?.correctedAfterMistake ?? 0}</strong></span><span>分からない<strong>{writingSummary?.unknown ?? 0}</strong></span></div><button className="start-button" type="button" onClick={() => void nextWritingBatch()}>もう10問</button><button type="button" onClick={goHome}>ホームへ</button></main>
       </div>
     );
@@ -448,8 +494,6 @@ function App() {
         mode="writing"
         progress={freePracticeQuestion?.mode === "writing" ? (writingQuestionCount === 0 ? 0 : (freePracticeIndex / writingQuestionCount) * 100) : writingQuestionCount === 0 ? 0 : ((writingSession?.currentIndex ?? 0) / writingQuestionCount) * 100}
         onHome={goHome}
-        onReading={() => switchPracticeMode("reading")}
-        onWriting={() => undefined}
         onBrowse={freePracticeQuestion?.mode === "writing" ? openFreePractice : undefined}
       />
 
@@ -481,10 +525,15 @@ function App() {
             <span>{status}</span>
           </div>
 
+          {/*
+            Only surface mistakes and the guide once they actually happened. A
+            standing "ミス 0回" counter reads as pressure, and the plan asks us
+            not to dwell on wrong answers while the child is still working.
+          */}
           <dl className="live-stats">
             <div><dt>いまの文字</dt><dd>{completed ? "完了" : quizState === "guide" || quizState === "character-complete" ? currentCharacter : `${progress.currentIndex + 1}文字目`}</dd></div>
-            <div><dt>ミス</dt><dd>{mistakes}回</dd></div>
-            <div><dt>見本</dt><dd>{usedGuide ? "使用" : "未使用"}</dd></div>
+            {mistakes > 0 && <div className="live-stat-quiet"><dt>ミス</dt><dd>{mistakes}回</dd></div>}
+            {usedGuide && <div className="live-stat-quiet"><dt>見本</dt><dd>使用</dd></div>}
           </dl>
 
           <p className="writing-question-progress">● {freePracticeQuestion?.mode === "writing" ? freePracticeIndex + 1 : Math.min((writingSession?.currentIndex ?? 0) + (quizState === "word-complete" ? 0 : 1), writingQuestionCount)} / {writingQuestionCount}問</p>
