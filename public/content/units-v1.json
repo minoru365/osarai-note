@@ -651,6 +651,906 @@
       "answerChoiceId": "right"
     },
     {
+      "id": "units:decimal:mm:cm:2",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "decimalConversion",
+      "prompt": "2mmは 何cmですか。",
+      "explanation": "1mm = 0.1cm だから、2mm は 0.2cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 2
+    },
+    {
+      "id": "units:decimal:mm:cm:3",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "decimalConversion",
+      "prompt": "3mmは 何cmですか。",
+      "explanation": "1mm = 0.1cm だから、3mm は 0.3cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 3
+    },
+    {
+      "id": "units:decimal:mm:cm:5",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "decimalConversion",
+      "prompt": "5mmは 何cmですか。",
+      "explanation": "1mm = 0.1cm だから、5mm は 0.5cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 5
+    },
+    {
+      "id": "units:decimal:mm:cm:8",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "decimalConversion",
+      "prompt": "8mmは 何cmですか。",
+      "explanation": "1mm = 0.1cm だから、8mm は 0.8cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 8
+    },
+    {
+      "id": "units:decimal:mm:cm:15",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "decimalConversion",
+      "prompt": "15mmは 何cmですか。",
+      "explanation": "1mm = 0.1cm だから、15mm は 1.5cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 15
+    },
+    {
+      "id": "units:decimal:mm:cm:16",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "decimalConversion",
+      "prompt": "16mmは 何cmですか。",
+      "explanation": "1mm = 0.1cm だから、16mm は 1.6cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 16
+    },
+    {
+      "id": "units:decimal:mm:cm:27",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "decimalConversion",
+      "prompt": "27mmは 何cmですか。",
+      "explanation": "1mm = 0.1cm だから、27mm は 2.7cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 27
+    },
+    {
+      "id": "units:decimal:mm:cm:35",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "decimalConversion",
+      "prompt": "35mmは 何cmですか。",
+      "explanation": "1mm = 0.1cm だから、35mm は 3.5cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 35
+    },
+    {
+      "id": "units:decimal:cm:m:15",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "decimalConversion",
+      "prompt": "15cmは 何mですか。",
+      "explanation": "1cm = 0.01m だから、15cm は 0.15m です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 150
+    },
+    {
+      "id": "units:decimal:cm:m:16",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "decimalConversion",
+      "prompt": "16cmは 何mですか。",
+      "explanation": "1cm = 0.01m だから、16cm は 0.16m です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 160
+    },
+    {
+      "id": "units:decimal:cm:m:27",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "decimalConversion",
+      "prompt": "27cmは 何mですか。",
+      "explanation": "1cm = 0.01m だから、27cm は 0.27m です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 270
+    },
+    {
+      "id": "units:decimal:cm:m:35",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "decimalConversion",
+      "prompt": "35cmは 何mですか。",
+      "explanation": "1cm = 0.01m だから、35cm は 0.35m です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 350
+    },
+    {
+      "id": "units:compound-part:mm:cm:1-5",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "15mmは 1cmと何mmですか。",
+      "explanation": "1cm は 10mm だから、のこりは 5mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 5
+    },
+    {
+      "id": "units:compound-part:mm:cm:2-8",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "28mmは 2cmと何mmですか。",
+      "explanation": "2cm は 20mm だから、のこりは 8mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 8
+    },
+    {
+      "id": "units:compound-part:mm:cm:3-6",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "36mmは 3cmと何mmですか。",
+      "explanation": "3cm は 30mm だから、のこりは 6mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 6
+    },
+    {
+      "id": "units:compound-part:mm:cm:4-2",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "42mmは 4cmと何mmですか。",
+      "explanation": "4cm は 40mm だから、のこりは 2mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 2
+    },
+    {
+      "id": "units:compound-part:mm:cm:5-4",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "54mmは 5cmと何mmですか。",
+      "explanation": "5cm は 50mm だから、のこりは 4mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 4
+    },
+    {
+      "id": "units:compound-part:mm:cm:6-9",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "69mmは 6cmと何mmですか。",
+      "explanation": "6cm は 60mm だから、のこりは 9mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 9
+    },
+    {
+      "id": "units:compound-part:mm:cm:7-3",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "73mmは 7cmと何mmですか。",
+      "explanation": "7cm は 70mm だから、のこりは 3mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 3
+    },
+    {
+      "id": "units:compound-part:mm:cm:8-7",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "87mmは 8cmと何mmですか。",
+      "explanation": "8cm は 80mm だから、のこりは 7mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 7
+    },
+    {
+      "id": "units:compound-part:cm:m:1-5",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "150cmは 1mと何cmですか。",
+      "explanation": "1m は 100cm だから、のこりは 50cm です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 500
+    },
+    {
+      "id": "units:compound-part:cm:m:2-8",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "280cmは 2mと何cmですか。",
+      "explanation": "2m は 200cm だから、のこりは 80cm です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 800
+    },
+    {
+      "id": "units:compound-part:cm:m:3-6",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "360cmは 3mと何cmですか。",
+      "explanation": "3m は 300cm だから、のこりは 60cm です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 600
+    },
+    {
+      "id": "units:compound-part:cm:m:4-2",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "420cmは 4mと何cmですか。",
+      "explanation": "4m は 400cm だから、のこりは 20cm です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 200
+    },
+    {
+      "id": "units:compound-part:cm:m:5-4",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "540cmは 5mと何cmですか。",
+      "explanation": "5m は 500cm だから、のこりは 40cm です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 400
+    },
+    {
+      "id": "units:compound-part:cm:m:6-9",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "690cmは 6mと何cmですか。",
+      "explanation": "6m は 600cm だから、のこりは 90cm です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 900
+    },
+    {
+      "id": "units:compound-part:cm:m:7-3",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "730cmは 7mと何cmですか。",
+      "explanation": "7m は 700cm だから、のこりは 30cm です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 300
+    },
+    {
+      "id": "units:compound-part:cm:m:8-7",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "870cmは 8mと何cmですか。",
+      "explanation": "8m は 800cm だから、のこりは 70cm です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 700
+    },
+    {
+      "id": "units:compound-part:m:km:1-5",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "1500mは 1kmと何mですか。",
+      "explanation": "1km は 1000m だから、のこりは 500m です。",
+      "requiredUnits": [
+        "m",
+        "km"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 500000
+    },
+    {
+      "id": "units:compound-part:m:km:2-8",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "2800mは 2kmと何mですか。",
+      "explanation": "2km は 2000m だから、のこりは 800m です。",
+      "requiredUnits": [
+        "m",
+        "km"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 800000
+    },
+    {
+      "id": "units:compound-part:m:km:3-6",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "3600mは 3kmと何mですか。",
+      "explanation": "3km は 3000m だから、のこりは 600m です。",
+      "requiredUnits": [
+        "m",
+        "km"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 600000
+    },
+    {
+      "id": "units:compound-part:m:km:4-2",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "4200mは 4kmと何mですか。",
+      "explanation": "4km は 4000m だから、のこりは 200m です。",
+      "requiredUnits": [
+        "m",
+        "km"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 200000
+    },
+    {
+      "id": "units:compound-part:m:km:5-4",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "5400mは 5kmと何mですか。",
+      "explanation": "5km は 5000m だから、のこりは 400m です。",
+      "requiredUnits": [
+        "m",
+        "km"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 400000
+    },
+    {
+      "id": "units:compound-part:m:km:6-9",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "6900mは 6kmと何mですか。",
+      "explanation": "6km は 6000m だから、のこりは 900m です。",
+      "requiredUnits": [
+        "m",
+        "km"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 900000
+    },
+    {
+      "id": "units:compound-part:m:km:7-3",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "7300mは 7kmと何mですか。",
+      "explanation": "7km は 7000m だから、のこりは 300m です。",
+      "requiredUnits": [
+        "m",
+        "km"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 300000
+    },
+    {
+      "id": "units:compound-part:m:km:8-7",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundPart",
+      "prompt": "8700mは 8kmと何mですか。",
+      "explanation": "8km は 8000m だから、のこりは 700m です。",
+      "requiredUnits": [
+        "m",
+        "km"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 700000
+    },
+    {
+      "id": "units:compound-single:mm:cm:1-5",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "1cm5mmは 何mmですか。",
+      "explanation": "1cm は 10mm だから、あわせて 15mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 15
+    },
+    {
+      "id": "units:compound-decimal:mm:cm:1-5",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "1cm5mmは 何cmですか。",
+      "explanation": "5mm は 0.5cm だから、あわせて 1.5cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 15
+    },
+    {
+      "id": "units:compound-single:mm:cm:2-8",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "2cm8mmは 何mmですか。",
+      "explanation": "2cm は 20mm だから、あわせて 28mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 28
+    },
+    {
+      "id": "units:compound-decimal:mm:cm:2-8",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "2cm8mmは 何cmですか。",
+      "explanation": "8mm は 0.8cm だから、あわせて 2.8cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 28
+    },
+    {
+      "id": "units:compound-single:mm:cm:3-6",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "3cm6mmは 何mmですか。",
+      "explanation": "3cm は 30mm だから、あわせて 36mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 36
+    },
+    {
+      "id": "units:compound-decimal:mm:cm:3-6",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "3cm6mmは 何cmですか。",
+      "explanation": "6mm は 0.6cm だから、あわせて 3.6cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 36
+    },
+    {
+      "id": "units:compound-single:mm:cm:4-2",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "4cm2mmは 何mmですか。",
+      "explanation": "4cm は 40mm だから、あわせて 42mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 42
+    },
+    {
+      "id": "units:compound-decimal:mm:cm:4-2",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "4cm2mmは 何cmですか。",
+      "explanation": "2mm は 0.2cm だから、あわせて 4.2cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 42
+    },
+    {
+      "id": "units:compound-single:mm:cm:5-4",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "5cm4mmは 何mmですか。",
+      "explanation": "5cm は 50mm だから、あわせて 54mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 54
+    },
+    {
+      "id": "units:compound-decimal:mm:cm:5-4",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "5cm4mmは 何cmですか。",
+      "explanation": "4mm は 0.4cm だから、あわせて 5.4cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 54
+    },
+    {
+      "id": "units:compound-single:mm:cm:6-9",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "6cm9mmは 何mmですか。",
+      "explanation": "6cm は 60mm だから、あわせて 69mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 69
+    },
+    {
+      "id": "units:compound-decimal:mm:cm:6-9",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "6cm9mmは 何cmですか。",
+      "explanation": "9mm は 0.9cm だから、あわせて 6.9cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 69
+    },
+    {
+      "id": "units:compound-single:mm:cm:7-3",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "7cm3mmは 何mmですか。",
+      "explanation": "7cm は 70mm だから、あわせて 73mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 73
+    },
+    {
+      "id": "units:compound-decimal:mm:cm:7-3",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "7cm3mmは 何cmですか。",
+      "explanation": "3mm は 0.3cm だから、あわせて 7.3cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 73
+    },
+    {
+      "id": "units:compound-single:mm:cm:8-7",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "8cm7mmは 何mmですか。",
+      "explanation": "8cm は 80mm だから、あわせて 87mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mm",
+      "answerBaseValue": 87
+    },
+    {
+      "id": "units:compound-decimal:mm:cm:8-7",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "8cm7mmは 何cmですか。",
+      "explanation": "7mm は 0.7cm だから、あわせて 8.7cm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 87
+    },
+    {
+      "id": "units:compound-single:cm:m:1-5",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "1m50cmは 何cmですか。",
+      "explanation": "1m は 100cm だから、あわせて 150cm です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 1500
+    },
+    {
+      "id": "units:compound-decimal:cm:m:1-5",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "1m50cmは 何mですか。",
+      "explanation": "50cm は 0.5m だから、あわせて 1.5m です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 1500
+    },
+    {
+      "id": "units:compound-single:cm:m:2-8",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "2m80cmは 何cmですか。",
+      "explanation": "2m は 200cm だから、あわせて 280cm です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 2800
+    },
+    {
+      "id": "units:compound-decimal:cm:m:2-8",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "2m80cmは 何mですか。",
+      "explanation": "80cm は 0.8m だから、あわせて 2.8m です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 2800
+    },
+    {
+      "id": "units:compound-single:cm:m:3-6",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "3m60cmは 何cmですか。",
+      "explanation": "3m は 300cm だから、あわせて 360cm です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 3600
+    },
+    {
+      "id": "units:compound-decimal:cm:m:3-6",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "3m60cmは 何mですか。",
+      "explanation": "60cm は 0.6m だから、あわせて 3.6m です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 3600
+    },
+    {
+      "id": "units:compound-single:cm:m:4-2",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "4m20cmは 何cmですか。",
+      "explanation": "4m は 400cm だから、あわせて 420cm です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "cm",
+      "answerBaseValue": 4200
+    },
+    {
+      "id": "units:compound-decimal:cm:m:4-2",
+      "grade": 4,
+      "unitCategory": "length",
+      "questionType": "compoundToSingle",
+      "prompt": "4m20cmは 何mですか。",
+      "explanation": "20cm は 0.2m だから、あわせて 4.2m です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m",
+      "answerBaseValue": 4200
+    },
+    {
       "id": "units:conversion:g:kg:1",
       "grade": 3,
       "unitCategory": "weight",
@@ -1093,6 +1993,486 @@
         }
       ],
       "answerChoiceId": "left"
+    },
+    {
+      "id": "units:compound-part:g:kg:1-5",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundPart",
+      "prompt": "1500gは 1kgと何gですか。",
+      "explanation": "1kg は 1000g だから、のこりは 500g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 500
+    },
+    {
+      "id": "units:compound-part:g:kg:2-8",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundPart",
+      "prompt": "2800gは 2kgと何gですか。",
+      "explanation": "2kg は 2000g だから、のこりは 800g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 800
+    },
+    {
+      "id": "units:compound-part:g:kg:3-6",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundPart",
+      "prompt": "3600gは 3kgと何gですか。",
+      "explanation": "3kg は 3000g だから、のこりは 600g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 600
+    },
+    {
+      "id": "units:compound-part:g:kg:4-2",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundPart",
+      "prompt": "4200gは 4kgと何gですか。",
+      "explanation": "4kg は 4000g だから、のこりは 200g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 200
+    },
+    {
+      "id": "units:compound-part:g:kg:5-4",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundPart",
+      "prompt": "5400gは 5kgと何gですか。",
+      "explanation": "5kg は 5000g だから、のこりは 400g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 400
+    },
+    {
+      "id": "units:compound-part:g:kg:6-9",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundPart",
+      "prompt": "6900gは 6kgと何gですか。",
+      "explanation": "6kg は 6000g だから、のこりは 900g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 900
+    },
+    {
+      "id": "units:compound-part:g:kg:7-3",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundPart",
+      "prompt": "7300gは 7kgと何gですか。",
+      "explanation": "7kg は 7000g だから、のこりは 300g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 300
+    },
+    {
+      "id": "units:compound-part:g:kg:8-7",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundPart",
+      "prompt": "8700gは 8kgと何gですか。",
+      "explanation": "8kg は 8000g だから、のこりは 700g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 700
+    },
+    {
+      "id": "units:compound-part:kg:t:1-5",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundPart",
+      "prompt": "1500kgは 1tと何kgですか。",
+      "explanation": "1t は 1000kg だから、のこりは 500kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 500000
+    },
+    {
+      "id": "units:compound-part:kg:t:2-8",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundPart",
+      "prompt": "2800kgは 2tと何kgですか。",
+      "explanation": "2t は 2000kg だから、のこりは 800kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 800000
+    },
+    {
+      "id": "units:compound-part:kg:t:3-6",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundPart",
+      "prompt": "3600kgは 3tと何kgですか。",
+      "explanation": "3t は 3000kg だから、のこりは 600kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 600000
+    },
+    {
+      "id": "units:compound-part:kg:t:4-2",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundPart",
+      "prompt": "4200kgは 4tと何kgですか。",
+      "explanation": "4t は 4000kg だから、のこりは 200kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 200000
+    },
+    {
+      "id": "units:compound-part:kg:t:5-4",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundPart",
+      "prompt": "5400kgは 5tと何kgですか。",
+      "explanation": "5t は 5000kg だから、のこりは 400kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 400000
+    },
+    {
+      "id": "units:compound-part:kg:t:6-9",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundPart",
+      "prompt": "6900kgは 6tと何kgですか。",
+      "explanation": "6t は 6000kg だから、のこりは 900kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 900000
+    },
+    {
+      "id": "units:compound-part:kg:t:7-3",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundPart",
+      "prompt": "7300kgは 7tと何kgですか。",
+      "explanation": "7t は 7000kg だから、のこりは 300kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 300000
+    },
+    {
+      "id": "units:compound-part:kg:t:8-7",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundPart",
+      "prompt": "8700kgは 8tと何kgですか。",
+      "explanation": "8t は 8000kg だから、のこりは 700kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 700000
+    },
+    {
+      "id": "units:compound-single:g:kg:1-5",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundToSingle",
+      "prompt": "1kg500gは 何gですか。",
+      "explanation": "1kg は 1000g だから、あわせて 1500g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 1500
+    },
+    {
+      "id": "units:compound-single:g:kg:2-8",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundToSingle",
+      "prompt": "2kg800gは 何gですか。",
+      "explanation": "2kg は 2000g だから、あわせて 2800g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 2800
+    },
+    {
+      "id": "units:compound-single:g:kg:3-6",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundToSingle",
+      "prompt": "3kg600gは 何gですか。",
+      "explanation": "3kg は 3000g だから、あわせて 3600g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 3600
+    },
+    {
+      "id": "units:compound-single:g:kg:4-2",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundToSingle",
+      "prompt": "4kg200gは 何gですか。",
+      "explanation": "4kg は 4000g だから、あわせて 4200g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 4200
+    },
+    {
+      "id": "units:compound-single:g:kg:5-4",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundToSingle",
+      "prompt": "5kg400gは 何gですか。",
+      "explanation": "5kg は 5000g だから、あわせて 5400g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 5400
+    },
+    {
+      "id": "units:compound-single:g:kg:6-9",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundToSingle",
+      "prompt": "6kg900gは 何gですか。",
+      "explanation": "6kg は 6000g だから、あわせて 6900g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 6900
+    },
+    {
+      "id": "units:compound-single:g:kg:7-3",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundToSingle",
+      "prompt": "7kg300gは 何gですか。",
+      "explanation": "7kg は 7000g だから、あわせて 7300g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 7300
+    },
+    {
+      "id": "units:compound-single:g:kg:8-7",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundToSingle",
+      "prompt": "8kg700gは 何gですか。",
+      "explanation": "8kg は 8000g だから、あわせて 8700g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "g",
+      "answerBaseValue": 8700
+    },
+    {
+      "id": "units:compound-single:kg:t:1-5",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundToSingle",
+      "prompt": "1t500kgは 何kgですか。",
+      "explanation": "1t は 1000kg だから、あわせて 1500kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 1500000
+    },
+    {
+      "id": "units:compound-single:kg:t:2-8",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundToSingle",
+      "prompt": "2t800kgは 何kgですか。",
+      "explanation": "2t は 2000kg だから、あわせて 2800kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 2800000
+    },
+    {
+      "id": "units:compound-single:kg:t:3-6",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundToSingle",
+      "prompt": "3t600kgは 何kgですか。",
+      "explanation": "3t は 3000kg だから、あわせて 3600kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 3600000
+    },
+    {
+      "id": "units:compound-single:kg:t:4-2",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundToSingle",
+      "prompt": "4t200kgは 何kgですか。",
+      "explanation": "4t は 4000kg だから、あわせて 4200kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 4200000
+    },
+    {
+      "id": "units:compound-single:kg:t:5-4",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundToSingle",
+      "prompt": "5t400kgは 何kgですか。",
+      "explanation": "5t は 5000kg だから、あわせて 5400kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 5400000
+    },
+    {
+      "id": "units:compound-single:kg:t:6-9",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundToSingle",
+      "prompt": "6t900kgは 何kgですか。",
+      "explanation": "6t は 6000kg だから、あわせて 6900kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 6900000
+    },
+    {
+      "id": "units:compound-single:kg:t:7-3",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundToSingle",
+      "prompt": "7t300kgは 何kgですか。",
+      "explanation": "7t は 7000kg だから、あわせて 7300kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 7300000
+    },
+    {
+      "id": "units:compound-single:kg:t:8-7",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundToSingle",
+      "prompt": "8t700kgは 何kgですか。",
+      "explanation": "8t は 8000kg だから、あわせて 8700kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "kg",
+      "answerBaseValue": 8700000
     },
     {
       "id": "units:conversion:mL:dL:1",
@@ -1669,6 +3049,786 @@
         }
       ],
       "answerChoiceId": "left"
+    },
+    {
+      "id": "units:decimal:mL:dL:15",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "decimalConversion",
+      "prompt": "15mLは 何dLですか。",
+      "explanation": "1mL = 0.01dL だから、15mL は 0.15dL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 15
+    },
+    {
+      "id": "units:decimal:mL:dL:16",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "decimalConversion",
+      "prompt": "16mLは 何dLですか。",
+      "explanation": "1mL = 0.01dL だから、16mL は 0.16dL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 16
+    },
+    {
+      "id": "units:decimal:mL:dL:27",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "decimalConversion",
+      "prompt": "27mLは 何dLですか。",
+      "explanation": "1mL = 0.01dL だから、27mL は 0.27dL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 27
+    },
+    {
+      "id": "units:decimal:mL:dL:35",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "decimalConversion",
+      "prompt": "35mLは 何dLですか。",
+      "explanation": "1mL = 0.01dL だから、35mL は 0.35dL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 35
+    },
+    {
+      "id": "units:decimal:dL:L:2",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "decimalConversion",
+      "prompt": "2dLは 何Lですか。",
+      "explanation": "1dL = 0.1L だから、2dL は 0.2L です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 200
+    },
+    {
+      "id": "units:decimal:dL:L:3",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "decimalConversion",
+      "prompt": "3dLは 何Lですか。",
+      "explanation": "1dL = 0.1L だから、3dL は 0.3L です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 300
+    },
+    {
+      "id": "units:decimal:dL:L:5",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "decimalConversion",
+      "prompt": "5dLは 何Lですか。",
+      "explanation": "1dL = 0.1L だから、5dL は 0.5L です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 500
+    },
+    {
+      "id": "units:decimal:dL:L:8",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "decimalConversion",
+      "prompt": "8dLは 何Lですか。",
+      "explanation": "1dL = 0.1L だから、8dL は 0.8L です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 800
+    },
+    {
+      "id": "units:decimal:dL:L:15",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "decimalConversion",
+      "prompt": "15dLは 何Lですか。",
+      "explanation": "1dL = 0.1L だから、15dL は 1.5L です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 1500
+    },
+    {
+      "id": "units:decimal:dL:L:16",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "decimalConversion",
+      "prompt": "16dLは 何Lですか。",
+      "explanation": "1dL = 0.1L だから、16dL は 1.6L です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 1600
+    },
+    {
+      "id": "units:decimal:dL:L:27",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "decimalConversion",
+      "prompt": "27dLは 何Lですか。",
+      "explanation": "1dL = 0.1L だから、27dL は 2.7L です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 2700
+    },
+    {
+      "id": "units:decimal:dL:L:35",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "decimalConversion",
+      "prompt": "35dLは 何Lですか。",
+      "explanation": "1dL = 0.1L だから、35dL は 3.5L です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 3500
+    },
+    {
+      "id": "units:compound-part:mL:dL:1-5",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundPart",
+      "prompt": "150mLは 1dLと何mLですか。",
+      "explanation": "1dL は 100mL だから、のこりは 50mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 50
+    },
+    {
+      "id": "units:compound-part:mL:dL:2-8",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundPart",
+      "prompt": "280mLは 2dLと何mLですか。",
+      "explanation": "2dL は 200mL だから、のこりは 80mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 80
+    },
+    {
+      "id": "units:compound-part:mL:dL:3-6",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundPart",
+      "prompt": "360mLは 3dLと何mLですか。",
+      "explanation": "3dL は 300mL だから、のこりは 60mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 60
+    },
+    {
+      "id": "units:compound-part:mL:dL:4-2",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundPart",
+      "prompt": "420mLは 4dLと何mLですか。",
+      "explanation": "4dL は 400mL だから、のこりは 20mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 20
+    },
+    {
+      "id": "units:compound-part:mL:dL:5-4",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundPart",
+      "prompt": "540mLは 5dLと何mLですか。",
+      "explanation": "5dL は 500mL だから、のこりは 40mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 40
+    },
+    {
+      "id": "units:compound-part:mL:dL:6-9",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundPart",
+      "prompt": "690mLは 6dLと何mLですか。",
+      "explanation": "6dL は 600mL だから、のこりは 90mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 90
+    },
+    {
+      "id": "units:compound-part:mL:dL:7-3",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundPart",
+      "prompt": "730mLは 7dLと何mLですか。",
+      "explanation": "7dL は 700mL だから、のこりは 30mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 30
+    },
+    {
+      "id": "units:compound-part:mL:dL:8-7",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundPart",
+      "prompt": "870mLは 8dLと何mLですか。",
+      "explanation": "8dL は 800mL だから、のこりは 70mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 70
+    },
+    {
+      "id": "units:compound-part:dL:L:1-5",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundPart",
+      "prompt": "15dLは 1Lと何dLですか。",
+      "explanation": "1L は 10dL だから、のこりは 5dL です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 500
+    },
+    {
+      "id": "units:compound-part:dL:L:2-8",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundPart",
+      "prompt": "28dLは 2Lと何dLですか。",
+      "explanation": "2L は 20dL だから、のこりは 8dL です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 800
+    },
+    {
+      "id": "units:compound-part:dL:L:3-6",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundPart",
+      "prompt": "36dLは 3Lと何dLですか。",
+      "explanation": "3L は 30dL だから、のこりは 6dL です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 600
+    },
+    {
+      "id": "units:compound-part:dL:L:4-2",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundPart",
+      "prompt": "42dLは 4Lと何dLですか。",
+      "explanation": "4L は 40dL だから、のこりは 2dL です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 200
+    },
+    {
+      "id": "units:compound-part:dL:L:5-4",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundPart",
+      "prompt": "54dLは 5Lと何dLですか。",
+      "explanation": "5L は 50dL だから、のこりは 4dL です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 400
+    },
+    {
+      "id": "units:compound-part:dL:L:6-9",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundPart",
+      "prompt": "69dLは 6Lと何dLですか。",
+      "explanation": "6L は 60dL だから、のこりは 9dL です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 900
+    },
+    {
+      "id": "units:compound-part:dL:L:7-3",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundPart",
+      "prompt": "73dLは 7Lと何dLですか。",
+      "explanation": "7L は 70dL だから、のこりは 3dL です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 300
+    },
+    {
+      "id": "units:compound-part:dL:L:8-7",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundPart",
+      "prompt": "87dLは 8Lと何dLですか。",
+      "explanation": "8L は 80dL だから、のこりは 7dL です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 700
+    },
+    {
+      "id": "units:compound-single:mL:dL:1-5",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "1dL50mLは 何mLですか。",
+      "explanation": "1dL は 100mL だから、あわせて 150mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 150
+    },
+    {
+      "id": "units:compound-decimal:mL:dL:1-5",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "1dL50mLは 何dLですか。",
+      "explanation": "50mL は 0.5dL だから、あわせて 1.5dL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 150
+    },
+    {
+      "id": "units:compound-single:mL:dL:2-8",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "2dL80mLは 何mLですか。",
+      "explanation": "2dL は 200mL だから、あわせて 280mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 280
+    },
+    {
+      "id": "units:compound-decimal:mL:dL:2-8",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "2dL80mLは 何dLですか。",
+      "explanation": "80mL は 0.8dL だから、あわせて 2.8dL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 280
+    },
+    {
+      "id": "units:compound-single:mL:dL:3-6",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "3dL60mLは 何mLですか。",
+      "explanation": "3dL は 300mL だから、あわせて 360mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 360
+    },
+    {
+      "id": "units:compound-decimal:mL:dL:3-6",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "3dL60mLは 何dLですか。",
+      "explanation": "60mL は 0.6dL だから、あわせて 3.6dL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 360
+    },
+    {
+      "id": "units:compound-single:mL:dL:4-2",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "4dL20mLは 何mLですか。",
+      "explanation": "4dL は 400mL だから、あわせて 420mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 420
+    },
+    {
+      "id": "units:compound-decimal:mL:dL:4-2",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "4dL20mLは 何dLですか。",
+      "explanation": "20mL は 0.2dL だから、あわせて 4.2dL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 420
+    },
+    {
+      "id": "units:compound-single:mL:dL:5-4",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "5dL40mLは 何mLですか。",
+      "explanation": "5dL は 500mL だから、あわせて 540mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 540
+    },
+    {
+      "id": "units:compound-decimal:mL:dL:5-4",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "5dL40mLは 何dLですか。",
+      "explanation": "40mL は 0.4dL だから、あわせて 5.4dL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 540
+    },
+    {
+      "id": "units:compound-single:mL:dL:6-9",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "6dL90mLは 何mLですか。",
+      "explanation": "6dL は 600mL だから、あわせて 690mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 690
+    },
+    {
+      "id": "units:compound-decimal:mL:dL:6-9",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "6dL90mLは 何dLですか。",
+      "explanation": "90mL は 0.9dL だから、あわせて 6.9dL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 690
+    },
+    {
+      "id": "units:compound-single:mL:dL:7-3",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "7dL30mLは 何mLですか。",
+      "explanation": "7dL は 700mL だから、あわせて 730mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 730
+    },
+    {
+      "id": "units:compound-decimal:mL:dL:7-3",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "7dL30mLは 何dLですか。",
+      "explanation": "30mL は 0.3dL だから、あわせて 7.3dL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 730
+    },
+    {
+      "id": "units:compound-single:mL:dL:8-7",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "8dL70mLは 何mLですか。",
+      "explanation": "8dL は 800mL だから、あわせて 870mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "mL",
+      "answerBaseValue": 870
+    },
+    {
+      "id": "units:compound-decimal:mL:dL:8-7",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "8dL70mLは 何dLですか。",
+      "explanation": "70mL は 0.7dL だから、あわせて 8.7dL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 870
+    },
+    {
+      "id": "units:compound-single:dL:L:1-5",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "1L5dLは 何dLですか。",
+      "explanation": "1L は 10dL だから、あわせて 15dL です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 1500
+    },
+    {
+      "id": "units:compound-decimal:dL:L:1-5",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "1L5dLは 何Lですか。",
+      "explanation": "5dL は 0.5L だから、あわせて 1.5L です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 1500
+    },
+    {
+      "id": "units:compound-single:dL:L:2-8",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "2L8dLは 何dLですか。",
+      "explanation": "2L は 20dL だから、あわせて 28dL です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 2800
+    },
+    {
+      "id": "units:compound-decimal:dL:L:2-8",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "2L8dLは 何Lですか。",
+      "explanation": "8dL は 0.8L だから、あわせて 2.8L です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 2800
+    },
+    {
+      "id": "units:compound-single:dL:L:3-6",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "3L6dLは 何dLですか。",
+      "explanation": "3L は 30dL だから、あわせて 36dL です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 3600
+    },
+    {
+      "id": "units:compound-decimal:dL:L:3-6",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "3L6dLは 何Lですか。",
+      "explanation": "6dL は 0.6L だから、あわせて 3.6L です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 3600
+    },
+    {
+      "id": "units:compound-single:dL:L:4-2",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "4L2dLは 何dLですか。",
+      "explanation": "4L は 40dL だから、あわせて 42dL です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "dL",
+      "answerBaseValue": 4200
+    },
+    {
+      "id": "units:compound-decimal:dL:L:4-2",
+      "grade": 4,
+      "unitCategory": "volume",
+      "questionType": "compoundToSingle",
+      "prompt": "4L2dLは 何Lですか。",
+      "explanation": "2dL は 0.2L だから、あわせて 4.2L です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "L",
+      "answerBaseValue": 4200
     },
     {
       "id": "units:conversion:sec:min:1",
@@ -2389,6 +4549,516 @@
         }
       ],
       "answerChoiceId": "left"
+    },
+    {
+      "id": "units:compound-part:sec:min:1-5",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundPart",
+      "prompt": "90秒は 1分と何秒ですか。",
+      "explanation": "1分 は 60秒 だから、のこりは 30秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 30
+    },
+    {
+      "id": "units:compound-part:sec:min:2-8",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundPart",
+      "prompt": "168秒は 2分と何秒ですか。",
+      "explanation": "2分 は 120秒 だから、のこりは 48秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 48
+    },
+    {
+      "id": "units:compound-part:sec:min:3-6",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundPart",
+      "prompt": "216秒は 3分と何秒ですか。",
+      "explanation": "3分 は 180秒 だから、のこりは 36秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 36
+    },
+    {
+      "id": "units:compound-part:sec:min:4-2",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundPart",
+      "prompt": "252秒は 4分と何秒ですか。",
+      "explanation": "4分 は 240秒 だから、のこりは 12秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 12
+    },
+    {
+      "id": "units:compound-part:sec:min:5-4",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundPart",
+      "prompt": "324秒は 5分と何秒ですか。",
+      "explanation": "5分 は 300秒 だから、のこりは 24秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 24
+    },
+    {
+      "id": "units:compound-part:sec:min:6-9",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundPart",
+      "prompt": "414秒は 6分と何秒ですか。",
+      "explanation": "6分 は 360秒 だから、のこりは 54秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 54
+    },
+    {
+      "id": "units:compound-part:sec:min:7-3",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundPart",
+      "prompt": "438秒は 7分と何秒ですか。",
+      "explanation": "7分 は 420秒 だから、のこりは 18秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 18
+    },
+    {
+      "id": "units:compound-part:sec:min:8-7",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundPart",
+      "prompt": "522秒は 8分と何秒ですか。",
+      "explanation": "8分 は 480秒 だから、のこりは 42秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 42
+    },
+    {
+      "id": "units:compound-part:min:hour:1-5",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundPart",
+      "prompt": "90分は 1時間と何分ですか。",
+      "explanation": "1時間 は 60分 だから、のこりは 30分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 1800
+    },
+    {
+      "id": "units:compound-part:min:hour:2-8",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundPart",
+      "prompt": "168分は 2時間と何分ですか。",
+      "explanation": "2時間 は 120分 だから、のこりは 48分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 2880
+    },
+    {
+      "id": "units:compound-part:min:hour:3-6",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundPart",
+      "prompt": "216分は 3時間と何分ですか。",
+      "explanation": "3時間 は 180分 だから、のこりは 36分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 2160
+    },
+    {
+      "id": "units:compound-part:min:hour:4-2",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundPart",
+      "prompt": "252分は 4時間と何分ですか。",
+      "explanation": "4時間 は 240分 だから、のこりは 12分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 720
+    },
+    {
+      "id": "units:compound-part:min:hour:5-4",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundPart",
+      "prompt": "324分は 5時間と何分ですか。",
+      "explanation": "5時間 は 300分 だから、のこりは 24分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 1440
+    },
+    {
+      "id": "units:compound-part:min:hour:6-9",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundPart",
+      "prompt": "414分は 6時間と何分ですか。",
+      "explanation": "6時間 は 360分 だから、のこりは 54分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 3240
+    },
+    {
+      "id": "units:compound-part:min:hour:7-3",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundPart",
+      "prompt": "438分は 7時間と何分ですか。",
+      "explanation": "7時間 は 420分 だから、のこりは 18分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 1080
+    },
+    {
+      "id": "units:compound-part:min:hour:8-7",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundPart",
+      "prompt": "522分は 8時間と何分ですか。",
+      "explanation": "8時間 は 480分 だから、のこりは 42分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 2520
+    },
+    {
+      "id": "units:compound-part:hour:day:1-5",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundPart",
+      "prompt": "36時間は 1日と何時間ですか。",
+      "explanation": "1日 は 24時間 だから、のこりは 12時間 です。",
+      "requiredUnits": [
+        "hour",
+        "day"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "hour",
+      "answerBaseValue": 43200
+    },
+    {
+      "id": "units:compound-single:sec:min:1-5",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundToSingle",
+      "prompt": "1分30秒は 何秒ですか。",
+      "explanation": "1分 は 60秒 だから、あわせて 90秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 90
+    },
+    {
+      "id": "units:compound-single:sec:min:2-8",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundToSingle",
+      "prompt": "2分48秒は 何秒ですか。",
+      "explanation": "2分 は 120秒 だから、あわせて 168秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 168
+    },
+    {
+      "id": "units:compound-single:sec:min:3-6",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundToSingle",
+      "prompt": "3分36秒は 何秒ですか。",
+      "explanation": "3分 は 180秒 だから、あわせて 216秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 216
+    },
+    {
+      "id": "units:compound-single:sec:min:4-2",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundToSingle",
+      "prompt": "4分12秒は 何秒ですか。",
+      "explanation": "4分 は 240秒 だから、あわせて 252秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 252
+    },
+    {
+      "id": "units:compound-single:sec:min:5-4",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundToSingle",
+      "prompt": "5分24秒は 何秒ですか。",
+      "explanation": "5分 は 300秒 だから、あわせて 324秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 324
+    },
+    {
+      "id": "units:compound-single:sec:min:6-9",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundToSingle",
+      "prompt": "6分54秒は 何秒ですか。",
+      "explanation": "6分 は 360秒 だから、あわせて 414秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 414
+    },
+    {
+      "id": "units:compound-single:sec:min:7-3",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundToSingle",
+      "prompt": "7分18秒は 何秒ですか。",
+      "explanation": "7分 は 420秒 だから、あわせて 438秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 438
+    },
+    {
+      "id": "units:compound-single:sec:min:8-7",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundToSingle",
+      "prompt": "8分42秒は 何秒ですか。",
+      "explanation": "8分 は 480秒 だから、あわせて 522秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "sec",
+      "answerBaseValue": 522
+    },
+    {
+      "id": "units:compound-single:min:hour:1-5",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundToSingle",
+      "prompt": "1時間30分は 何分ですか。",
+      "explanation": "1時間 は 60分 だから、あわせて 90分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 5400
+    },
+    {
+      "id": "units:compound-single:min:hour:2-8",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundToSingle",
+      "prompt": "2時間48分は 何分ですか。",
+      "explanation": "2時間 は 120分 だから、あわせて 168分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 10080
+    },
+    {
+      "id": "units:compound-single:min:hour:3-6",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundToSingle",
+      "prompt": "3時間36分は 何分ですか。",
+      "explanation": "3時間 は 180分 だから、あわせて 216分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 12960
+    },
+    {
+      "id": "units:compound-single:min:hour:4-2",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundToSingle",
+      "prompt": "4時間12分は 何分ですか。",
+      "explanation": "4時間 は 240分 だから、あわせて 252分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 15120
+    },
+    {
+      "id": "units:compound-single:min:hour:5-4",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundToSingle",
+      "prompt": "5時間24分は 何分ですか。",
+      "explanation": "5時間 は 300分 だから、あわせて 324分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 19440
+    },
+    {
+      "id": "units:compound-single:min:hour:6-9",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundToSingle",
+      "prompt": "6時間54分は 何分ですか。",
+      "explanation": "6時間 は 360分 だから、あわせて 414分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 24840
+    },
+    {
+      "id": "units:compound-single:min:hour:7-3",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundToSingle",
+      "prompt": "7時間18分は 何分ですか。",
+      "explanation": "7時間 は 420分 だから、あわせて 438分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 26280
+    },
+    {
+      "id": "units:compound-single:min:hour:8-7",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundToSingle",
+      "prompt": "8時間42分は 何分ですか。",
+      "explanation": "8時間 は 480分 だから、あわせて 522分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "min",
+      "answerBaseValue": 31320
+    },
+    {
+      "id": "units:compound-single:hour:day:1-5",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundToSingle",
+      "prompt": "1日12時間は 何時間ですか。",
+      "explanation": "1日 は 24時間 だから、あわせて 36時間 です。",
+      "requiredUnits": [
+        "hour",
+        "day"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "hour",
+      "answerBaseValue": 129600
     },
     {
       "id": "units:conversion:cm2:m2:1",
@@ -3181,6 +5851,906 @@
         }
       ],
       "answerChoiceId": "right"
+    },
+    {
+      "id": "units:decimal:m2:a:15",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "decimalConversion",
+      "prompt": "15m²は 何aですか。",
+      "explanation": "1m² = 0.01a だから、15m² は 0.15a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 150000
+    },
+    {
+      "id": "units:decimal:m2:a:16",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "decimalConversion",
+      "prompt": "16m²は 何aですか。",
+      "explanation": "1m² = 0.01a だから、16m² は 0.16a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 160000
+    },
+    {
+      "id": "units:decimal:m2:a:27",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "decimalConversion",
+      "prompt": "27m²は 何aですか。",
+      "explanation": "1m² = 0.01a だから、27m² は 0.27a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 270000
+    },
+    {
+      "id": "units:decimal:m2:a:35",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "decimalConversion",
+      "prompt": "35m²は 何aですか。",
+      "explanation": "1m² = 0.01a だから、35m² は 0.35a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 350000
+    },
+    {
+      "id": "units:decimal:a:ha:15",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "decimalConversion",
+      "prompt": "15aは 何haですか。",
+      "explanation": "1a = 0.01ha だから、15a は 0.15ha です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "ha",
+      "answerBaseValue": 15000000
+    },
+    {
+      "id": "units:decimal:a:ha:16",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "decimalConversion",
+      "prompt": "16aは 何haですか。",
+      "explanation": "1a = 0.01ha だから、16a は 0.16ha です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "ha",
+      "answerBaseValue": 16000000
+    },
+    {
+      "id": "units:decimal:a:ha:27",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "decimalConversion",
+      "prompt": "27aは 何haですか。",
+      "explanation": "1a = 0.01ha だから、27a は 0.27ha です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "ha",
+      "answerBaseValue": 27000000
+    },
+    {
+      "id": "units:decimal:a:ha:35",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "decimalConversion",
+      "prompt": "35aは 何haですか。",
+      "explanation": "1a = 0.01ha だから、35a は 0.35ha です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "ha",
+      "answerBaseValue": 35000000
+    },
+    {
+      "id": "units:decimal:ha:km2:15",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "decimalConversion",
+      "prompt": "15haは 何km²ですか。",
+      "explanation": "1ha = 0.01km² だから、15ha は 0.15km² です。",
+      "requiredUnits": [
+        "ha",
+        "km2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "km2",
+      "answerBaseValue": 1500000000
+    },
+    {
+      "id": "units:decimal:ha:km2:16",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "decimalConversion",
+      "prompt": "16haは 何km²ですか。",
+      "explanation": "1ha = 0.01km² だから、16ha は 0.16km² です。",
+      "requiredUnits": [
+        "ha",
+        "km2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "km2",
+      "answerBaseValue": 1600000000
+    },
+    {
+      "id": "units:decimal:ha:km2:27",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "decimalConversion",
+      "prompt": "27haは 何km²ですか。",
+      "explanation": "1ha = 0.01km² だから、27ha は 0.27km² です。",
+      "requiredUnits": [
+        "ha",
+        "km2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "km2",
+      "answerBaseValue": 2700000000
+    },
+    {
+      "id": "units:decimal:ha:km2:35",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "decimalConversion",
+      "prompt": "35haは 何km²ですか。",
+      "explanation": "1ha = 0.01km² だから、35ha は 0.35km² です。",
+      "requiredUnits": [
+        "ha",
+        "km2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "km2",
+      "answerBaseValue": 3500000000
+    },
+    {
+      "id": "units:compound-part:m2:a:1-5",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "150m²は 1aと何m²ですか。",
+      "explanation": "1a は 100m² だから、のこりは 50m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 500000
+    },
+    {
+      "id": "units:compound-part:m2:a:2-8",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "280m²は 2aと何m²ですか。",
+      "explanation": "2a は 200m² だから、のこりは 80m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 800000
+    },
+    {
+      "id": "units:compound-part:m2:a:3-6",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "360m²は 3aと何m²ですか。",
+      "explanation": "3a は 300m² だから、のこりは 60m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 600000
+    },
+    {
+      "id": "units:compound-part:m2:a:4-2",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "420m²は 4aと何m²ですか。",
+      "explanation": "4a は 400m² だから、のこりは 20m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 200000
+    },
+    {
+      "id": "units:compound-part:m2:a:5-4",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "540m²は 5aと何m²ですか。",
+      "explanation": "5a は 500m² だから、のこりは 40m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 400000
+    },
+    {
+      "id": "units:compound-part:m2:a:6-9",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "690m²は 6aと何m²ですか。",
+      "explanation": "6a は 600m² だから、のこりは 90m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 900000
+    },
+    {
+      "id": "units:compound-part:m2:a:7-3",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "730m²は 7aと何m²ですか。",
+      "explanation": "7a は 700m² だから、のこりは 30m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 300000
+    },
+    {
+      "id": "units:compound-part:m2:a:8-7",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "870m²は 8aと何m²ですか。",
+      "explanation": "8a は 800m² だから、のこりは 70m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 700000
+    },
+    {
+      "id": "units:compound-part:a:ha:1-5",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "150aは 1haと何aですか。",
+      "explanation": "1ha は 100a だから、のこりは 50a です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 50000000
+    },
+    {
+      "id": "units:compound-part:a:ha:2-8",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "280aは 2haと何aですか。",
+      "explanation": "2ha は 200a だから、のこりは 80a です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 80000000
+    },
+    {
+      "id": "units:compound-part:a:ha:3-6",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "360aは 3haと何aですか。",
+      "explanation": "3ha は 300a だから、のこりは 60a です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 60000000
+    },
+    {
+      "id": "units:compound-part:a:ha:4-2",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "420aは 4haと何aですか。",
+      "explanation": "4ha は 400a だから、のこりは 20a です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 20000000
+    },
+    {
+      "id": "units:compound-part:a:ha:5-4",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "540aは 5haと何aですか。",
+      "explanation": "5ha は 500a だから、のこりは 40a です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 40000000
+    },
+    {
+      "id": "units:compound-part:a:ha:6-9",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "690aは 6haと何aですか。",
+      "explanation": "6ha は 600a だから、のこりは 90a です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 90000000
+    },
+    {
+      "id": "units:compound-part:a:ha:7-3",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "730aは 7haと何aですか。",
+      "explanation": "7ha は 700a だから、のこりは 30a です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 30000000
+    },
+    {
+      "id": "units:compound-part:a:ha:8-7",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "870aは 8haと何aですか。",
+      "explanation": "8ha は 800a だから、のこりは 70a です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 70000000
+    },
+    {
+      "id": "units:compound-part:ha:km2:1-5",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "150haは 1km²と何haですか。",
+      "explanation": "1km² は 100ha だから、のこりは 50ha です。",
+      "requiredUnits": [
+        "ha",
+        "km2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "ha",
+      "answerBaseValue": 5000000000
+    },
+    {
+      "id": "units:compound-part:ha:km2:2-8",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "280haは 2km²と何haですか。",
+      "explanation": "2km² は 200ha だから、のこりは 80ha です。",
+      "requiredUnits": [
+        "ha",
+        "km2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "ha",
+      "answerBaseValue": 8000000000
+    },
+    {
+      "id": "units:compound-part:ha:km2:3-6",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "360haは 3km²と何haですか。",
+      "explanation": "3km² は 300ha だから、のこりは 60ha です。",
+      "requiredUnits": [
+        "ha",
+        "km2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "ha",
+      "answerBaseValue": 6000000000
+    },
+    {
+      "id": "units:compound-part:ha:km2:4-2",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "420haは 4km²と何haですか。",
+      "explanation": "4km² は 400ha だから、のこりは 20ha です。",
+      "requiredUnits": [
+        "ha",
+        "km2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "ha",
+      "answerBaseValue": 2000000000
+    },
+    {
+      "id": "units:compound-part:ha:km2:5-4",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "540haは 5km²と何haですか。",
+      "explanation": "5km² は 500ha だから、のこりは 40ha です。",
+      "requiredUnits": [
+        "ha",
+        "km2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "ha",
+      "answerBaseValue": 4000000000
+    },
+    {
+      "id": "units:compound-part:ha:km2:6-9",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "690haは 6km²と何haですか。",
+      "explanation": "6km² は 600ha だから、のこりは 90ha です。",
+      "requiredUnits": [
+        "ha",
+        "km2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "ha",
+      "answerBaseValue": 9000000000
+    },
+    {
+      "id": "units:compound-part:ha:km2:7-3",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "730haは 7km²と何haですか。",
+      "explanation": "7km² は 700ha だから、のこりは 30ha です。",
+      "requiredUnits": [
+        "ha",
+        "km2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "ha",
+      "answerBaseValue": 3000000000
+    },
+    {
+      "id": "units:compound-part:ha:km2:8-7",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundPart",
+      "prompt": "870haは 8km²と何haですか。",
+      "explanation": "8km² は 800ha だから、のこりは 70ha です。",
+      "requiredUnits": [
+        "ha",
+        "km2"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "ha",
+      "answerBaseValue": 7000000000
+    },
+    {
+      "id": "units:compound-single:m2:a:1-5",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "1a50m²は 何m²ですか。",
+      "explanation": "1a は 100m² だから、あわせて 150m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 1500000
+    },
+    {
+      "id": "units:compound-decimal:m2:a:1-5",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "1a50m²は 何aですか。",
+      "explanation": "50m² は 0.5a だから、あわせて 1.5a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 1500000
+    },
+    {
+      "id": "units:compound-single:m2:a:2-8",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "2a80m²は 何m²ですか。",
+      "explanation": "2a は 200m² だから、あわせて 280m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 2800000
+    },
+    {
+      "id": "units:compound-decimal:m2:a:2-8",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "2a80m²は 何aですか。",
+      "explanation": "80m² は 0.8a だから、あわせて 2.8a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 2800000
+    },
+    {
+      "id": "units:compound-single:m2:a:3-6",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "3a60m²は 何m²ですか。",
+      "explanation": "3a は 300m² だから、あわせて 360m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 3600000
+    },
+    {
+      "id": "units:compound-decimal:m2:a:3-6",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "3a60m²は 何aですか。",
+      "explanation": "60m² は 0.6a だから、あわせて 3.6a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 3600000
+    },
+    {
+      "id": "units:compound-single:m2:a:4-2",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "4a20m²は 何m²ですか。",
+      "explanation": "4a は 400m² だから、あわせて 420m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 4200000
+    },
+    {
+      "id": "units:compound-decimal:m2:a:4-2",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "4a20m²は 何aですか。",
+      "explanation": "20m² は 0.2a だから、あわせて 4.2a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 4200000
+    },
+    {
+      "id": "units:compound-single:m2:a:5-4",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "5a40m²は 何m²ですか。",
+      "explanation": "5a は 500m² だから、あわせて 540m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 5400000
+    },
+    {
+      "id": "units:compound-decimal:m2:a:5-4",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "5a40m²は 何aですか。",
+      "explanation": "40m² は 0.4a だから、あわせて 5.4a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 5400000
+    },
+    {
+      "id": "units:compound-single:m2:a:6-9",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "6a90m²は 何m²ですか。",
+      "explanation": "6a は 600m² だから、あわせて 690m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 6900000
+    },
+    {
+      "id": "units:compound-decimal:m2:a:6-9",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "6a90m²は 何aですか。",
+      "explanation": "90m² は 0.9a だから、あわせて 6.9a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 6900000
+    },
+    {
+      "id": "units:compound-single:m2:a:7-3",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "7a30m²は 何m²ですか。",
+      "explanation": "7a は 700m² だから、あわせて 730m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 7300000
+    },
+    {
+      "id": "units:compound-decimal:m2:a:7-3",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "7a30m²は 何aですか。",
+      "explanation": "30m² は 0.3a だから、あわせて 7.3a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 7300000
+    },
+    {
+      "id": "units:compound-single:m2:a:8-7",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "8a70m²は 何m²ですか。",
+      "explanation": "8a は 800m² だから、あわせて 870m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "m2",
+      "answerBaseValue": 8700000
+    },
+    {
+      "id": "units:compound-decimal:m2:a:8-7",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "8a70m²は 何aですか。",
+      "explanation": "70m² は 0.7a だから、あわせて 8.7a です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 8700000
+    },
+    {
+      "id": "units:compound-single:a:ha:1-5",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "1ha50aは 何aですか。",
+      "explanation": "1ha は 100a だから、あわせて 150a です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 150000000
+    },
+    {
+      "id": "units:compound-decimal:a:ha:1-5",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "1ha50aは 何haですか。",
+      "explanation": "50a は 0.5ha だから、あわせて 1.5ha です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "ha",
+      "answerBaseValue": 150000000
+    },
+    {
+      "id": "units:compound-single:a:ha:2-8",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "2ha80aは 何aですか。",
+      "explanation": "2ha は 200a だから、あわせて 280a です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 280000000
+    },
+    {
+      "id": "units:compound-decimal:a:ha:2-8",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "2ha80aは 何haですか。",
+      "explanation": "80a は 0.8ha だから、あわせて 2.8ha です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "ha",
+      "answerBaseValue": 280000000
+    },
+    {
+      "id": "units:compound-single:a:ha:3-6",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "3ha60aは 何aですか。",
+      "explanation": "3ha は 300a だから、あわせて 360a です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 360000000
+    },
+    {
+      "id": "units:compound-decimal:a:ha:3-6",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "3ha60aは 何haですか。",
+      "explanation": "60a は 0.6ha だから、あわせて 3.6ha です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "ha",
+      "answerBaseValue": 360000000
+    },
+    {
+      "id": "units:compound-single:a:ha:4-2",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "4ha20aは 何aですか。",
+      "explanation": "4ha は 400a だから、あわせて 420a です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "a",
+      "answerBaseValue": 420000000
+    },
+    {
+      "id": "units:compound-decimal:a:ha:4-2",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundToSingle",
+      "prompt": "4ha20aは 何haですか。",
+      "explanation": "20a は 0.2ha だから、あわせて 4.2ha です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "numeric",
+      "answerUnit": "ha",
+      "answerBaseValue": 420000000
     },
     {
       "id": "units:appropriateUnit:au-textbook-thickness",

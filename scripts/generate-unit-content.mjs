@@ -172,12 +172,166 @@ function comparisonQuestions(category) {
   return questions.slice(0, MAX_PER_CATEGORY_PER_TYPE);
 }
 
+
+/**
+ * Amounts that split cleanly into a whole larger part and a remainder, the
+ * shape the grade 3-4 drill uses most: 2800m is 2km and 800m.
+ */
+const COMPOUND_PARTS = [
+  [1, 5], [2, 8], [3, 6], [4, 2], [5, 4], [6, 9], [7, 3], [8, 7],
+];
+/** Numerators for a decimal answer, over a ratio of 10 or 100. */
+const DECIMAL_NUMERATORS = [2, 3, 5, 8, 15, 16, 27, 35];
+
+/** Pairs of units one step apart, larger first, within a factor of 1000. */
+function adjacentPairs(category) {
+  const units = [...unitsForCategory(category)].sort((a, b) => a.baseFactor - b.baseFactor);
+  const pairs = [];
+  for (let index = 0; index + 1 < units.length; index++) {
+    const small = units[index];
+    const big = units[index + 1];
+    const ratio = big.baseFactor / small.baseFactor;
+    if (!Number.isSafeInteger(ratio) || ratio < 10 || ratio > 1000) continue;
+    pairs.push({ big, small, ratio });
+  }
+  return pairs;
+}
+
+/**
+ * "8mm は何cm ですか" with the answer 0.8. The plain conversion generator
+ * builds upwards from whole answers on purpose, so without this format the
+ * pack never asks for a decimal at all, even though the keypad has a point
+ * and docs/units-plan.md 3.1 expects grade 4 to use it.
+ */
+function decimalConversionQuestions(category) {
+  const questions = [];
+  for (const { big, small, ratio } of adjacentPairs(category)) {
+    // Only powers of ten: a decimal of a minute is not how time is written,
+    // and only these read as the "10等分した1つ分" the drill teaches.
+    if (ratio !== 10 && ratio !== 100) continue;
+    const grade = Math.max(4, questionGrade([big, small]));
+    if (grade > 4) continue;
+    for (const numerator of DECIMAL_NUMERATORS) {
+      if (numerator % ratio === 0) continue;
+      // Keep the answer at 0.1 or more; 0.02cm is a sliver, not a lesson.
+      if (numerator * 10 < ratio) continue;
+      const baseValue = numerator * small.baseFactor;
+      if (!canRender(baseValue, small.id) || !canRender(baseValue, big.id)) continue;
+      questions.push({
+        id: `units:decimal:${small.id}:${big.id}:${numerator}`,
+        grade,
+        unitCategory: category,
+        questionType: "decimalConversion",
+        prompt: `${formatQuantity(baseValue, small.id)}は 何${big.label}ですか。`,
+        explanation: `1${small.label} = ${formatQuantity(small.baseFactor, big.id)} だから、`
+          + `${formatQuantity(baseValue, small.id)} は ${formatQuantity(baseValue, big.id)} です。`,
+        requiredUnits: [small.id, big.id],
+        answerType: "numeric",
+        answerUnit: big.id,
+        answerBaseValue: baseValue,
+      });
+    }
+  }
+  return questions.slice(0, MAX_PER_CATEGORY_PER_TYPE);
+}
+
+/**
+ * "2800m は 2km と何m ですか". docs/units-plan.md 3.1 rules out answers made of
+ * two numbers, so the larger part is given and only the remainder is asked.
+ */
+function compoundPartQuestions(category) {
+  const questions = [];
+  for (const { big, small, ratio } of adjacentPairs(category)) {
+    const grade = questionGrade([big, small]);
+    if (grade > 4) continue;
+    for (const [wholes, tenths] of COMPOUND_PARTS) {
+      const remainder = tenths * (ratio / 10);
+      if (!Number.isSafeInteger(remainder) || remainder === 0) continue;
+      const baseValue = (wholes * ratio + remainder) * small.baseFactor;
+      if (!canRender(baseValue, small.id)) continue;
+      questions.push({
+        id: `units:compound-part:${small.id}:${big.id}:${wholes}-${tenths}`,
+        grade,
+        unitCategory: category,
+        questionType: "compoundPart",
+        prompt: `${formatQuantity(baseValue, small.id)}は `
+          + `${formatQuantity(wholes * big.baseFactor, big.id)}と何${small.label}ですか。`,
+        explanation: `${formatQuantity(wholes * big.baseFactor, big.id)} は `
+          + `${formatQuantity(wholes * big.baseFactor, small.id)} だから、のこりは `
+          + `${formatQuantity(remainder * small.baseFactor, small.id)} です。`,
+        requiredUnits: [small.id, big.id],
+        answerType: "numeric",
+        answerUnit: small.id,
+        answerBaseValue: remainder * small.baseFactor,
+      });
+    }
+  }
+  return questions.slice(0, MAX_PER_CATEGORY_PER_TYPE);
+}
+
+/**
+ * "5cm4mm は何mm ですか" and, for grade 4, the same amount as a decimal of the
+ * larger unit. The child reads a compound amount and answers with one number.
+ */
+function compoundToSingleQuestions(category) {
+  const questions = [];
+  for (const { big, small, ratio } of adjacentPairs(category)) {
+    const baseGrade = questionGrade([big, small]);
+    if (baseGrade > 4) continue;
+    for (const [wholes, tenths] of COMPOUND_PARTS) {
+      const remainder = tenths * (ratio / 10);
+      if (!Number.isSafeInteger(remainder) || remainder === 0) continue;
+      const baseValue = (wholes * ratio + remainder) * small.baseFactor;
+      const compound = `${formatQuantity(wholes * big.baseFactor, big.id)}`
+        + `${formatQuantity(remainder * small.baseFactor, small.id)}`;
+      if (!canRender(baseValue, small.id)) continue;
+
+      questions.push({
+        id: `units:compound-single:${small.id}:${big.id}:${wholes}-${tenths}`,
+        grade: baseGrade,
+        unitCategory: category,
+        questionType: "compoundToSingle",
+        prompt: `${compound}は 何${small.label}ですか。`,
+        explanation: `${formatQuantity(wholes * big.baseFactor, big.id)} は `
+          + `${formatQuantity(wholes * big.baseFactor, small.id)} だから、あわせて `
+          + `${formatQuantity(baseValue, small.id)} です。`,
+        requiredUnits: [small.id, big.id],
+        answerType: "numeric",
+        answerUnit: small.id,
+        answerBaseValue: baseValue,
+      });
+
+      // The same amount written as a decimal of the larger unit (grade 4).
+      if ((ratio === 10 || ratio === 100) && canRender(baseValue, big.id)) {
+        questions.push({
+          id: `units:compound-decimal:${small.id}:${big.id}:${wholes}-${tenths}`,
+          grade: 4,
+          unitCategory: category,
+          questionType: "compoundToSingle",
+          prompt: `${compound}は 何${big.label}ですか。`,
+          explanation: `${formatQuantity(remainder * small.baseFactor, small.id)} は `
+            + `${formatQuantity(remainder * small.baseFactor, big.id)} だから、あわせて `
+            + `${formatQuantity(baseValue, big.id)} です。`,
+          requiredUnits: [small.id, big.id],
+          answerType: "numeric",
+          answerUnit: big.id,
+          answerBaseValue: baseValue,
+        });
+      }
+    }
+  }
+  return questions.slice(0, MAX_PER_CATEGORY_PER_TYPE);
+}
+
 const materials = readMaterials(MATERIALS);
 
 const questions = [
   ...UNIT_CATEGORIES.flatMap((category) => [
     ...conversionQuestions(category),
     ...comparisonQuestions(category),
+    ...decimalConversionQuestions(category),
+    ...compoundPartQuestions(category),
+    ...compoundToSingleQuestions(category),
   ]),
   ...buildReviewedQuestions(materials),
 ];

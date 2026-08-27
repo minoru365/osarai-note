@@ -14,6 +14,10 @@ export const UNIT_QUESTION_TYPES = [
   "appropriateUnit",
   "senseEstimate",
   "wordProblem",
+  // Formats taken from the grade 3-4 drill in docs/units-plan.md 2.
+  "decimalConversion",
+  "compoundPart",
+  "compoundToSingle",
 ] as const;
 export type UnitQuestionType = typeof UNIT_QUESTION_TYPES[number];
 
@@ -162,6 +166,9 @@ export const UNIT_QUESTION_TYPE_LABEL: Record<UnitQuestionType, string> = {
   appropriateUnit: "あうたんい",
   senseEstimate: "だいたいの量",
   wordProblem: "文しょうだい",
+  decimalConversion: "小数であらわす",
+  compoundPart: "くみあわせたんい",
+  compoundToSingle: "ひとつのたんいに",
 };
 
 /** Renders a `category:questionType` aggregate key for display. */
