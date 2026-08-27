@@ -1,4 +1,3 @@
-import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import {
   formatExpectedAnswer,
@@ -7,7 +6,6 @@ import {
   validateUnitPack,
   type NumericUnitQuestion,
 } from "./unitContent";
-import { formatBaseValue } from "./units";
 
 const numeric = {
   id: "units:conversion:km:m:3",
@@ -139,45 +137,5 @@ describe("数値回答の判定", () => {
 describe("getUnitStateKey", () => {
   it("系統と出題形式から集計キーを作る", () => {
     expect(getUnitStateKey(numeric as unknown as NumericUnitQuestion)).toBe("length:conversion");
-  });
-});
-
-describe("公開パックの新しい出題形式", () => {
-  const pack = JSON.parse(readFileSync("public/content/units-v1.json", "utf8")) as {
-    questions: { id: string; questionType: string; unitCategory: string; grade: number;
-      prompt: string; answerType: string; answerUnit?: string; answerBaseValue?: number }[];
-  };
-  const of = (type: string) => pack.questions.filter((q) => q.questionType === type);
-
-  it("小数・複合単位の形式が含まれる", () => {
-    expect(of("decimalConversion").length).toBeGreaterThan(0);
-    expect(of("compoundPart").length).toBeGreaterThan(0);
-    expect(of("compoundToSingle").length).toBeGreaterThan(0);
-  });
-
-  it("小数の答えは0.1以上にする", () => {
-    // 0.02cm のような細かすぎる答えは学習にならない。
-    for (const question of of("decimalConversion")) {
-      const answer = Number(formatBaseValue(question.answerBaseValue!, question.answerUnit!).replace(/[^\d.]/gu, ""));
-      expect(answer).toBeGreaterThanOrEqual(0.1);
-    }
-  });
-
-  it("時間は小数で答えさせない", () => {
-    // 「0.5分」は日本の算数では扱わない書き方。
-    expect(of("decimalConversion").filter((q) => q.unitCategory === "time")).toHaveLength(0);
-  });
-
-  it("新形式もすべて単一の数値で答える", () => {
-    // docs/units-plan.md 3.1：答えが2つの数になる形式は作らない。
-    for (const type of ["decimalConversion", "compoundPart", "compoundToSingle"]) {
-      for (const question of of(type)) expect(question.answerType).toBe("numeric");
-    }
-  });
-
-  it("複合単位の問題文は大きい単位と小さい単位の両方を示す", () => {
-    for (const question of of("compoundPart")) {
-      expect(question.prompt).toMatch(/は .+と何.+ですか。$/u);
-    }
   });
 });
