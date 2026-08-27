@@ -33,8 +33,12 @@ type QuizState = "loading" | "writing" | "guide" | "character-complete" | "word-
 
 function App() {
   const [view, setView] = useState<"home" | "reading" | "writing" | "kanji-settings" | "free-practice" | "achievements" | "units" | "kanji-mode">("home");
-  /** Which kanji the pending mode choice is for; empty object means today's batch. */
-  const [modeChoice, setModeChoice] = useState<{ kanji?: string } | null>(null);
+  /**
+   * The pending mode choice. `kanji` narrows it to one character picked in
+   * がんばり記録; `batch` carries a set chosen in 自由練習 so that screen also
+   * asks reading or writing instead of silently starting with reading.
+   */
+  const [modeChoice, setModeChoice] = useState<{ kanji?: string; batch?: KanjiQuestion[] } | null>(null);
   /** Restricts a units batch to one category, e.g. from がんばり記録. */
   const [unitCategory, setUnitCategory] = useState<UnitCategory | null>(null);
   const [unitQuestions, setUnitQuestions] = useState<UnitQuestion[]>([]);
@@ -156,9 +160,18 @@ function App() {
     startFreePractice(nextQuestion);
   };
 
-  const openModeChoice = (kanji?: string) => {
-    setModeChoice({ kanji });
+  const openModeChoice = (choice: { kanji?: string; batch?: KanjiQuestion[] } = {}) => {
+    setModeChoice(choice);
     setView("kanji-mode");
+  };
+
+  /** Swaps a chosen set over to the mode the child picked, keeping the pairs. */
+  const startBatchInMode = (batch: KanjiQuestion[], mode: "reading" | "writing") => {
+    const converted = batch
+      .map((question) => (question.mode === mode ? question : findPairedQuestion(words, question, mode)))
+      .filter((question): question is KanjiQuestion => Boolean(question));
+    if (converted.length > 0) startFreePracticeBatch(converted);
+    else openFreePractice();
   };
 
   /**
@@ -396,25 +409,30 @@ function App() {
     return (
       <Achievements
         onBack={goHome}
-        onPracticeKanji={openModeChoice}
+        onPracticeKanji={(kanji) => openModeChoice({ kanji })}
         onPracticeUnit={(category) => { setUnitCategory(category); setView("units"); }}
       />
     );
   }
 
   if (view === "kanji-mode") {
-    const kanji = modeChoice?.kanji;
-    const inMode = (mode: "reading" | "writing") => (kanji
-      ? (mode === "reading" ? readingQuestions : writingQuestions).filter((question) => question.targetKanji.includes(kanji))
-      : mode === "reading" ? readingQuestions : writingQuestions).length;
+    const { kanji, batch } = modeChoice ?? {};
+    const inMode = (mode: "reading" | "writing") => {
+      if (batch) {
+        return batch.filter((question) => question.mode === mode || findPairedQuestion(words, question, mode)).length;
+      }
+      const pool = mode === "reading" ? readingQuestions : writingQuestions;
+      return kanji ? pool.filter((question) => question.targetKanji.includes(kanji)).length : pool.length;
+    };
     return (
       <KanjiModeChoice
         subject={kanji}
         readingCount={inMode("reading")}
         writingCount={inMode("writing")}
-        onBack={kanji ? () => setView("achievements") : goHome}
+        onBack={kanji ? () => setView("achievements") : batch ? openFreePractice : goHome}
         onChoose={(mode) => {
-          if (kanji) void startKanjiBatchFor(kanji, mode);
+          if (batch) startBatchInMode(batch, mode);
+          else if (kanji) void startKanjiBatchFor(kanji, mode);
           else void startDailyPractice(mode);
         }}
       />
@@ -430,7 +448,7 @@ function App() {
   }
 
   if (view === "free-practice") {
-    return <FreePracticeBrowser questions={words} onBack={goHome} onStart={startFreePracticeBatch} />;
+    return <FreePracticeBrowser questions={words} onBack={goHome} onStart={(batch) => openModeChoice({ batch })} />;
   }
 
   if (view === "home") {

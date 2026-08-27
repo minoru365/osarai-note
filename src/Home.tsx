@@ -9,7 +9,7 @@ type Props = {
   readingQuestionCount: number;
   writingQuestionCount: number;
   contentError: string;
-  onStartKanji: (mode: "reading" | "writing") => void;
+  onStartKanji: () => void;
   onOpenFreePractice: () => void;
   onOpenKanjiSettings: () => void;
   onOpenAchievements: () => void;
@@ -78,12 +78,10 @@ export function Home({ questionCount, readingQuestionCount, writingQuestionCount
     return () => { active = false; };
   }, [readingQuestionCount, writingQuestionCount, unitQuestionCount]);
 
-  const startMode = today.reading <= today.writing ? "reading" as const : "writing" as const;
-
   const subjects: Subject[] = [
     {
       icon: "字", name: "漢字", note: "3・4年生", ready: canStart,
-      hint: "読み・書きを練習", start: () => onStartKanji(startMode),
+      hint: "読み・書きを練習", start: onStartKanji,
       sub: { label: "選んで練習", onClick: onOpenFreePractice },
     },
     {
@@ -111,7 +109,7 @@ export function Home({ questionCount, readingQuestionCount, writingQuestionCount
           <div className="today-copy">
             <p className="eyebrow">今日の学習</p>
             <h1>今日のおさらいを<br />はじめよう</h1>
-            <p>漢字と単位を、それぞれ自分のペースで練習できます。</p>
+            <p>右の教科をえらぶと、10問はじまります。</p>
             <div className="today-progress" aria-label="今日の学習の進み具合">
               <div><span>読み</span><strong>{today.reading}問</strong></div>
               <div><span>書き</span><strong>{today.writing}問</strong></div>
@@ -129,18 +127,6 @@ export function Home({ questionCount, readingQuestionCount, writingQuestionCount
                 </label>
               ))}
               {grades !== null && grades.length === 0 && <small className="grade-warning">学年を選んでね</small>}
-            </div>
-            <div className="today-start-row">
-              <button className="start-button" type="button" disabled={!canStart} onClick={() => onStartKanji(startMode)}>
-                {contentError ? "問題を読み込めません" : questionCount > 0 ? "今日の漢字をはじめる" : "問題を読み込み中…"}
-                <span>→</span>
-              </button>
-              {unitQuestionCount > 0 && (
-                <button className="start-button start-button-units" type="button" disabled={!canStartUnits} onClick={onStartUnits}>
-                  今日の単位をはじめる
-                  <span>→</span>
-                </button>
-              )}
             </div>
             {contentError && <small className="home-error">{contentError}</small>}
           </div>

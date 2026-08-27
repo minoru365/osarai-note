@@ -185,7 +185,9 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
 .start-button-units { color: #24503f; background: #d8ecdd; box-shadow: 0 10px 20px rgba(44, 101, 78, .14); }
 .start-button span { font-size: 28px; }
 .home-error { margin-top: 8px; color: #975c47; }
-.home-section { padding: 27px 28px; }
+/* Cards share whatever height the row has instead of spilling out of the
+   panel on shorter screens; five subjects in two columns need three rows. */
+.home-section { display: flex; flex-direction: column; min-height: 0; padding: 27px 28px; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; }
 .section-heading .eyebrow { margin-bottom: 6px; }
 .section-heading h2 { margin: 0; font-size: 27px; }
@@ -193,8 +195,8 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
 .section-heading button:disabled { opacity: .45; cursor: wait; }
 .section-actions { display: flex; gap: 8px; }
 .section-actions button:first-child { color: #fff; border-color: #3b7d65; background: #3b7d65; }
-.subject-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 11px; margin-top: 21px; }
-.subject-card { position: relative; min-height: 118px; display: grid; border: 1px solid #dde4de; border-radius: 15px; background: #f5f6f3; }
+.subject-grid { flex: 1; min-height: 0; overflow-y: auto; display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-rows: minmax(84px, 1fr); gap: 11px; margin-top: 21px; }
+.subject-card { position: relative; min-height: 0; display: grid; border: 1px solid #dde4de; border-radius: 15px; background: #f5f6f3; }
 .subject-card.ready { border-color: #bcd1c3; background: #f1f7f1; }
 .subject-main { display: grid; grid-template-columns: 48px 1fr; grid-template-rows: 1fr 1fr; column-gap: 12px; align-items: center; padding: 14px; border: 0; border-radius: inherit; color: #8a928d; background: transparent; text-align: left; }
 .subject-card.ready .subject-main { color: #304f42; cursor: pointer; }

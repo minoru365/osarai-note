@@ -12,9 +12,17 @@ import { fileURLToPath } from "node:url";
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const kanjivgRoot = resolve(projectRoot, "content-source/kanjivg");
 
-/** Samples per stroke, and stroke thickness in the 1024 box. See ADR-0010. */
-const SAMPLES_PER_STROKE = 10;
+/**
+ * Sampling and thickness in the 1024 box (ADR-0010). Points are spread along
+ * the stroke rather than fixed per stroke, so a long curve gets the density it
+ * needs without padding out short ticks.
+ */
+const SAMPLE_SPACING = 26;
+const MIN_SAMPLES = 8;
+const MAX_SAMPLES = 26;
 const STROKE_WIDTH = 31;
+/** Cap on how far a miter may extend, so sharp turns do not grow spikes. */
+const MITER_LIMIT = 2.2;
 const KVG_BOX = 109;
 const SCALE = 1024 / KVG_BOX;
 /** Flattening resolution used only to measure arc length. */
@@ -86,6 +94,19 @@ function cubicAt([p0, p1, p2, p3], t) {
   ];
 }
 
+function pathLength(segments) {
+  let total = 0;
+  let previous = cubicAt(segments[0], 0);
+  for (const segment of segments) {
+    for (let step = 1; step <= FLATTEN_STEPS; step++) {
+      const point = cubicAt(segment, step / FLATTEN_STEPS);
+      total += Math.hypot(point[0] - previous[0], point[1] - previous[1]);
+      previous = point;
+    }
+  }
+  return total;
+}
+
 /** Evenly spaced points along the whole stroke, measured by arc length. */
 function samplePath(segments, count) {
   const table = [];
@@ -125,22 +146,49 @@ const toWriterSpace = ([x, y]) => [
   Math.round(900 - y * SCALE),
 ];
 
-/** Closed monoline outline around the sampled centre line. */
+function normalOf(from, to) {
+  const dx = to[0] - from[0];
+  const dy = to[1] - from[1];
+  const length = Math.hypot(dx, dy) || 1;
+  return [-dy / length, dx / length];
+}
+
+/**
+ * Closed outline around the sampled centre line, joined with miters.
+ * Averaging the two adjacent normals without lengthening the offset pinches
+ * the band to cos(angle/2) of its width, which reads as a stroke that thins
+ * at every corner; the miter scale restores it.
+ */
 function outline(points, width) {
   const half = width / 2;
-  const left = [];
-  const right = [];
+  const offsets = [];
   for (let index = 0; index < points.length; index++) {
-    const before = points[Math.max(0, index - 1)];
-    const after = points[Math.min(points.length - 1, index + 1)];
-    let dx = after[0] - before[0];
-    let dy = after[1] - before[1];
-    const length = Math.hypot(dx, dy) || 1;
-    dx /= length;
-    dy /= length;
-    left.push([points[index][0] - dy * half, points[index][1] + dx * half]);
-    right.push([points[index][0] + dy * half, points[index][1] - dx * half]);
+    const before = index === 0 ? null : normalOf(points[index - 1], points[index]);
+    const after = index === points.length - 1 ? null : normalOf(points[index], points[index + 1]);
+    if (!before || !after) {
+      offsets.push(before ?? after);
+      continue;
+    }
+    const sum = [before[0] + after[0], before[1] + after[1]];
+    const length = Math.hypot(sum[0], sum[1]);
+    if (length < 1e-6) {
+      offsets.push(before);
+      continue;
+    }
+    const mean = [sum[0] / length, sum[1] / length];
+    const cosine = mean[0] * before[0] + mean[1] * before[1];
+    const scale = Math.min(1 / Math.max(cosine, 1e-6), MITER_LIMIT);
+    offsets.push([mean[0] * scale, mean[1] * scale]);
   }
+
+  const left = points.map((point, index) => [
+    point[0] + offsets[index][0] * half,
+    point[1] + offsets[index][1] * half,
+  ]);
+  const right = points.map((point, index) => [
+    point[0] - offsets[index][0] * half,
+    point[1] - offsets[index][1] * half,
+  ]);
   const format = (point) => `${Math.round(point[0])} ${Math.round(point[1])}`;
   return `M ${left.map(format).join(" L ")} L ${right.reverse().map(format).join(" L ")} Z`;
 }
@@ -151,7 +199,9 @@ function buildCharacter(svg, character) {
   const strokes = [];
   const medians = [];
   for (const d of paths) {
-    const sampled = samplePath(parsePath(d), SAMPLES_PER_STROKE).map(toWriterSpace);
+    const segments = parsePath(d);
+    const count = Math.max(MIN_SAMPLES, Math.min(MAX_SAMPLES, Math.round(pathLength(segments) * SCALE / SAMPLE_SPACING)));
+    const sampled = samplePath(segments, count).map(toWriterSpace);
     medians.push(sampled);
     strokes.push(outline(sampled, STROKE_WIDTH));
   }

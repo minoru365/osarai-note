@@ -131,17 +131,6 @@ export function FreePracticeBrowser({ questions, onBack, onStart }: Props) {
     return () => { active = false; };
   }, []);
 
-  const persistGrades = (next: KanjiGrade[]) => {
-    setGrades(next);
-    void studyStorage.saveGradeSettings({ id: "grades", grades: next, updatedAt: new Date().toISOString() });
-  };
-
-  const toggleGrade = (grade: KanjiGrade) => {
-    persistGrades(grades.includes(grade)
-      ? grades.filter((item) => item !== grade)
-      : [...grades, grade].sort());
-  };
-
   const eligible = useMemo(() => filterFreePracticeQuestions(questions, states), [questions, states]);
   const gradeQuestions = useMemo(
     () => eligible.filter((question) => grades.includes(question.grade)),
@@ -181,29 +170,9 @@ export function FreePracticeBrowser({ questions, onBack, onStart }: Props) {
           <div className="free-practice-fixed">
             <div className="free-practice-heading">
               <div><p className="eyebrow">自由に復習</p><h1>漢字を練習しよう</h1></div>
-              <p>学年からランダムに10問、または漢字を選んで関連問題を練習できます。</p>
+              <p>ランダムに10問、または漢字を選んで関連問題を練習できます。学年はホームで設定します。</p>
             </div>
             <div className="free-practice-toolbar">
-              <div className="grade-choice" role="group" aria-label="学年（複数選べます）">
-                {ALL_GRADES.map((grade) => (
-                  <label className={grades.includes(grade) ? "selected" : ""} key={grade}>
-                    <input
-                      type="checkbox"
-                      checked={grades.includes(grade)}
-                      onChange={() => toggleGrade(grade)}
-                    />
-                    <span>{grade}年生</span>
-                  </label>
-                ))}
-                <button
-                  className="grade-all"
-                  type="button"
-                  aria-pressed={grades.length === ALL_GRADES.length}
-                  onClick={() => persistGrades(ALL_GRADES)}
-                >
-                  全学年
-                </button>
-              </div>
               <label className="reading-search">
                 <span className="visually-hidden">読みで検索</span>
                 <input
@@ -223,7 +192,7 @@ export function FreePracticeBrowser({ questions, onBack, onStart }: Props) {
           {loading || error
             ? <div className="free-practice-empty">{loading ? "問題を準備しています…" : error}</div>
             : entries.length === 0
-              ? <div className="free-practice-empty">{grades.length === 0 ? "学年を選んでね" : "見つからなかったよ。ほかの読みでさがしてみよう"}</div>
+              ? <div className="free-practice-empty">{grades.length === 0 ? "ホームで学年をえらんでね" : "見つからなかったよ。ほかの読みでさがしてみよう"}</div>
               : <div className="free-practice-kanji-scroll">
                 <div className="free-practice-list-heading"><strong>{gradeLabel}の漢字</strong><span>{entries.length}字</span></div>
                 <div className="free-practice-kanji-grid">
