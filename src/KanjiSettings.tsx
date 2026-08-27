@@ -169,6 +169,22 @@ export function KanjiSettings({ onBack }: Props) {
             })}
           </div>
         </section>
+
+        {/*
+          The published bundle redistributes KanjiVG's stroke data, which is
+          CC BY-SA 3.0, so the credit has to be reachable from the app itself
+          and not only from the repository (ADR-0010).
+        */}
+        <section className="settings-panel credits">
+          <h2>このアプリで使っているデータ</h2>
+          <p>
+            書き順と字形は <a href="https://kanjivg.tagaini.net" target="_blank" rel="noreferrer">KanjiVG</a>
+            （Ulrich Apel 作、
+            <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noreferrer">CC BY-SA 3.0</a>
+            ）を利用しています。書き取りの描画は
+            <a href="https://chanind.github.io/hanzi-writer" target="_blank" rel="noreferrer">Hanzi Writer</a>（MIT）です。
+          </p>
+        </section>
       </main>
     </div>
   );

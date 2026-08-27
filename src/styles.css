@@ -416,3 +416,7 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
 .mode-choice-icon { width: 68px; height: 68px; display: grid; place-items: center; border-radius: 18px; color: #fff; background: #3b7d65; font-size: 32px; font-weight: 700; }
 .mode-choice-button strong { font-size: 27px; }
 .mode-choice-button small { color: #5f6f67; font-size: 14px; }
+
+.credits h2 { margin: 0 0 8px; font-size: 16px; color: #304f42; }
+.credits p { margin: 0; color: #68766e; font-size: 13px; line-height: 1.8; }
+.credits a { color: #2f6f58; }

@@ -24,6 +24,7 @@ ADRは、後から理由を忘れると手戻りになる重要判断だけを�
 | [0007](./0007-multi-subject-data-model.md) | Accepted | 教科を追加するときの保存モデル |
 | [0008](./0008-weak-slot-mixing.md) | Accepted | 出題の一部を苦手枠にあてる |
 | [0009](./0009-shared-grade-selection.md) | Accepted | 学年選択を教科横断の保存設定にする |
+| [0010](./0010-kanjivg-stroke-data.md) | Accepted | ストロークデータをKanjiVGへ移す |
 
 ## テンプレート
 

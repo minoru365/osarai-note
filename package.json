@@ -16,7 +16,6 @@
     "content:review-apply": "node scripts/apply-kanji-review-batch.mjs"
   },
   "dependencies": {
-    "@jamsch/hanzi-writer-data-jp": "0.0.3",
     "hanzi-writer": "3.7.3",
     "react": "19.2.8",
     "react-dom": "19.2.8"
