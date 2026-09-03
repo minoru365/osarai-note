@@ -139,6 +139,14 @@ npm run content:review-visualize -- kanji-g4-002 <書き込み可能な絶対パ
 
 `content:review-visualize` は、問題一覧、全部OK、個別の要修正、Codexへの判定送信を含むHTML断片を作る。判定送信はCodex会話内のVisualizeとして表示したときだけ機能する。単独の`file://`タブでは会話ブリッジがないため、送信結果を会話へ渡せない。
 
+Claude Codeで作業する場合は `content:review-page` を使う。
+
+```powershell
+npm run content:review-page -- kanji-g4-002 <書き込み可能な絶対パス>\kanji-g4-002-review.html
+```
+
+こちらは単体で開ける確認ページを作る。読み問題と書き問題の両方の見え方、答え、書く字を1行にまとめ、送り仮名を分離できない語句には警告を出す。出力はClaudeのArtifactの本文としてそのまま公開でき、公開時に `capabilities: {db: {}}` を付けると判断がArtifactのデータベースへ保存され、会話側から `read_db`（コレクション `reviews/<バッチID>/entries`、文書IDは3桁の連番）で読み取れる。保存が使えない環境では、貼り付け用の文面を画面下に出す。どちらの画面も、行のHTMLを手で作らずバッチJSONから決定的に生成する。
+
 ### 5.4 判断反映
 
 - 承認：`decision: "approve"`

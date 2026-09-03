@@ -13,6 +13,7 @@
     "content:review-batch": "node scripts/create-kanji-review-batch.mjs",
     "content:review-render": "node scripts/render-kanji-review-batch.mjs",
     "content:review-visualize": "node scripts/render-kanji-review-visualization.mjs",
+    "content:review-page": "node scripts/render-kanji-review-page.mjs",
     "content:review-apply": "node scripts/apply-kanji-review-batch.mjs"
   },
   "dependencies": {

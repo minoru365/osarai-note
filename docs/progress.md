@@ -155,6 +155,8 @@
 - 地名読みの検証（2026-09-03）：`npm install` がレジストリ403で通らず vitest を実行できないため、`describe`/`it`/`expect` の最小実装で `scripts/kanji-content-lib.test.mjs` をそのまま走らせ、**新規5件を含む14件すべての成功を確認した**。`npm run content:generate` も成功している。**ただし本物の vitest と `npm run build` は未実行であり、次にローカルで `npm test` と `npm run build` を実行して確認すること。**
 - ストロークデータの不足が承認の前提になる（2026-09-03に判明）：`content-source/kanjivg/` は承認済み問題に必要な368字しか持たない。`kanji-g4-002` の承認には49字、地名読み4件の承認にはさらに滋・阪・富が不足し、いずれも `npm run content:generate` が止まる。リモート作業環境はネットワーク方針で raw.githubusercontent.com へ接続できないため、KanjiVG `r20250816` からの取り込みはローカル環境で行う。
 
+- レビュー確認ページの追加（2026-09-03）：`npm run content:review-page` を追加した。バッチJSONから単体で開ける確認ページを決定的に生成し、1行に読み問題と書き問題の両方の見え方、答え、書く字を並べる。送り仮名を分離できない語句には「機械検査でとまります」と理由を出す（`describeProposal` が公開パックと同じ分離規則を使う）。ClaudeのArtifactとして公開すると `db` 機能で判断が保存され、会話側から `reviews/<バッチID>/entries` を読める。保存できない環境では貼り付け用の文面を出すため、`file://` で開いても使える。既存の `content:review-visualize`（Codex用のHTML断片）はそのまま残す。
+
 ## 最新の検証結果
 
 - `npm test`：166件成功

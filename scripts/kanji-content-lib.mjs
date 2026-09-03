@@ -269,6 +269,17 @@ function splitWritingReading(material) {
   return { readingBefore: visibleBefore, answerReading, readingAfter: visibleAfter };
 }
 
+// レビュー画面用。承認したときに生成される表示を、公開パックと同じ規則で先に見せる。
+// 分けられない語句は例外にせず、理由を返して画面に出せるようにする。
+export function describeProposal(proposed) {
+  try {
+    const split = splitWritingReading({ pairId: "この行", ...proposed });
+    return { ...split, answerKanji: proposed.targetKanji.join("") };
+  } catch (error) {
+    return { error: error.message.replace(/^この行: /u, "") };
+  }
+}
+
 function questionPair(material) {
   const writingReading = splitWritingReading(material);
   const common = {
