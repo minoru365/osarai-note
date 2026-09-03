@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
-import { applyReviewBatch, createCoverageMarkdown, createReviewBatch, createReviewBatchMarkdown, createReviewMarkdown, createWordCandidateMarkdown, generateKanjiPack, validateMaterialSource, validateReadingReference, validateWordCandidates } from "./kanji-content-lib.mjs";
+import { applyReviewBatch, createCoverageMarkdown, createReviewBatch, createReviewBatchMarkdown, createReviewMarkdown, createWordCandidateMarkdown, generateKanjiPack, validateMaterialSource, validateMaterialsAgainstReference, validatePlaceNameReference, validateReadingReference, validateWordCandidates } from "./kanji-content-lib.mjs";
 
 const material = (overrides = {}) => ({
   pairId: "g3-drink-kun-nomu",
@@ -92,6 +92,26 @@ describe("kanji content generator", () => {
     expect(() => applyReviewBatch(changed, batch)).toThrow("レビュー票作成後に素材が変更");
     expect(() => applyReviewBatch(applied.source, batch)).toThrow();
   });
+
+  it("地名読みの素材からも読み・書きペアを生成する", () => {
+    const pack = generateKanjiPack(source([material({
+      pairId: "g4-osaka-name", grade: 4, primaryKanji: "阪", readingType: "name", canonicalReading: "さか",
+      word: "大阪", wordReading: "おおさか", promptBefore: "", promptAfter: "府へ行きました。",
+      targetKanji: ["大", "阪"], writingPrompt: "「おおさか」の漢字の部分を書こう",
+    })]));
+    expect(pack.questions).toHaveLength(2);
+    expect(pack.questions[0]).toMatchObject({
+      mode: "reading", word: "大阪", answerKanji: "大阪", answerReading: "おおさか", promptAfter: "府へ行きました。",
+    });
+    expect(pack.questions[1]).toMatchObject({ mode: "writing", prompt: "「おおさか」の部分を漢字で書こう" });
+  });
+
+  it("地名読みの基準読みは送り仮名の区切りを持たないひらがなに限る", () => {
+    expect(() => validateMaterialSource(source([material({ readingType: "name", canonicalReading: "サカ" })])))
+      .toThrow("基準読みが不正です");
+    expect(() => validateMaterialSource(source([material({ readingType: "name", canonicalReading: "さ.か" })])))
+      .toThrow("基準読みが不正です");
+  });
 });
 
 it("3年生200字・4年生202字の版付き音訓基準一覧を検証する", async () => {
@@ -103,11 +123,50 @@ it("3年生200字・4年生202字の版付き音訓基準一覧を検証する",
 
 it("全基準読みに対する素材作成・確認状況を出力する", async () => {
   const reference = JSON.parse(await readFile(resolve("content-source/joyo-readings-2010.json"), "utf8"));
+  const placeNames = JSON.parse(await readFile(resolve("content-source/place-name-readings.json"), "utf8"));
   const actualSource = JSON.parse(await readFile(resolve("content-source/kanji-materials.json"), "utf8"));
-  const coverage = createCoverageMarkdown(actualSource, reference);
+  const coverage = createCoverageMarkdown(actualSource, reference, placeNames);
   expect(coverage).toContain("基準読み：929");
+  // 地名読みは音訓基準一覧の外にあるため、この件数には入らない。
   expect(coverage).toContain("素材作成済み：905");
   expect(coverage).toContain("未作成：24");
+  expect(coverage).toContain("## 地名読み");
+  expect(coverage).toContain("| draft | 4 | 滋 | し | 滋賀（しが） | 滋賀 |");
+});
+
+it("都道府県名でしか使わない読みを地名読み一覧から素材にする", async () => {
+  const reference = JSON.parse(await readFile(resolve("content-source/joyo-readings-2010.json"), "utf8"));
+  const placeNames = JSON.parse(await readFile(resolve("content-source/place-name-readings.json"), "utf8"));
+  const actualSource = JSON.parse(await readFile(resolve("content-source/kanji-materials.json"), "utf8"));
+  expect(validatePlaceNameReference(placeNames, reference)).toBe(placeNames);
+  expect(placeNames.readings.map((entry) => entry.kanji).join("")).toBe("滋阪媛富");
+  expect(validateMaterialsAgainstReference(actualSource, reference, placeNames)).toBe(actualSource);
+  expect(() => validateMaterialsAgainstReference(actualSource, reference)).toThrow("地名読み一覧が渡されていません");
+});
+
+it("常用漢字表の音訓で読める読みは地名読みにしない", async () => {
+  const reference = JSON.parse(await readFile(resolve("content-source/joyo-readings-2010.json"), "utf8"));
+  const placeNames = JSON.parse(await readFile(resolve("content-source/place-name-readings.json"), "utf8"));
+  const bypass = structuredClone(placeNames);
+  bypass.readings.push({
+    grade: 4, kanji: "香", canonicalReading: "か", placeName: "香川", placeNameReading: "かがわ",
+    note: "訓「か」で読めるので地名読みにはしない",
+  });
+  expect(() => validatePlaceNameReference(bypass, reference)).toThrow("常用漢字表の音訓で読める読み");
+});
+
+it("地名読み一覧に無い生成キーの素材を拒否する", async () => {
+  const reference = JSON.parse(await readFile(resolve("content-source/joyo-readings-2010.json"), "utf8"));
+  const placeNames = JSON.parse(await readFile(resolve("content-source/place-name-readings.json"), "utf8"));
+  const actualSource = JSON.parse(await readFile(resolve("content-source/kanji-materials.json"), "utf8"));
+  const unlisted = structuredClone(actualSource);
+  unlisted.materials.push({
+    pairId: "kanji-g4-城-name-test", grade: 4, primaryKanji: "城", readingType: "name", canonicalReading: "き",
+    word: "茨城", wordReading: "いばらき", promptBefore: "", promptAfter: "県へ行きました。",
+    targetKanji: ["茨", "城"], writingPrompt: "「いばらき」の漢字の部分を書こう",
+    sourceRef: "test", reviewStatus: "draft",
+  });
+  expect(() => validateMaterialsAgainstReference(unlisted, reference, placeNames)).toThrow("地名読み一覧にない生成キー");
 });
 
 it("文化庁語例から作った929件の未確認候補を検証する", async () => {

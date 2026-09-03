@@ -105,6 +105,8 @@
 
 3年生は未確認素材と未作成素材がなくなり、残りは `needs-fix` 35件だけになった。4年生の残りは336件（`draft` 311件、`needs-fix` 1件、未作成24件）で、全体の残りは371件。次は4年生の通常レビューへ戻る。
 
+**承認の前にKanjiVGのストロークデータを取り込むこと。** `content-source/kanjivg/` には承認済み問題に必要な368字しか入っていない。`kanji-g4-002` を承認すると49字（結建健康験固成功好香川候佐差菜最材昨札参産散歩残氏司試児小治滋辞鹿失敗借種類周順番初雪松竹梅笑唱焼）が不足し、`npm run content:generate` が「承認済み問題のKanjiVGデータがありません」で止まる。地名読みの4件を承認する場合はさらに滋・阪・富が要る。KanjiVGのリリース`r20250816`から`kanji/<5桁の16進コードポイント>.svg`を取得して`content-source/kanjivg/`へ置く（[ADR-0010](./adr/0010-kanjivg-stroke-data.md)）。リモート作業環境はネットワーク方針でraw.githubusercontent.comへ接続できないため、この取り込みはローカル環境で行う。
+
 問題レビューと並行しない次の技術課題は、ストロークJSONの増加でViteの生成JavaScriptが500KBを超えた警告への対応である（2026-08-27のKanjiVG移行と平滑化で1,920KBへ増えた）。現状は動作するため、レビューを止める問題ではない。対応時はストロークデータの遅延読み込みまたは静的JSON分離を検討し、オフライン動作とGitHub Pagesのパスを検証する。
 
 ## 5. 問題レビュー手順
@@ -159,6 +161,7 @@ npm run build
 | 目的 | 正本・編集対象 | 直接編集しない生成物 |
 |---|---|---|
 | 問題素材 | `content-source/kanji-materials.json`、`content-review/*.json` | `public/content/kanji-v2.json` |
+| 読みの基準 | `content-source/joyo-readings-2010.json`、`content-source/place-name-readings.json` | `docs/generated/kanji-reading-coverage.md` |
 | ストローク収録 | `scripts/generate-kanji-character-data.mjs` と素材 | `src/generated/kanjiCharacterData.ts` |
 | レビュー文書 | バッチJSON | `content-review/*.md`、`docs/generated/*.md` |
 | 学習画面 | `src/App.tsx`、`src/ReadingPractice.tsx`、`src/styles.css` | `dist/` |

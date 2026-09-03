@@ -9702,6 +9702,24 @@
       }
     },
     {
+      "pairId": "kanji-g4-媛-name-6acf370b01ff",
+      "grade": 4,
+      "primaryKanji": "媛",
+      "readingType": "name",
+      "canonicalReading": "ひめ",
+      "word": "愛媛",
+      "wordReading": "えひめ",
+      "promptBefore": "みかんで有名な",
+      "promptAfter": "県は、四国にあります。",
+      "targetKanji": [
+        "愛",
+        "媛"
+      ],
+      "writingPrompt": "「えひめ」の漢字の部分を書こう",
+      "sourceRef": "文部科学省『小学校学習指導要領（平成29年告示）付録4 学年別漢字配当表』（都道府県名に用いる漢字）",
+      "reviewStatus": "draft"
+    },
+    {
       "pairId": "kanji-g4-塩-on-cfaf2e853425",
       "grade": 4,
       "primaryKanji": "塩",
@@ -13064,6 +13082,24 @@
       }
     },
     {
+      "pairId": "kanji-g4-滋-name-286290c90d15",
+      "grade": 4,
+      "primaryKanji": "滋",
+      "readingType": "name",
+      "canonicalReading": "し",
+      "word": "滋賀",
+      "wordReading": "しが",
+      "promptBefore": "びわこがある",
+      "promptAfter": "県へ行きました。",
+      "targetKanji": [
+        "滋",
+        "賀"
+      ],
+      "writingPrompt": "「しが」の漢字の部分を書こう",
+      "sourceRef": "文部科学省『小学校学習指導要領（平成29年告示）付録4 学年別漢字配当表』（都道府県名に用いる漢字）",
+      "reviewStatus": "draft"
+    },
+    {
       "pairId": "kanji-g4-辞-on-1e9c5598c171",
       "grade": 4,
       "primaryKanji": "辞",
@@ -16141,6 +16177,24 @@
       }
     },
     {
+      "pairId": "kanji-g4-阪-name-465e7a93614e",
+      "grade": 4,
+      "primaryKanji": "阪",
+      "readingType": "name",
+      "canonicalReading": "さか",
+      "word": "大阪",
+      "wordReading": "おおさか",
+      "promptBefore": "",
+      "promptAfter": "府には、たこやきの店がたくさんあります。",
+      "targetKanji": [
+        "大",
+        "阪"
+      ],
+      "writingPrompt": "「おおさか」の漢字の部分を書こう",
+      "sourceRef": "文部科学省『小学校学習指導要領（平成29年告示）付録4 学年別漢字配当表』（都道府県名に用いる漢字）",
+      "reviewStatus": "draft"
+    },
+    {
       "pairId": "kanji-g4-飯-on-4f085c6489b4",
       "grade": 4,
       "primaryKanji": "飯",
@@ -16593,6 +16647,24 @@
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
       }
+    },
+    {
+      "pairId": "kanji-g4-富-name-74c953f0b39a",
+      "grade": 4,
+      "primaryKanji": "富",
+      "readingType": "name",
+      "canonicalReading": "と",
+      "word": "富山",
+      "wordReading": "とやま",
+      "promptBefore": "",
+      "promptAfter": "県は、くすりづくりでよく知られています。",
+      "targetKanji": [
+        "富",
+        "山"
+      ],
+      "writingPrompt": "「とやま」の漢字の部分を書こう",
+      "sourceRef": "文部科学省『小学校学習指導要領（平成29年告示）付録4 学年別漢字配当表』（都道府県名に用いる漢字）",
+      "reviewStatus": "draft"
     },
     {
       "pairId": "kanji-g4-副-on-9fc56344a49d",

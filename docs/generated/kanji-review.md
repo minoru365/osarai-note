@@ -3,7 +3,7 @@
 素材版：2026.08.15-4
 
 - 確認済み：558
-- 未確認：311
+- 未確認：315
 - 要修正：36
 
 | 状態 | 学年 | 主対象 | 音訓 | 基準読み | 語句 | 語句読み | pairId |
@@ -459,6 +459,7 @@
 | approved | 4 | 栄 | kun | はえ | 栄え | はえ | kanji-g4-栄-kun-a5f1569493f6 |
 | approved | 4 | 栄 | kun | はえる | 栄える | はえる | kanji-g4-栄-kun-5e125b550bdd |
 | approved | 4 | 媛 | on | エン | 才媛 | さいえん | kanji-g4-媛-on-4347431635bc |
+| draft | 4 | 媛 | name | ひめ | 愛媛 | えひめ | kanji-g4-媛-name-6acf370b01ff |
 | approved | 4 | 塩 | on | エン | 塩分 | えんぶん | kanji-g4-塩-on-cfaf2e853425 |
 | approved | 4 | 塩 | kun | しお | 塩 | しお | kanji-g4-塩-kun-efb73f15d972 |
 | approved | 4 | 億 | on | オク | 億万長者 | おくまんちょうじゃ | kanji-g4-億-on-056e27b5a2e0 |
@@ -615,6 +616,7 @@
 | draft | 4 | 治 | kun | なおる | 治る | なおる | kanji-g4-治-kun-114e2008a1bf |
 | draft | 4 | 治 | kun | なおす | 治す | なおす | kanji-g4-治-kun-f7ff87609b54 |
 | draft | 4 | 滋 | on | ジ | 滋味 | じみ | kanji-g4-滋-on-09747852dfd3 |
+| draft | 4 | 滋 | name | し | 滋賀 | しが | kanji-g4-滋-name-286290c90d15 |
 | draft | 4 | 辞 | on | ジ | 辞書 | じしょ | kanji-g4-辞-on-1e9c5598c171 |
 | draft | 4 | 辞 | kun | やめる | 辞める | やめる | kanji-g4-辞-kun-13153587dfcd |
 | draft | 4 | 鹿 | kun | しか | 鹿 | しか | kanji-g4-鹿-kun-6e9c62e02330 |
@@ -758,6 +760,7 @@
 | draft | 4 | 梅 | kun | うめ | 梅 | うめ | kanji-g4-梅-kun-e994850a7599 |
 | draft | 4 | 博 | on | バク | 博労 | ばくろう | kanji-g4-博-on-2517a735a9d6 |
 | draft | 4 | 阪 | on | ハン | 阪神 | はんしん | kanji-g4-阪-on-227b9a253828 |
+| draft | 4 | 阪 | name | さか | 大阪 | おおさか | kanji-g4-阪-name-465e7a93614e |
 | draft | 4 | 飯 | on | ハン | 赤飯 | せきはん | kanji-g4-飯-on-4f085c6489b4 |
 | draft | 4 | 飯 | kun | めし | 飯 | めし | kanji-g4-飯-kun-b9d292f009f4 |
 | draft | 4 | 飛 | on | ヒ | 飛行 | ひこう | kanji-g4-飛-on-4e4c62264d0b |
@@ -779,6 +782,7 @@
 | draft | 4 | 富 | on | フ | 富強 | ふうきょう | kanji-g4-富-on-fa7dd17e1d1e |
 | draft | 4 | 富 | kun | とむ | 富む | とむ | kanji-g4-富-kun-1e9bab204253 |
 | draft | 4 | 富 | kun | とみ | 富 | とみ | kanji-g4-富-kun-32e234a6403a |
+| draft | 4 | 富 | name | と | 富山 | とやま | kanji-g4-富-name-74c953f0b39a |
 | draft | 4 | 副 | on | フク | 副業 | ふくぎょう | kanji-g4-副-on-9fc56344a49d |
 | draft | 4 | 兵 | on | ヘイ | 兵器 | へいき | kanji-g4-兵-on-2755bf9d78f5 |
 | draft | 4 | 別 | on | ベツ | 区別 | くべつ | kanji-g4-別-on-dfcce5863d8f |

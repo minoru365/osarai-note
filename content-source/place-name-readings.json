@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "sourceVersion": "mext-2017-prefecture-names",
+  "source": {
+    "edition": "小学校学習指導要領（平成29年告示）付録4 学年別漢字配当表",
+    "url": "https://www.mext.go.jp/content/1413522_001.pdf",
+    "note": "4年生には都道府県名のための漢字が配当されている。ここに載せるのは、県名でのその字の読みが文化庁『常用漢字（音訓）基本データ』の音訓に無いものだけとする。音訓で読める県名（香川の香、鹿児島の鹿、奈良の奈など）は音訓基準一覧から素材を作る。"
+  },
+  "readings": [
+    {
+      "grade": 4,
+      "kanji": "滋",
+      "canonicalReading": "し",
+      "placeName": "滋賀",
+      "placeNameReading": "しが",
+      "note": "常用漢字表の音訓はジだけで、滋賀の「し」が無い。ジの語例は滋味・滋養しかなく、県名でしか児童向けの語を作れない。"
+    },
+    {
+      "grade": 4,
+      "kanji": "阪",
+      "canonicalReading": "さか",
+      "placeName": "大阪",
+      "placeNameReading": "おおさか",
+      "note": "常用漢字表の音訓はハンだけで、大阪の「さか」が無い。ハンの語例は阪神・京阪で、いずれも児童向けではない。"
+    },
+    {
+      "grade": 4,
+      "kanji": "媛",
+      "canonicalReading": "ひめ",
+      "placeName": "愛媛",
+      "placeNameReading": "えひめ",
+      "note": "常用漢字表の音訓はエンだけで、愛媛の「ひめ」が無い。エンの語例は才媛だけである。"
+    },
+    {
+      "grade": 4,
+      "kanji": "富",
+      "canonicalReading": "と",
+      "placeName": "富山",
+      "placeNameReading": "とやま",
+      "note": "常用漢字表の音訓はフ・フウ・とむ・とみで、富山の「と」が単独の読みとして無い。"
+    }
+  ]
+}

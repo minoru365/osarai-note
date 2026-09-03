@@ -25,6 +25,7 @@ ADRは、後から理由を忘れると手戻りになる重要判断だけを�
 | [0008](./0008-weak-slot-mixing.md) | Accepted | 出題の一部を苦手枠にあてる |
 | [0009](./0009-shared-grade-selection.md) | Accepted | 学年選択を教科横断の保存設定にする |
 | [0010](./0010-kanjivg-stroke-data.md) | Accepted | ストロークデータをKanjiVGへ移す |
+| [0011](./0011-place-name-readings.md) | Accepted | 都道府県名の読みを地名読みとして扱う |
 
 ## テンプレート
 

@@ -8,10 +8,13 @@ const GRADE_KANJI = {
 };
 
 const REVIEW_STATUSES = new Set(["draft", "approved", "needs-fix"]);
-const READING_TYPES = new Set(["on", "kun"]);
+const READING_TYPES = new Set(["on", "kun", "name"]);
+const JOYO_READING_TYPES = new Set(["on", "kun"]);
 const HIRAGANA = /^[ぁ-ゖ]+$/u;
 const KATAKANA = /^[ァ-ヶー]+$/u;
 const KUN_READING = /^[ぁ-ゖ.]+$/u;
+// 地名読みは常用漢字表の音訓に無いため、送り仮名の区切りを持たないひらがなとする。
+const READING_PATTERNS = { on: KATAKANA, kun: KUN_READING, name: HIRAGANA };
 const KANJI = /[々〇〆ヶ\u3400-\u9fff]/gu;
 const REVIEW_DECISIONS = new Set(["pending", "approve", "needs-fix"]);
 const REVIEW_EDIT_FIELDS = ["word", "wordReading", "promptBefore", "promptAfter", "targetKanji", "writingPrompt"];
@@ -63,7 +66,7 @@ export function validateMaterialSource(source) {
     assert(typeof material.primaryKanji === "string" && Array.from(material.primaryKanji).length === 1, `${label}: 主対象漢字が不正です`);
     assert(READING_TYPES.has(material.readingType), `${label}: 音訓区分が不正です`);
     assert(typeof material.canonicalReading === "string"
-      && (material.readingType === "on" ? KATAKANA : KUN_READING).test(material.canonicalReading), `${label}: 基準読みが不正です`);
+      && READING_PATTERNS[material.readingType].test(material.canonicalReading), `${label}: 基準読みが不正です`);
     assert(typeof material.word === "string" && material.word.length > 0, `${label}: 語句がありません`);
     assert(typeof material.wordReading === "string" && HIRAGANA.test(material.wordReading), `${label}: 語句の読みはひらがなにしてください`);
     assert(typeof material.promptBefore === "string" && typeof material.promptAfter === "string", `${label}: 読み問題の文脈がありません`);
@@ -104,7 +107,7 @@ export function validateReadingReference(reference) {
       assert(Array.isArray(entry.readings) && entry.readings.length > 0, `${entry.kanji}: 音訓がありません`);
       const keys = new Set();
       for (const reading of entry.readings) {
-        assert(READING_TYPES.has(reading.readingType), `${entry.kanji}: 音訓区分が不正です`);
+        assert(JOYO_READING_TYPES.has(reading.readingType), `${entry.kanji}: 音訓区分が不正です`);
         assert((reading.readingType === "on" ? KATAKANA : /^[ぁ-ゖ]+$/u).test(reading.canonicalReading), `${entry.kanji}: 基準読みが不正です`);
         const key = `${reading.readingType}:${reading.canonicalReading}`;
         assert(!keys.has(key), `${entry.kanji}: 音訓が重複しています: ${key}`);
@@ -120,6 +123,53 @@ function referenceKeys(reference) {
   return new Set([3, 4].flatMap((grade) => reference.grades[String(grade)].flatMap((entry) =>
     entry.readings.map((reading) => `${grade}:${entry.kanji}:${reading.readingType}:${reading.canonicalReading}`),
   )));
+}
+
+function toKatakana(reading) {
+  return Array.from(reading).map((character) => {
+    const code = character.codePointAt(0);
+    return code >= 0x3041 && code <= 0x3096 ? String.fromCodePoint(code + 0x60) : character;
+  }).join("");
+}
+
+// 常用漢字表の音訓で読める読みかどうか。音訓基準一覧の訓は送り仮名の区切りを持たない形で
+// 入っている（validateReadingReferenceが強制する）ため、訓はそのまま突き合わせる。
+// 訓「とむ」の一部だからという理由で富山の「と」を拒んではいけないので、前方一致では見ない。
+function joyoCovers(entry, reading) {
+  return entry.readings.some((joyo) => joyo.canonicalReading
+    === (joyo.readingType === "on" ? toKatakana(reading) : reading));
+}
+
+export function validatePlaceNameReference(placeNames, reference) {
+  validateReadingReference(reference);
+  assert(placeNames && placeNames.schemaVersion === 1 && typeof placeNames.sourceVersion === "string", "地名読み一覧の版が不正です");
+  assert(placeNames.source && typeof placeNames.source.url === "string" && typeof placeNames.source.edition === "string", "地名読み一覧の出典が不正です");
+  assert(Array.isArray(placeNames.readings) && placeNames.readings.length > 0, "地名読みがありません");
+  const keys = new Set();
+  for (const entry of placeNames.readings) {
+    const label = entry?.kanji ?? "漢字不明";
+    assert(entry && typeof entry === "object", "地名読みの形式が不正です");
+    assert(entry.grade === 3 || entry.grade === 4, `${label}: 学年が不正です`);
+    assert(typeof entry.kanji === "string" && Array.from(entry.kanji).length === 1, `${label}: 漢字が不正です`);
+    assert(typeof entry.canonicalReading === "string" && HIRAGANA.test(entry.canonicalReading), `${label}: 地名読みはひらがなにしてください`);
+    assert(typeof entry.placeName === "string" && entry.placeName.includes(entry.kanji), `${label}: 地名に対象漢字が含まれていません`);
+    assert(typeof entry.placeNameReading === "string" && HIRAGANA.test(entry.placeNameReading), `${label}: 地名の読みはひらがなにしてください`);
+    assert(entry.placeNameReading.includes(entry.canonicalReading), `${label}: 地名の読みが地名読みを含んでいません`);
+    assert(typeof entry.note === "string" && entry.note.trim().length > 0, `${label}: 地名読みを使う理由がありません`);
+    const key = `${entry.grade}:${entry.kanji}:name:${entry.canonicalReading}`;
+    assert(!keys.has(key), `${label}: 地名読みが重複しています: ${key}`);
+    keys.add(key);
+    const joyoEntry = reference.grades[String(entry.grade)]?.find((row) => row.kanji === entry.kanji);
+    assert(joyoEntry, `${label}: ${entry.grade}年生の音訓基準一覧にない漢字です`);
+    // 音訓で読めるものを地名読みにすると、音訓基準の縛りを迂回できてしまう。
+    assert(!joyoCovers(joyoEntry, entry.canonicalReading),
+      `${label}: 常用漢字表の音訓で読める読みは地名読みにしません: ${entry.canonicalReading}`);
+  }
+  return placeNames;
+}
+
+function placeNameKeys(placeNames) {
+  return new Set(placeNames.readings.map((entry) => `${entry.grade}:${entry.kanji}:name:${entry.canonicalReading}`));
 }
 
 export function validateWordCandidates(data, reference) {
@@ -154,19 +204,26 @@ export function createWordCandidateMarkdown(data, reference) {
   return `# 文化庁語例からの問題語句候補\n\n候補版：${data.candidateVersion}\n\n- 全基準読み：${data.counts.total}\n- 学年内表記で採用可能：${data.counts.candidate ?? 0}\n- 読みの個別確認が必要：${data.counts["reading-manual-review"] ?? 0}\n- 語句の書き換えが必要：${data.counts["needs-rewrite"] ?? 0}\n- 語例なし：${data.counts["no-example"] ?? 0}\n\n候補の読みは未確認であり、この表から直接公開しない。\n\n| 状態 | 学年 | 漢字 | 音訓 | 基準読み | 語句候補 | 語句読み候補 | 読み照合 |\n|---|---:|---|---|---|---|---|---|\n${rows.join("\n")}\n`;
 }
 
-export function validateMaterialsAgainstReference(source, reference) {
+export function validateMaterialsAgainstReference(source, reference, placeNames = null) {
   validateMaterialSource(source);
   validateReadingReference(reference);
+  if (placeNames) validatePlaceNameReference(placeNames, reference);
   const keys = referenceKeys(reference);
+  const names = placeNames ? placeNameKeys(placeNames) : new Set();
   for (const material of source.materials) {
     const key = `${material.grade}:${material.primaryKanji}:${material.readingType}:${material.canonicalReading}`;
+    if (material.readingType === "name") {
+      assert(placeNames, `${material.pairId}: 地名読みの素材があるのに地名読み一覧が渡されていません`);
+      assert(names.has(key), `${material.pairId}: 地名読み一覧にない生成キーです: ${key}`);
+      continue;
+    }
     assert(keys.has(key), `${material.pairId}: 音訓基準一覧にない生成キーです: ${key}`);
   }
   return source;
 }
 
-export function createCoverageMarkdown(source, reference) {
-  validateMaterialsAgainstReference(source, reference);
+export function createCoverageMarkdown(source, reference, placeNames = null) {
+  validateMaterialsAgainstReference(source, reference, placeNames);
   const materialMap = new Map(source.materials.map((material) => [
     `${material.grade}:${material.primaryKanji}:${material.readingType}:${material.canonicalReading}`,
     material,
@@ -185,7 +242,17 @@ export function createCoverageMarkdown(source, reference) {
       }
     }
   }
-  return `# 漢字音訓カバレッジ\n\n基準版：${reference.sourceVersion}\n素材版：${source.sourceVersion}\n\n- 基準読み：${counts.total}\n- 素材作成済み：${counts.created}\n- 確認済み：${counts.approved}\n- 未作成：${counts.total - counts.created}\n\n| 状態 | 学年 | 漢字 | 音訓 | 基準読み | 採用語句 | 文化庁の語例 | 原本ページ |\n|---|---:|---|---|---|---|---|---:|\n${rows.join("\n")}\n`;
+  const coverage = `# 漢字音訓カバレッジ\n\n基準版：${reference.sourceVersion}\n素材版：${source.sourceVersion}\n\n- 基準読み：${counts.total}\n- 素材作成済み：${counts.created}\n- 確認済み：${counts.approved}\n- 未作成：${counts.total - counts.created}\n\n| 状態 | 学年 | 漢字 | 音訓 | 基準読み | 採用語句 | 文化庁の語例 | 原本ページ |\n|---|---:|---|---|---|---|---|---:|\n${rows.join("\n")}\n`;
+  if (!placeNames) return coverage;
+
+  const placeRows = placeNames.readings.map((entry) => {
+    const material = source.materials.find((candidate) => candidate.grade === entry.grade
+      && candidate.primaryKanji === entry.kanji
+      && candidate.readingType === "name"
+      && candidate.canonicalReading === entry.canonicalReading);
+    return `| ${material?.reviewStatus ?? "missing"} | ${entry.grade} | ${entry.kanji} | ${entry.canonicalReading} | ${entry.placeName}（${entry.placeNameReading}） | ${material?.word ?? ""} |`;
+  });
+  return `${coverage}\n## 地名読み\n\n常用漢字表の音訓に無く、都道府県名でだけ使う読み。この表の読みは音訓カバレッジの件数には入らない。\n\n基準版：${placeNames.sourceVersion}\n\n| 状態 | 学年 | 漢字 | 地名読み | 地名 | 採用語句 |\n|---|---:|---|---|---|---|\n${placeRows.join("\n")}\n`;
 }
 
 function splitWritingReading(material) {
