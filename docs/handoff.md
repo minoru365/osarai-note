@@ -16,22 +16,23 @@
 
 ## 1. 現在地
 
-- ブランチ：`main`
-- 最新コミット：`be74639 docs: record the local verification of the motivation and units work`
+- ブランチ：`claude/next-tasks-check-sywxax`
 - 未コミットの変更：なし
-- 最新素材版：`2026.08.15-4`
-- 問題パック：`kanji-2026.08.15-4`
-- 共通素材：905件
-  - `approved`：558件
-  - `draft`：311件
-  - `needs-fix`：36件
-- 公開問題：漢字は読み558問・書き558問の合計1116問、単位は215問
-- 収録済みストロークデータ：368字（KanjiVG由来、CC BY-SA 3.0。[ADR-0010](./adr/0010-kanjivg-stroke-data.md)）
-- 自動テスト：166件成功
-- 本番ビルド：成功
+- 最新素材版：`2026.08.15-5`
+- 問題パック：`kanji-2026.08.15-5`
+- 共通素材：909件
+  - `approved`：653件（3年459・4年194）
+  - `draft`：215件（すべて4年）
+  - `needs-fix`：41件（3年35・4年6）
+- 公開問題：漢字は読み653問・書き653問の合計1306問、単位は453問
+- 収録済みストロークデータ：417字（KanjiVG `r20250816` 由来、CC BY-SA 3.0。[ADR-0010](./adr/0010-kanjivg-stroke-data.md)）
+- 自動テスト：**未実行**（`npm install` がレジストリ403で通らない環境のため。前回の実測値は166件成功）
+- 本番ビルド：**未実行**（同上）
 - GitHub Pages：`https://minoru365.github.io/osarai-note/` で公開済み。2026-08-26に単位教科とモチベーション機能を反映し、公開サイトで「単位」カードが有効・ペット表示ありを確認した
 
-3年生第2〜9バッチ、4年生第1バッチ、承認済み558素材と生成物、確認画面生成スクリプト、固定470pxの書き回答領域は最新コミットまでに反映済み。GitHub Pagesの初回手動デプロイも成功している。作業開始時は必ず `git status --short` で利用者の変更を確認し、既存変更を破棄しない。
+3年生第2〜9バッチ、4年生第1・第2バッチ、承認済み653素材と生成物、確認画面生成スクリプト、固定470pxの書き回答領域は最新コミットまでに反映済み。GitHub Pagesの初回手動デプロイも成功している。作業開始時は必ず `git status --short` で利用者の変更を確認し、既存変更を破棄しない。
+
+**次にローカル環境へ移ったら、まず `npm test` と `npm run build` を実行すること。** 素材版`2026.08.15-5`への更新はリモート環境で行い、そこでは依存を導入できなかったため、この2つが未実行のまま残っている。
 
 ## 2. 固定済みの製品方針
 
@@ -94,18 +95,26 @@
 
 ### 4.2 問題レビューの継続
 
-優先作業はM2の問題レビュー継続である。
+優先作業はM2の問題レビュー継続である。次は `kanji-g4-003` を作る。
 
-1. `kanji-g4-002` を100件で作る。
+1. `kanji-g4-003` を100件で作る。
 2. 全件を最初から自然な例文へ変更する。
 3. 4年生問題では1〜4年生以外の漢字をひらがなにする。
 4. 使用頻度が低い・意味が難しい語句は、同じ基準読みを満たす自然な語句へ変更する。適切な問題が作れなければ `needs-fix` にする。
 5. 対話型確認画面で人の承認を得る。
-6. 素材版を `2026.08.15-5` へ上げて反映し、生成、テスト、ビルドを行う。
+6. 素材版を `2026.08.15-6` へ上げて反映し、生成、テスト、ビルドを行う。
 
-3年生は未確認素材と未作成素材がなくなり、残りは `needs-fix` 35件だけになった。4年生の残りは336件（`draft` 311件、`needs-fix` 1件、未作成24件）で、全体の残りは371件。次は4年生の通常レビューへ戻る。
+3年生は未確認素材と未作成素材がなくなり、残りは `needs-fix` 35件だけになった。4年生の残りは245件（`draft` 215件、`needs-fix` 6件、未作成24件）で、全体の残りは280件。`draft` 215件には、地名読みで追加した滋賀・大阪・愛媛・富山の4件が含まれる（[ADR-0011](./adr/0011-place-name-readings.md)）。
 
-**承認の前にKanjiVGのストロークデータを取り込むこと。** `content-source/kanjivg/` には承認済み問題に必要な368字しか入っていない。`kanji-g4-002` を承認すると49字（結建健康験固成功好香川候佐差菜最材昨札参産散歩残氏司試児小治滋辞鹿失敗借種類周順番初雪松竹梅笑唱焼）が不足し、`npm run content:generate` が「承認済み問題のKanjiVGデータがありません」で止まる。地名読みの4件を承認する場合はさらに滋・阪・富が要る。KanjiVGのリリース`r20250816`から`kanji/<5桁の16進コードポイント>.svg`を取得して`content-source/kanjivg/`へ置く（[ADR-0010](./adr/0010-kanjivg-stroke-data.md)）。リモート作業環境はネットワーク方針でraw.githubusercontent.comへ接続できないため、この取り込みはローカル環境で行う。
+**バッチを承認する前に、KanjiVGのストロークデータを取り込むこと。** `content-source/kanjivg/` には承認済み問題に必要な字しか入っていない。不足したまま承認すると `npm run content:generate` が「承認済み問題のKanjiVGデータがありません」で止まる。`kanji-g4-002` の承認では49字が不足し、取り込んで417字にした。地名読みの4件を承認するときは、さらに阪・富が要る（滋は取り込み済み）。
+
+手順は、KanjiVGをリリース`r20250816`で取得し、必要な字の`kanji/<5桁の16進コードポイント>.svg`を`content-source/kanjivg/`へ複製する（[ADR-0010](./adr/0010-kanjivg-stroke-data.md)）。
+
+```powershell
+git clone --depth 1 --branch r20250816 https://github.com/KanjiVG/kanjivg <作業用パス>\kanjivg
+```
+
+リモート作業環境ではraw.githubusercontent.comへの直接接続がネットワーク方針で拒否されるが、git proxyが公開リポジトリの匿名cloneを通すため、この方法なら取り込める。取り込み後は既存ファイルとの一致を確認するとよい（2026-09-03時点で、既存368字は`r20250816`とバイト一致した）。
 
 問題レビューと並行しない次の技術課題は、ストロークJSONの増加でViteの生成JavaScriptが500KBを超えた警告への対応である（2026-08-27のKanjiVG移行と平滑化で1,920KBへ増えた）。現状は動作するため、レビューを止める問題ではない。対応時はストロークデータの遅延読み込みまたは静的JSON分離を検討し、オフライン動作とGitHub Pagesのパスを検証する。
 
@@ -114,10 +123,10 @@
 ### 5.1 バッチ作成
 
 ```powershell
-npm run content:review-batch -- 4 2 100
+npm run content:review-batch -- 4 3 100
 ```
 
-生成される正本は `content-review/kanji-g4-002.json`。Markdownは確認用生成物であり、JSON編集後に再生成する。
+生成される正本は `content-review/kanji-g4-003.json`。Markdownは確認用生成物であり、JSON編集後に再生成する。
 
 ### 5.2 例文編集の規則
 
@@ -133,8 +142,8 @@ npm run content:review-batch -- 4 2 100
 ### 5.3 Markdownと確認画面
 
 ```powershell
-npm run content:review-render -- kanji-g4-002
-npm run content:review-visualize -- kanji-g4-002 <書き込み可能な絶対パス>\kanji-review-g4-batch-002.html
+npm run content:review-render -- kanji-g4-003
+npm run content:review-visualize -- kanji-g4-003 <書き込み可能な絶対パス>\kanji-review-g4-batch-003.html
 ```
 
 `content:review-visualize` は、問題一覧、全部OK、個別の要修正、Codexへの判定送信を含むHTML断片を作る。判定送信はCodex会話内のVisualizeとして表示したときだけ機能する。単独の`file://`タブでは会話ブリッジがないため、送信結果を会話へ渡せない。
@@ -142,7 +151,7 @@ npm run content:review-visualize -- kanji-g4-002 <書き込み可能な絶対パ
 Claude Codeで作業する場合は `content:review-page` を使う。
 
 ```powershell
-npm run content:review-page -- kanji-g4-002 <書き込み可能な絶対パス>\kanji-g4-002-review.html
+npm run content:review-page -- kanji-g4-003 <書き込み可能な絶対パス>\kanji-g4-003-review.html
 ```
 
 こちらは単体で開ける確認ページを作る。読み問題と書き問題の両方の見え方、答え、書く字を1行にまとめ、送り仮名を分離できない語句には警告を出す。出力はClaudeのArtifactの本文としてそのまま公開でき、公開時に `capabilities: {db: {}}` を付けると判断がArtifactのデータベースへ保存され、会話側から `read_db`（コレクション `reviews/<バッチID>/entries`、文書IDは3桁の連番）で読み取れる。保存が使えない環境では、貼り付け用の文面を画面下に出す。どちらの画面も、行のHTMLを手で作らずバッチJSONから決定的に生成する。
@@ -155,8 +164,8 @@ npm run content:review-page -- kanji-g4-002 <書き込み可能な絶対パス>\
 - 「削除」の要望は、通常は物理削除せず `needs-fix` で公開対象から除外し、判断履歴を保持する。
 
 ```powershell
-npm run content:review-render -- kanji-g4-002
-npm run content:review-apply -- kanji-g4-002 2026.08.15-5
+npm run content:review-render -- kanji-g4-003
+npm run content:review-apply -- kanji-g4-003 2026.08.15-6
 npm run content:generate
 npm test
 npm run build

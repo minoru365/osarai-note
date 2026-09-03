@@ -21,7 +21,7 @@
         ],
         "writingPrompt": "「けっか」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -40,7 +40,7 @@
         ],
         "writingPrompt": "「むすぶ」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -59,7 +59,7 @@
         ],
         "writingPrompt": "「ゆう」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -98,7 +98,7 @@
         ],
         "writingPrompt": "「けんこく」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -118,7 +118,7 @@
         ],
         "writingPrompt": "「こんりゅう」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -137,7 +137,7 @@
         ],
         "writingPrompt": "「たてる」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -156,7 +156,7 @@
         ],
         "writingPrompt": "「たつ」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -176,7 +176,7 @@
         ],
         "writingPrompt": "「けんこう」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -195,7 +195,7 @@
         ],
         "writingPrompt": "「すこやか」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -215,7 +215,7 @@
         ],
         "writingPrompt": "「じっけん」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -235,7 +235,7 @@
         ],
         "writingPrompt": "「こてい」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -254,7 +254,7 @@
         ],
         "writingPrompt": "「かためる」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -273,7 +273,7 @@
         ],
         "writingPrompt": "「かたまる」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -292,7 +292,7 @@
         ],
         "writingPrompt": "「かたい」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -312,7 +312,7 @@
         ],
         "writingPrompt": "「せいこう」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -352,7 +352,7 @@
         ],
         "writingPrompt": "「こうぶつ」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -371,7 +371,7 @@
         ],
         "writingPrompt": "「このむ」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -390,7 +390,7 @@
         ],
         "writingPrompt": "「すき」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -410,7 +410,7 @@
         ],
         "writingPrompt": "「こうすい」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -450,7 +450,7 @@
         ],
         "writingPrompt": "「かがわ」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -469,7 +469,7 @@
         ],
         "writingPrompt": "「かおり」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -488,7 +488,7 @@
         ],
         "writingPrompt": "「かおる」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -508,7 +508,7 @@
         ],
         "writingPrompt": "「きこう」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -548,7 +548,7 @@
         ],
         "writingPrompt": "「けんこう」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -568,7 +568,7 @@
         ],
         "writingPrompt": "「さが」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -589,7 +589,7 @@
         ],
         "writingPrompt": "「こうさてん」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -608,7 +608,7 @@
         ],
         "writingPrompt": "「さす」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -628,7 +628,7 @@
         ],
         "writingPrompt": "「さいえん」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -648,7 +648,7 @@
         ],
         "writingPrompt": "「あおな」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -668,7 +668,7 @@
         ],
         "writingPrompt": "「さいだい」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -687,7 +687,7 @@
         ],
         "writingPrompt": "「もっとも」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -707,7 +707,7 @@
         ],
         "writingPrompt": "「ざいもく」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -727,7 +727,7 @@
         ],
         "writingPrompt": "「さくねん」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -747,7 +747,7 @@
         ],
         "writingPrompt": "「かいさつ」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -766,7 +766,7 @@
         ],
         "writingPrompt": "「ふだ」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -786,7 +786,7 @@
         ],
         "writingPrompt": "「いんさつ」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -805,7 +805,7 @@
         ],
         "writingPrompt": "「する」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -825,7 +825,7 @@
         ],
         "writingPrompt": "「さっち」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -845,7 +845,7 @@
         ],
         "writingPrompt": "「さんか」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -864,7 +864,7 @@
         ],
         "writingPrompt": "「まいる」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -884,7 +884,7 @@
         ],
         "writingPrompt": "「さんぎょう」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -903,7 +903,7 @@
         ],
         "writingPrompt": "「うむ」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -922,7 +922,7 @@
         ],
         "writingPrompt": "「うまれる」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -942,7 +942,7 @@
         ],
         "writingPrompt": "「うぶげ」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -962,7 +962,7 @@
         ],
         "writingPrompt": "「さんぽ」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -981,7 +981,7 @@
         ],
         "writingPrompt": "「ちる」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1000,7 +1000,7 @@
         ],
         "writingPrompt": "「ちらす」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1019,7 +1019,7 @@
         ],
         "writingPrompt": "「ちらかす」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1038,7 +1038,7 @@
         ],
         "writingPrompt": "「ちらかる」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1058,7 +1058,7 @@
         ],
         "writingPrompt": "「ざんねん」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1077,7 +1077,7 @@
         ],
         "writingPrompt": "「のこる」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1096,7 +1096,7 @@
         ],
         "writingPrompt": "「のこす」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1116,7 +1116,7 @@
         ],
         "writingPrompt": "「しめい」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1136,7 +1136,7 @@
         ],
         "writingPrompt": "「うじがみ」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1156,7 +1156,7 @@
         ],
         "writingPrompt": "「しかい」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1176,7 +1176,7 @@
         ],
         "writingPrompt": "「しけん」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1195,7 +1195,7 @@
         ],
         "writingPrompt": "「こころみる」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1214,7 +1214,7 @@
         ],
         "writingPrompt": "「ためす」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1234,7 +1234,7 @@
         ],
         "writingPrompt": "「じどう」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1255,7 +1255,7 @@
         ],
         "writingPrompt": "「しょうにか」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1275,7 +1275,7 @@
         ],
         "writingPrompt": "「ちすい」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1294,7 +1294,7 @@
         ],
         "writingPrompt": "「おさめる」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1313,7 +1313,7 @@
         ],
         "writingPrompt": "「おさまる」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1332,7 +1332,7 @@
         ],
         "writingPrompt": "「なおる」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1351,7 +1351,7 @@
         ],
         "writingPrompt": "「なおす」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1371,7 +1371,7 @@
         ],
         "writingPrompt": "「じよう」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1391,7 +1391,7 @@
         ],
         "writingPrompt": "「じしょ」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1410,7 +1410,7 @@
         ],
         "writingPrompt": "「やめる」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1429,7 +1429,7 @@
         ],
         "writingPrompt": "「しか」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1450,7 +1450,7 @@
         ],
         "writingPrompt": "「かごしま」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1470,7 +1470,7 @@
         ],
         "writingPrompt": "「しっぱい」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1489,7 +1489,7 @@
         ],
         "writingPrompt": "「うしなう」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1509,7 +1509,7 @@
         ],
         "writingPrompt": "「しゃくよう」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1528,7 +1528,7 @@
         ],
         "writingPrompt": "「かりる」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1548,7 +1548,7 @@
         ],
         "writingPrompt": "「しゅるい」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1567,7 +1567,7 @@
         ],
         "writingPrompt": "「たね」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1587,7 +1587,7 @@
         ],
         "writingPrompt": "「いっしゅう」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1606,7 +1606,7 @@
         ],
         "writingPrompt": "「まわり」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1626,7 +1626,7 @@
         ],
         "writingPrompt": "「しゅくじつ」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1665,7 +1665,7 @@
         ],
         "writingPrompt": "「いわう」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1685,7 +1685,7 @@
         ],
         "writingPrompt": "「じゅんばん」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1705,7 +1705,7 @@
         ],
         "writingPrompt": "「さいしょ」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1724,7 +1724,7 @@
         ],
         "writingPrompt": "「はじめ」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1743,7 +1743,7 @@
         ],
         "writingPrompt": "「はじめて」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1763,7 +1763,7 @@
         ],
         "writingPrompt": "「はつゆき」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1784,7 +1784,7 @@
         ],
         "writingPrompt": "「しょうちくばい」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1803,7 +1803,7 @@
         ],
         "writingPrompt": "「まつ」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1823,7 +1823,7 @@
         ],
         "writingPrompt": "「だんしょう」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1842,7 +1842,7 @@
         ],
         "writingPrompt": "「わらう」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1861,7 +1861,7 @@
         ],
         "writingPrompt": "「えみ」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1881,7 +1881,7 @@
         ],
         "writingPrompt": "「がっしょう」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1900,7 +1900,7 @@
         ],
         "writingPrompt": "「となえる」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1920,7 +1920,7 @@
         ],
         "writingPrompt": "「ぜんしょう」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1939,7 +1939,7 @@
         ],
         "writingPrompt": "「やく」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     },
     {
@@ -1958,7 +1958,7 @@
         ],
         "writingPrompt": "「やける」の漢字の部分を書こう"
       },
-      "decision": "pending",
+      "decision": "approve",
       "note": ""
     }
   ]
