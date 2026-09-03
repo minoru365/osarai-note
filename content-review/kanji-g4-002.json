@@ -440,14 +440,15 @@
       "canonicalReading": "か",
       "fingerprint": "aa9ef607ba170a35a0a3160fe6b7a9c74c6a2c41ac13f4a9c991f14a644a8e55",
       "proposed": {
-        "word": "香",
-        "wordReading": "か",
-        "promptBefore": "どこからか、うめの花の",
-        "promptAfter": "がしてきました。",
+        "word": "香川",
+        "wordReading": "かがわ",
+        "promptBefore": "うどんで有名な",
+        "promptAfter": "県へ行ってみたいです。",
         "targetKanji": [
-          "香"
+          "香",
+          "川"
         ],
-        "writingPrompt": "「か」の漢字の部分を書こう"
+        "writingPrompt": "「かがわ」の漢字の部分を書こう"
       },
       "decision": "pending",
       "note": ""
@@ -1438,18 +1439,19 @@
       "canonicalReading": "か",
       "fingerprint": "230a78b7222f3068a37b5790450b4122e2a1943b39717eb2d0d3aa40d1cb95a2",
       "proposed": {
-        "word": "鹿の子",
-        "wordReading": "かのこ",
-        "promptBefore": "白い点がならんだもようを",
-        "promptAfter": "といいます。",
+        "word": "鹿児島",
+        "wordReading": "かごしま",
+        "promptBefore": "",
+        "promptAfter": "県には、いまもけむりを上げる火山があります。",
         "targetKanji": [
           "鹿",
-          "子"
+          "児",
+          "島"
         ],
-        "writingPrompt": "「かのこ」の漢字の部分を書こう"
+        "writingPrompt": "「かごしま」の漢字の部分を書こう"
       },
-      "decision": "needs-fix",
-      "note": "漢字とかなが交ざる語で書き問題の漢字部分を分けられず、4年生の使用頻度も低い"
+      "decision": "pending",
+      "note": ""
     },
     {
       "pairId": "kanji-g4-失-on-e2c348f3b1a7",
