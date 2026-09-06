@@ -8,6 +8,7 @@ import {
   createEmptyKanjiSkillStats,
   createEmptyUnitState,
   createInitialMotivationState,
+  normalizeMotivationState,
   type AppSettings,
   isSubject,
   isUnitSession,
@@ -257,21 +258,59 @@ async function readMotivationState(
   const existing = await requestResult(
     store.get("app") as IDBRequest<MotivationState | undefined>,
   );
-  return existing ?? createInitialMotivationState(fallbackUpdatedAt);
+  if (!existing) return createInitialMotivationState(fallbackUpdatedAt);
+  const normalized = normalizeMotivationState(existing);
+  validateMotivationState(normalized);
+  return normalized;
+}
+
+function validateMotivationState(state: MotivationState): void {
+  if (state.id !== "app"
+    || !Number.isInteger(state.pointsBalance) || state.pointsBalance < 0
+    || !Number.isInteger(state.activePetInvestedPoints) || state.activePetInvestedPoints < 0
+    || !Array.isArray(state.completedPets) || state.completedPets.length > PET_SPECIES.length
+    || typeof state.updatedAt !== "string") {
+    throw new Error("ペット育成状態が不正です");
+  }
+
+  state.completedPets.forEach((pet, index) => {
+    if (pet.species !== PET_SPECIES[index] || typeof pet.completedAt !== "string") {
+      throw new Error("ペット育成状態の順序が不正です");
+    }
+  });
+
+  const expectedActive = PET_SPECIES[state.completedPets.length] ?? null;
+  if (state.activePetSpecies !== expectedActive) {
+    throw new Error("ペット育成状態の次の仲間が不正です");
+  }
+  if (state.activePetSpecies === null && state.activePetInvestedPoints !== 0) {
+    throw new Error("仲間がいない状態の育成ポイントが不正です");
+  }
+  if (state.activePetSpecies !== null && state.activePetInvestedPoints >= POINTS_TO_COMPLETE_PET) {
+    throw new Error("育成ポイントが上限を超えています");
+  }
+}
+
+function laterTimestamp(current: string | null, candidate: string): string {
+  if (!current || new Date(candidate).getTime() >= new Date(current).getTime()) return candidate;
+  return current;
 }
 
 function applyPointsEarned(state: MotivationState, answeredAt: string): MotivationState {
   return {
     ...state,
     pointsBalance: state.pointsBalance + 1,
-    lastAnsweredAt: answeredAt,
-    updatedAt: answeredAt,
+    lastAnsweredAt: laterTimestamp(state.lastAnsweredAt, answeredAt),
+    updatedAt: laterTimestamp(state.updatedAt, answeredAt),
   };
 }
 
 function applyFeed(state: MotivationState, cost: FoodCost, now: string): MotivationState {
   if (!state.activePetSpecies) throw new Error("これ以上育てられるペットがいません");
   if (state.pointsBalance < cost) throw new Error("ポイントが足りません");
+  if (cost > POINTS_TO_COMPLETE_PET - state.activePetInvestedPoints) {
+    throw new Error("このエサは大きすぎます。小さいエサを選んでね");
+  }
 
   const investedPoints = state.activePetInvestedPoints + cost;
   const pointsBalance = state.pointsBalance - cost;
@@ -551,16 +590,16 @@ export class StudyStorage {
         completedAt: nextIndex === session.items.length ? attempt.answeredAt : null,
       };
 
-      const motivationState = applyPointsEarned(
-        await readMotivationState(motivationStore, attempt.answeredAt),
-        attempt.answeredAt,
-      );
+      const currentMotivationState = await readMotivationState(motivationStore, attempt.answeredAt);
+      const motivationState = attempt.correct
+        ? applyPointsEarned(currentMotivationState, attempt.answeredAt)
+        : currentMotivationState;
 
       await Promise.all([
         requestResult(attemptsStore.add(attempt)),
         requestResult(sessionsStore.put(nextSession)),
         ...stateUpdates.map((state) => requestResult(statesStore.put(state))),
-        requestResult(motivationStore.put(motivationState)),
+        ...(attempt.correct ? [requestResult(motivationStore.put(motivationState))] : []),
       ]);
       await completion;
       return "added";
@@ -656,16 +695,16 @@ export class StudyStorage {
         completedAt: nextIndex === session.items.length ? attempt.answeredAt : null,
       };
 
-      const motivationState = applyPointsEarned(
-        await readMotivationState(motivationStore, attempt.answeredAt),
-        attempt.answeredAt,
-      );
+      const currentMotivationState = await readMotivationState(motivationStore, attempt.answeredAt);
+      const motivationState = attempt.correct
+        ? applyPointsEarned(currentMotivationState, attempt.answeredAt)
+        : currentMotivationState;
 
       await Promise.all([
         requestResult(attemptsStore.add(attempt)),
         requestResult(sessionsStore.put(nextSession)),
         requestResult(statesStore.put(nextState)),
-        requestResult(motivationStore.put(motivationState)),
+        ...(attempt.correct ? [requestResult(motivationStore.put(motivationState))] : []),
       ]);
       await completion;
       return "added";

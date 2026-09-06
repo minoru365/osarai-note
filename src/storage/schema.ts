@@ -262,9 +262,10 @@ export function isSelectableGrade(value: unknown): value is SelectableGrade {
 
 export type SaveAttemptResult = "added" | "duplicate";
 
-// Motivation feature (ADR-0006): a single subject-independent point ledger and
-// pet growth state, kept in its own store so existing progress data never moves.
-export const PET_SPECIES = ["hiyoko", "usagi"] as const;
+// Motivation feature (ADR-0006/0012): a single subject-independent point ledger
+// and pet growth state, kept in its own store so existing progress data never moves.
+// The order is intentional: completing one pet deterministically unlocks the next.
+export const PET_SPECIES = ["hiyoko", "usagi", "kitsune"] as const;
 export type PetSpeciesId = typeof PET_SPECIES[number];
 
 export const FOOD_COSTS = [1, 3, 5] as const;
@@ -277,6 +278,19 @@ export const NEGLECT_THRESHOLD_DAYS = 3;
 
 export function growthStage(investedPoints: number): number {
   return Math.min(GROWTH_STAGE_COUNT, Math.floor(investedPoints / POINTS_PER_GROWTH_STAGE) + 1);
+}
+
+/**
+ * Old v3 data could end with two completed pets and no active pet. The new
+ * sequence continues that state with the third pet without rewriting any
+ * earned points, dates, or completion history. The normalized value is only
+ * written when the next atomic study/feed operation already writes motivation.
+ */
+export function normalizeMotivationState(state: MotivationState): MotivationState {
+  if (!Array.isArray(state.completedPets)) return state;
+  const nextSpecies = PET_SPECIES[state.completedPets.length] ?? null;
+  if (state.activePetSpecies !== null || nextSpecies === null || state.completedPets.length < 2) return state;
+  return { ...state, activePetSpecies: nextSpecies, activePetInvestedPoints: 0 };
 }
 
 export function isPetNeglected(lastAnsweredAt: string | null, now: Date): boolean {

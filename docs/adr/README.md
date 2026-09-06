@@ -26,6 +26,7 @@ ADRは、後から理由を忘れると手戻りになる重要判断だけを�
 | [0009](./0009-shared-grade-selection.md) | Accepted | 学年選択を教科横断の保存設定にする |
 | [0010](./0010-kanjivg-stroke-data.md) | Accepted | ストロークデータをKanjiVGへ移す |
 | [0011](./0011-place-name-readings.md) | Accepted | 都道府県名の読みを地名読みとして扱う |
+| [0012](./0012-motivation-fairness-and-fantasy-progression.md) | Accepted | 公平なポイント加算とファンタジー装備進化 |
 
 ## テンプレート
 

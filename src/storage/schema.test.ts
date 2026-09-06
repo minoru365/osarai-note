@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { GROWTH_STAGE_COUNT, growthStage, isPetNeglected } from "./schema";
+import { GROWTH_STAGE_COUNT, growthStage, isPetNeglected, normalizeMotivationState } from "./schema";
+import type { MotivationState } from "./schema";
 
 describe("growthStage", () => {
   it("0ポイントは1段階目", () => {
@@ -43,5 +44,27 @@ describe("isPetNeglected", () => {
       "2026-08-17T09:59:00.000Z",
       new Date("2026-08-17T10:00:00.000Z"),
     )).toBe(false);
+  });
+});
+
+describe("normalizeMotivationState", () => {
+  it("旧2匹完了状態だけをきつね育成へつなぎ、履歴と残高を変えない", () => {
+    const legacy: MotivationState = {
+      id: "app",
+      pointsBalance: 12,
+      activePetSpecies: null,
+      activePetInvestedPoints: 0,
+      completedPets: [
+        { species: "hiyoko", completedAt: "2026-08-14T10:00:00.000Z" },
+        { species: "usagi", completedAt: "2026-08-14T10:30:00.000Z" },
+      ],
+      lastAnsweredAt: "2026-08-14T10:30:00.000Z",
+      updatedAt: "2026-08-14T10:30:00.000Z",
+    };
+
+    expect(normalizeMotivationState(legacy)).toEqual({
+      ...legacy,
+      activePetSpecies: "kitsune",
+    });
   });
 });

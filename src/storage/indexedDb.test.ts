@@ -524,8 +524,12 @@ describe("StudyStorage", () => {
       firstTryCorrect: 0,
       weakness: 1,
     });
-    // Both answers count for points even though only one moves the aggregate.
-    expect(await storage.getMotivationState()).toMatchObject({ pointsBalance: 2 });
+    // Only the completed question earns a point; the retry remains a learning
+    // event but cannot turn one displayed problem into two points.
+    expect(await storage.getMotivationState()).toMatchObject({
+      pointsBalance: 1,
+      lastAnsweredAt: "2026-08-14T10:02:00.000Z",
+    });
   });
 
   it("2回目以降に押した単位の「分からない」も未知として一度だけ数える", async () => {
@@ -637,10 +641,10 @@ describe("StudyStorage", () => {
     });
   });
 
-  it("当日セッションの回答は正誤や分からないによらず1問1ポイントを加算する", async () => {
+  it("当日セッションは問題の完了時にだけ1問1ポイントを加算する", async () => {
     const dailySession = createSession("reading", ["kanji-reading-葉"]);
     await storage.createDailySession(dailySession);
-    await storage.recordKanjiSessionAttempt(createSessionAttempt({
+    const wrong = createSessionAttempt({
       id: "reading-points-1",
       sessionId: dailySession.id,
       sessionItemId: dailySession.items[0].id,
@@ -652,11 +656,23 @@ describe("StudyStorage", () => {
       firstTryCorrect: false,
       targetKanji: ["葉"],
       answeredAt: "2026-08-14T10:00:30.000Z",
-    }));
+    });
+    await storage.recordKanjiSessionAttempt(wrong);
+    expect(await storage.getMotivationState()).toMatchObject({ pointsBalance: 0, lastAnsweredAt: null });
+
+    await storage.recordKanjiSessionAttempt({
+      ...wrong,
+      id: "reading-points-2",
+      answer: "は",
+      correct: true,
+      mistakes: 1,
+      firstTryCorrect: false,
+      answeredAt: "2026-08-14T10:01:30.000Z",
+    });
 
     expect(await storage.getMotivationState()).toMatchObject({
       pointsBalance: 1,
-      lastAnsweredAt: "2026-08-14T10:00:30.000Z",
+      lastAnsweredAt: "2026-08-14T10:01:30.000Z",
     });
   });
 
@@ -672,6 +688,22 @@ describe("StudyStorage", () => {
     await storage.recordKanjiFreePracticeAttempt(createFreePracticeAttempt({ id: "free-points-1" }));
 
     expect(await storage.getMotivationState()).toMatchObject({ pointsBalance: 1 });
+  });
+
+  it("遅れて届いた古い回答日時で最終回答日時を巻き戻さない", async () => {
+    await storage.recordKanjiFreePracticeAttempt(createFreePracticeAttempt({
+      id: "free-time-new",
+      answeredAt: "2026-08-14T10:02:00.000Z",
+    }));
+    await storage.recordKanjiFreePracticeAttempt(createFreePracticeAttempt({
+      id: "free-time-old",
+      answeredAt: "2026-08-14T10:01:00.000Z",
+    }));
+
+    expect(await storage.getMotivationState()).toMatchObject({
+      pointsBalance: 2,
+      lastAnsweredAt: "2026-08-14T10:02:00.000Z",
+    });
   });
 
   it("エサをあげるとポイントを消費し育成ポイントが増える", async () => {
@@ -713,10 +745,29 @@ describe("StudyStorage", () => {
     expect(state.completedPets).toEqual([{ species: "hiyoko", completedAt: "2026-08-14T11:00:00.000Z" }]);
   });
 
-  it("最後の1匹まで育て終えるとこれ以上エサをあげられない", async () => {
+  it("次のエサで上限を超える場合はポイントを消費しない", async () => {
     await seedMotivationState(factory, "study-support-test", {
       id: "app",
       pointsBalance: 5,
+      activePetSpecies: "hiyoko",
+      activePetInvestedPoints: 498,
+      completedPets: [],
+      lastAnsweredAt: "2026-08-14T10:00:00.000Z",
+      updatedAt: "2026-08-14T10:00:00.000Z",
+    });
+
+    await expect(storage.feedPet(5, "2026-08-14T11:00:00.000Z")).rejects.toThrow("このエサは大きすぎます");
+    expect(await storage.getMotivationState()).toMatchObject({
+      pointsBalance: 5,
+      activePetSpecies: "hiyoko",
+      activePetInvestedPoints: 498,
+    });
+  });
+
+  it("旧2匹完了状態は読み出し時にきつね育成へつながる", async () => {
+    await seedMotivationState(factory, "study-support-test", {
+      id: "app",
+      pointsBalance: 7,
       activePetSpecies: null,
       activePetInvestedPoints: 0,
       completedPets: [
@@ -727,7 +778,70 @@ describe("StudyStorage", () => {
       updatedAt: "2026-08-14T10:30:00.000Z",
     });
 
+    expect(await storage.getMotivationState()).toMatchObject({
+      pointsBalance: 7,
+      activePetSpecies: "kitsune",
+      activePetInvestedPoints: 0,
+      completedPets: [
+        { species: "hiyoko", completedAt: "2026-08-14T10:00:00.000Z" },
+        { species: "usagi", completedAt: "2026-08-14T10:30:00.000Z" },
+      ],
+    });
+  });
+
+  it("きつねが500ポイントに達すると3匹完了になり残高を保持する", async () => {
+    await seedMotivationState(factory, "study-support-test", {
+      id: "app",
+      pointsBalance: 5,
+      activePetSpecies: "kitsune",
+      activePetInvestedPoints: 495,
+      completedPets: [
+        { species: "hiyoko", completedAt: "2026-08-14T10:00:00.000Z" },
+        { species: "usagi", completedAt: "2026-08-14T10:30:00.000Z" },
+      ],
+      lastAnsweredAt: "2026-08-14T10:30:00.000Z",
+      updatedAt: "2026-08-14T10:30:00.000Z",
+    });
+
+    const state = await storage.feedPet(5, "2026-08-14T11:00:00.000Z");
+    expect(state).toMatchObject({ pointsBalance: 0, activePetSpecies: null, activePetInvestedPoints: 0 });
+    expect(state.completedPets).toHaveLength(3);
+    expect(state.completedPets[2].species).toBe("kitsune");
+  });
+
+  it("3匹とも育て終えるとこれ以上エサをあげられない", async () => {
+    await seedMotivationState(factory, "study-support-test", {
+      id: "app",
+      pointsBalance: 5,
+      activePetSpecies: null,
+      activePetInvestedPoints: 0,
+      completedPets: [
+        { species: "hiyoko", completedAt: "2026-08-14T10:00:00.000Z" },
+        { species: "usagi", completedAt: "2026-08-14T10:30:00.000Z" },
+        { species: "kitsune", completedAt: "2026-08-14T11:00:00.000Z" },
+      ],
+      lastAnsweredAt: "2026-08-14T11:00:00.000Z",
+      updatedAt: "2026-08-14T11:00:00.000Z",
+    });
+
     await expect(storage.feedPet(1, "2026-08-14T11:00:00.000Z")).rejects.toThrow("これ以上育てられるペットがいません");
+  });
+
+  it("順序違反や重複を含む育成状態を復元時に拒否する", async () => {
+    await seedMotivationState(factory, "study-support-test", {
+      id: "app",
+      pointsBalance: 1,
+      activePetSpecies: "kitsune",
+      activePetInvestedPoints: 0,
+      completedPets: [
+        { species: "hiyoko", completedAt: "2026-08-14T10:00:00.000Z" },
+        { species: "hiyoko", completedAt: "2026-08-14T10:30:00.000Z" },
+      ],
+      lastAnsweredAt: null,
+      updatedAt: "2026-08-14T10:30:00.000Z",
+    });
+
+    await expect(storage.getMotivationState()).rejects.toThrow("順序が不正");
   });
 });
 

@@ -1,4 +1,4 @@
-const CACHE_NAME = "osarai-note-shell-v2";
+const CACHE_NAME = "osarai-note-shell-v3";
 const scopeUrl = new URL("./", self.registration.scope);
 const appShell = [
   scopeUrl.href,
@@ -22,6 +22,18 @@ self.addEventListener("install", (event) => {
         .map((pack) => new URL(`content/${pack.url}`, scopeUrl).href)
       : [];
     await cache.addAll(packUrls);
+
+    const petManifestUrl = new URL("pets/manifest.json", scopeUrl);
+    const petManifestResponse = await fetch(petManifestUrl, { cache: "no-cache" });
+    if (!petManifestResponse.ok) throw new Error("Pet manifest could not be cached");
+    await cache.put(petManifestUrl, petManifestResponse.clone());
+    const petManifest = await petManifestResponse.json();
+    const petUrls = Array.isArray(petManifest.assets)
+      ? petManifest.assets
+        .filter((asset) => typeof asset === "string" && !asset.includes("..") && !asset.startsWith("/"))
+        .map((asset) => new URL(`pets/${asset}`, scopeUrl).href)
+      : [];
+    await cache.addAll(petUrls);
   })());
   self.skipWaiting();
 });

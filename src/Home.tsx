@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getLocalDate } from "./dailySession";
+import { getDailyMilestone } from "./motivation";
 import { PetWidget } from "./PetWidget";
 import { studyStorage } from "./storage/indexedDb";
 import { SELECTABLE_GRADES, type SelectableGrade } from "./storage/schema";
@@ -78,6 +79,9 @@ export function Home({ questionCount, readingQuestionCount, writingQuestionCount
     return () => { active = false; };
   }, [readingQuestionCount, writingQuestionCount, unitQuestionCount]);
 
+  const todayTotal = today.reading + today.writing + today.units;
+  const dailyMilestone = getDailyMilestone(todayTotal);
+
   const subjects: Subject[] = [
     {
       icon: "字", name: "漢字", note: "3・4年生", ready: canStart,
@@ -114,6 +118,13 @@ export function Home({ questionCount, readingQuestionCount, writingQuestionCount
               <div><span>読み</span><strong>{today.reading}問</strong></div>
               <div><span>書き</span><strong>{today.writing}問</strong></div>
               {unitQuestionCount > 0 && <div><span>たんい</span><strong>{today.units}問</strong></div>}
+            </div>
+            <div className="daily-milestone" aria-label="今日の小さな目標">
+              <div className="daily-milestone-heading"><span>きょうの目標</span><strong>{todayTotal}問</strong></div>
+              <i aria-hidden="true"><b style={{ width: `${dailyMilestone.progress}%` }} /></i>
+              <small>{dailyMilestone.next === null
+                ? "10問できたね！ まだ続けてもいいよ"
+                : `あと${dailyMilestone.remaining}問で ${dailyMilestone.next}問だよ`}</small>
             </div>
             <div className="grade-choice home-grade-choice" role="group" aria-label="学年（複数選べます）">
               {SELECTABLE_GRADES.map((grade) => (

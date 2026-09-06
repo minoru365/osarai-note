@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getLocalDate } from "./dailySession";
-import { PET_EMOJI, PET_LABEL } from "./petPresentation";
+import { getRecentStudyDays, type RecentStudyDay } from "./motivation";
+import { PET_EMOJI, PET_LABEL, petAssetUrl } from "./petPresentation";
 import { studyStorage } from "./storage/indexedDb";
 import { UNIT_CATEGORIES, UNIT_CATEGORY_LABEL, type UnitCategory } from "./units";
 import type { CompletedPet, KanjiState, StudyAttempt, UnitState } from "./storage/schema";
@@ -23,30 +24,34 @@ const NEEDS_WORK_THRESHOLD = 1;
 
 export function masteredKanji(states: KanjiState[]): string[] {
   return states
-    .filter((state) => (
-      (state.reading.presentations > 0 && state.reading.weakness === MASTERED_WEAKNESS)
-      || (state.writing.presentations > 0 && state.writing.weakness === MASTERED_WEAKNESS)
-    ))
+    .filter((state) => practicedWeakness(state) === MASTERED_WEAKNESS)
     .map((state) => state.kanji)
     .sort();
 }
 
 /** Practised, weakness 1-2: worth another look but not struggling. */
 export function needsWorkKanji(states: KanjiState[]): string[] {
-  const band = (stats: KanjiState["reading"]) =>
-    stats.presentations > 0 && stats.weakness >= NEEDS_WORK_THRESHOLD && stats.weakness < WEAK_THRESHOLD;
   return states
-    .filter((state) => band(state.reading) || band(state.writing))
-    .filter((state) => state.reading.weakness < WEAK_THRESHOLD && state.writing.weakness < WEAK_THRESHOLD)
+    .filter((state) => {
+      const weakness = practicedWeakness(state);
+      return weakness !== null && weakness >= NEEDS_WORK_THRESHOLD && weakness < WEAK_THRESHOLD;
+    })
     .map((state) => state.kanji)
     .sort();
 }
 
 export function weakKanji(states: KanjiState[]): string[] {
   return states
-    .filter((state) => state.reading.weakness >= WEAK_THRESHOLD || state.writing.weakness >= WEAK_THRESHOLD)
+    .filter((state) => (practicedWeakness(state) ?? -1) >= WEAK_THRESHOLD)
     .map((state) => state.kanji)
     .sort();
+}
+
+function practicedWeakness(state: KanjiState): number | null {
+  const practiced = [state.reading, state.writing]
+    .filter((stats) => stats.presentations > 0)
+    .map((stats) => stats.weakness);
+  return practiced.length === 0 ? null : Math.max(...practiced);
 }
 
 export function countStudyDays(attempts: StudyAttempt[]): number {
@@ -107,6 +112,26 @@ export function summarizeUnitCategories(states: UnitState[]): UnitCategorySummar
     .sort((left, right) => right.weakness - left.weakness || left.label.localeCompare(right.label));
 }
 
+function weekdayLabel(localDate: string): string {
+  const [year, month, day] = localDate.split("-").map(Number);
+  return ["日", "月", "火", "水", "木", "金", "土"][new Date(year, month - 1, day).getDay()];
+}
+
+function CompletedPetBadge({ species }: { species: CompletedPet["species"] }) {
+  const [artFailed, setArtFailed] = useState(false);
+  return artFailed
+    ? <span className="achievements-pet-emoji" aria-hidden="true">{PET_EMOJI[species]}</span>
+    : (
+      <img
+        className="achievements-pet-art"
+        src={petAssetUrl(species, 5, "happy", "a")}
+        alt=""
+        aria-hidden="true"
+        onError={() => setArtFailed(true)}
+      />
+    );
+}
+
 export function Achievements({ onBack, onPracticeKanji, onPracticeUnit }: Props) {
   const [loading, setLoading] = useState(true);
   const [studyDays, setStudyDays] = useState(0);
@@ -115,6 +140,7 @@ export function Achievements({ onBack, onPracticeKanji, onPracticeUnit }: Props)
   const [weak, setWeak] = useState<string[]>([]);
   const [completedPets, setCompletedPets] = useState<CompletedPet[]>([]);
   const [unitSummaries, setUnitSummaries] = useState<UnitCategorySummary[]>([]);
+  const [recentStudyDays, setRecentStudyDays] = useState<RecentStudyDay[]>([]);
 
   useEffect(() => {
     let active = true;
@@ -131,6 +157,7 @@ export function Achievements({ onBack, onPracticeKanji, onPracticeUnit }: Props)
       setWeak(weakKanji(states));
       setCompletedPets(motivation.completedPets);
       setUnitSummaries(summarizeUnitCategories(units));
+      setRecentStudyDays(getRecentStudyDays(attempts));
       setLoading(false);
     }).catch(() => {
       if (active) setLoading(false);
@@ -165,6 +192,20 @@ export function Achievements({ onBack, onPracticeKanji, onPracticeUnit }: Props)
           <div className="achievements-stat">
             <span>にがてな漢字</span>
             <strong>{weak.length}字</strong>
+          </div>
+        </section>
+
+        <section className="achievements-panel achievements-week-panel">
+          <h2>さいきん7日</h2>
+          <p className="achievements-hint">できた日はほしがつくよ。毎日じゃなくても大丈夫</p>
+          <div className="achievements-week" aria-label="さいきん7日の学習日">
+            {recentStudyDays.map((day) => (
+              <div className={day.practiced ? "practiced" : ""} key={day.localDate}>
+                <span>{weekdayLabel(day.localDate)}</span>
+                <strong aria-label={day.practiced ? "学習した日" : "まだ学習していない日"}>{day.practiced ? "★" : "☆"}</strong>
+                <small>{day.localDate.slice(5).replace("-", "/")}</small>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -242,7 +283,7 @@ export function Achievements({ onBack, onPracticeKanji, onPracticeUnit }: Props)
               <div className="achievements-pet-list">
                 {completedPets.map((pet) => (
                   <div className="achievements-pet" key={`${pet.species}-${pet.completedAt}`}>
-                    <span className="achievements-pet-emoji" aria-hidden="true">{PET_EMOJI[pet.species]}</span>
+                    <CompletedPetBadge species={pet.species} />
                     <span>{PET_LABEL[pet.species]}</span>
                   </div>
                 ))}

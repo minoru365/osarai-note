@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   countStudyDays,
   masteredKanji,
+  needsWorkKanji,
   rankUnitStates,
   skillLevel,
   summarizeUnitCategories,
@@ -25,8 +26,14 @@ function state(kanji: string, readingWeakness: number, writingWeakness: number, 
 }
 
 describe("masteredKanji", () => {
-  it("読みか書きのどちらかが苦手度0なら『できるようになった』に含める", () => {
-    expect(masteredKanji([state("葉", 0, 3), state("暗", 4, 4)])).toEqual(["葉"]);
+  it("練習した読み書きの苦手度がすべて0なら『できるようになった』に含める", () => {
+    expect(masteredKanji([state("葉", 0, 0), state("暗", 4, 4)])).toEqual(["葉"]);
+  });
+
+  it("読み書きの片方が苦手なら、できるようになった一覧と重複させない", () => {
+    const states = [state("葉", 0, 3)];
+    expect(masteredKanji(states)).toEqual([]);
+    expect(weakKanji(states)).toEqual(["葉"]);
   });
 
   it("一度も出題されていない漢字は含めない", () => {
@@ -37,6 +44,12 @@ describe("masteredKanji", () => {
 describe("weakKanji", () => {
   it("苦手度5以上を『もう少し』に含める", () => {
     expect(weakKanji([state("葉", 5, 0), state("暗", 0, 0), state("委", 0, 6)])).toEqual(["委", "葉"]);
+  });
+});
+
+describe("needsWorkKanji", () => {
+  it("苦手度1〜2だけをもう少しに含める", () => {
+    expect(needsWorkKanji([state("葉", 1, 2), state("暗", 3, 0), state("空", 0, 0)])).toEqual(["葉"]);
   });
 });
 
