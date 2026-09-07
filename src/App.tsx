@@ -11,8 +11,10 @@ import {
 import { startNextDailyBatch, summarizeDailySession } from "./dailySession";
 import { japaneseCharDataLoader } from "./kanjiData";
 import { loadUnitQuestions, type UnitQuestion } from "./unitContent";
+import { loadJapanMapQuestions, type JapanMapQuestion } from "./japanMapContent";
 import type { UnitCategory } from "./units";
 import { UnitPractice } from "./UnitPractice";
+import { JapanMapPractice } from "./JapanMapPractice";
 import { Achievements } from "./Achievements";
 import { Home } from "./Home";
 import { FreePracticeBrowser, createFreePracticeBatch, filterFreePracticeQuestions } from "./FreePracticeBrowser";
@@ -32,7 +34,7 @@ import { studyStorage } from "./storage/indexedDb";
 type QuizState = "loading" | "writing" | "guide" | "character-complete" | "word-complete" | "saving" | "save-error" | "error";
 
 function App() {
-  const [view, setView] = useState<"home" | "reading" | "writing" | "kanji-settings" | "free-practice" | "achievements" | "units" | "kanji-mode">("home");
+  const [view, setView] = useState<"home" | "reading" | "writing" | "kanji-settings" | "free-practice" | "achievements" | "units" | "japan-map" | "kanji-mode">("home");
   /**
    * The pending mode choice. `kanji` narrows it to one character picked in
    * がんばり記録; `batch` carries a set chosen in 自由練習 so that screen also
@@ -42,6 +44,7 @@ function App() {
   /** Restricts a units batch to one category, e.g. from がんばり記録. */
   const [unitCategory, setUnitCategory] = useState<UnitCategory | null>(null);
   const [unitQuestions, setUnitQuestions] = useState<UnitQuestion[]>([]);
+  const [japanMapQuestions, setJapanMapQuestions] = useState<JapanMapQuestion[]>([]);
   const [freePracticeQuestion, setFreePracticeQuestion] = useState<KanjiQuestion | null>(null);
   const [freePracticeQueue, setFreePracticeQueue] = useState<KanjiQuestion[]>([]);
   const [freePracticeIndex, setFreePracticeIndex] = useState(0);
@@ -212,6 +215,17 @@ function App() {
         setStatus(`${summary.character}を正しい書き順で書けました`);
       },
     });
+  }, []);
+
+  // The map pack is optional: a map asset or pack failure must not block the
+  // kanji and units subjects.
+  useEffect(() => {
+    let active = true;
+    void loadJapanMapQuestions().then(
+      (questions) => { if (active) setJapanMapQuestions(questions); },
+      () => undefined,
+    );
+    return () => { active = false; };
   }, []);
 
   useEffect(() => {
@@ -447,6 +461,10 @@ function App() {
     return <UnitPractice questions={pool} onHome={() => { setUnitCategory(null); goHome(); }} />;
   }
 
+  if (view === "japan-map") {
+    return <JapanMapPractice questions={japanMapQuestions} onHome={goHome} />;
+  }
+
   if (view === "free-practice") {
     return <FreePracticeBrowser questions={words} onBack={goHome} onStart={(batch) => openModeChoice({ batch })} />;
   }
@@ -464,6 +482,8 @@ function App() {
         onOpenAchievements={() => setView("achievements")}
         unitQuestionCount={unitQuestions.length}
         onStartUnits={() => { setUnitCategory(null); setView("units"); }}
+        japanMapQuestionCount={japanMapQuestions.length}
+        onStartJapanMap={() => setView("japan-map")}
       />
     );
   }

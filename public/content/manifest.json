@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "2026.08.14-3",
+  "contentVersion": "2026.09.08-1",
   "packs": [
     {
       "subject": "kanji",
@@ -9,6 +9,10 @@
     {
       "subject": "units",
       "url": "units-v1.json"
+    },
+    {
+      "subject": "japan-map",
+      "url": "japan-map-v1.json"
     }
   ]
 }

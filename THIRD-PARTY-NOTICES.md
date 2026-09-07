@@ -26,6 +26,17 @@
 - 出典：<https://chanind.github.io/hanzi-writer>
 - ライセンス：MIT
 
+## 日本地図SVG
+
+**PA4KEV/japan-vector-map** — 都道府県境界付き日本地図
+
+- 著作者：Kevin Matsubara
+- 出典：<https://github.com/PA4KEV/japan-vector-map>
+- 取得コミット：`6be9e705045777b7c433c429b0313f19b49d1ed4`
+- ライセンス：MIT（全文は [`public/maps/japan-vector-map.MIT.txt`](./public/maps/japan-vector-map.MIT.txt)）
+
+`public/maps/japan-prefectures.svg` は、都道府県のクリック判定用に組み込んでいる。
+
 ## その他の依存
 
 React、React DOM、Vite、Vitest、jsdom、`@vitejs/plugin-react` は MIT。

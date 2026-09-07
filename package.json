@@ -14,6 +14,7 @@
     "content:review-all": "node scripts/create-kanji-review-workset.mjs",
     "content:rewrite-textbook-prompts": "node scripts/rewrite-kanji-textbook-prompts.mjs",
     "content:curate-writing-materials": "node scripts/curate-kanji-writing-materials.mjs",
+    "content:generate-map": "node scripts/generate-japan-map-content.mjs",
     "content:review-render": "node scripts/render-kanji-review-batch.mjs",
     "content:review-visualize": "node scripts/render-kanji-review-visualization.mjs",
     "content:review-page": "node scripts/render-kanji-review-page.mjs",

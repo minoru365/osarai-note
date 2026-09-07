@@ -1,0 +1,430 @@
+{
+  "schemaVersion": 1,
+  "packId": "japan-map-v1",
+  "contentVersion": "2026.09.08-1",
+  "questions": [
+    {
+      "id": "japan-map:prefecture:hokkaido",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "hokkaido",
+      "answer": "北海道",
+      "prompt": "北海道は、地図のどこかな？",
+      "explanation": "北海道は、北海道地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:aomori",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "aomori",
+      "answer": "青森県",
+      "prompt": "青森県は、地図のどこかな？",
+      "explanation": "青森県は、東北地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:iwate",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "iwate",
+      "answer": "岩手県",
+      "prompt": "岩手県は、地図のどこかな？",
+      "explanation": "岩手県は、東北地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:miyagi",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "miyagi",
+      "answer": "宮城県",
+      "prompt": "宮城県は、地図のどこかな？",
+      "explanation": "宮城県は、東北地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:akita",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "akita",
+      "answer": "秋田県",
+      "prompt": "秋田県は、地図のどこかな？",
+      "explanation": "秋田県は、東北地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:yamagata",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "yamagata",
+      "answer": "山形県",
+      "prompt": "山形県は、地図のどこかな？",
+      "explanation": "山形県は、東北地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:fukushima",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "fukushima",
+      "answer": "福島県",
+      "prompt": "福島県は、地図のどこかな？",
+      "explanation": "福島県は、東北地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:ibaraki",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "ibaraki",
+      "answer": "茨城県",
+      "prompt": "茨城県は、地図のどこかな？",
+      "explanation": "茨城県は、関東地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:tochigi",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "tochigi",
+      "answer": "栃木県",
+      "prompt": "栃木県は、地図のどこかな？",
+      "explanation": "栃木県は、関東地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:gunma",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "gunma",
+      "answer": "群馬県",
+      "prompt": "群馬県は、地図のどこかな？",
+      "explanation": "群馬県は、関東地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:saitama",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "saitama",
+      "answer": "埼玉県",
+      "prompt": "埼玉県は、地図のどこかな？",
+      "explanation": "埼玉県は、関東地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:chiba",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "chiba",
+      "answer": "千葉県",
+      "prompt": "千葉県は、地図のどこかな？",
+      "explanation": "千葉県は、関東地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:tokyo",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "tokyo",
+      "answer": "東京都",
+      "prompt": "東京都は、地図のどこかな？",
+      "explanation": "東京都は、関東地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:kanagawa",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "kanagawa",
+      "answer": "神奈川県",
+      "prompt": "神奈川県は、地図のどこかな？",
+      "explanation": "神奈川県は、関東地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:niigata",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "niigata",
+      "answer": "新潟県",
+      "prompt": "新潟県は、地図のどこかな？",
+      "explanation": "新潟県は、中部地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:toyama",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "toyama",
+      "answer": "富山県",
+      "prompt": "富山県は、地図のどこかな？",
+      "explanation": "富山県は、中部地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:ishikawa",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "ishikawa",
+      "answer": "石川県",
+      "prompt": "石川県は、地図のどこかな？",
+      "explanation": "石川県は、中部地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:fukui",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "fukui",
+      "answer": "福井県",
+      "prompt": "福井県は、地図のどこかな？",
+      "explanation": "福井県は、中部地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:yamanashi",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "yamanashi",
+      "answer": "山梨県",
+      "prompt": "山梨県は、地図のどこかな？",
+      "explanation": "山梨県は、中部地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:nagano",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "nagano",
+      "answer": "長野県",
+      "prompt": "長野県は、地図のどこかな？",
+      "explanation": "長野県は、中部地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:gifu",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "gifu",
+      "answer": "岐阜県",
+      "prompt": "岐阜県は、地図のどこかな？",
+      "explanation": "岐阜県は、中部地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:shizuoka",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "shizuoka",
+      "answer": "静岡県",
+      "prompt": "静岡県は、地図のどこかな？",
+      "explanation": "静岡県は、中部地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:aichi",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "aichi",
+      "answer": "愛知県",
+      "prompt": "愛知県は、地図のどこかな？",
+      "explanation": "愛知県は、中部地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:mie",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "mie",
+      "answer": "三重県",
+      "prompt": "三重県は、地図のどこかな？",
+      "explanation": "三重県は、近畿地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:shiga",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "shiga",
+      "answer": "滋賀県",
+      "prompt": "滋賀県は、地図のどこかな？",
+      "explanation": "滋賀県は、近畿地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:kyoto",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "kyoto",
+      "answer": "京都府",
+      "prompt": "京都府は、地図のどこかな？",
+      "explanation": "京都府は、近畿地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:osaka",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "osaka",
+      "answer": "大阪府",
+      "prompt": "大阪府は、地図のどこかな？",
+      "explanation": "大阪府は、近畿地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:hyogo",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "hyogo",
+      "answer": "兵庫県",
+      "prompt": "兵庫県は、地図のどこかな？",
+      "explanation": "兵庫県は、近畿地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:nara",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "nara",
+      "answer": "奈良県",
+      "prompt": "奈良県は、地図のどこかな？",
+      "explanation": "奈良県は、近畿地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:wakayama",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "wakayama",
+      "answer": "和歌山県",
+      "prompt": "和歌山県は、地図のどこかな？",
+      "explanation": "和歌山県は、近畿地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:tottori",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "tottori",
+      "answer": "鳥取県",
+      "prompt": "鳥取県は、地図のどこかな？",
+      "explanation": "鳥取県は、中国地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:shimane",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "shimane",
+      "answer": "島根県",
+      "prompt": "島根県は、地図のどこかな？",
+      "explanation": "島根県は、中国地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:okayama",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "okayama",
+      "answer": "岡山県",
+      "prompt": "岡山県は、地図のどこかな？",
+      "explanation": "岡山県は、中国地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:hiroshima",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "hiroshima",
+      "answer": "広島県",
+      "prompt": "広島県は、地図のどこかな？",
+      "explanation": "広島県は、中国地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:yamaguchi",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "yamaguchi",
+      "answer": "山口県",
+      "prompt": "山口県は、地図のどこかな？",
+      "explanation": "山口県は、中国地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:tokushima",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "tokushima",
+      "answer": "徳島県",
+      "prompt": "徳島県は、地図のどこかな？",
+      "explanation": "徳島県は、四国地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:kagawa",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "kagawa",
+      "answer": "香川県",
+      "prompt": "香川県は、地図のどこかな？",
+      "explanation": "香川県は、四国地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:ehime",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "ehime",
+      "answer": "愛媛県",
+      "prompt": "愛媛県は、地図のどこかな？",
+      "explanation": "愛媛県は、四国地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:kochi",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "kochi",
+      "answer": "高知県",
+      "prompt": "高知県は、地図のどこかな？",
+      "explanation": "高知県は、四国地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:fukuoka",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "fukuoka",
+      "answer": "福岡県",
+      "prompt": "福岡県は、地図のどこかな？",
+      "explanation": "福岡県は、九州地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:saga",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "saga",
+      "answer": "佐賀県",
+      "prompt": "佐賀県は、地図のどこかな？",
+      "explanation": "佐賀県は、九州地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:nagasaki",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "nagasaki",
+      "answer": "長崎県",
+      "prompt": "長崎県は、地図のどこかな？",
+      "explanation": "長崎県は、九州地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:kumamoto",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "kumamoto",
+      "answer": "熊本県",
+      "prompt": "熊本県は、地図のどこかな？",
+      "explanation": "熊本県は、九州地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:oita",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "oita",
+      "answer": "大分県",
+      "prompt": "大分県は、地図のどこかな？",
+      "explanation": "大分県は、九州地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:miyazaki",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "miyazaki",
+      "answer": "宮崎県",
+      "prompt": "宮崎県は、地図のどこかな？",
+      "explanation": "宮崎県は、九州地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:kagoshima",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "kagoshima",
+      "answer": "鹿児島県",
+      "prompt": "鹿児島県は、地図のどこかな？",
+      "explanation": "鹿児島県は、九州地方にあります。"
+    },
+    {
+      "id": "japan-map:prefecture:okinawa",
+      "grade": 4,
+      "questionType": "prefecture-location",
+      "prefectureId": "okinawa",
+      "answer": "沖縄県",
+      "prompt": "沖縄県は、地図のどこかな？",
+      "explanation": "沖縄県は、沖縄地方にあります。"
+    }
+  ]
+}

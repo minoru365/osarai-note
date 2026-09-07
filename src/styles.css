@@ -358,6 +358,35 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
 .unit-actions { display: grid; grid-template-columns: minmax(0, 1fr) 170px; gap: 10px; margin-top: auto; }
 .unit-actions .reading-submit:disabled { opacity: .45; cursor: default; }
 
+.japan-map-workspace { min-height: 0; display: grid; grid-template-columns: minmax(340px, .78fr) minmax(600px, 1.22fr); gap: 20px; padding: 24px; }
+.japan-map-question-card, .japan-map-answer { min-height: 0; padding: 30px; border: 1px solid #d9e2d7; border-radius: 22px; background: #fffefa; box-shadow: 0 12px 30px rgba(53, 77, 65, .07); }
+.japan-map-question-card { display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+.japan-map-prompt { margin: 0; color: #25332d; font-size: clamp(28px, 2.5vw, 40px); line-height: 1.55; }
+.japan-map-hint { margin: 0; color: #68766e; font-size: 18px; }
+.japan-map-feedback { min-height: 58px; display: flex; align-items: center; margin: 8px 0 0; padding: 13px 16px; border-radius: 14px; line-height: 1.5; }
+.japan-map-feedback.correct { color: #246149; background: #e9f6ee; font-weight: 700; }
+.japan-map-feedback.incorrect { color: #78551c; background: #fff5df; }
+.japan-map-feedback.guide { color: #78551c; background: #fff0ce; font-weight: 700; }
+.japan-map-reveal, .japan-map-solved { display: grid; gap: 9px; padding: 17px 19px; border-radius: 16px; }
+.japan-map-reveal { border: 1px solid #dfbd79; background: #fff8e8; color: #78551c; }
+.japan-map-solved { border: 1px solid #bcd7c8; background: #eaf6ee; color: #286049; }
+.japan-map-reveal strong, .japan-map-solved strong { font-size: 23px; }
+.japan-map-reveal p, .japan-map-solved p { margin: 0; line-height: 1.6; }
+.japan-map-reveal button { min-height: 44px; justify-self: start; padding: 0 16px; border: 1px solid #d4b479; border-radius: 11px; color: #78551c; background: #fff; cursor: pointer; font-weight: 700; }
+.japan-map-answer { display: flex; flex-direction: column; gap: 14px; padding: 20px; }
+.japan-map-svg { min-height: 0; flex: 1; display: grid; place-items: center; overflow: hidden; border: 1px solid #e0e7df; border-radius: 17px; background: #f7faf4; }
+.japan-map-svg > svg { width: 100%; height: 100%; max-height: calc(100vh - 260px); object-fit: contain; }
+.japan-map-svg [data-prefecture-id] { cursor: pointer; }
+.japan-map-svg [data-prefecture-id] path { fill: #fffefa !important; stroke: #607269 !important; stroke-width: 2px !important; pointer-events: all; transition: fill .12s ease, stroke .12s ease; }
+.japan-map-svg [data-prefecture-id]:hover path { fill: #fff0c9 !important; stroke: #c4892d !important; }
+.japan-map-svg [data-selected="true"] path { fill: #f4c66f !important; stroke: #b87522 !important; }
+.japan-map-svg [data-correct="true"] path { fill: #86c2a2 !important; stroke: #2d7656 !important; }
+.japan-map-loading { display: grid; place-items: center; min-height: 260px; color: #68766e; }
+.japan-map-actions { display: grid; grid-template-columns: minmax(0, 1fr) 170px; gap: 10px; }
+.japan-map-actions button { min-height: 56px; border: 1px solid #cbd7cf; border-radius: 14px; color: #4e5e55; background: #fff; cursor: pointer; font-weight: 700; }
+.japan-map-actions button:disabled { opacity: .45; cursor: default; }
+.japan-map-actions .primary { color: #fff; border-color: #3b7d65; background: #3b7d65; box-shadow: 0 6px 14px rgba(44, 101, 78, .2); }
+
 .achievements-shell { height: 100vh; min-height: 0; overflow: hidden; }
 .achievements-workspace { min-height: 0; height: 100%; overflow-y: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; padding: 24px; align-content: start; }
 .achievements-workspace > .achievements-stat-row { grid-column: 1 / -1; }

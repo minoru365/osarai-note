@@ -11,8 +11,10 @@ import {
   normalizeMotivationState,
   type AppSettings,
   isSubject,
+  isJapanMapSession,
   isUnitSession,
   type DailyKanjiSession,
+  type DailyJapanMapSession,
   type DailySessionItem,
   type DailyStudySession,
   type DailyUnitSession,
@@ -22,6 +24,7 @@ import {
   type KanjiSessionAttempt,
   type KanjiSkillStats,
   type KanjiStudyMode,
+  type JapanMapSessionAttempt,
   type MotivationState,
   type SaveAttemptResult,
   type SkillImpact,
@@ -155,6 +158,19 @@ function validateUnitSessionAttempt(attempt: UnitSessionAttempt): void {
     || typeof attempt.unitStateKey !== "string" || !/^[a-z]+:[a-zA-Z]+$/u.test(attempt.unitStateKey)
     || attempt.targetKanji !== undefined || attempt.characterResults !== undefined) {
     throw new Error("単位セッション回答の形式が不正です");
+  }
+  if (attempt.firstTryCorrect && (!attempt.correct || attempt.mistakes > 0 || attempt.usedGuide)) {
+    throw new Error("初回正解と回答結果が一致しません");
+  }
+}
+
+function validateJapanMapSessionAttempt(attempt: JapanMapSessionAttempt): void {
+  validateAttempt(attempt);
+  if (attempt.subject !== "japan-map" || attempt.mode !== "quiz"
+    || !attempt.sessionItemId || typeof attempt.firstTryCorrect !== "boolean"
+    || attempt.targetKanji !== undefined || attempt.characterResults !== undefined
+    || "unitStateKey" in attempt) {
+    throw new Error("日本地図セッション回答の形式が不正です");
   }
   if (attempt.firstTryCorrect && (!attempt.correct || attempt.mistakes > 0 || attempt.usedGuide)) {
     throw new Error("初回正解と回答結果が一致しません");
@@ -704,6 +720,81 @@ export class StudyStorage {
         requestResult(attemptsStore.add(attempt)),
         requestResult(sessionsStore.put(nextSession)),
         requestResult(statesStore.put(nextState)),
+        ...(attempt.correct ? [requestResult(motivationStore.put(motivationState))] : []),
+      ]);
+      await completion;
+      return "added";
+    } catch (error) {
+      try {
+        transaction.abort();
+      } catch {
+        // The transaction may already be complete after a duplicate read.
+      }
+      await completion.catch(() => undefined);
+      throw error;
+    }
+  }
+
+  async recordJapanMapSessionAttempt(attempt: JapanMapSessionAttempt): Promise<SaveAttemptResult> {
+    validateJapanMapSessionAttempt(attempt);
+    const database = await this.database();
+    const transaction = database.transaction(
+      [STORE_NAMES.attempts, STORE_NAMES.sessions, STORE_NAMES.motivation],
+      "readwrite",
+    );
+    const completion = transactionComplete(transaction);
+    const attemptsStore = transaction.objectStore(STORE_NAMES.attempts);
+    const sessionsStore = transaction.objectStore(STORE_NAMES.sessions);
+    const motivationStore = transaction.objectStore(STORE_NAMES.motivation);
+
+    try {
+      const existingAttempt = await requestResult(
+        attemptsStore.get(attempt.id) as IDBRequest<StudyAttempt | undefined>,
+      );
+      if (existingAttempt) {
+        await completion;
+        if (sameRecord(existingAttempt, attempt)) return "duplicate";
+        throw new Error(`回答ID ${attempt.id} は別の内容です`);
+      }
+
+      const stored = await requestResult(
+        sessionsStore.get(attempt.sessionId) as IDBRequest<DailyStudySession | undefined>,
+      );
+      if (!stored) throw new Error("当日セッションが見つかりません");
+      const session = normalizeDailySession(stored);
+      if (!isJapanMapSession(session)) throw new Error("日本地図以外の当日セッションです");
+
+      const currentItem = session.items[session.currentIndex];
+      if (!currentItem || currentItem.id !== attempt.sessionItemId) {
+        throw new Error("現在の問題ではありません");
+      }
+      if (currentItem.status === "completed") throw new Error("完了済みの問題です");
+      if (currentItem.questionId !== attempt.questionId) throw new Error("問題IDが当日セッションと一致しません");
+
+      const nextItem: DailySessionItem = {
+        ...currentItem,
+        status: attempt.correct ? "completed" : "in-progress",
+        mistakeCount: currentItem.mistakeCount + attempt.mistakes,
+        usedGuide: currentItem.usedGuide || attempt.usedGuide,
+        completedAt: attempt.correct ? attempt.answeredAt : null,
+      };
+      const nextIndex = attempt.correct ? session.currentIndex + 1 : session.currentIndex;
+      const nextSession: DailyJapanMapSession = {
+        ...session,
+        items: session.items.map((item, index) => index === session.currentIndex ? nextItem : item),
+        currentIndex: nextIndex,
+        updatedAt: attempt.answeredAt,
+        completedAt: nextIndex === session.items.length ? attempt.answeredAt : null,
+      };
+
+      const currentMotivationState = await readMotivationState(motivationStore, attempt.answeredAt);
+      const motivationState = attempt.correct
+        ? applyPointsEarned(currentMotivationState, attempt.answeredAt)
+        : currentMotivationState;
+
+      await Promise.all([
+        requestResult(attemptsStore.add(attempt)),
+        requestResult(sessionsStore.put(nextSession)),
         ...(attempt.correct ? [requestResult(motivationStore.put(motivationState))] : []),
       ]);
       await completion;

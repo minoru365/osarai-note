@@ -170,8 +170,22 @@ export type DailyUnitSession = {
   completedAt: string | null;
 };
 
+export type DailyJapanMapSession = {
+  id: string;
+  subject: "japan-map";
+  localDate: string;
+  mode: "quiz";
+  batchNumber: number;
+  questionIds: string[];
+  items: DailySessionItem[];
+  currentIndex: number;
+  startedAt: string;
+  updatedAt: string;
+  completedAt: string | null;
+};
+
 // Widens as subjects are added; the discriminator is `subject` (ADR-0007).
-export type DailyStudySession = DailyKanjiSession | DailyUnitSession;
+export type DailyStudySession = DailyKanjiSession | DailyUnitSession | DailyJapanMapSession;
 
 export function isKanjiSession(session: DailyStudySession): session is DailyKanjiSession {
   return session.subject === "kanji";
@@ -179,6 +193,10 @@ export function isKanjiSession(session: DailyStudySession): session is DailyKanj
 
 export function isUnitSession(session: DailyStudySession): session is DailyUnitSession {
   return session.subject === "units";
+}
+
+export function isJapanMapSession(session: DailyStudySession): session is DailyJapanMapSession {
+  return session.subject === "japan-map";
 }
 
 export function dailySessionId(
@@ -204,6 +222,13 @@ export type UnitSessionAttempt = StudyAttempt & {
   sessionItemId: string;
   /** `unitCategory:questionType`, the units weakness aggregate key. */
   unitStateKey: string;
+  firstTryCorrect: boolean;
+};
+
+export type JapanMapSessionAttempt = StudyAttempt & {
+  subject: "japan-map";
+  mode: "quiz";
+  sessionItemId: string;
   firstTryCorrect: boolean;
 };
 

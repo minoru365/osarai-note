@@ -16,6 +16,8 @@ type Props = {
   onOpenAchievements: () => void;
   unitQuestionCount: number;
   onStartUnits: () => void;
+  japanMapQuestionCount: number;
+  onStartJapanMap: () => void;
 };
 
 type Subject = {
@@ -29,7 +31,7 @@ type Subject = {
   sub?: { label: string; onClick: () => void };
 };
 
-type TodayProgress = { reading: number; writing: number; units: number };
+type TodayProgress = { reading: number; writing: number; units: number; japanMap: number };
 
 function countCompleted(sessions: { items: { status: string }[] }[]): number {
   return sessions.reduce(
@@ -38,12 +40,13 @@ function countCompleted(sessions: { items: { status: string }[] }[]): number {
   );
 }
 
-export function Home({ questionCount, readingQuestionCount, writingQuestionCount, contentError, onStartKanji, onOpenFreePractice, onOpenKanjiSettings, onOpenAchievements, unitQuestionCount, onStartUnits }: Props) {
+export function Home({ questionCount, readingQuestionCount, writingQuestionCount, contentError, onStartKanji, onOpenFreePractice, onOpenKanjiSettings, onOpenAchievements, unitQuestionCount, onStartUnits, japanMapQuestionCount, onStartJapanMap }: Props) {
   const [grades, setGrades] = useState<SelectableGrade[] | null>(null);
   const gradeChosen = grades !== null && grades.length > 0;
   const canStart = questionCount > 0 && !contentError && gradeChosen;
   const canStartUnits = unitQuestionCount > 0 && !contentError && gradeChosen;
-  const [today, setToday] = useState<TodayProgress>({ reading: 0, writing: 0, units: 0 });
+  const canStartJapanMap = japanMapQuestionCount > 0 && !contentError && gradeChosen && (grades ?? []).includes(4);
+  const [today, setToday] = useState<TodayProgress>({ reading: 0, writing: 0, units: 0, japanMap: 0 });
 
   useEffect(() => {
     let active = true;
@@ -68,18 +71,20 @@ export function Home({ questionCount, readingQuestionCount, writingQuestionCount
     void Promise.all([
       studyStorage.listDailySessions(localDate, "kanji"),
       studyStorage.listDailySessions(localDate, "units"),
-    ]).then(([kanjiSessions, unitSessions]) => {
+      studyStorage.listDailySessions(localDate, "japan-map"),
+    ]).then(([kanjiSessions, unitSessions, japanMapSessions]) => {
       if (!active) return;
       setToday({
         reading: countCompleted(kanjiSessions.filter((session) => session.mode === "reading")),
         writing: countCompleted(kanjiSessions.filter((session) => session.mode === "writing")),
         units: countCompleted(unitSessions),
+        japanMap: countCompleted(japanMapSessions),
       });
     }).catch(() => undefined);
     return () => { active = false; };
-  }, [readingQuestionCount, writingQuestionCount, unitQuestionCount]);
+  }, [readingQuestionCount, writingQuestionCount, unitQuestionCount, japanMapQuestionCount]);
 
-  const todayTotal = today.reading + today.writing + today.units;
+  const todayTotal = today.reading + today.writing + today.units + today.japanMap;
   const dailyMilestone = getDailyMilestone(todayTotal);
 
   const subjects: Subject[] = [
@@ -93,7 +98,7 @@ export function Home({ questionCount, readingQuestionCount, writingQuestionCount
       hint: "長さ・重さ・かさ・時間・面積", start: onStartUnits,
     },
     { icon: "分", name: "分数", note: "準備中", ready: false, hint: "" },
-    { icon: "地", name: "日本地図", note: "準備中", ready: false, hint: "" },
+    { icon: "地", name: "日本地図", note: "4年生", ready: canStartJapanMap, hint: "都道府県の場所", start: onStartJapanMap },
     { icon: "理", name: "理科", note: "準備中", ready: false, hint: "" },
   ];
 
@@ -118,6 +123,7 @@ export function Home({ questionCount, readingQuestionCount, writingQuestionCount
               <div><span>読み</span><strong>{today.reading}問</strong></div>
               <div><span>書き</span><strong>{today.writing}問</strong></div>
               {unitQuestionCount > 0 && <div><span>たんい</span><strong>{today.units}問</strong></div>}
+              {japanMapQuestionCount > 0 && <div><span>地図</span><strong>{today.japanMap}問</strong></div>}
             </div>
             <div className="daily-milestone" aria-label="今日の小さな目標">
               <div className="daily-milestone-heading"><span>きょうの目標</span><strong>{todayTotal}問</strong></div>
