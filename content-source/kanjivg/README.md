@@ -1,7 +1,7 @@
 # KanjiVG（取り込み）
 
 このディレクトリは [KanjiVG](https://kanjivg.tagaini.net) のリリース
-`r20250816`（`kanjivg-20250816-main.zip`）から、問題パックに必要な368字分の
+`r20250816`（`kanjivg-20250816-main.zip`）から、問題パックに必要な532字分の
 SVG だけを取り込んだものである。ファイル名は文字のコードポイント（5桁の16進）。
 
 - 著作者：Ulrich Apel

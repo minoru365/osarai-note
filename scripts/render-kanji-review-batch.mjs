@@ -5,7 +5,7 @@ import { createReviewBatchMarkdown } from "./kanji-content-lib.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const batchId = process.argv[2];
-if (!batchId || !/^kanji-g[34]-\d{3}$/u.test(batchId)) throw new Error("レビューバッチIDが不正です");
+if (!batchId || !/^kanji-g[34]-(?:\d{3}|all)$/u.test(batchId)) throw new Error("レビューバッチIDが不正です");
 
 const jsonPath = resolve(projectRoot, "content-review", `${batchId}.json`);
 const markdownPath = resolve(projectRoot, "content-review", `${batchId}.md`);

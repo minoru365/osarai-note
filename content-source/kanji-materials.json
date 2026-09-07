@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceVersion": "2026.08.15-5",
+  "sourceVersion": "2026.08.15-6",
   "materials": [
     {
       "pairId": "kanji-g3-leaf-kun-ha-01",
@@ -1969,8 +1969,8 @@
       "canonicalReading": "かかる",
       "word": "係る",
       "wordReading": "かかる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "毎日、",
+      "promptAfter": "ことを心がけています。",
       "targetKanji": [
         "係"
       ],
@@ -9717,7 +9717,7 @@
       ],
       "writingPrompt": "「えひめ」の漢字の部分を書こう",
       "sourceRef": "文部科学省『小学校学習指導要領（平成29年告示）付録4 学年別漢字配当表』（都道府県名に用いる漢字）",
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "pairId": "kanji-g4-塩-on-cfaf2e853425",
@@ -10503,7 +10503,7 @@
       "word": "念願",
       "wordReading": "ねんがん",
       "promptBefore": "",
-      "promptAfter": "の大会出場が決まりました。",
+      "promptAfter": "の目標をかなえました。",
       "targetKanji": [
         "念",
         "願"
@@ -11429,21 +11429,20 @@
       "primaryKanji": "群",
       "readingType": "kun",
       "canonicalReading": "むら",
-      "word": "群すずめ",
-      "wordReading": "むら",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "群がる",
+      "wordReading": "むらがる",
+      "promptBefore": "魚がえさに",
+      "promptAfter": "様子を見ました。",
       "targetKanji": [
         "群"
       ],
-      "writingPrompt": "「むら」の漢字の部分を書こう",
+      "writingPrompt": "「むらがる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』21ページ",
-      "reviewStatus": "needs-fix",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
-      },
-      "reviewNote": "使用頻度が低く、4年生向けの問題語として不適切"
+      }
     },
     {
       "pairId": "kanji-g4-径-on-8cfb3d5a9246",
@@ -11647,8 +11646,8 @@
       "canonicalReading": "ゆわえる",
       "word": "結わえる",
       "wordReading": "ゆわえる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "毎日、",
+      "promptAfter": "ことを心がけています。",
       "targetKanji": [
         "結"
       ],
@@ -11927,8 +11926,8 @@
       "canonicalReading": "ク",
       "word": "功徳",
       "wordReading": "くどく",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "朝の会で",
+      "promptAfter": "について話しました。",
       "targetKanji": [
         "功",
         "徳"
@@ -12036,8 +12035,8 @@
       "canonicalReading": "キョウ",
       "word": "香車",
       "wordReading": "きょうしゃ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "の意味をしらべました。",
       "targetKanji": [
         "香",
         "車"
@@ -12145,8 +12144,8 @@
       "canonicalReading": "そうろう",
       "word": "候文",
       "wordReading": "そうろうぶん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "家の人と",
+      "promptAfter": "について話しました。",
       "targetKanji": [
         "候",
         "文"
@@ -13105,7 +13104,7 @@
       ],
       "writingPrompt": "「しが」の漢字の部分を書こう",
       "sourceRef": "文部科学省『小学校学習指導要領（平成29年告示）付録4 学年別漢字配当表』（都道府県名に用いる漢字）",
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "pairId": "kanji-g4-辞-on-1e9c5598c171",
@@ -13396,8 +13395,8 @@
       "canonicalReading": "シュウ",
       "word": "祝言",
       "wordReading": "しゅうげん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "を見つけて、家の人に話しました。",
       "targetKanji": [
         "祝",
         "言"
@@ -13763,15 +13762,15 @@
       "canonicalReading": "ショウ",
       "word": "照明",
       "wordReading": "しょうめい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "部屋の",
+      "promptAfter": "をつけました。",
       "targetKanji": [
         "照",
         "明"
       ],
       "writingPrompt": "「しょうめい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』47ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -13785,14 +13784,14 @@
       "canonicalReading": "てる",
       "word": "照る",
       "wordReading": "てる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "朝になって、日が",
+      "promptAfter": "と明るくなりました。",
       "targetKanji": [
         "照"
       ],
       "writingPrompt": "「てる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』47ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -13806,14 +13805,14 @@
       "canonicalReading": "てらす",
       "word": "照らす",
       "wordReading": "てらす",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "ライトが道を",
+      "promptAfter": "と、足元が見えます。",
       "targetKanji": [
         "照"
       ],
       "writingPrompt": "「てらす」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』47ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -13827,14 +13826,14 @@
       "canonicalReading": "てれる",
       "word": "照れる",
       "wordReading": "てれる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "ほめられると、",
+      "promptAfter": "ことがあります。",
       "targetKanji": [
         "照"
       ],
       "writingPrompt": "「てれる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』47ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -13848,8 +13847,8 @@
       "canonicalReading": "ジョウ",
       "word": "城下町",
       "wordReading": "じょうかまち",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "旅先で",
+      "promptAfter": "を歩きました。",
       "targetKanji": [
         "城",
         "下",
@@ -13857,7 +13856,7 @@
       ],
       "writingPrompt": "「じょうかまち」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』48ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -13871,14 +13870,14 @@
       "canonicalReading": "しろ",
       "word": "城",
       "wordReading": "しろ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "遠くに",
+      "promptAfter": "が見えました。",
       "targetKanji": [
         "城"
       ],
       "writingPrompt": "「しろ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』48ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -13892,15 +13891,15 @@
       "canonicalReading": "ジョウ",
       "word": "縄文",
       "wordReading": "じょうもん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "博物館で",
+      "promptAfter": "時代のくらしを調べました。",
       "targetKanji": [
         "縄",
         "文"
       ],
       "writingPrompt": "「じょうもん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』48ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -13914,14 +13913,14 @@
       "canonicalReading": "なわ",
       "word": "縄",
       "wordReading": "なわ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "長い",
+      "promptAfter": "を使って遊びました。",
       "targetKanji": [
         "縄"
       ],
       "writingPrompt": "「なわ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』48ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -13935,15 +13934,15 @@
       "canonicalReading": "シン",
       "word": "臣下",
       "wordReading": "しんか",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "昔の王様に仕える",
+      "promptAfter": "について学びました。",
       "targetKanji": [
         "臣",
         "下"
       ],
       "writingPrompt": "「しんか」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』49ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -13957,15 +13956,15 @@
       "canonicalReading": "ジン",
       "word": "大臣",
       "wordReading": "だいじん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "ニュースで",
+      "promptAfter": "の話を聞きました。",
       "targetKanji": [
         "大",
         "臣"
       ],
       "writingPrompt": "「だいじん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』49ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -13979,15 +13978,15 @@
       "canonicalReading": "シン",
       "word": "信用",
       "wordReading": "しんよう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "友だちを",
+      "promptAfter": "しています。",
       "targetKanji": [
         "信",
         "用"
       ],
       "writingPrompt": "「しんよう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』49ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -14001,15 +14000,15 @@
       "canonicalReading": "セイ",
       "word": "油井",
       "wordReading": "ゆせい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "地中から石油をくみ出す",
+      "promptAfter": "について調べました。",
       "targetKanji": [
         "油",
         "井"
       ],
       "writingPrompt": "「ゆせい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』52ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -14023,15 +14022,15 @@
       "canonicalReading": "い",
       "word": "井戸",
       "wordReading": "いど",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "昔の家には",
+      "promptAfter": "がありました。",
       "targetKanji": [
         "井",
         "戸"
       ],
       "writingPrompt": "「いど」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』52ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -14045,15 +14044,15 @@
       "canonicalReading": "セイ",
       "word": "成功",
       "wordReading": "せいこう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "練習を続けて",
+      "promptAfter": "しました。",
       "targetKanji": [
         "成",
         "功"
       ],
       "writingPrompt": "「せいこう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』52ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -14065,16 +14064,17 @@
       "primaryKanji": "成",
       "readingType": "kun",
       "canonicalReading": "なる",
-      "word": "成る",
-      "wordReading": "なる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "成り立つ",
+      "wordReading": "なりたつ",
+      "promptBefore": "このルールが",
+      "promptAfter": "理由を考えました。",
       "targetKanji": [
-        "成"
+        "成",
+        "立"
       ],
-      "writingPrompt": "「なる」の漢字の部分を書こう",
+      "writingPrompt": "「なりたつ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』53ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14088,18 +14088,19 @@
       "canonicalReading": "なす",
       "word": "成す",
       "wordReading": "なす",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "力を合わせて仕事を",
+      "promptAfter": "ことができました。",
       "targetKanji": [
         "成"
       ],
       "writingPrompt": "「なす」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』53ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "needs-fix",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
-      }
+      },
+      "reviewNote": "「成す」は4年生向けの自然な代替語が見つからず、文脈から漢字を想起しにくい"
     },
     {
       "pairId": "kanji-g4-省-on-3abd6c357481",
@@ -14109,15 +14110,15 @@
       "canonicalReading": "セイ",
       "word": "反省",
       "wordReading": "はんせい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "失敗を",
+      "promptAfter": "して、次に生かします。",
       "targetKanji": [
         "反",
         "省"
       ],
       "writingPrompt": "「はんせい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』53ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -14131,15 +14132,15 @@
       "canonicalReading": "ショウ",
       "word": "各省",
       "wordReading": "かくしょう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "国の仕事を受け持つ",
+      "promptAfter": "が、それぞれの仕事をしています。",
       "targetKanji": [
         "各",
         "省"
       ],
       "writingPrompt": "「かくしょう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』53ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -14151,16 +14152,16 @@
       "primaryKanji": "省",
       "readingType": "kun",
       "canonicalReading": "かえりみる",
-      "word": "省みる",
-      "wordReading": "かえりみる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "省みて",
+      "wordReading": "かえりみて",
+      "promptBefore": "失敗した自分の行動を",
+      "promptAfter": "、次に生かします。",
       "targetKanji": [
         "省"
       ],
-      "writingPrompt": "「かえりみる」の漢字の部分を書こう",
+      "writingPrompt": "「かえりみて」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』53ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14174,14 +14175,14 @@
       "canonicalReading": "はぶく",
       "word": "省く",
       "wordReading": "はぶく",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "むだな部分を",
+      "promptAfter": "と、文が読みやすくなります。",
       "targetKanji": [
         "省"
       ],
       "writingPrompt": "「はぶく」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』53ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14195,15 +14196,15 @@
       "canonicalReading": "セイ",
       "word": "清算",
       "wordReading": "せいさん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "会計で代金を",
+      "promptAfter": "しました。",
       "targetKanji": [
         "清",
         "算"
       ],
       "writingPrompt": "「せいさん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』53ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -14217,14 +14218,14 @@
       "canonicalReading": "きよい",
       "word": "清い",
       "wordReading": "きよい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "心を大切にしたいと思います。",
       "targetKanji": [
         "清"
       ],
       "writingPrompt": "「きよい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』53ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14238,14 +14239,14 @@
       "canonicalReading": "きよまる",
       "word": "清まる",
       "wordReading": "きよまる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "神社でおはらいをすると、心が",
+      "promptAfter": "といわれます。",
       "targetKanji": [
         "清"
       ],
       "writingPrompt": "「きよまる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』53ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14259,14 +14260,14 @@
       "canonicalReading": "きよめる",
       "word": "清める",
       "wordReading": "きよめる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "水で手を",
+      "promptAfter": "ようにしています。",
       "targetKanji": [
         "清"
       ],
       "writingPrompt": "「きよめる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』53ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14278,17 +14279,17 @@
       "primaryKanji": "静",
       "readingType": "on",
       "canonicalReading": "セイ",
-      "word": "静止",
-      "wordReading": "せいし",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "安静",
+      "wordReading": "あんせい",
+      "promptBefore": "けがをしたので、",
+      "promptAfter": "にしました。",
       "targetKanji": [
-        "静",
-        "止"
+        "安",
+        "静"
       ],
-      "writingPrompt": "「せいし」の漢字の部分を書こう",
+      "writingPrompt": "「あんせい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』54ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -14301,15 +14302,15 @@
       "readingType": "kun",
       "canonicalReading": "しず",
       "word": "静けさ",
-      "wordReading": "しず",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "wordReading": "しずけさ",
+      "promptBefore": "森に",
+      "promptAfter": "が広がりました。",
       "targetKanji": [
         "静"
       ],
       "writingPrompt": "「しず」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』54ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14322,15 +14323,15 @@
       "readingType": "kun",
       "canonicalReading": "しずか",
       "word": "静かだ",
-      "wordReading": "しずか",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "wordReading": "しずかだ",
+      "promptBefore": "図書室は",
+      "promptAfter": "。",
       "targetKanji": [
         "静"
       ],
       "writingPrompt": "「しずか」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』54ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14344,14 +14345,14 @@
       "canonicalReading": "しずまる",
       "word": "静まる",
       "wordReading": "しずまる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "音がやむと、町が",
+      "promptAfter": "ように感じました。",
       "targetKanji": [
         "静"
       ],
       "writingPrompt": "「しずまる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』54ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14365,14 +14366,14 @@
       "canonicalReading": "しずめる",
       "word": "静める",
       "wordReading": "しずめる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "気持ちを",
+      "promptAfter": "方法を考えました。",
       "targetKanji": [
         "静"
       ],
       "writingPrompt": "「しずめる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』54ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14386,15 +14387,15 @@
       "canonicalReading": "セキ",
       "word": "席上",
       "wordReading": "せきじょう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "発表会の",
+      "promptAfter": "で、代表があいさつをしました。",
       "targetKanji": [
         "席",
         "上"
       ],
       "writingPrompt": "「せきじょう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』55ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -14408,15 +14409,15 @@
       "canonicalReading": "セキ",
       "word": "積雪",
       "wordReading": "せきせつ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "山に",
+      "promptAfter": "がありました。",
       "targetKanji": [
         "積",
         "雪"
       ],
       "writingPrompt": "「せきせつ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』55ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -14430,14 +14431,14 @@
       "canonicalReading": "つむ",
       "word": "積む",
       "wordReading": "つむ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "箱に本を",
+      "promptAfter": "ことにしました。",
       "targetKanji": [
         "積"
       ],
       "writingPrompt": "「つむ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』55ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14451,14 +14452,14 @@
       "canonicalReading": "つもる",
       "word": "積もる",
       "wordReading": "つもる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "雪が",
+      "promptAfter": "と、景色が変わります。",
       "targetKanji": [
         "積"
       ],
       "writingPrompt": "「つもる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』55ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14472,14 +14473,14 @@
       "canonicalReading": "おる",
       "word": "折る",
       "wordReading": "おる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "紙を",
+      "promptAfter": "と、折り紙ができました。",
       "targetKanji": [
         "折"
       ],
       "writingPrompt": "「おる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』55ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14491,16 +14492,17 @@
       "primaryKanji": "折",
       "readingType": "kun",
       "canonicalReading": "おり",
-      "word": "折",
-      "wordReading": "おり",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "折り紙",
+      "wordReading": "おりがみ",
+      "promptBefore": "休み時間に",
+      "promptAfter": "を作りました。",
       "targetKanji": [
-        "折"
+        "折",
+        "紙"
       ],
-      "writingPrompt": "「おり」の漢字の部分を書こう",
+      "writingPrompt": "「おりがみ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』55ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14514,14 +14516,14 @@
       "canonicalReading": "おれる",
       "word": "折れる",
       "wordReading": "おれる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "えんぴつのしんが",
+      "promptAfter": "と、書きにくくなります。",
       "targetKanji": [
         "折"
       ],
       "writingPrompt": "「おれる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』55ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14535,15 +14537,15 @@
       "canonicalReading": "セツ",
       "word": "節約",
       "wordReading": "せつやく",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "電気を",
+      "promptAfter": "しています。",
       "targetKanji": [
         "節",
         "約"
       ],
       "writingPrompt": "「せつやく」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』55ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -14557,8 +14559,8 @@
       "canonicalReading": "セチ",
       "word": "お節料理",
       "wordReading": "おせちりょうり",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "正月に",
+      "promptAfter": "を食べました。",
       "targetKanji": [
         "節",
         "料",
@@ -14566,7 +14568,7 @@
       ],
       "writingPrompt": "「おせちりょうり」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』55ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -14580,14 +14582,14 @@
       "canonicalReading": "ふし",
       "word": "節",
       "wordReading": "ふし",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "竹の",
+      "promptAfter": "を数えました。",
       "targetKanji": [
         "節"
       ],
       "writingPrompt": "「ふし」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』55ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14601,15 +14603,15 @@
       "canonicalReading": "セツ",
       "word": "説明",
       "wordReading": "せつめい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "先生が",
+      "promptAfter": "しました。",
       "targetKanji": [
         "説",
         "明"
       ],
       "writingPrompt": "「せつめい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』55ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -14623,19 +14625,20 @@
       "canonicalReading": "ゼイ",
       "word": "遊説",
       "wordReading": "ゆうぜい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "の意味をしらべました。",
       "targetKanji": [
         "遊",
         "説"
       ],
       "writingPrompt": "「ゆうぜい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』55ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "needs-fix",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
-      }
+      },
+      "reviewNote": "「遊説（ゆうぜい）」は児童向けの語として難しく、代替語がない"
     },
     {
       "pairId": "kanji-g4-説-kun-59446681ba76",
@@ -14643,16 +14646,17 @@
       "primaryKanji": "説",
       "readingType": "kun",
       "canonicalReading": "とく",
-      "word": "説く",
-      "wordReading": "とく",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "説き明かす",
+      "wordReading": "ときあかす",
+      "promptBefore": "先生がなぞを",
+      "promptAfter": "話を聞きました。",
       "targetKanji": [
-        "説"
+        "説",
+        "明"
       ],
-      "writingPrompt": "「とく」の漢字の部分を書こう",
+      "writingPrompt": "「ときあかす」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』56ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14666,19 +14670,20 @@
       "canonicalReading": "セン",
       "word": "浅学",
       "wordReading": "せんがく",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "を使って文を作りました。",
       "targetKanji": [
         "浅",
         "学"
       ],
       "writingPrompt": "「せんがく」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』56ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "needs-fix",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
-      }
+      },
+      "reviewNote": "「浅学（せんがく）」は児童向けの語として難しく、代替語がない"
     },
     {
       "pairId": "kanji-g4-浅-kun-d93bce870ed6",
@@ -14688,14 +14693,14 @@
       "canonicalReading": "あさい",
       "word": "浅い",
       "wordReading": "あさい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "この川は",
+      "promptAfter": "です。",
       "targetKanji": [
         "浅"
       ],
       "writingPrompt": "「あさい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』56ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14709,15 +14714,15 @@
       "canonicalReading": "セン",
       "word": "戦争",
       "wordReading": "せんそう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "のない世界を願います。",
       "targetKanji": [
         "戦",
         "争"
       ],
       "writingPrompt": "「せんそう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』56ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -14731,14 +14736,14 @@
       "canonicalReading": "いくさ",
       "word": "戦",
       "wordReading": "いくさ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "昔の",
+      "promptAfter": "のようすを、本で読みました。",
       "targetKanji": [
         "戦"
       ],
       "writingPrompt": "「いくさ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』56ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14752,14 +14757,14 @@
       "canonicalReading": "たたかう",
       "word": "戦う",
       "wordReading": "たたかう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "友だちと力を合わせて",
+      "promptAfter": "ことを決めました。",
       "targetKanji": [
         "戦"
       ],
       "writingPrompt": "「たたかう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』56ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14773,15 +14778,15 @@
       "canonicalReading": "セン",
       "word": "選挙",
       "wordReading": "せんきょ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "クラスの代表を決める",
+      "promptAfter": "をしました。",
       "targetKanji": [
         "選",
         "挙"
       ],
       "writingPrompt": "「せんきょ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』57ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -14795,14 +14800,14 @@
       "canonicalReading": "えらぶ",
       "word": "選ぶ",
       "wordReading": "えらぶ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "本を自分で",
+      "promptAfter": "ことにしました。",
       "targetKanji": [
         "選"
       ],
       "writingPrompt": "「えらぶ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』57ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14816,15 +14821,15 @@
       "canonicalReading": "ゼン",
       "word": "当然",
       "wordReading": "とうぜん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "約束を守るのは",
+      "promptAfter": "です。",
       "targetKanji": [
         "当",
         "然"
       ],
       "writingPrompt": "「とうぜん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』57ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -14838,15 +14843,15 @@
       "canonicalReading": "ネン",
       "word": "天然",
       "wordReading": "てんねん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "の水を飲みました。",
       "targetKanji": [
         "天",
         "然"
       ],
       "writingPrompt": "「てんねん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』57ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -14858,17 +14863,17 @@
       "primaryKanji": "争",
       "readingType": "on",
       "canonicalReading": "ソウ",
-      "word": "争議",
-      "wordReading": "そうぎ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "競争",
+      "wordReading": "きょうそう",
+      "promptBefore": "運動会で",
+      "promptAfter": "をしました。",
       "targetKanji": [
-        "争",
-        "議"
+        "競",
+        "争"
       ],
-      "writingPrompt": "「そうぎ」の漢字の部分を書こう",
+      "writingPrompt": "「きょうそう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』58ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -14882,14 +14887,14 @@
       "canonicalReading": "あらそう",
       "word": "争う",
       "wordReading": "あらそう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "友だちと順番を",
+      "promptAfter": "ことはやめました。",
       "targetKanji": [
         "争"
       ],
       "writingPrompt": "「あらそう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』58ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14903,15 +14908,15 @@
       "canonicalReading": "ソウ",
       "word": "倉庫",
       "wordReading": "そうこ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "に道具をしまいました。",
       "targetKanji": [
         "倉",
         "庫"
       ],
       "writingPrompt": "「そうこ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』58ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -14925,14 +14930,14 @@
       "canonicalReading": "くら",
       "word": "倉",
       "wordReading": "くら",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "に米を入れました。",
       "targetKanji": [
         "倉"
       ],
       "writingPrompt": "「くら」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』58ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14946,19 +14951,20 @@
       "canonicalReading": "ソウ",
       "word": "病巣",
       "wordReading": "びょうそう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "を見つけて、家の人に話しました。",
       "targetKanji": [
         "病",
         "巣"
       ],
       "writingPrompt": "「びょうそう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』59ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "needs-fix",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
-      }
+      },
+      "reviewNote": "「病巣（びょうそう）」は医学用語で児童向けの語として難しい"
     },
     {
       "pairId": "kanji-g4-巣-kun-2f744f72b97e",
@@ -14968,14 +14974,14 @@
       "canonicalReading": "す",
       "word": "巣",
       "wordReading": "す",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "鳥が",
+      "promptAfter": "を作りました。",
       "targetKanji": [
         "巣"
       ],
       "writingPrompt": "「す」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』59ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -14989,15 +14995,15 @@
       "canonicalReading": "ソク",
       "word": "結束",
       "wordReading": "けっそく",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "チームの",
+      "promptAfter": "を強めるために、声をかけ合いました。",
       "targetKanji": [
         "結",
         "束"
       ],
       "writingPrompt": "「けっそく」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』60ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15011,14 +15017,14 @@
       "canonicalReading": "たば",
       "word": "束",
       "wordReading": "たば",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "花を",
+      "promptAfter": "にしてまとめました。",
       "targetKanji": [
         "束"
       ],
       "writingPrompt": "「たば」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』60ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15032,15 +15038,15 @@
       "canonicalReading": "ソク",
       "word": "側面",
       "wordReading": "そくめん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "箱の",
+      "promptAfter": "に絵をかきました。",
       "targetKanji": [
         "側",
         "面"
       ],
       "writingPrompt": "「そくめん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』60ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15054,14 +15060,14 @@
       "canonicalReading": "がわ",
       "word": "側",
       "wordReading": "がわ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "道の",
+      "promptAfter": "を歩きました。",
       "targetKanji": [
         "側"
       ],
       "writingPrompt": "「がわ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』60ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15075,15 +15081,15 @@
       "canonicalReading": "ゾク",
       "word": "続出",
       "wordReading": "ぞくしゅつ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "暑い日に、体調をくずす人が",
+      "promptAfter": "しました。",
       "targetKanji": [
         "続",
         "出"
       ],
       "writingPrompt": "「ぞくしゅつ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』60ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15097,14 +15103,14 @@
       "canonicalReading": "つづく",
       "word": "続く",
       "wordReading": "つづく",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "雨の日が何日も",
+      "promptAfter": "と、気分も変わります。",
       "targetKanji": [
         "続"
       ],
       "writingPrompt": "「つづく」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』60ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15118,14 +15124,14 @@
       "canonicalReading": "つづける",
       "word": "続ける",
       "wordReading": "つづける",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "毎日練習を",
+      "promptAfter": "ことが大切です。",
       "targetKanji": [
         "続"
       ],
       "writingPrompt": "「つづける」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』60ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15139,15 +15145,15 @@
       "canonicalReading": "ソツ",
       "word": "卒業",
       "wordReading": "そつぎょう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "来年、姉が",
+      "promptAfter": "します。",
       "targetKanji": [
         "卒",
         "業"
       ],
       "writingPrompt": "「そつぎょう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』61ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15161,15 +15167,15 @@
       "canonicalReading": "ソン",
       "word": "子孫",
       "wordReading": "しそん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "昔の人の",
+      "promptAfter": "が住んでいます。",
       "targetKanji": [
         "子",
         "孫"
       ],
       "writingPrompt": "「しそん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』61ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15183,14 +15189,14 @@
       "canonicalReading": "まご",
       "word": "孫",
       "wordReading": "まご",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "と公園で遊びました。",
       "targetKanji": [
         "孫"
       ],
       "writingPrompt": "「まご」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』61ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15204,15 +15210,15 @@
       "canonicalReading": "タイ",
       "word": "地帯",
       "wordReading": "ちたい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "この",
+      "promptAfter": "には田んぼが多いです。",
       "targetKanji": [
         "地",
         "帯"
       ],
       "writingPrompt": "「ちたい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』62ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15226,14 +15232,14 @@
       "canonicalReading": "おびる",
       "word": "帯びる",
       "wordReading": "おびる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "夕方になると、空が赤みを",
+      "promptAfter": "ように見えます。",
       "targetKanji": [
         "帯"
       ],
       "writingPrompt": "「おびる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』62ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15247,14 +15253,14 @@
       "canonicalReading": "おび",
       "word": "帯",
       "wordReading": "おび",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "をしめて祭りに行きました。",
       "targetKanji": [
         "帯"
       ],
       "writingPrompt": "「おび」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』62ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15268,15 +15274,15 @@
       "canonicalReading": "タイ",
       "word": "隊列",
       "wordReading": "たいれつ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "を作って歩きました。",
       "targetKanji": [
         "隊",
         "列"
       ],
       "writingPrompt": "「たいれつ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』62ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15290,15 +15296,15 @@
       "canonicalReading": "タツ",
       "word": "達人",
       "wordReading": "たつじん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "のすごさを知りました。",
       "targetKanji": [
         "達",
         "人"
       ],
       "writingPrompt": "「たつじん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』63ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15312,15 +15318,15 @@
       "canonicalReading": "タン",
       "word": "単位",
       "wordReading": "たんい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "長さの",
+      "promptAfter": "を調べました。",
       "targetKanji": [
         "単",
         "位"
       ],
       "writingPrompt": "「たんい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』63ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15334,15 +15340,15 @@
       "canonicalReading": "チ",
       "word": "位置",
       "wordReading": "いち",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "荷物を置く",
+      "promptAfter": "を決めました。",
       "targetKanji": [
         "位",
         "置"
       ],
       "writingPrompt": "「いち」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』65ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15356,14 +15362,14 @@
       "canonicalReading": "おく",
       "word": "置く",
       "wordReading": "おく",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "本を",
+      "promptAfter": "場所を決めました。",
       "targetKanji": [
         "置"
       ],
       "writingPrompt": "「おく」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』65ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15377,14 +15383,14 @@
       "canonicalReading": "なか",
       "word": "仲",
       "wordReading": "なか",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "がよい二人です。",
       "targetKanji": [
         "仲"
       ],
       "writingPrompt": "「なか」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』65ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15398,19 +15404,20 @@
       "canonicalReading": "チュウ",
       "word": "沖天",
       "wordReading": "ちゅうてん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "の意味をしらべました。",
       "targetKanji": [
         "沖",
         "天"
       ],
       "writingPrompt": "「ちゅうてん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』65ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "needs-fix",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
-      }
+      },
+      "reviewNote": "「沖天（ちゅうてん）」は児童向けの語として難しく、代替語がない"
     },
     {
       "pairId": "kanji-g4-沖-kun-93f63a702c7f",
@@ -15420,14 +15427,14 @@
       "canonicalReading": "おき",
       "word": "沖",
       "wordReading": "おき",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "船が",
+      "promptAfter": "へ出ました。",
       "targetKanji": [
         "沖"
       ],
       "writingPrompt": "「おき」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』65ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15441,15 +15448,15 @@
       "canonicalReading": "チョウ",
       "word": "兆候",
       "wordReading": "ちょうこう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "春の",
+      "promptAfter": "を感じました。",
       "targetKanji": [
         "兆",
         "候"
       ],
       "writingPrompt": "「ちょうこう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』66ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15463,18 +15470,19 @@
       "canonicalReading": "きざす",
       "word": "兆す",
       "wordReading": "きざす",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "変化を",
+      "promptAfter": "動きがありました。",
       "targetKanji": [
         "兆"
       ],
       "writingPrompt": "「きざす」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』66ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "needs-fix",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
-      }
+      },
+      "reviewNote": "「兆す（きざす）」は児童向けの自然な代替語が見つからず、文脈から漢字を想起しにくい"
     },
     {
       "pairId": "kanji-g4-兆-kun-0feca8b7eb48",
@@ -15484,14 +15492,14 @@
       "canonicalReading": "きざし",
       "word": "兆し",
       "wordReading": "きざし",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "春の",
+      "promptAfter": "が見えます。",
       "targetKanji": [
         "兆"
       ],
       "writingPrompt": "「きざし」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』66ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15503,17 +15511,17 @@
       "primaryKanji": "低",
       "readingType": "on",
       "canonicalReading": "テイ",
-      "word": "低級",
-      "wordReading": "ていきゅう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "高低",
+      "wordReading": "こうてい",
+      "promptBefore": "声の",
+      "promptAfter": "に気をつけて発表を聞きました。",
       "targetKanji": [
-        "低",
-        "級"
+        "高",
+        "低"
       ],
-      "writingPrompt": "「ていきゅう」の漢字の部分を書こう",
+      "writingPrompt": "「こうてい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』68ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15527,14 +15535,14 @@
       "canonicalReading": "ひくい",
       "word": "低い",
       "wordReading": "ひくい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "この山は",
+      "promptAfter": "です。",
       "targetKanji": [
         "低"
       ],
       "writingPrompt": "「ひくい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』68ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15548,14 +15556,14 @@
       "canonicalReading": "ひくめる",
       "word": "低める",
       "wordReading": "ひくめる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "音を少し",
+      "promptAfter": "ことにしました。",
       "targetKanji": [
         "低"
       ],
       "writingPrompt": "「ひくめる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』68ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15569,18 +15577,19 @@
       "canonicalReading": "ひくまる",
       "word": "低まる",
       "wordReading": "ひくまる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "日が落ちると気温が",
+      "promptAfter": "ように感じます。",
       "targetKanji": [
         "低"
       ],
       "writingPrompt": "「ひくまる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』68ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "needs-fix",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
-      }
+      },
+      "reviewNote": "「低まる」は児童向けの自然な代替語が見つからない"
     },
     {
       "pairId": "kanji-g4-底-on-a2f3d94c0237",
@@ -15588,17 +15597,17 @@
       "primaryKanji": "底",
       "readingType": "on",
       "canonicalReading": "テイ",
-      "word": "底流",
-      "wordReading": "ていりゅう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "海底",
+      "wordReading": "かいてい",
+      "promptBefore": "",
+      "promptAfter": "のようすを写真で見ました。",
       "targetKanji": [
-        "底",
-        "流"
+        "海",
+        "底"
       ],
-      "writingPrompt": "「ていりゅう」の漢字の部分を書こう",
+      "writingPrompt": "「かいてい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』68ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15612,14 +15621,14 @@
       "canonicalReading": "そこ",
       "word": "底",
       "wordReading": "そこ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "箱の",
+      "promptAfter": "を見ました。",
       "targetKanji": [
         "底"
       ],
       "writingPrompt": "「そこ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』68ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15633,15 +15642,15 @@
       "canonicalReading": "テキ",
       "word": "的中",
       "wordReading": "てきちゅう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "予想が",
+      "promptAfter": "しました。",
       "targetKanji": [
         "的",
         "中"
       ],
       "writingPrompt": "「てきちゅう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』69ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15655,14 +15664,14 @@
       "canonicalReading": "まと",
       "word": "的",
       "wordReading": "まと",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "に矢を当てました。",
       "targetKanji": [
         "的"
       ],
       "writingPrompt": "「まと」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』69ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15676,15 +15685,15 @@
       "canonicalReading": "テン",
       "word": "古典",
       "wordReading": "こてん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "の物語を読みました。",
       "targetKanji": [
         "古",
         "典"
       ],
       "writingPrompt": "「こてん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』69ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15698,15 +15707,15 @@
       "canonicalReading": "デン",
       "word": "伝言",
       "wordReading": "でんごん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "家の人に",
+      "promptAfter": "を残しました。",
       "targetKanji": [
         "伝",
         "言"
       ],
       "writingPrompt": "「でんごん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』70ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15720,14 +15729,14 @@
       "canonicalReading": "つたわる",
       "word": "伝わる",
       "wordReading": "つたわる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "気持ちが",
+      "promptAfter": "ように話しました。",
       "targetKanji": [
         "伝"
       ],
       "writingPrompt": "「つたわる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』70ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15741,14 +15750,14 @@
       "canonicalReading": "つたえる",
       "word": "伝える",
       "wordReading": "つたえる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "大事なことを友だちに",
+      "promptAfter": "ことにしました。",
       "targetKanji": [
         "伝"
       ],
       "writingPrompt": "「つたえる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』70ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15762,14 +15771,14 @@
       "canonicalReading": "つたう",
       "word": "伝う",
       "wordReading": "つたう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "水が葉を",
+      "promptAfter": "様子を見ました。",
       "targetKanji": [
         "伝"
       ],
       "writingPrompt": "「つたう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』70ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15783,15 +15792,15 @@
       "canonicalReading": "ト",
       "word": "徒歩",
       "wordReading": "とほ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "駅まで",
+      "promptAfter": "で行きました。",
       "targetKanji": [
         "徒",
         "歩"
       ],
       "writingPrompt": "「とほ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』70ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15805,15 +15814,15 @@
       "canonicalReading": "ド",
       "word": "努力",
       "wordReading": "どりょく",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "目標に向かって",
+      "promptAfter": "しました。",
       "targetKanji": [
         "努",
         "力"
       ],
       "writingPrompt": "「どりょく」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』70ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15827,14 +15836,14 @@
       "canonicalReading": "つとめる",
       "word": "努める",
       "wordReading": "つとめる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "毎日、時間を守るように",
+      "promptAfter": "ことにしています。",
       "targetKanji": [
         "努"
       ],
       "writingPrompt": "「つとめる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』70ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15848,15 +15857,15 @@
       "canonicalReading": "トウ",
       "word": "電灯",
       "wordReading": "でんとう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "暗くなったので",
+      "promptAfter": "をつけました。",
       "targetKanji": [
         "電",
         "灯"
       ],
       "writingPrompt": "「でんとう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』71ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15870,14 +15879,14 @@
       "canonicalReading": "ひ",
       "word": "灯",
       "wordReading": "ひ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "が道を照らしました。",
       "targetKanji": [
         "灯"
       ],
       "writingPrompt": "「ひ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』71ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15891,15 +15900,15 @@
       "canonicalReading": "ドウ",
       "word": "労働",
       "wordReading": "ろうどう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "働く人を守る",
+      "promptAfter": "のきまりについて学びました。",
       "targetKanji": [
         "労",
         "働"
       ],
       "writingPrompt": "「ろうどう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』73ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15913,14 +15922,14 @@
       "canonicalReading": "はたらく",
       "word": "働く",
       "wordReading": "はたらく",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "家の人が",
+      "promptAfter": "様子を見ました。",
       "targetKanji": [
         "働"
       ],
       "writingPrompt": "「はたらく」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』73ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -15934,15 +15943,15 @@
       "canonicalReading": "トク",
       "word": "特産",
       "wordReading": "とくさん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "この町の",
+      "promptAfter": "を食べました。",
       "targetKanji": [
         "特",
         "産"
       ],
       "writingPrompt": "「とくさん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』73ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15954,17 +15963,17 @@
       "primaryKanji": "徳",
       "readingType": "on",
       "canonicalReading": "トク",
-      "word": "徳用",
-      "wordReading": "とくよう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "道徳",
+      "wordReading": "どうとく",
+      "promptBefore": "学校の",
+      "promptAfter": "の時間に、相手の気持ちを考えました。",
       "targetKanji": [
-        "徳",
-        "用"
+        "道",
+        "徳"
       ],
-      "writingPrompt": "「とくよう」の漢字の部分を書こう",
+      "writingPrompt": "「どうとく」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』73ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -15976,17 +15985,17 @@
       "primaryKanji": "奈",
       "readingType": "on",
       "canonicalReading": "ナ",
-      "word": "奈落",
-      "wordReading": "ならく",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "奈良",
+      "wordReading": "なら",
+      "promptBefore": "地図で",
+      "promptAfter": "の場所を調べました。",
       "targetKanji": [
         "奈",
-        "落"
+        "良"
       ],
-      "writingPrompt": "「ならく」の漢字の部分を書こう",
+      "writingPrompt": "「なら」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』74ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16000,14 +16009,14 @@
       "canonicalReading": "なし",
       "word": "梨",
       "wordReading": "なし",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "秋に",
+      "promptAfter": "を食べました。",
       "targetKanji": [
         "梨"
       ],
       "writingPrompt": "「なし」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』74ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -16019,17 +16028,17 @@
       "primaryKanji": "熱",
       "readingType": "on",
       "canonicalReading": "ネツ",
-      "word": "熱病",
-      "wordReading": "ねつびょう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "熱湯",
+      "wordReading": "ねっとう",
+      "promptBefore": "やかんの",
+      "promptAfter": "に気をつけました。",
       "targetKanji": [
         "熱",
-        "病"
+        "湯"
       ],
-      "writingPrompt": "「ねつびょう」の漢字の部分を書こう",
+      "writingPrompt": "「ねっとう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』75ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16043,14 +16052,14 @@
       "canonicalReading": "あつい",
       "word": "熱い",
       "wordReading": "あつい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "お湯は",
+      "promptAfter": "です。",
       "targetKanji": [
         "熱"
       ],
       "writingPrompt": "「あつい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』75ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -16064,15 +16073,15 @@
       "canonicalReading": "ネン",
       "word": "念願",
       "wordReading": "ねんがん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "の大会に出場しました。",
       "targetKanji": [
         "念",
         "願"
       ],
       "writingPrompt": "「ねんがん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』75ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16086,15 +16095,15 @@
       "canonicalReading": "ハイ",
       "word": "敗北",
       "wordReading": "はいぼく",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "試合で",
+      "promptAfter": "しました。",
       "targetKanji": [
         "敗",
         "北"
       ],
       "writingPrompt": "「はいぼく」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』76ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16108,14 +16117,14 @@
       "canonicalReading": "やぶれる",
       "word": "敗れる",
       "wordReading": "やぶれる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "試合で",
+      "promptAfter": "こともあります。",
       "targetKanji": [
         "敗"
       ],
       "writingPrompt": "「やぶれる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』76ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -16129,14 +16138,14 @@
       "canonicalReading": "うめ",
       "word": "梅",
       "wordReading": "うめ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "の花がさきました。",
       "targetKanji": [
         "梅"
       ],
       "writingPrompt": "「うめ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』76ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -16150,19 +16159,20 @@
       "canonicalReading": "バク",
       "word": "博労",
       "wordReading": "ばくろう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "家の人と",
+      "promptAfter": "について話しました。",
       "targetKanji": [
         "博",
         "労"
       ],
       "writingPrompt": "「ばくろう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』77ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "needs-fix",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
-      }
+      },
+      "reviewNote": "「博労（ばくろう）」は古語・職業語で児童向けの語として難しい"
     },
     {
       "pairId": "kanji-g4-阪-on-227b9a253828",
@@ -16172,19 +16182,20 @@
       "canonicalReading": "ハン",
       "word": "阪神",
       "wordReading": "はんしん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "の試合を見ました。",
       "targetKanji": [
         "阪",
         "神"
       ],
       "writingPrompt": "「はんしん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』78ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "needs-fix",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
-      }
+      },
+      "reviewNote": "「阪神（はんしん）」は固有名詞に依存し、児童向けの一般語として扱いにくい"
     },
     {
       "pairId": "kanji-g4-阪-name-465e7a93614e",
@@ -16202,7 +16213,7 @@
       ],
       "writingPrompt": "「おおさか」の漢字の部分を書こう",
       "sourceRef": "文部科学省『小学校学習指導要領（平成29年告示）付録4 学年別漢字配当表』（都道府県名に用いる漢字）",
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "pairId": "kanji-g4-飯-on-4f085c6489b4",
@@ -16212,15 +16223,15 @@
       "canonicalReading": "ハン",
       "word": "赤飯",
       "wordReading": "せきはん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "お祝いの日に",
+      "promptAfter": "を食べました。",
       "targetKanji": [
         "赤",
         "飯"
       ],
       "writingPrompt": "「せきはん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』79ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16234,14 +16245,14 @@
       "canonicalReading": "めし",
       "word": "飯",
       "wordReading": "めし",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "をたいて、おにぎりを作りました。",
       "targetKanji": [
         "飯"
       ],
       "writingPrompt": "「めし」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』79ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -16255,15 +16266,15 @@
       "canonicalReading": "ヒ",
       "word": "飛行",
       "wordReading": "ひこう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "機に乗りました。",
       "targetKanji": [
         "飛",
         "行"
       ],
       "writingPrompt": "「ひこう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』79ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16277,14 +16288,14 @@
       "canonicalReading": "とぶ",
       "word": "飛ぶ",
       "wordReading": "とぶ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "鳥が空を",
+      "promptAfter": "のを見ました。",
       "targetKanji": [
         "飛"
       ],
       "writingPrompt": "「とぶ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』79ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -16298,14 +16309,14 @@
       "canonicalReading": "とばす",
       "word": "飛ばす",
       "wordReading": "とばす",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "風が紙を",
+      "promptAfter": "ことがあります。",
       "targetKanji": [
         "飛"
       ],
       "writingPrompt": "「とばす」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』79ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -16319,15 +16330,15 @@
       "canonicalReading": "ヒツ",
       "word": "必然",
       "wordReading": "ひつぜん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "そうなるのは",
+      "promptAfter": "です。",
       "targetKanji": [
         "必",
         "然"
       ],
       "writingPrompt": "「ひつぜん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』80ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16341,14 +16352,14 @@
       "canonicalReading": "かならず",
       "word": "必ず",
       "wordReading": "かならず",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "約束は",
+      "promptAfter": "守ります。",
       "targetKanji": [
         "必"
       ],
       "writingPrompt": "「かならず」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』80ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -16362,15 +16373,15 @@
       "canonicalReading": "ヒョウ",
       "word": "票決",
       "wordReading": "ひょうけつ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "クラスの係を、",
+      "promptAfter": "で決めました。",
       "targetKanji": [
         "票",
         "決"
       ],
       "writingPrompt": "「ひょうけつ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』81ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16384,15 +16395,15 @@
       "canonicalReading": "ヒョウ",
       "word": "標本",
       "wordReading": "ひょうほん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "理科で",
+      "promptAfter": "を観察しました。",
       "targetKanji": [
         "標",
         "本"
       ],
       "writingPrompt": "「ひょうほん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』81ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16406,15 +16417,15 @@
       "canonicalReading": "フ",
       "word": "不当",
       "wordReading": "ふとう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "なことをしてはいけません。",
       "targetKanji": [
         "不",
         "当"
       ],
       "writingPrompt": "「ふとう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』81ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16428,8 +16439,8 @@
       "canonicalReading": "ブ",
       "word": "不作法",
       "wordReading": "ぶさほう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "人前で",
+      "promptAfter": "なふるまいをしないようにします。",
       "targetKanji": [
         "不",
         "作",
@@ -16437,7 +16448,7 @@
       ],
       "writingPrompt": "「ぶさほう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』81ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16451,15 +16462,15 @@
       "canonicalReading": "フ",
       "word": "農夫",
       "wordReading": "のうふ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "が畑で働いています。",
       "targetKanji": [
         "農",
         "夫"
       ],
       "writingPrompt": "「のうふ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』81ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16473,15 +16484,15 @@
       "canonicalReading": "フウ",
       "word": "工夫",
       "wordReading": "くふう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "して作りました。",
       "targetKanji": [
         "工",
         "夫"
       ],
       "writingPrompt": "「くふう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』81ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16495,14 +16506,14 @@
       "canonicalReading": "おっと",
       "word": "夫",
       "wordReading": "おっと",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "が魚を焼きました。",
       "targetKanji": [
         "夫"
       ],
       "writingPrompt": "「おっと」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』81ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -16516,15 +16527,15 @@
       "canonicalReading": "フ",
       "word": "交付",
       "wordReading": "こうふ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "市役所で、書類の",
+      "promptAfter": "を受けました。",
       "targetKanji": [
         "交",
         "付"
       ],
       "writingPrompt": "「こうふ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』81ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16538,14 +16549,14 @@
       "canonicalReading": "つける",
       "word": "付ける",
       "wordReading": "つける",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "名前を",
+      "promptAfter": "ことにしました。",
       "targetKanji": [
         "付"
       ],
       "writingPrompt": "「つける」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』81ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -16559,14 +16570,14 @@
       "canonicalReading": "つく",
       "word": "付く",
       "wordReading": "つく",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "名札が",
+      "promptAfter": "と安心します。",
       "targetKanji": [
         "付"
       ],
       "writingPrompt": "「つく」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』81ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -16580,15 +16591,15 @@
       "canonicalReading": "フ",
       "word": "府県",
       "wordReading": "ふけん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "都道",
+      "promptAfter": "の名前を地図で調べました。",
       "targetKanji": [
         "府",
         "県"
       ],
       "writingPrompt": "「ふけん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』82ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16602,19 +16613,20 @@
       "canonicalReading": "フ",
       "word": "富強",
       "wordReading": "ふうきょう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "を使って文を作りました。",
       "targetKanji": [
         "富",
         "強"
       ],
       "writingPrompt": "「ふうきょう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』82ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "needs-fix",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
-      }
+      },
+      "reviewNote": "「富強（ふうきょう）」は児童向けの語として難しく、代替語がない"
     },
     {
       "pairId": "kanji-g4-富-kun-1e9bab204253",
@@ -16624,14 +16636,14 @@
       "canonicalReading": "とむ",
       "word": "富む",
       "wordReading": "とむ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "この土地は水に",
+      "promptAfter": "ので、作物がよく育ちます。",
       "targetKanji": [
         "富"
       ],
       "writingPrompt": "「とむ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』82ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -16645,18 +16657,19 @@
       "canonicalReading": "とみ",
       "word": "富",
       "wordReading": "とみ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "を分け合いました。",
       "targetKanji": [
         "富"
       ],
       "writingPrompt": "「とみ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』82ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "needs-fix",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
-      }
+      },
+      "reviewNote": "「富（とみ）」は抽象的で児童向けの自然な文脈を作りにくい"
     },
     {
       "pairId": "kanji-g4-富-name-74c953f0b39a",
@@ -16674,7 +16687,7 @@
       ],
       "writingPrompt": "「とやま」の漢字の部分を書こう",
       "sourceRef": "文部科学省『小学校学習指導要領（平成29年告示）付録4 学年別漢字配当表』（都道府県名に用いる漢字）",
-      "reviewStatus": "draft"
+      "reviewStatus": "approved"
     },
     {
       "pairId": "kanji-g4-副-on-9fc56344a49d",
@@ -16684,15 +16697,15 @@
       "canonicalReading": "フク",
       "word": "副業",
       "wordReading": "ふくぎょう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "家の人は、本業のほかに",
+      "promptAfter": "もしています。",
       "targetKanji": [
         "副",
         "業"
       ],
       "writingPrompt": "「ふくぎょう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』83ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16706,15 +16719,15 @@
       "canonicalReading": "ヘイ",
       "word": "兵器",
       "wordReading": "へいき",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "のない平和な世界を願います。",
       "targetKanji": [
         "兵",
         "器"
       ],
       "writingPrompt": "「へいき」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』84ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16728,15 +16741,15 @@
       "canonicalReading": "ベツ",
       "word": "区別",
       "wordReading": "くべつ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "赤と青を",
+      "promptAfter": "して、箱に分けました。",
       "targetKanji": [
         "区",
         "別"
       ],
       "writingPrompt": "「くべつ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』85ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16750,14 +16763,14 @@
       "canonicalReading": "わかれる",
       "word": "別れる",
       "wordReading": "わかれる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "友だちと",
+      "promptAfter": "のはさびしいです。",
       "targetKanji": [
         "別"
       ],
       "writingPrompt": "「わかれる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』85ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -16771,15 +16784,15 @@
       "canonicalReading": "ヘン",
       "word": "周辺",
       "wordReading": "しゅうへん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "駅の",
+      "promptAfter": "を歩きました。",
       "targetKanji": [
         "周",
         "辺"
       ],
       "writingPrompt": "「しゅうへん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』85ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16793,14 +16806,14 @@
       "canonicalReading": "あたり",
       "word": "辺り",
       "wordReading": "あたり",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "を見回しました。",
       "targetKanji": [
         "辺"
       ],
       "writingPrompt": "「あたり」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』85ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -16814,15 +16827,15 @@
       "canonicalReading": "べ",
       "word": "海辺",
       "wordReading": "うみべ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "で貝を拾いました。",
       "targetKanji": [
         "海",
         "辺"
       ],
       "writingPrompt": "「うみべ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』85ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16836,15 +16849,15 @@
       "canonicalReading": "ヘン",
       "word": "変化",
       "wordReading": "へんか",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "季節の",
+      "promptAfter": "を感じます。",
       "targetKanji": [
         "変",
         "化"
       ],
       "writingPrompt": "「へんか」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』85ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16858,14 +16871,14 @@
       "canonicalReading": "かわる",
       "word": "変わる",
       "wordReading": "かわる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "季節が",
+      "promptAfter": "と景色も変わります。",
       "targetKanji": [
         "変"
       ],
       "writingPrompt": "「かわる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』85ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -16879,14 +16892,14 @@
       "canonicalReading": "かえる",
       "word": "変える",
       "wordReading": "かえる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "計画を",
+      "promptAfter": "ことにしました。",
       "targetKanji": [
         "変"
       ],
       "writingPrompt": "「かえる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』85ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -16900,15 +16913,15 @@
       "canonicalReading": "ベン",
       "word": "便利",
       "wordReading": "べんり",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "この道具は",
+      "promptAfter": "です。",
       "targetKanji": [
         "便",
         "利"
       ],
       "writingPrompt": "「べんり」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』85ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16922,15 +16935,15 @@
       "canonicalReading": "ビン",
       "word": "便乗",
       "wordReading": "びんじょう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "友だちの車に",
+      "promptAfter": "しました。",
       "targetKanji": [
         "便",
         "乗"
       ],
       "writingPrompt": "「びんじょう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』85ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16944,14 +16957,14 @@
       "canonicalReading": "たより",
       "word": "便り",
       "wordReading": "たより",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "遠くの家から",
+      "promptAfter": "が来ました。",
       "targetKanji": [
         "便"
       ],
       "writingPrompt": "「たより」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』85ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -16963,17 +16976,17 @@
       "primaryKanji": "包",
       "readingType": "on",
       "canonicalReading": "ホウ",
-      "word": "内包",
-      "wordReading": "ないほう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "包丁",
+      "wordReading": "ほうちょう",
+      "promptBefore": "料理で",
+      "promptAfter": "を使うときは、家の人といっしょにします。",
       "targetKanji": [
-        "内",
-        "包"
+        "包",
+        "丁"
       ],
-      "writingPrompt": "「ないほう」の漢字の部分を書こう",
+      "writingPrompt": "「ほうちょう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』86ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -16987,14 +17000,14 @@
       "canonicalReading": "つつむ",
       "word": "包む",
       "wordReading": "つつむ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "プレゼントを紙で",
+      "promptAfter": "ことにしました。",
       "targetKanji": [
         "包"
       ],
       "writingPrompt": "「つつむ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』86ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -17008,15 +17021,15 @@
       "canonicalReading": "ホウ",
       "word": "方法",
       "wordReading": "ほうほう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "を考えてから始めます。",
       "targetKanji": [
         "方",
         "法"
       ],
       "writingPrompt": "「ほうほう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』86ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17030,19 +17043,20 @@
       "canonicalReading": "ハッ",
       "word": "法度",
       "wordReading": "はっと",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "図書室で",
+      "promptAfter": "について調べました。",
       "targetKanji": [
         "法",
         "度"
       ],
       "writingPrompt": "「はっと」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』86ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "needs-fix",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
-      }
+      },
+      "reviewNote": "「法度（はっと）」は歴史語で児童向けの語として難しい"
     },
     {
       "pairId": "kanji-g4-法-on-3bdd52040ed5",
@@ -17052,19 +17066,20 @@
       "canonicalReading": "ホッ",
       "word": "法主",
       "wordReading": "ほっしゅ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "家の人と",
+      "promptAfter": "について話しました。",
       "targetKanji": [
         "法",
         "主"
       ],
       "writingPrompt": "「ほっしゅ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』86ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "needs-fix",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
-      }
+      },
+      "reviewNote": "「法主（ほっしゅ）」は宗教用語で児童向けの語として難しい"
     },
     {
       "pairId": "kanji-g4-望-on-85a1d1c30ec0",
@@ -17074,15 +17089,15 @@
       "canonicalReading": "ボウ",
       "word": "希望",
       "wordReading": "きぼう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "を書いて箱に入れました。",
       "targetKanji": [
         "希",
         "望"
       ],
       "writingPrompt": "「きぼう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』88ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17094,17 +17109,17 @@
       "primaryKanji": "望",
       "readingType": "on",
       "canonicalReading": "モウ",
-      "word": "所望",
-      "wordReading": "しょもう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "本望",
+      "wordReading": "ほんもう",
+      "promptBefore": "願いがかなって、",
+      "promptAfter": "だと思いました。",
       "targetKanji": [
-        "所",
+        "本",
         "望"
       ],
-      "writingPrompt": "「しょもう」の漢字の部分を書こう",
+      "writingPrompt": "「ほんもう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』88ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17118,14 +17133,14 @@
       "canonicalReading": "のぞむ",
       "word": "望む",
       "wordReading": "のぞむ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "未来を",
+      "promptAfter": "気持ちがあります。",
       "targetKanji": [
         "望"
       ],
       "writingPrompt": "「のぞむ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』88ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -17139,15 +17154,15 @@
       "canonicalReading": "ボク",
       "word": "牧場",
       "wordReading": "ぼくじょう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "で牛を見ました。",
       "targetKanji": [
         "牧",
         "場"
       ],
       "writingPrompt": "「ぼくじょう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』88ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17159,17 +17174,18 @@
       "primaryKanji": "末",
       "readingType": "on",
       "canonicalReading": "マツ",
-      "word": "末代",
-      "wordReading": "まつだい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "学期末",
+      "wordReading": "がっきまつ",
+      "promptBefore": "",
+      "promptAfter": "に、できたことを思い出しました。",
       "targetKanji": [
-        "末",
-        "代"
+        "学",
+        "期",
+        "末"
       ],
-      "writingPrompt": "「まつだい」の漢字の部分を書こう",
+      "writingPrompt": "「がっきまつ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』89ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17181,17 +17197,17 @@
       "primaryKanji": "末",
       "readingType": "on",
       "canonicalReading": "バツ",
-      "word": "末弟",
-      "wordReading": "ばってい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "末子",
+      "wordReading": "まっし",
+      "promptBefore": "",
+      "promptAfter": "は家族でいちばん年下の子です。",
       "targetKanji": [
         "末",
-        "弟"
+        "子"
       ],
-      "writingPrompt": "「ばってい」の漢字の部分を書こう",
+      "writingPrompt": "「まっし」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』89ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17205,14 +17221,14 @@
       "canonicalReading": "すえ",
       "word": "末",
       "wordReading": "すえ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "文の",
+      "promptAfter": "に答えを書きました。",
       "targetKanji": [
         "末"
       ],
       "writingPrompt": "「すえ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』89ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -17226,15 +17242,15 @@
       "canonicalReading": "マン",
       "word": "満月",
       "wordReading": "まんげつ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "夜に",
+      "promptAfter": "を見ました。",
       "targetKanji": [
         "満",
         "月"
       ],
       "writingPrompt": "「まんげつ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』89ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17248,14 +17264,14 @@
       "canonicalReading": "みちる",
       "word": "満ちる",
       "wordReading": "みちる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "水が",
+      "promptAfter": "と、あふれます。",
       "targetKanji": [
         "満"
       ],
       "writingPrompt": "「みちる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』89ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -17269,14 +17285,14 @@
       "canonicalReading": "みたす",
       "word": "満たす",
       "wordReading": "みたす",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "コップを水で",
+      "promptAfter": "ことにしました。",
       "targetKanji": [
         "満"
       ],
       "writingPrompt": "「みたす」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』89ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -17290,15 +17306,15 @@
       "canonicalReading": "ミ",
       "word": "未来",
       "wordReading": "みらい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "の話をしました。",
       "targetKanji": [
         "未",
         "来"
       ],
       "writingPrompt": "「みらい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』89ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17312,15 +17328,15 @@
       "canonicalReading": "ミン",
       "word": "民族",
       "wordReading": "みんぞく",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "いろいろな",
+      "promptAfter": "の文化を学びます。",
       "targetKanji": [
         "民",
         "族"
       ],
       "writingPrompt": "「みんぞく」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』90ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17334,14 +17350,14 @@
       "canonicalReading": "たみ",
       "word": "民",
       "wordReading": "たみ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "昔の",
+      "promptAfter": "のくらしについて、本で学びました。",
       "targetKanji": [
         "民"
       ],
       "writingPrompt": "「たみ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』90ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -17355,15 +17371,15 @@
       "canonicalReading": "ム",
       "word": "無名",
       "wordReading": "むめい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "名前のない",
+      "promptAfter": "の作品を見ました。",
       "targetKanji": [
         "無",
         "名"
       ],
       "writingPrompt": "「むめい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』90ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17377,15 +17393,15 @@
       "canonicalReading": "ブ",
       "word": "無事",
       "wordReading": "ぶじ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "家に",
+      "promptAfter": "帰りました。",
       "targetKanji": [
         "無",
         "事"
       ],
       "writingPrompt": "「ぶじ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』90ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17399,14 +17415,14 @@
       "canonicalReading": "ない",
       "word": "無い",
       "wordReading": "ない",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "何も",
+      "promptAfter": "。",
       "targetKanji": [
         "無"
       ],
       "writingPrompt": "「ない」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』90ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -17420,15 +17436,15 @@
       "canonicalReading": "ヤク",
       "word": "約束",
       "wordReading": "やくそく",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "を守ります。",
       "targetKanji": [
         "約",
         "束"
       ],
       "writingPrompt": "「やくそく」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』92ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17442,15 +17458,15 @@
       "canonicalReading": "ユウ",
       "word": "勇気",
       "wordReading": "ゆうき",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "を出して発表しました。",
       "targetKanji": [
         "勇",
         "気"
       ],
       "writingPrompt": "「ゆうき」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』93ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17462,16 +17478,16 @@
       "primaryKanji": "勇",
       "readingType": "kun",
       "canonicalReading": "いさむ",
-      "word": "勇む",
-      "wordReading": "いさむ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "勇んで",
+      "wordReading": "いさんで",
+      "promptBefore": "",
+      "promptAfter": "出かけました。",
       "targetKanji": [
         "勇"
       ],
-      "writingPrompt": "「いさむ」の漢字の部分を書こう",
+      "writingPrompt": "「いさんで」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』93ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -17485,15 +17501,15 @@
       "canonicalReading": "ヨウ",
       "word": "要点",
       "wordReading": "ようてん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "話の",
+      "promptAfter": "をまとめました。",
       "targetKanji": [
         "要",
         "点"
       ],
       "writingPrompt": "「ようてん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』94ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17507,14 +17523,14 @@
       "canonicalReading": "かなめ",
       "word": "要",
       "wordReading": "かなめ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "チームの",
+      "promptAfter": "になる選手です。",
       "targetKanji": [
         "要"
       ],
       "writingPrompt": "「かなめ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』94ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -17528,14 +17544,14 @@
       "canonicalReading": "いる",
       "word": "要る",
       "wordReading": "いる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "この作業には時間が",
+      "promptAfter": "ことがあります。",
       "targetKanji": [
         "要"
       ],
       "writingPrompt": "「いる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』94ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -17549,15 +17565,15 @@
       "canonicalReading": "ヨウ",
       "word": "養育",
       "wordReading": "よういく",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "親が子どもを育てる",
+      "promptAfter": "の大切さを学びました。",
       "targetKanji": [
         "養",
         "育"
       ],
       "writingPrompt": "「よういく」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』94ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17571,14 +17587,14 @@
       "canonicalReading": "やしなう",
       "word": "養う",
       "wordReading": "やしなう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "家族を",
+      "promptAfter": "仕事をしています。",
       "targetKanji": [
         "養"
       ],
       "writingPrompt": "「やしなう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』94ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -17592,15 +17608,15 @@
       "canonicalReading": "ヨク",
       "word": "浴場",
       "wordReading": "よくじょう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "旅館の",
+      "promptAfter": "を使いました。",
       "targetKanji": [
         "浴",
         "場"
       ],
       "writingPrompt": "「よくじょう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』94ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17614,14 +17630,14 @@
       "canonicalReading": "あびる",
       "word": "浴びる",
       "wordReading": "あびる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "朝に水を",
+      "promptAfter": "ことがあります。",
       "targetKanji": [
         "浴"
       ],
       "writingPrompt": "「あびる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』94ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -17635,14 +17651,14 @@
       "canonicalReading": "あびせる",
       "word": "浴びせる",
       "wordReading": "あびせる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "急に水を",
+      "promptAfter": "のはやめましょう。",
       "targetKanji": [
         "浴"
       ],
       "writingPrompt": "「あびせる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』95ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -17656,15 +17672,15 @@
       "canonicalReading": "リ",
       "word": "勝利",
       "wordReading": "しょうり",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "チームが",
+      "promptAfter": "しました。",
       "targetKanji": [
         "勝",
         "利"
       ],
       "writingPrompt": "「しょうり」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』95ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17678,14 +17694,14 @@
       "canonicalReading": "きく",
       "word": "利く",
       "wordReading": "きく",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "鼻が",
+      "promptAfter": "犬は、においをよくかぎ分けます。",
       "targetKanji": [
         "利"
       ],
       "writingPrompt": "「きく」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』95ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -17699,15 +17715,15 @@
       "canonicalReading": "リク",
       "word": "陸地",
       "wordReading": "りくち",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "船が",
+      "promptAfter": "に着きました。",
       "targetKanji": [
         "陸",
         "地"
       ],
       "writingPrompt": "「りくち」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』96ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17721,15 +17737,15 @@
       "canonicalReading": "リョウ",
       "word": "良好",
       "wordReading": "りょうこう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "体の調子は",
+      "promptAfter": "です。",
       "targetKanji": [
         "良",
         "好"
       ],
       "writingPrompt": "「りょうこう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』97ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17743,14 +17759,14 @@
       "canonicalReading": "よい",
       "word": "良い",
       "wordReading": "よい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "天気です。",
       "targetKanji": [
         "良"
       ],
       "writingPrompt": "「よい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』97ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -17764,15 +17780,15 @@
       "canonicalReading": "リョウ",
       "word": "料金",
       "wordReading": "りょうきん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "を見ました。",
       "targetKanji": [
         "料",
         "金"
       ],
       "writingPrompt": "「りょうきん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』97ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17786,15 +17802,15 @@
       "canonicalReading": "リョウ",
       "word": "量産",
       "wordReading": "りょうさん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "工場で品物を",
+      "promptAfter": "します。",
       "targetKanji": [
         "量",
         "産"
       ],
       "writingPrompt": "「りょうさん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』97ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17808,14 +17824,14 @@
       "canonicalReading": "はかる",
       "word": "量る",
       "wordReading": "はかる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "はかりで重さを",
+      "promptAfter": "ことにしました。",
       "targetKanji": [
         "量"
       ],
       "writingPrompt": "「はかる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』97ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -17827,17 +17843,17 @@
       "primaryKanji": "輪",
       "readingType": "on",
       "canonicalReading": "リン",
-      "word": "輪番",
-      "wordReading": "りんばん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "車輪",
+      "wordReading": "しゃりん",
+      "promptBefore": "自転車の",
+      "promptAfter": "を調べました。",
       "targetKanji": [
-        "輪",
-        "番"
+        "車",
+        "輪"
       ],
-      "writingPrompt": "「りんばん」の漢字の部分を書こう",
+      "writingPrompt": "「しゃりん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』97ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17851,14 +17867,14 @@
       "canonicalReading": "わ",
       "word": "輪",
       "wordReading": "わ",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "になって遊びました。",
       "targetKanji": [
         "輪"
       ],
       "writingPrompt": "「わ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』97ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -17872,15 +17888,15 @@
       "canonicalReading": "ルイ",
       "word": "種類",
       "wordReading": "しゅるい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "いろいろな",
+      "promptAfter": "があります。",
       "targetKanji": [
         "種",
         "類"
       ],
       "writingPrompt": "「しゅるい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』97ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17894,18 +17910,19 @@
       "canonicalReading": "たぐい",
       "word": "類い",
       "wordReading": "たぐい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "同じ",
+      "promptAfter": "の物を集めました。",
       "targetKanji": [
         "類"
       ],
       "writingPrompt": "「たぐい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』97ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "needs-fix",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
-      }
+      },
+      "reviewNote": "「類い（たぐい）」は文語的で児童向けの語として難しい"
     },
     {
       "pairId": "kanji-g4-令-on-e5f447731d8d",
@@ -17915,15 +17932,15 @@
       "canonicalReading": "レイ",
       "word": "法令",
       "wordReading": "ほうれい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "を守ります。",
       "targetKanji": [
         "法",
         "令"
       ],
       "writingPrompt": "「ほうれい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』97ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17935,17 +17952,17 @@
       "primaryKanji": "冷",
       "readingType": "on",
       "canonicalReading": "レイ",
-      "word": "寒冷",
-      "wordReading": "かんれい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "冷気",
+      "wordReading": "れいき",
+      "promptBefore": "外から",
+      "promptAfter": "が入ったので、戸をしめました。",
       "targetKanji": [
-        "寒",
-        "冷"
+        "冷",
+        "気"
       ],
-      "writingPrompt": "「かんれい」の漢字の部分を書こう",
+      "writingPrompt": "「れいき」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』98ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -17959,14 +17976,14 @@
       "canonicalReading": "つめたい",
       "word": "冷たい",
       "wordReading": "つめたい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "水を飲みました。",
       "targetKanji": [
         "冷"
       ],
       "writingPrompt": "「つめたい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』98ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -17980,14 +17997,14 @@
       "canonicalReading": "ひえる",
       "word": "冷える",
       "wordReading": "ひえる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "夜になると体が",
+      "promptAfter": "と感じます。",
       "targetKanji": [
         "冷"
       ],
       "writingPrompt": "「ひえる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』98ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -18001,14 +18018,14 @@
       "canonicalReading": "ひや",
       "word": "冷や",
       "wordReading": "ひや",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "やかな目で見られました。",
       "targetKanji": [
         "冷"
       ],
       "writingPrompt": "「ひや」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』98ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -18022,14 +18039,14 @@
       "canonicalReading": "ひやす",
       "word": "冷やす",
       "wordReading": "ひやす",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "水を",
+      "promptAfter": "ことにしました。",
       "targetKanji": [
         "冷"
       ],
       "writingPrompt": "「ひやす」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』98ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -18043,14 +18060,14 @@
       "canonicalReading": "ひやかす",
       "word": "冷やかす",
       "wordReading": "ひやかす",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "店を",
+      "promptAfter": "のはやめましょう。",
       "targetKanji": [
         "冷"
       ],
       "writingPrompt": "「ひやかす」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』98ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -18064,14 +18081,14 @@
       "canonicalReading": "さめる",
       "word": "冷める",
       "wordReading": "さめる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "お茶が",
+      "promptAfter": "と、飲みやすくなります。",
       "targetKanji": [
         "冷"
       ],
       "writingPrompt": "「さめる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』98ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -18085,14 +18102,14 @@
       "canonicalReading": "さます",
       "word": "冷ます",
       "wordReading": "さます",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "お茶を",
+      "promptAfter": "ことにしました。",
       "targetKanji": [
         "冷"
       ],
       "writingPrompt": "「さます」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』98ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -18106,15 +18123,15 @@
       "canonicalReading": "レイ",
       "word": "例外",
       "wordReading": "れいがい",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "もあることを学びました。",
       "targetKanji": [
         "例",
         "外"
       ],
       "writingPrompt": "「れいがい」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』98ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -18128,14 +18145,14 @@
       "canonicalReading": "たとえる",
       "word": "例える",
       "wordReading": "たとえる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "絵に",
+      "promptAfter": "と、わかりやすくなります。",
       "targetKanji": [
         "例"
       ],
       "writingPrompt": "「たとえる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』98ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -18149,15 +18166,15 @@
       "canonicalReading": "レン",
       "word": "連合",
       "wordReading": "れんごう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "いくつかの国が",
+      "promptAfter": "して一つになりました。",
       "targetKanji": [
         "連",
         "合"
       ],
       "writingPrompt": "「れんごう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』98ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -18171,14 +18188,14 @@
       "canonicalReading": "つらなる",
       "word": "連なる",
       "wordReading": "つらなる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "山が",
+      "promptAfter": "ように見えます。",
       "targetKanji": [
         "連"
       ],
       "writingPrompt": "「つらなる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』98ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -18192,14 +18209,14 @@
       "canonicalReading": "つらねる",
       "word": "連ねる",
       "wordReading": "つらねる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "作文に、思いついた言葉を",
+      "promptAfter": "ことにしました。",
       "targetKanji": [
         "連"
       ],
       "writingPrompt": "「つらねる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』98ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -18211,16 +18228,16 @@
       "primaryKanji": "連",
       "readingType": "kun",
       "canonicalReading": "つれる",
-      "word": "連れる",
-      "wordReading": "つれる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "連れて",
+      "wordReading": "つれて",
+      "promptBefore": "家族を",
+      "promptAfter": "出かけました。",
       "targetKanji": [
         "連"
       ],
-      "writingPrompt": "「つれる」の漢字の部分を書こう",
+      "writingPrompt": "「つれて」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』98ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -18234,15 +18251,15 @@
       "canonicalReading": "ロウ",
       "word": "老人",
       "wordReading": "ろうじん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "",
+      "promptAfter": "に席をゆずりました。",
       "targetKanji": [
         "老",
         "人"
       ],
       "writingPrompt": "「ろうじん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』99ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -18256,14 +18273,14 @@
       "canonicalReading": "おいる",
       "word": "老いる",
       "wordReading": "おいる",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "木も長い年月がたつと",
+      "promptAfter": "ことがあります。",
       "targetKanji": [
         "老"
       ],
       "writingPrompt": "「おいる」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』99ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -18275,16 +18292,16 @@
       "primaryKanji": "老",
       "readingType": "kun",
       "canonicalReading": "ふける",
-      "word": "老ける",
-      "wordReading": "ふける",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "word": "老けて",
+      "wordReading": "ふけて",
+      "promptBefore": "写真にうつると、顔が",
+      "promptAfter": "見えます。",
       "targetKanji": [
         "老"
       ],
-      "writingPrompt": "「ふける」の漢字の部分を書こう",
+      "writingPrompt": "「ふけて」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』99ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "official-kun-reading"
@@ -18298,15 +18315,15 @@
       "canonicalReading": "ロウ",
       "word": "労働",
       "wordReading": "ろうどう",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "働く人を守る",
+      "promptAfter": "のきまりについて学びました。",
       "targetKanji": [
         "労",
         "働"
       ],
       "writingPrompt": "「ろうどう」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』99ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -18320,15 +18337,15 @@
       "canonicalReading": "ロク",
       "word": "録音",
       "wordReading": "ろくおん",
-      "promptBefore": "教科書に「",
-      "promptAfter": "」と書いてあります。",
+      "promptBefore": "音を",
+      "promptAfter": "しました。",
       "targetKanji": [
         "録",
         "音"
       ],
       "writingPrompt": "「ろくおん」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』99ページ",
-      "reviewStatus": "draft",
+      "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
         "readingCheck": "canonical-visible"
@@ -19642,6 +19659,410 @@
         "originalCandidateStatus": "candidate"
       },
       "reviewNote": "3年次には不適"
+    },
+    {
+      "pairId": "kanji-g4-茨-kun-manual",
+      "grade": 4,
+      "primaryKanji": "茨",
+      "readingType": "kun",
+      "canonicalReading": "いばら",
+      "word": "茨城県",
+      "wordReading": "いばらきけん",
+      "promptBefore": "地図で「",
+      "promptAfter": "」を見つけました。",
+      "targetKanji": [
+        "茨",
+        "城",
+        "県"
+      ],
+      "writingPrompt": "「いばらきけん」の漢字の部分を書こう",
+      "sourceRef": "文化庁『常用漢字（音訓）基本データ』2ページ",
+      "reviewStatus": "approved",
+      "candidateMeta": {
+        "origin": "manual-completion",
+        "readingCheck": "manual-review"
+      }
+    },
+    {
+      "pairId": "kanji-g4-英-on-manual",
+      "grade": 4,
+      "primaryKanji": "英",
+      "readingType": "on",
+      "canonicalReading": "エイ",
+      "word": "英語",
+      "wordReading": "えいご",
+      "promptBefore": "学校で",
+      "promptAfter": "のあいさつを練習しました。",
+      "targetKanji": [
+        "英",
+        "語"
+      ],
+      "writingPrompt": "「えいご」の漢字の部分を書こう",
+      "sourceRef": "文化庁『常用漢字（音訓）基本データ』3ページ",
+      "reviewStatus": "approved",
+      "candidateMeta": {
+        "origin": "manual-completion",
+        "readingCheck": "canonical-visible"
+      }
+    },
+    {
+      "pairId": "kanji-g4-岡-kun-manual",
+      "grade": 4,
+      "primaryKanji": "岡",
+      "readingType": "kun",
+      "canonicalReading": "おか",
+      "word": "岡山県",
+      "wordReading": "おかやまけん",
+      "promptBefore": "地図で「",
+      "promptAfter": "」を見つけました。",
+      "targetKanji": [
+        "岡",
+        "山",
+        "県"
+      ],
+      "writingPrompt": "「おかやまけん」の漢字の部分を書こう",
+      "sourceRef": "文化庁『常用漢字（音訓）基本データ』5ページ",
+      "reviewStatus": "approved",
+      "candidateMeta": {
+        "origin": "manual-completion",
+        "readingCheck": "canonical-visible"
+      }
+    },
+    {
+      "pairId": "kanji-g4-改-on-manual",
+      "grade": 4,
+      "primaryKanji": "改",
+      "readingType": "on",
+      "canonicalReading": "カイ",
+      "word": "改正",
+      "wordReading": "かいせい",
+      "promptBefore": "町のきまりが",
+      "promptAfter": "されました。",
+      "targetKanji": [
+        "改",
+        "正"
+      ],
+      "writingPrompt": "「かいせい」の漢字の部分を書こう",
+      "sourceRef": "文化庁『常用漢字（音訓）基本データ』8ページ",
+      "reviewStatus": "approved",
+      "candidateMeta": {
+        "origin": "manual-completion",
+        "readingCheck": "canonical-visible"
+      }
+    },
+    {
+      "pairId": "kanji-g4-潟-kun-manual",
+      "grade": 4,
+      "primaryKanji": "潟",
+      "readingType": "kun",
+      "canonicalReading": "かた",
+      "word": "新潟",
+      "wordReading": "にいがた",
+      "promptBefore": "地図で「",
+      "promptAfter": "」をさがしました。",
+      "targetKanji": [
+        "新",
+        "潟"
+      ],
+      "writingPrompt": "「にいがた」の漢字の部分を書こう",
+      "sourceRef": "文化庁『常用漢字（音訓）基本データ』11ページ",
+      "reviewStatus": "approved",
+      "candidateMeta": {
+        "origin": "manual-completion",
+        "readingCheck": "manual-review"
+      }
+    },
+    {
+      "pairId": "kanji-g4-験-on-manual",
+      "grade": 4,
+      "primaryKanji": "験",
+      "readingType": "on",
+      "canonicalReading": "ゲン",
+      "word": "受験",
+      "wordReading": "じゅけん",
+      "promptBefore": "兄は来年、高校を",
+      "promptAfter": "します。",
+      "targetKanji": [
+        "受",
+        "験"
+      ],
+      "writingPrompt": "「じゅけん」の漢字の部分を書こう",
+      "sourceRef": "文化庁『常用漢字（音訓）基本データ』25ページ",
+      "reviewStatus": "approved",
+      "candidateMeta": {
+        "origin": "manual-completion",
+        "readingCheck": "manual-review"
+      }
+    },
+    {
+      "pairId": "kanji-g4-埼-kun-manual",
+      "grade": 4,
+      "primaryKanji": "埼",
+      "readingType": "kun",
+      "canonicalReading": "さい",
+      "word": "埼玉県",
+      "wordReading": "さいたまけん",
+      "promptBefore": "地図で「",
+      "promptAfter": "」を見つけました。",
+      "targetKanji": [
+        "埼",
+        "玉",
+        "県"
+      ],
+      "writingPrompt": "「さいたまけん」の漢字の部分を書こう",
+      "sourceRef": "文化庁『常用漢字（音訓）基本データ』33ページ",
+      "reviewStatus": "approved",
+      "candidateMeta": {
+        "origin": "manual-completion",
+        "readingCheck": "canonical-visible"
+      }
+    },
+    {
+      "pairId": "kanji-g4-崎-kun-manual",
+      "grade": 4,
+      "primaryKanji": "崎",
+      "readingType": "kun",
+      "canonicalReading": "さき",
+      "word": "長崎県",
+      "wordReading": "ながさきけん",
+      "promptBefore": "地図で「",
+      "promptAfter": "」を見つけました。",
+      "targetKanji": [
+        "長",
+        "崎",
+        "県"
+      ],
+      "writingPrompt": "「ながさきけん」の漢字の部分を書こう",
+      "sourceRef": "文化庁『常用漢字（音訓）基本データ』33ページ",
+      "reviewStatus": "approved",
+      "candidateMeta": {
+        "origin": "manual-completion",
+        "readingCheck": "canonical-visible"
+      }
+    },
+    {
+      "pairId": "kanji-g4-治-on-manual",
+      "grade": 4,
+      "primaryKanji": "治",
+      "readingType": "on",
+      "canonicalReading": "ジ",
+      "word": "治安",
+      "wordReading": "じあん",
+      "promptBefore": "町の",
+      "promptAfter": "を守る人がいます。",
+      "targetKanji": [
+        "治",
+        "安"
+      ],
+      "writingPrompt": "「じあん」の漢字の部分を書こう",
+      "sourceRef": "文化庁『常用漢字（音訓）基本データ』38ページ",
+      "reviewStatus": "approved",
+      "candidateMeta": {
+        "origin": "manual-completion",
+        "readingCheck": "canonical-visible"
+      }
+    },
+    {
+      "pairId": "kanji-g4-初-kun-ui-manual",
+      "grade": 4,
+      "primaryKanji": "初",
+      "readingType": "kun",
+      "canonicalReading": "うい",
+      "word": "初孫",
+      "wordReading": "ういまご",
+      "promptBefore": "おじいさんとおばあさんに",
+      "promptAfter": "が生まれました。",
+      "targetKanji": [
+        "初",
+        "孫"
+      ],
+      "writingPrompt": "「ういまご」の漢字の部分を書こう",
+      "sourceRef": "文化庁『常用漢字（音訓）基本データ』44ページ",
+      "reviewStatus": "approved",
+      "candidateMeta": {
+        "origin": "manual-completion",
+        "readingCheck": "canonical-visible"
+      }
+    },
+    {
+      "pairId": "kanji-g4-初-kun-someru-manual",
+      "grade": 4,
+      "primaryKanji": "初",
+      "readingType": "kun",
+      "canonicalReading": "そめる",
+      "word": "書き初め",
+      "wordReading": "かきぞめ",
+      "promptBefore": "冬休みに",
+      "promptAfter": "をしました。",
+      "targetKanji": [
+        "書",
+        "初"
+      ],
+      "writingPrompt": "「かきぞめ」の漢字の部分を書こう",
+      "sourceRef": "文化庁『常用漢字（音訓）基本データ』45ページ",
+      "reviewStatus": "approved",
+      "candidateMeta": {
+        "origin": "manual-completion",
+        "readingCheck": "manual-review"
+      }
+    },
+    {
+      "pairId": "kanji-g4-井-on-manual",
+      "grade": 4,
+      "primaryKanji": "井",
+      "readingType": "on",
+      "canonicalReading": "ショウ",
+      "word": "天井",
+      "wordReading": "てんじょう",
+      "promptBefore": "体育館の",
+      "promptAfter": "を見上げました。",
+      "targetKanji": [
+        "天",
+        "井"
+      ],
+      "writingPrompt": "「てんじょう」の漢字の部分を書こう",
+      "sourceRef": "文化庁『常用漢字（音訓）基本データ』52ページ",
+      "reviewStatus": "approved",
+      "candidateMeta": {
+        "origin": "manual-completion",
+        "readingCheck": "manual-review"
+      }
+    },
+    {
+      "pairId": "kanji-g4-折-on-manual",
+      "grade": 4,
+      "primaryKanji": "折",
+      "readingType": "on",
+      "canonicalReading": "セツ",
+      "word": "折半",
+      "wordReading": "せっぱん",
+      "promptBefore": "代金を",
+      "promptAfter": "しました。",
+      "targetKanji": [
+        "折",
+        "半"
+      ],
+      "writingPrompt": "「せっぱん」の漢字の部分を書こう",
+      "sourceRef": "文化庁『常用漢字（音訓）基本データ』55ページ",
+      "reviewStatus": "approved",
+      "candidateMeta": {
+        "origin": "manual-completion",
+        "readingCheck": "canonical-visible"
+      }
+    },
+    {
+      "pairId": "kanji-g4-栃-kun-manual",
+      "grade": 4,
+      "primaryKanji": "栃",
+      "readingType": "kun",
+      "canonicalReading": "とち",
+      "word": "栃木県",
+      "wordReading": "とちぎけん",
+      "promptBefore": "地図で「",
+      "promptAfter": "」を見つけました。",
+      "targetKanji": [
+        "栃",
+        "木",
+        "県"
+      ],
+      "writingPrompt": "「とちぎけん」の漢字の部分を書こう",
+      "sourceRef": "文化庁『常用漢字（音訓）基本データ』73ページ",
+      "reviewStatus": "approved",
+      "candidateMeta": {
+        "origin": "manual-completion",
+        "readingCheck": "canonical-visible"
+      }
+    },
+    {
+      "pairId": "kanji-g4-梅-on-manual",
+      "grade": 4,
+      "primaryKanji": "梅",
+      "readingType": "on",
+      "canonicalReading": "バイ",
+      "word": "梅林",
+      "wordReading": "ばいりん",
+      "promptBefore": "春に",
+      "promptAfter": "を歩きました。",
+      "targetKanji": [
+        "梅",
+        "林"
+      ],
+      "writingPrompt": "「ばいりん」の漢字の部分を書こう",
+      "sourceRef": "文化庁『常用漢字（音訓）基本データ』76ページ",
+      "reviewStatus": "approved",
+      "candidateMeta": {
+        "origin": "manual-completion",
+        "readingCheck": "canonical-visible"
+      }
+    },
+    {
+      "pairId": "kanji-g4-博-on-manual",
+      "grade": 4,
+      "primaryKanji": "博",
+      "readingType": "on",
+      "canonicalReading": "ハク",
+      "word": "博物館",
+      "wordReading": "はくぶつかん",
+      "promptBefore": "休日に",
+      "promptAfter": "を見学しました。",
+      "targetKanji": [
+        "博",
+        "物",
+        "館"
+      ],
+      "writingPrompt": "「はくぶつかん」の漢字の部分を書こう",
+      "sourceRef": "文化庁『常用漢字（音訓）基本データ』77ページ",
+      "reviewStatus": "approved",
+      "candidateMeta": {
+        "origin": "manual-completion",
+        "readingCheck": "canonical-visible"
+      }
+    },
+    {
+      "pairId": "kanji-g4-阜-on-manual",
+      "grade": 4,
+      "primaryKanji": "阜",
+      "readingType": "on",
+      "canonicalReading": "フ",
+      "word": "岐阜県",
+      "wordReading": "ぎふけん",
+      "promptBefore": "地図で「",
+      "promptAfter": "」を見つけました。",
+      "targetKanji": [
+        "岐",
+        "阜",
+        "県"
+      ],
+      "writingPrompt": "「ぎふけん」の漢字の部分を書こう",
+      "sourceRef": "文化庁『常用漢字（音訓）基本データ』82ページ",
+      "reviewStatus": "approved",
+      "candidateMeta": {
+        "origin": "manual-completion",
+        "readingCheck": "manual-review"
+      }
+    },
+    {
+      "pairId": "kanji-g4-兵-on-manual",
+      "grade": 4,
+      "primaryKanji": "兵",
+      "readingType": "on",
+      "canonicalReading": "ヒョウ",
+      "word": "兵庫県",
+      "wordReading": "ひょうごけん",
+      "promptBefore": "地図で「",
+      "promptAfter": "」を見つけました。",
+      "targetKanji": [
+        "兵",
+        "庫",
+        "県"
+      ],
+      "writingPrompt": "「ひょうごけん」の漢字の部分を書こう",
+      "sourceRef": "文化庁『常用漢字（音訓）基本データ』84ページ",
+      "reviewStatus": "approved",
+      "candidateMeta": {
+        "origin": "manual-completion",
+        "readingCheck": "canonical-visible"
+      }
     }
   ]
 }

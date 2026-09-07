@@ -6,7 +6,7 @@ import { applyReviewBatch, validateMaterialSource } from "./kanji-content-lib.mj
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const batchId = process.argv[2];
 const nextSourceVersion = process.argv[3];
-if (!batchId || !/^kanji-g[34]-\d{3}$/u.test(batchId)) throw new Error("レビューバッチIDが不正です");
+if (!batchId || !/^kanji-g[34]-(?:\d{3}|all)$/u.test(batchId)) throw new Error("レビューバッチIDが不正です");
 if (!nextSourceVersion || !/^\d{4}\.\d{2}\.\d{2}-\d+$/u.test(nextSourceVersion)) throw new Error("次の素材版が不正です");
 
 const sourcePath = resolve(projectRoot, "content-source/kanji-materials.json");

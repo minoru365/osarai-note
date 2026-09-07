@@ -36,6 +36,27 @@ describe("kanji content generator", () => {
     });
   });
 
+  it("漢字と送り仮名が語句の途中で交互になる語句も生成する", () => {
+    const pack = generateKanjiPack(source([material({
+      pairId: "g4-hatsuzome",
+      grade: 4,
+      primaryKanji: "初",
+      canonicalReading: "そめる",
+      word: "書き初め",
+      wordReading: "かきぞめ",
+      promptBefore: "冬休みに",
+      promptAfter: "をしました。",
+      targetKanji: ["書", "初"],
+    })]));
+    expect(pack.questions[1]).toMatchObject({
+      mode: "writing",
+      answerKanji: "書初",
+      readingBefore: "",
+      answerReading: "かきぞめ",
+      readingAfter: "",
+    });
+  });
+
   it("既存の学習履歴と当日セットのため固定問題IDを維持する", () => {
     const pack = generateKanjiPack(source([material({
       questionIds: { reading: "legacy-reading", writing: "legacy-writing" },
@@ -70,6 +91,17 @@ describe("kanji content generator", () => {
     expect(applied.source).toEqual(input);
     expect(generateKanjiPack(applied.source).questions).toHaveLength(0);
     expect(createReviewBatchMarkdown(batch)).toContain("対象：3年生 2件");
+  });
+
+  it("all指定では対象学年の未確認素材を一括でレビュー票にする", () => {
+    const input = source([
+      material({ grade: 4, primaryKanji: "英", pairId: "g4-英-on", readingType: "on", canonicalReading: "エイ", word: "英語", wordReading: "えいご", targetKanji: ["英"], reviewStatus: "draft" }),
+      material({ grade: 4, primaryKanji: "岡", pairId: "g4-岡-kun", canonicalReading: "おか", word: "岡", wordReading: "おか", targetKanji: ["岡"], reviewStatus: "draft" }),
+      material({ grade: 3, pairId: "g3-approved", reviewStatus: "approved" }),
+    ]);
+    const batch = createReviewBatch(input, { batchId: "kanji-g4-all", grade: 4, all: true });
+    expect(batch.entries).toHaveLength(2);
+    expect(batch.entries.map((entry) => entry.pairId)).toEqual(["g4-英-on", "g4-岡-kun"]);
   });
 
   it("draftだけを承認・要修正へ変更し、古いレビュー票を拒否する", () => {
@@ -128,10 +160,10 @@ it("全基準読みに対する素材作成・確認状況を出力する", asyn
   const coverage = createCoverageMarkdown(actualSource, reference, placeNames);
   expect(coverage).toContain("基準読み：929");
   // 地名読みは音訓基準一覧の外にあるため、この件数には入らない。
-  expect(coverage).toContain("素材作成済み：905");
-  expect(coverage).toContain("未作成：24");
+    expect(coverage).toContain("素材作成済み：923");
+    expect(coverage).toContain("未作成：6");
   expect(coverage).toContain("## 地名読み");
-  expect(coverage).toContain("| draft | 4 | 滋 | し | 滋賀（しが） | 滋賀 |");
+  expect(coverage).toContain("| approved | 4 | 滋 | し | 滋賀（しが） | 滋賀 |");
 });
 
 it("都道府県名でしか使わない読みを地名読み一覧から素材にする", async () => {

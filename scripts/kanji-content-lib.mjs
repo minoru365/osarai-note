@@ -16,6 +16,7 @@ const KUN_READING = /^[ぁ-ゖ.]+$/u;
 // 地名読みは常用漢字表の音訓に無いため、送り仮名の区切りを持たないひらがなとする。
 const READING_PATTERNS = { on: KATAKANA, kun: KUN_READING, name: HIRAGANA };
 const KANJI = /[々〇〆ヶ\u3400-\u9fff]/gu;
+const KANJI_CHARACTER = /^[々〇〆ヶ\u3400-\u9fff]$/u;
 const REVIEW_DECISIONS = new Set(["pending", "approve", "needs-fix"]);
 const REVIEW_EDIT_FIELDS = ["word", "wordReading", "promptBefore", "promptAfter", "targetKanji", "writingPrompt"];
 
@@ -258,15 +259,28 @@ export function createCoverageMarkdown(source, reference, placeNames = null) {
 function splitWritingReading(material) {
   const answerKanji = material.targetKanji.join("");
   const match = material.word.match(/^([ぁ-ゖー]*)([々〇〆ヶ\u3400-\u9fff]+)([ぁ-ゖー]*)$/u);
-  assert(match && match[2] === answerKanji, `${material.pairId}: 書き問題の漢字部分と送り仮名を分離できません`);
-  const [, visibleBefore, , visibleAfter] = match;
-  assert(material.wordReading.startsWith(visibleBefore) && material.wordReading.endsWith(visibleAfter), `${material.pairId}: 語句読みと送り仮名が一致しません`);
-  const answerReading = material.wordReading.slice(
-    visibleBefore.length,
-    visibleAfter.length === 0 ? undefined : -visibleAfter.length,
-  );
-  assert(answerReading.length > 0, `${material.pairId}: 漢字部分の読みがありません`);
-  return { readingBefore: visibleBefore, answerReading, readingAfter: visibleAfter };
+  if (match && match[2] === answerKanji) {
+    const [, visibleBefore, , visibleAfter] = match;
+    assert(material.wordReading.startsWith(visibleBefore) && material.wordReading.endsWith(visibleAfter), `${material.pairId}: 語句読みと送り仮名が一致しません`);
+    const answerReading = material.wordReading.slice(
+      visibleBefore.length,
+      visibleAfter.length === 0 ? undefined : -visibleAfter.length,
+    );
+    assert(answerReading.length > 0, `${material.pairId}: 漢字部分の読みがありません`);
+    return { readingBefore: visibleBefore, answerReading, readingAfter: visibleAfter };
+  }
+
+  // 「書き初め」のように、語句の途中で漢字と送り仮名が交互になる語は、
+  // 3つの文字列（前・答え・後）だけでは送り仮名を複数箇所へ配置できない。
+  // この場合は対象漢字が語句中の漢字を順番どおり全て含むことを確認し、
+  // 語句全体の読みをひとまとまりとして表示する。書き画面ではtargetKanjiを
+  // 一字ずつ出題するため、かなを漢字として書かせることはない。
+  const wordKanji = Array.from(material.word)
+    .filter((character) => KANJI_CHARACTER.test(character))
+    .join("");
+  assert(wordKanji === answerKanji, `${material.pairId}: 書き問題の漢字部分と送り仮名を分離できません`);
+  assert(HIRAGANA.test(material.wordReading) && material.wordReading.length > 0, `${material.pairId}: 語句読みが不正です`);
+  return { readingBefore: "", answerReading: material.wordReading, readingAfter: "" };
 }
 
 // レビュー画面用。承認したときに生成される表示を、公開パックと同じ規則で先に見せる。
@@ -336,14 +350,13 @@ export function createReviewMarkdown(source) {
   return `# 漢字問題レビュー一覧\n\n素材版：${source.sourceVersion}\n\n- 確認済み：${counts.approved}\n- 未確認：${counts.draft}\n- 要修正：${counts["needs-fix"]}\n\n| 状態 | 学年 | 主対象 | 音訓 | 基準読み | 語句 | 語句読み | pairId |\n|---|---:|---|---|---|---|---|---|\n${rows.join("\n")}\n`;
 }
 
-export function createReviewBatch(source, { batchId, grade = 3, limit = 20 } = {}) {
+export function createReviewBatch(source, { batchId, grade = 3, limit = 20, all = false } = {}) {
   validateMaterialSource(source);
   assert(typeof batchId === "string" && batchId.length > 0, "レビューバッチIDがありません");
   assert(grade === 3 || grade === 4, "レビュー対象学年が不正です");
-  assert(Number.isInteger(limit) && limit > 0 && limit <= 100, "レビュー件数が不正です");
-  const selected = source.materials
-    .filter((material) => material.grade === grade && material.reviewStatus === "draft")
-    .slice(0, limit);
+  assert(all || (Number.isInteger(limit) && limit > 0 && limit <= 100), "レビュー件数が不正です");
+  const drafts = source.materials.filter((material) => material.grade === grade && material.reviewStatus === "draft");
+  const selected = all ? drafts : drafts.slice(0, limit);
   assert(selected.length > 0, `${grade}年生の未確認素材がありません`);
   return {
     schemaVersion: 1,
