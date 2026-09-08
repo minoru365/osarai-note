@@ -263,19 +263,19 @@
       "primaryKanji": "箱",
       "readingType": "kun",
       "canonicalReading": "はこ",
-      "fingerprint": "fbff647621f893f8ccd95556d122030dc0a3d93a7a7d242fd02aa651d5d7c7e3",
+      "fingerprint": "07e60e70d8258e4c2ee642f105bc5f3bbe320299a41f0e401e137282bcba2dd4",
       "proposed": {
         "word": "箱",
-        "wordReading": "はこ",
+        "wordReading": "ばこ",
         "promptBefore": "空き",
         "promptAfter": "でロボットを作ります。",
         "targetKanji": [
           "箱"
         ],
-        "writingPrompt": "「はこ」の漢字の部分を書こう"
+        "writingPrompt": "「ばこ」の漢字の部分を書こう"
       },
       "decision": "approve",
-      "note": ""
+      "note": "「空き箱」は連濁で「ばこ」と読むため、文中の表面読みへ修正。"
     },
     {
       "pairId": "kanji-g3-畑-kun-9db2fd0bd96d",

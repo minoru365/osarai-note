@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceVersion": "2026.08.15-6",
+  "sourceVersion": "2026.09.08-1",
   "materials": [
     {
       "pairId": "kanji-g3-leaf-kun-ha-01",
@@ -6993,18 +6993,18 @@
       "readingType": "kun",
       "canonicalReading": "はこ",
       "word": "箱",
-      "wordReading": "はこ",
+      "wordReading": "ばこ",
       "promptBefore": "空き",
       "promptAfter": "でロボットを作ります。",
       "targetKanji": [
         "箱"
       ],
-      "writingPrompt": "「はこ」の漢字の部分を書こう",
+      "writingPrompt": "「ばこ」の漢字の部分を書こう",
       "sourceRef": "文化庁『常用漢字（音訓）基本データ』77ページ",
       "reviewStatus": "approved",
       "candidateMeta": {
         "origin": "official-example-with-janome-reading",
-        "readingCheck": "official-kun-reading"
+        "readingCheck": "manual-review"
       }
     },
     {

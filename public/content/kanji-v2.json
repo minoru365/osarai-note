@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "packId": "kanji-2026.08.15-6",
-  "sourceVersion": "2026.08.15-6",
+  "packId": "kanji-2026.09.08-1",
+  "sourceVersion": "2026.09.08-1",
   "questions": [
     {
       "grade": 3,
@@ -13886,7 +13886,7 @@
       "readingType": "kun",
       "canonicalReading": "はこ",
       "word": "箱",
-      "reading": "はこ",
+      "reading": "ばこ",
       "promptBefore": "空き",
       "promptAfter": "でロボットを作ります。",
       "targetKanji": [
@@ -13894,7 +13894,7 @@
       ],
       "answerKanji": "箱",
       "readingBefore": "",
-      "answerReading": "はこ",
+      "answerReading": "ばこ",
       "readingAfter": "",
       "id": "kanji-g3-箱-kun-baa85d312be6:reading",
       "mode": "reading",
@@ -13907,7 +13907,7 @@
       "readingType": "kun",
       "canonicalReading": "はこ",
       "word": "箱",
-      "reading": "はこ",
+      "reading": "ばこ",
       "promptBefore": "空き",
       "promptAfter": "でロボットを作ります。",
       "targetKanji": [
@@ -13915,11 +13915,11 @@
       ],
       "answerKanji": "箱",
       "readingBefore": "",
-      "answerReading": "はこ",
+      "answerReading": "ばこ",
       "readingAfter": "",
       "id": "kanji-g3-箱-kun-baa85d312be6:writing",
       "mode": "writing",
-      "prompt": "「はこ」の部分を漢字で書こう"
+      "prompt": "「ばこ」の部分を漢字で書こう"
     },
     {
       "grade": 3,

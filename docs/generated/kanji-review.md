@@ -1,6 +1,6 @@
 # 漢字問題レビュー一覧
 
-素材版：2026.08.15-6
+素材版：2026.09.08-1
 
 - 確認済み：873
 - 未確認：0
@@ -333,7 +333,7 @@
 | approved | 3 | 配 | on | ハイ | 配分 | はいぶん | kanji-g3-配-on-eda04f030612 |
 | approved | 3 | 配 | kun | くばる | 配る | くばる | kanji-g3-配-kun-4897fc936ccc |
 | approved | 3 | 倍 | on | バイ | 二倍 | にばい | kanji-g3-倍-on-05b60fb9a9ea |
-| approved | 3 | 箱 | kun | はこ | 箱 | はこ | kanji-g3-箱-kun-baa85d312be6 |
+| approved | 3 | 箱 | kun | はこ | 箱 | ばこ | kanji-g3-箱-kun-baa85d312be6 |
 | approved | 3 | 畑 | kun | はた | 畑作 | はたさく | kanji-g3-畑-kun-9db2fd0bd96d |
 | approved | 3 | 畑 | kun | はたけ | 畑 | はたけ | kanji-g3-畑-kun-4e7cefbabcb5 |
 | approved | 3 | 発 | on | ハツ | 発明 | はつめい | kanji-g3-発-on-41308edd5792 |

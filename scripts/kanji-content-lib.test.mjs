@@ -36,6 +36,18 @@ describe("kanji content generator", () => {
     });
   });
 
+  it("空き箱のような連濁した文中読みを問題へ反映する", async () => {
+    const actualSource = JSON.parse(await readFile(resolve("content-source/kanji-materials.json"), "utf8"));
+    const box = actualSource.materials.find((entry) => entry.pairId === "kanji-g3-箱-kun-baa85d312be6");
+    expect(box).toMatchObject({ word: "箱", wordReading: "ばこ", promptBefore: "空き" });
+
+    const pack = generateKanjiPack(source([box]));
+    expect(pack.questions).toEqual([
+      expect.objectContaining({ mode: "reading", word: "箱", reading: "ばこ", answerReading: "ばこ" }),
+      expect.objectContaining({ mode: "writing", prompt: "「ばこ」の部分を漢字で書こう", answerReading: "ばこ" }),
+    ]);
+  });
+
   it("漢字と送り仮名が語句の途中で交互になる語句も生成する", () => {
     const pack = generateKanjiPack(source([material({
       pairId: "g4-hatsuzome",
