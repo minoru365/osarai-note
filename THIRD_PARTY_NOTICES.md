@@ -1,33 +1,3 @@
 # Third-party notices
 
-## Hanzi Writer
-
-- Package: `hanzi-writer` 3.7.3
-- License: MIT
-- Source: https://github.com/chanind/hanzi-writer
-
-## Japanese Hanzi Writer data
-
-- Package: `@jamsch/hanzi-writer-data-jp` 0.0.3
-- Status stated by the package: experimental
-- Derived from AnimCJK and Make Me A Hanzi / Arphic Technology data
-- Licenses stated by the package: Arphic Public License and GNU Lesser General Public License v3 or later for AnimCJK-derived data
-- Package information: https://www.npmjs.com/package/@jamsch/hanzi-writer-data-jp
-
-Before distribution, include the complete license texts supplied in the package and verify the attribution and redistribution obligations for the exact data files shipped with the application.
-
-## Japanese government kanji data
-
-- Grade allocation: Ministry of Education, Culture, Sports, Science and Technology, "学年別漢字配当表"
-- On/kun reference: Agency for Cultural Affairs, "常用漢字（音訓）基本データ"
-- The checked-in JSON is an extracted and filtered dataset for grade 3 and grade 4, with source title, edition, URL, and PDF page retained.
-- Source and extraction details: `docs/kanji-data-sources.md`
-- Website content use is governed by the applicable Ministry of Education website terms linked from the Agency for Cultural Affairs site. Verify current terms and attribution requirements before public distribution.
-
-## Janome
-
-- Tooling only: `Janome` 0.5.0
-- Purpose: attach review-candidate readings to the official word examples; it is not shipped in the web application.
-- License: Apache License 2.0; bundled dictionary/model is based on MeCab-IPADIC.
-- Source: https://github.com/mocobeta/janome
-- Janome output is never treated as reviewed or published automatically.
+このファイルは旧ファイル名との互換用です。現在の第三者ライブラリ、データ、ライセンス、出典の正本は [THIRD-PARTY-NOTICES.md](./THIRD-PARTY-NOTICES.md) です。
