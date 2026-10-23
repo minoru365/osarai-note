@@ -1,6 +1,12 @@
 # おさらいノート 進捗
 
-最終更新：2026-09-08
+最終更新：2026-10-24
+
+## 2026-10-24 依存セキュリティ対応
+
+Vite 8.2.4 / Vitest 4.1.12へ更新。203テスト、ビルド、固定lockからのインストール成功。
+npm auditは5件から0件。既存の大きいchunk警告は継続。
+詳細と検証条件は [security-maintenance.md](./security-maintenance.md) を参照。
 
 この文書は現在地だけを簡潔に管理する。将来仕様は [study-support-plan.md](./study-support-plan.md)、判断理由は [adr/](./adr/) を参照する。
 

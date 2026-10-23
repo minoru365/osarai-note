@@ -33,7 +33,7 @@
     "fake-indexeddb": "^6.2.4",
     "jsdom": "26.1.0",
     "typescript": "7.0.2",
-    "vite": "8.2.1",
-    "vitest": "3.2.7"
+    "vite": "8.2.4",
+    "vitest": "4.1.12"
   }
 }
