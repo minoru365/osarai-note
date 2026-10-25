@@ -1,9 +1,10 @@
 # おさらいノート 引き継ぎ
 
-最終更新：2026-10-24
+最終更新：2026-10-25
 
 セキュリティ依存更新の変更理由と残る警告は
 [security-maintenance.md](./security-maintenance.md) を参照。最新検証件数は進捗に記録。
+PagesのNodeはBrotli修正を含む22.23.4へ固定した。今後のセキュリティ更新時も固定値を見直す。
 
 この文書は、別セッションまたは別の開発担当が作業を再開するための入口である。将来仕様は [study-support-plan.md](./study-support-plan.md)、実装状況は [progress.md](./progress.md)、設計理由は [adr/](./adr/) を正本とする。
 
