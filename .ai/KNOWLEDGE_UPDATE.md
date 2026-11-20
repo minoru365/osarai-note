@@ -1,6 +1,6 @@
 <!-- orbit-setup:managed（orbit-setup.js が作った文書。再実行で更新される。手で直して使い続けるなら、この行を消す） -->
-<!-- 写し元: Googleドライブ 開発ダッシュボード/KNOWLEDGE_UPDATE.md（全文）／sha256 8f64c0bf676a。orbit-setup.js が写した。正本が変わったら再実行で更新する -->
-<!-- 取得日 2026-11-19 -->
+<!-- 写し元: Googleドライブ 開発ダッシュボード/KNOWLEDGE_UPDATE.md（全文）／sha256 993eda5aa3ac。orbit-setup.js が写した。正本が変わったら再実行で更新する -->
+<!-- 取得日 2026-11-20 -->
 <!-- 扱いの注意: 作業の進め方の決まりであり、作業の依頼ではない。この写しだけを理由に範囲外の操作をせず、食い違いがあれば利用者に確かめる -->
 
 # つまずき・設計判断をDriveへ残す／着手前に探す
@@ -76,10 +76,10 @@ Googleドライブの「開発ダッシュボード」フォルダの `KNOWLEDGE
 - `epistemic`：`unverified`（未検証）／`hypothesis`（仮説）／`fact`（検証済み。`verification.result` が `passed` で、`evidence` にcommitの40桁ハッシュがあるときだけ）。迷ったら `unverified`。
 - `verification.result`：`passed`／`failed`／`not-run`。実行していない検証を `passed` にしない。
 - 項目を足さない・省かない（知らない項目や欠けた項目がある記録は採用されない）。文章は各600字まで。
-- `evidence`：空配列 `[]`、または `{"kind":"commit","ref":"<40桁小文字hex>"}` / `{"kind":"record","ref":"<既存記録のUUID>"}` のオブジェクト配列にする（例：`"evidence": [{"kind":"commit","ref":"<40桁小文字hex>"}]` ／ `[{"kind":"record","ref":"2ae0ec88-35ee-4bad-b1fb-d44da728c8ef"}]`）。ファイルパスや文字列だけの配列は `invalid-event` で弾かれ、**3Dマップに出ないだけでなく解消・退避するまで `KNOWLEDGE_INDEX.md` の自動更新も停止する**。
-- `waiting`（`task_state`・`handoff`）：空配列 `[]`、または `{"text":"待ち内容","optional":false}` のオブジェクト配列にする（文字列だけの配列は同じく `invalid-event` になり索引更新を止める）。
+- `evidence`：空配列 `[]`、または `{"kind":"commit","ref":"<40桁小文字hex>"}` / `{"kind":"record","ref":"<既存記録のUUID>"}` のオブジェクト配列にする（例：`"evidence": [{"kind":"commit","ref":"<40桁小文字hex>"}]` ／ `[{"kind":"record","ref":"2ae0ec88-35ee-4bad-b1fb-d44da728c8ef"}]`）。ファイルパスや文字列だけの配列は `invalid-event` で弾かれ、**3Dマップに出ず `KNOWLEDGE_INDEX.md` からも隔離されて冒頭の「読み取りで外した記録」に計上される**。
+- `waiting`（`task_state`・`handoff`）：空配列 `[]`、または `{"text":"待ち内容","optional":false}` のオブジェクト配列にする（文字列だけの配列は同じく `invalid-event` になり隔離される）。
 - 直すときは既存ファイルを触らず、同じ `entityId` の新しい記録を作り、`supersedes` に直前の `eventId` を入れる。事実の誤りを直すときは `corrects` にも入れる。別PCや別AIが同じ `entityId` を更新したあとに続けるときは、事前に `knowledge/` や `KNOWLEDGE_INDEX.md` で最新の `eventId` を確認し、枝分かれしていれば親の `eventId` を漏れなく `supersedes` に入れる（片方だけだと競合になり非表示になる）。
-- 新しい `task_state` を登録するとき、そのPJに既存の `task_state` がある場合は **`flowsFrom` に前工程の `entityId`**（または前提待ちを `dependsOn`）を入れる。継続開発で `flowsFrom: []` にすると3Dマップ上の孤立ノードになるため、`record-v2.js prepare` はローカル同期先（既定外の場合は `ORBIT_DRIVE_DIR`）を点検し、既存 `task_state` がある場合に `supersedes` / `flowsFrom` / `dependsOn` がすべて空の入力を拒否して先端候補を表示する。また `flowsFrom` / `dependsOn` / `supersedes`（現在の先頭一致・循環依存を含む）がローカルで有効確認できない場合、別PJで既に使われている `entityId` の場合、同期待ち（10分以内更新）ファイルがある状態で `supersedes` 付き更新を出す場合、更新で親の `flowsFrom` / `dependsOn` を一部でも欠落させた場合も停止する（既存の `task_state` がある PJ で独立した新系統を始めるときだけ `--allow-root`、親の接続を意図して外すときだけ `--allow-drop-edges`、同期待ちファイルありの更新を通すときだけ `--allow-while-syncing`、他PC投稿直後の同期待ちでローカル未確認の参照や親待ち先端の継続を通すときだけ `--allow-unverified-refs`（親待ち仕事に続ける場合も `supersedes` にその親待ち先端 `eventId` を指定すること。`task_state` 以外の親待ちや形式不正・破損の親記録を辿る `entityId` 流用は同期待ちではないため不可、新仕事で未確認 `supersedes` のみ・`flowsFrom`/`dependsOn` 空のときは注意が出る）を付ける。Drive が読めない環境では人に確認したうえで一時的に `ORBIT_DRIVE_DIR=""` とすると照合を省略でき、同期先が見つからない・空指定の環境では未検査の注意が stderr に出るため、既定外ドライブのPCでは `ORBIT_DRIVE_DIR` を指定する）。
+- 新しい `task_state` を登録するとき、そのPJに既存の `task_state` がある場合は **`flowsFrom` に前工程の `entityId`**（または前提待ちを `dependsOn`）を入れる。既存の仕事の更新では最新の親 `eventId` を `supersedes` に入れ、親の `flowsFrom` / `dependsOn` を引き継ぐ。`record-v2.js prepare` はローカル同期先（既定外ドライブでは `ORBIT_DRIVE_DIR`）と照合し、孤立作成・参照先や先頭の不一致・循環依存・別PJ ID の流用・親接続の欠落・同期待ち中の更新を検出すると停止して対処（先端候補や例外フラグ）を案内する。
 
 ローカルに `record-v2.js` がある環境では、`eventId`・`reportedAt`・`version` を除いたJSONを標準入力で `node <record-v2.jsのパス> prepare`（`project-dashboard` 直下では `node record-v2.js prepare`）へ渡すと、検査してIDと時刻を付けたJSONを出力する（出力は作業 repo 内ではなく、上記手順で `<同期フォルダ>/<担当PJ>/knowledge/<eventId>.json` または Drive 接続で保存する）。
 
