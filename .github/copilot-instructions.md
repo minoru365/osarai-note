@@ -59,12 +59,12 @@ Important operating constraints:
 - [ ] force-pushはremote先端を確認し、`--force-with-lease`を使う。
 - [ ] 書き換え後はtree同一性、コミット数、remote上のメール、可視性を再確認する。
 
-- 写し元（取得日 2026-11-20。sha256 は写した部分の先頭12桁）:
-  - Googleドライブ 開発ダッシュボード/AGENT_UPDATE.md（節: いつ報告するか・手順・守ること）sha256 e03654d1c8e1
+- 写し元（取得日 2026-11-21。sha256 は写した部分の先頭12桁）:
+  - Googleドライブ 開発ダッシュボード/AGENT_UPDATE.md（節: いつ報告するか・手順・守ること）sha256 b04b67f840ec
   - vault 90_Meta/AGENTS.md（節: 共通ルール・行動原則・つまずき・気づきメモ・UI画面を作るときの共通基準・モデルの分担）sha256 6b873a678b10
   - vault 50_Resources/AIエージェント共通の高リスク開発ガードレール.md（全文（関連の節を除く））sha256 a812955ac7f5
   - vault 50_Resources/GitHub公開前にコミットメールを確認する.md（節: 再発防止チェックリスト）sha256 d62a0bcdf6a7
-  - Googleドライブ 開発ダッシュボード/KNOWLEDGE_UPDATE.md（全文）sha256 993eda5aa3ac
+  - Googleドライブ 開発ダッシュボード/KNOWLEDGE_UPDATE.md（全文）sha256 d5496aa38130
   - Googleドライブ 開発ダッシュボード/ORBIT_WORKFLOW.md（全文）sha256 e91cc985b0f2
   - Googleドライブ UIデザイン基準/UIデザイン基準.md（全文）sha256 d2239b553e40
 <!-- orbit-setup:end -->
