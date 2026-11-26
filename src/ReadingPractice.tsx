@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { getKanjiAnswerParts, type KanjiReadingQuestion } from "./contentPack";
 import { createId } from "./id";
 import { summarizeDailySession } from "./dailySession";
@@ -225,6 +225,8 @@ export function ReadingPractice({ questions, onHome, freeQuestion, onFreePractic
                 type="button"
                 disabled={character === "・" || result === "correct" || result === "guide"}
                 onClick={() => appendKana(character)}
+                // Phone layout: one row per 行 (あいうえお across), あ行 on top.
+                style={{ "--kana-row": 10 - (index % 10), "--kana-column": Math.floor(index / 10) + 1 } as CSSProperties}
                 key={`${character}-${index}`}
               >{character === "・" ? "" : character}</button>
             ))}

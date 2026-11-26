@@ -118,7 +118,7 @@ export function Home({ questionCount, readingQuestionCount, writingQuestionCount
           <div className="today-copy">
             <p className="eyebrow">今日の学習</p>
             <h1>今日のおさらいを<br />はじめよう</h1>
-            <p>右の教科をえらぶと、10問はじまります。</p>
+            <p>教科をえらぶと、10問はじまります。</p>
             <div className="today-progress" aria-label="今日の学習の進み具合">
               <div><span>読み</span><strong>{today.reading}問</strong></div>
               <div><span>書き</span><strong>{today.writing}問</strong></div>

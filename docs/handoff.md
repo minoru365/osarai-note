@@ -27,7 +27,7 @@ PagesのNodeはBrotli修正を含む22.23.4へ固定した。今後のセキュ�
 
 ## 2. 固定済みの製品方針
 
-- Xiaomi Pad 6の横向き固定。一般的なレスポンシブ対応は行わない。
+- Xiaomi Pad 6の横向きが基準。幅999px以下ではスマートフォン向けの1列配置にする（[ADR-0013](./adr/0013-phone-layout-and-readability.md)）。新しい画面はタブレットと375px幅の両方で確かめる。
 - Android Chromeで動くローカルファーストPWA。配信先はGitHub Pages。
 - 初期版は単一端末・単一利用者。アカウント、クラウド同期、Azureは使わない。
 - 学習履歴と設定はIndexedDB `study-support` に保存し、問題更新やPWA更新で消去しない。

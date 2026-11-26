@@ -81,6 +81,10 @@ function App() {
   const [status, setStatus] = useState("ストロークデータを読み込んでいます");
   const writerRef = useRef<HanziWriter | null>(null);
   const targetRef = useRef<HTMLDivElement | null>(null);
+  // The handwriting box is sized by CSS (470px on the tablet, smaller on a
+  // phone). Hanzi Writer draws and maps the pen at the size it is given, so
+  // the writer is created from the measured box and recreated if it changes.
+  const [writerSize, setWriterSize] = useState(0);
   const guidePenaltyRef = useRef(0);
   const currentCharacter = progress.characters[Math.min(progress.currentIndex, progress.characters.length - 1)] ?? "";
   const completed = progress.characters.length > 0 && isWordComplete(progress);
@@ -266,7 +270,21 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (view !== "writing" || !selected || !currentCharacter || !targetRef.current || completed) return;
+    const target = targetRef.current;
+    if (view !== "writing" || !target) return;
+    const measure = () => {
+      const size = Math.round(target.getBoundingClientRect().width);
+      if (size > 0) setWriterSize(size);
+    };
+    measure();
+    if (typeof ResizeObserver === "undefined") return;
+    const observer = new ResizeObserver(measure);
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [selected, view]);
+
+  useEffect(() => {
+    if (view !== "writing" || !selected || !currentCharacter || !targetRef.current || completed || writerSize === 0) return;
 
     // Stroke data can arrive after this effect is cleaned up (the first load
     // is a download), so callbacks from a replaced writer must be ignored.
@@ -276,9 +294,9 @@ function App() {
     targetRef.current.replaceChildren();
 
     const writer = HanziWriter.create(targetRef.current, currentCharacter, {
-      width: 470,
-      height: 470,
-      padding: 24,
+      width: writerSize,
+      height: writerSize,
+      padding: Math.round((writerSize * 24) / 470),
       showCharacter: false,
       showOutline: false,
       renderer: "svg",
@@ -305,7 +323,7 @@ function App() {
       writer.cancelQuiz();
       writerRef.current = null;
     };
-  }, [completed, currentCharacter, selected, startQuiz, view]);
+  }, [completed, currentCharacter, selected, startQuiz, view, writerSize]);
 
   const chooseWord = (nextQuestion: KanjiWritingQuestion) => {
     writerRef.current?.cancelQuiz();
