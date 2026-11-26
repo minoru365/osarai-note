@@ -38,6 +38,7 @@ import {
   type UnitSessionItem,
   type UnitState,
 } from "./schema";
+import { BACKUP_STORES, createBackupFile, validateBackup, type BackupFile, type BackupStoreName } from "./backup";
 
 function requestResult<T>(request: IDBRequest<T>): Promise<T> {
   return new Promise((resolve, reject) => {
@@ -983,6 +984,63 @@ export class StudyStorage {
       await completion.catch(() => undefined);
       throw error;
     }
+  }
+
+  /**
+   * Reads every store in one transaction, so the snapshot is consistent. Raw
+   * records are exported, not the normalised values the screens read, so a
+   * restore puts back exactly what was there (ADR-0014).
+   */
+  async exportBackup(now = new Date()): Promise<BackupFile> {
+    const database = await this.database();
+    const transaction = database.transaction(BACKUP_STORES, "readonly");
+    const completion = transactionComplete(transaction);
+    const entries = await Promise.all(BACKUP_STORES.map(async (name) => [
+      name,
+      await requestResult(transaction.objectStore(name).getAll() as IDBRequest<Record<string, unknown>[]>),
+    ] as const));
+    await completion;
+    return createBackupFile(Object.fromEntries(entries) as Record<BackupStoreName, Record<string, unknown>[]>, now);
+  }
+
+  /** Replaces every store with the backup's contents, all or nothing. */
+  async restoreBackup(backup: BackupFile): Promise<void> {
+    const checked = validateBackup(backup);
+    await this.replaceAllStores(checked.stores);
+  }
+
+  /** Deletes every record on this device, all or nothing. */
+  async resetAllData(): Promise<void> {
+    await this.replaceAllStores(Object.fromEntries(BACKUP_STORES.map((name) => [name, []])) as unknown as Record<BackupStoreName, Record<string, unknown>[]>);
+  }
+
+  /**
+   * One readwrite transaction over every store: clear, then put. Every request
+   * is queued synchronously; if queuing throws (a record IndexedDB cannot
+   * store), the transaction is aborted so the clears never commit. A request
+   * that fails later aborts the transaction on its own. Either way the
+   * existing data is left exactly as it was.
+   */
+  private async replaceAllStores(stores: Record<BackupStoreName, Record<string, unknown>[]>): Promise<void> {
+    const database = await this.database();
+    const transaction = database.transaction(BACKUP_STORES, "readwrite");
+    const completion = transactionComplete(transaction);
+    try {
+      for (const name of BACKUP_STORES) {
+        const store = transaction.objectStore(name);
+        store.clear();
+        for (const record of stores[name]) store.put(record);
+      }
+    } catch (error) {
+      try {
+        transaction.abort();
+      } catch {
+        // Already aborted by the failing request.
+      }
+      await completion.catch(() => undefined);
+      throw error;
+    }
+    await completion;
   }
 
   close(): void {

@@ -28,6 +28,7 @@ ADRは、後から理由を忘れると手戻りになる重要判断だけを�
 | [0011](./0011-place-name-readings.md) | Accepted | 都道府県名の読みを地名読みとして扱う |
 | [0012](./0012-motivation-fairness-and-fantasy-progression.md) | Accepted | 公平なポイント加算とファンタジー装備進化 |
 | [0013](./0013-phone-layout-and-readability.md) | Accepted | スマートフォン縦向き対応と読みやすさの基準 |
+| [0014](./0014-backup-restore-reset.md) | Accepted | 学習データのバックアップ・復元・初期化 |
 
 ## テンプレート
 

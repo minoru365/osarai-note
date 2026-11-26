@@ -7,6 +7,7 @@ type StatusFilter = "all" | "learned" | "unlearned";
 
 type Props = {
   onBack: () => void;
+  onOpenBackup: () => void;
 };
 
 function createState(character: string, learned: boolean, previous?: KanjiState): KanjiState {
@@ -19,7 +20,7 @@ function createState(character: string, learned: boolean, previous?: KanjiState)
   };
 }
 
-export function KanjiSettings({ onBack }: Props) {
+export function KanjiSettings({ onBack, onOpenBackup }: Props) {
   const [grade, setGrade] = useState<KanjiGrade>(3);
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
   const [query, setQuery] = useState("");
@@ -107,7 +108,10 @@ export function KanjiSettings({ onBack }: Props) {
           <span className="brand-mark">学</span><span>おさらいノート</span>
         </button>
         <div className="spike-label">漢字の履修設定</div>
-        <button className="header-action" type="button" onClick={onBack}>練習へ戻る</button>
+        <div className="header-nav">
+          <button className="header-action" type="button" onClick={onOpenBackup}>データの保存</button>
+          <button className="header-action" type="button" onClick={onBack}>練習へ戻る</button>
+        </div>
       </header>
 
       <main className="settings-workspace">

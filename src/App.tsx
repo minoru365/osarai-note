@@ -19,6 +19,7 @@ import { Achievements } from "./Achievements";
 import { Home } from "./Home";
 import { FreePracticeBrowser, createFreePracticeBatch, filterFreePracticeQuestions } from "./FreePracticeBrowser";
 import { KanjiModeChoice } from "./KanjiModeChoice";
+import { DataBackup } from "./DataBackup";
 import { KanjiSettings } from "./KanjiSettings";
 import { PracticeHeader, ReadingPractice } from "./ReadingPractice";
 import {
@@ -34,7 +35,7 @@ import { studyStorage } from "./storage/indexedDb";
 type QuizState = "loading" | "writing" | "guide" | "character-complete" | "word-complete" | "saving" | "save-error" | "error";
 
 function App() {
-  const [view, setView] = useState<"home" | "reading" | "writing" | "kanji-settings" | "free-practice" | "achievements" | "units" | "japan-map" | "kanji-mode">("home");
+  const [view, setView] = useState<"home" | "reading" | "writing" | "kanji-settings" | "free-practice" | "achievements" | "units" | "japan-map" | "kanji-mode" | "data-backup">("home");
   // Each view is a new screen: start it at the top instead of keeping the
   // previous screen's scroll position (on a phone that hid the header).
   useEffect(() => {
@@ -453,7 +454,11 @@ function App() {
   );
 
   if (view === "kanji-settings") {
-    return <KanjiSettings onBack={goHome} />;
+    return <KanjiSettings onBack={goHome} onOpenBackup={() => setView("data-backup")} />;
+  }
+
+  if (view === "data-backup") {
+    return <DataBackup onBack={() => setView("kanji-settings")} />;
   }
 
   if (view === "achievements") {

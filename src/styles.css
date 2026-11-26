@@ -482,6 +482,31 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
 .credits p { margin: 0; color: #56645c; font-size: 14px; line-height: 1.8; }
 .credits a { color: #2f6f58; }
 
+/* Data backup, restore and reset (ADR-0014). A plain scrolling page: it is
+   used rarely, by a parent, and must never hide its controls off-screen. */
+.backup-workspace { min-height: 0; width: min(760px, 100%); display: grid; align-content: start; gap: 20px; margin: 0 auto; padding: 24px; }
+.backup-panel { display: grid; gap: 12px; padding: 24px 28px; border: 1px solid #d9e2d7; border-radius: 22px; background: #fffefa; box-shadow: 0 12px 30px rgba(53, 77, 65, .07); }
+.backup-panel .eyebrow { margin: 0; }
+.backup-panel h1 { font-size: 28px; line-height: 1.4; }
+.backup-panel h2 { margin: 0; font-size: 20px; color: #304f42; }
+.backup-panel p { margin: 0; color: #3f4d46; line-height: 1.7; overflow-wrap: break-word; }
+.backup-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; margin: 0; }
+.backup-summary div { padding: 10px 14px; border-radius: 12px; background: #edf5ef; }
+.backup-summary dt { color: #56645c; font-size: 14px; }
+.backup-summary dd { margin: 4px 0 0; color: #315f4d; font-size: 18px; font-weight: 700; }
+.backup-primary, .backup-secondary, .danger-button { min-height: 48px; justify-self: start; display: inline-flex; align-items: center; justify-content: center; padding: 0 22px; border-radius: 12px; font-weight: 700; cursor: pointer; }
+.backup-primary { border: 0; color: #fff; background: #3b7d65; }
+.backup-secondary { border: 1px solid #3b7d65; color: #2f6f58; background: #fff; }
+.backup-secondary:focus-within { outline: 2px solid #3b7d65; outline-offset: 2px; }
+.backup-secondary.disabled { border-color: #c9ced6; color: #4b5563; background: #e0e3e9; cursor: default; }
+.backup-warning { padding: 12px 14px; border-left: 4px solid #b3261e; border-radius: 8px; background: #fff0ee; color: #5c1a15 !important; }
+.danger-button { border: 1px solid #b3261e; color: #b3261e; background: #fff; }
+.danger-button.armed { color: #fff; background: #b3261e; }
+.backup-pending { display: grid; gap: 10px; padding: 14px; border: 1px dashed #b9c6bd; border-radius: 14px; }
+.backup-status p { margin: 0; line-height: 1.6; }
+.backup-message { color: #315f4d; }
+.backup-error { color: #b3261e; font-weight: 700; }
+
 /* Phone and narrow screens (ADR-0013). The tablet keeps the two-column layout
    above; under 1000px the learning screens no longer fit side by side, so
    every screen stacks into one scrolling column. Only layout is overridden
@@ -616,7 +641,10 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
   .mode-choice-button { min-height: 150px; }
 
   /* Parent screens */
-  .free-practice-workspace, .settings-workspace { padding: 16px; }
+  .free-practice-workspace, .settings-workspace, .backup-workspace { padding: 16px; }
+  .backup-panel { padding: 18px; border-radius: 18px; }
+  .backup-panel h1 { font-size: 23px; }
+  .backup-primary, .backup-secondary, .danger-button { justify-self: stretch; }
   .free-practice-panel, .settings-panel { height: auto; padding: 18px; border-radius: 18px; }
   .free-practice-heading, .settings-title-row { flex-direction: column; align-items: stretch; gap: 12px; }
   .free-practice-grid, .free-practice-kanji-grid, .kanji-grid { overflow: visible; }
@@ -690,6 +718,8 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
 @media (max-width: 559px) {
   .subject-grid { grid-template-columns: minmax(0, 1fr); }
   .header-action, .compact-header-button { padding: 0 10px; font-size: 15px; }
+  /* Two header buttons leave no room for the screen label; the page heading names the screen. */
+  .topbar:has(.header-nav) .spike-label { display: none; }
   .mode-choice-row { grid-template-columns: minmax(0, 1fr); }
 }
 
