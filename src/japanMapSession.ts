@@ -26,23 +26,55 @@ type SelectionOptions = {
   seed?: string;
 };
 
+/** Slots reserved for weak prefectures in one batch, as an upper bound (ADR-0008). */
+const WEAK_SLOTS = 4;
+/** Same 0..10 range as the kanji and units weakness aggregates (ADR-0002). */
+const MAX_WEAKNESS = 10;
+
+type MapHistory = {
+  presentations: number;
+  weakness: number;
+  lastPresentedAt: string;
+};
+
+/**
+ * Replays one prefecture's attempts item by item. An item answered first time
+ * lowers weakness by one; a wrong click or "分からない" raises it by one, however
+ * many wrong clicks the item took. Weakness therefore falls back to 0 once the
+ * child keeps getting it right, instead of pinning a prefecture into every set.
+ */
+function summarizeHistory(attempts: StudyAttempt[]): MapHistory {
+  const items = new Map<string, { missed: boolean }>();
+  for (const attempt of attempts) {
+    const key = attempt.sessionItemId ?? `${attempt.sessionId}:${attempt.questionId}`;
+    const item = items.get(key) ?? { missed: false };
+    if (!attempt.correct || attempt.usedGuide) item.missed = true;
+    items.set(key, item);
+  }
+  let weakness = 0;
+  for (const { missed } of items.values()) {
+    weakness = missed ? Math.min(MAX_WEAKNESS, weakness + 1) : Math.max(0, weakness - 1);
+  }
+  return { presentations: items.size, weakness, lastPresentedAt: attempts.at(-1)?.answeredAt ?? "" };
+}
+
 export function selectJapanMapQuestions(
   questions: JapanMapQuestion[],
   { limit = DEFAULT_JAPAN_MAP_QUESTION_COUNT, attempts = [], seed = "japan-map" }: SelectionOptions = {},
 ): JapanMapQuestion[] {
-  const mapAttempts = attempts.filter((attempt) => attempt.subject === "japan-map" && attempt.mode === "quiz");
-  const candidates = questions.map((question) => {
-    const questionAttempts = mapAttempts.filter((attempt) => attempt.questionId === question.id);
-    const weakness = questionAttempts.filter((attempt) => !attempt.correct || attempt.usedGuide).length;
-    const lastPresentedAt = questionAttempts.at(-1)?.answeredAt ?? "";
-    return {
-      question,
-      presentations: questionAttempts.length,
-      weakness,
-      lastPresentedAt,
-      tie: stableHash(`${seed}:${question.id}`),
-    };
-  });
+  // `attempts` arrives oldest first (the store reads them by answeredAt).
+  const attemptsByQuestion = new Map<string, StudyAttempt[]>();
+  for (const attempt of attempts) {
+    if (attempt.subject !== "japan-map" || attempt.mode !== "quiz") continue;
+    const list = attemptsByQuestion.get(attempt.questionId) ?? [];
+    list.push(attempt);
+    attemptsByQuestion.set(attempt.questionId, list);
+  }
+  const candidates = questions.map((question) => ({
+    question,
+    ...summarizeHistory(attemptsByQuestion.get(question.id) ?? []),
+    tie: stableHash(`${seed}:${question.id}`),
+  }));
 
   const byWeakness = candidates
     .filter((candidate) => candidate.weakness > 0)
@@ -58,9 +90,13 @@ export function selectJapanMapQuestions(
     }
   };
 
-  take(byWeakness.slice(0, Math.min(4, limit)));
+  take(byWeakness.slice(0, Math.min(WEAK_SLOTS, limit)));
   take(byCoverage);
-  return selected;
+  // Mix the weak slots into the set so it does not always open with them.
+  return selected
+    .map((question) => ({ question, order: stableHash(`${seed}:order:${question.id}`) }))
+    .sort((left, right) => left.order - right.order)
+    .map(({ question }) => question);
 }
 
 function createJapanMapSession(
