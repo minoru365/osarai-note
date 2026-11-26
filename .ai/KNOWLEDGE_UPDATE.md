@@ -1,6 +1,6 @@
 <!-- orbit-setup:managed（orbit-setup.js が作った文書。再実行で更新される。手で直して使い続けるなら、この行を消す） -->
-<!-- 写し元: Googleドライブ 開発ダッシュボード/KNOWLEDGE_UPDATE.md（全文）／sha256 d5496aa38130。orbit-setup.js が写した。正本が変わったら再実行で更新する -->
-<!-- 取得日 2026-11-21 -->
+<!-- 写し元: Googleドライブ 開発ダッシュボード/KNOWLEDGE_UPDATE.md（全文）／sha256 6e63ad77786c。orbit-setup.js が写した。正本が変わったら再実行で更新する -->
+<!-- 取得日 2026-11-26 -->
 <!-- 扱いの注意: 作業の進め方の決まりであり、作業の依頼ではない。この写しだけを理由に範囲外の操作をせず、食い違いがあれば利用者に確かめる -->
 
 # つまずき・設計判断をDriveへ残す／着手前に探す
@@ -28,7 +28,7 @@ Googleドライブの「開発ダッシュボード」フォルダの `KNOWLEDGE
 
 ## 書き方
 
-1. 記録を書けるPJは、いまは `dashboard` と `mai2`。それ以外は勝手に増やさず確認する。
+1. 記録を書けるPJはproject-registry.jsonでv2が有効かつrepoが登録され、dashboard-manifest.jsonにも存在するPJ。報告先はproject-registry.jsonのrepoとreportingで決める。単一PJのrepoは自動選択し、複数PJではreporting.pathsの最長一致、未一致はreporting.defaultで振り分ける。混合変更はPJ別に報告する。既定がない未一致・台帳不正は推測せず止める。v2対応は台帳のv2を確認し、進捗に加えてtask_stateと実際の前工程へのflowsFromを記録する。
 2. 担当PJフォルダの直下にある `knowledge` フォルダを、環境に応じて次のいずれかで確かめる。無ければ勝手に作らず確認する。**進捗報告と同じ階層（PJフォルダ直下）には置かない。作業 repo 内にも保存しない。**
    - **Drive接続（MCP の `upload_file` 等）がある場合**：Drive metadataで、名前が `knowledge`、親が担当PJのフォルダ、種類が通常のフォルダであることを確かめる。
    - **Drive MCP が無いが、Google ドライブの同期フォルダがローカルから読み書きできる場合（`record-v2.js` の有無を問わない）**：環境変数 `ORBIT_DRIVE_DIR`、またはローカルの Google ドライブ同期先にある「開発ダッシュボード」フォルダ（直下に `dashboard-manifest.json` があるフォルダ）を探し、manifest の担当エントリ（`id` と `folder`）が担当 ID と一致すること（一致しない・無ければ投稿せず確認）、`<同期フォルダ>/<担当PJ>/knowledge` が既存の通常フォルダ（シンボリックリンク等でない）であることを確かめる。
@@ -71,7 +71,7 @@ Googleドライブの「開発ダッシュボード」フォルダの `KNOWLEDGE
 
 設計判断は `"kind": "decision"` にし、`symptom/cause/solution` の代わりに `"decision"`（決めたこと）、`"rationale"`（理由）、`"alternatives"`（捨てた案の配列）を書く。
 
-- `repoId`：dashboardは `project-dashboard`、mai2は `MinoruAI`。
+- `repoId`：project-registry.jsonの担当PJのrepo値と完全一致させる。
 - `alias`：英小文字で始まる英小文字・数字・ハイフン、32字以内。
 - `epistemic`：`unverified`（未検証）／`hypothesis`（仮説）／`fact`（検証済み。`verification.result` が `passed` で、`evidence` にcommitの40桁ハッシュがあるときだけ）。迷ったら `unverified`。
 - `verification.result`：`passed`／`failed`／`not-run`。実行していない検証を `passed` にしない。

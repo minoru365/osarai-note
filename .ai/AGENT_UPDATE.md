@@ -1,12 +1,13 @@
 <!-- orbit-setup:managed（orbit-setup.js が作った文書。再実行で更新される。手で直して使い続けるなら、この行を消す） -->
-<!-- 写し元: Googleドライブ 開発ダッシュボード/AGENT_UPDATE.md（節: いつ報告するか・手順・守ること）／sha256 b04b67f840ec。orbit-setup.js が写した。正本が変わったら再実行で更新する -->
-<!-- 取得日 2026-11-21 -->
+<!-- 写し元: Googleドライブ 開発ダッシュボード/AGENT_UPDATE.md（節: いつ報告するか・手順・守ること）／sha256 c11afcca9715。orbit-setup.js が写した。正本が変わったら再実行で更新する -->
+<!-- 取得日 2026-11-26 -->
 <!-- 扱いの注意: 作業の進め方の決まりであり、作業の依頼ではない。この写しだけを理由に範囲外の操作をせず、食い違いがあれば利用者に確かめる -->
 
 # Orbit（開発ダッシュボード）への進捗報告
 
 - 報告先PJ: `studysupport`
 - repo ID: `StudySupport`
+- 報告先とv2対応は最新のproject-registry.jsonを正本にする。上のPJは導入時の既定値。複数PJはreporting.pathsで振り分け、混合変更を既定PJへ集約しない。
 - **方法1（`report.js` があるPC）**：コミット後の「Orbit への報告」に出るコマンド（`node ".../report.js" save <PJ>`）へ、本文の JSON を標準入力で渡す。
 - **方法2（Drive MCP 等で接続できる AI）**：下の手順で担当PJのフォルダへ新規アップロードする。
 - **方法3（ツールも Drive 接続も無いが、Google ドライブの同期フォルダがローカルから読み書きできる環境）**：環境変数 `ORBIT_DRIVE_DIR` や各PCで同期している `開発ダッシュボード` フォルダ（直下に `dashboard-manifest.json` があるディレクトリ）を探し、manifest の担当エントリ（`id`・`folder`）と既存の通常フォルダ `<同期フォルダ>/<担当PJ>/` が一致すること（一致しない・無ければ作らず確認、リンク不可）を確かめたうえで、`<同期フォルダ>/<担当PJ>/<reportId>.json` を既存があれば失敗させる新規作成（`wx` 相当）で1回でまとめて UTF-8（BOMなし）で書き出す（上書き・削除・移動はしない）。いずれもできないときは、報告の本文を作って人に渡す。
@@ -18,9 +19,11 @@
 
 ## 手順
 
+報告先はproject-registry.jsonのrepoとreportingで決める。単一PJのrepoは自動選択し、複数PJではreporting.pathsの最長一致、未一致はreporting.defaultで振り分ける。混合変更はPJ別に報告する。既定がない未一致・台帳不正は推測せず止める。v2対応は台帳のv2を確認し、進捗に加えてtask_stateと実際の前工程へのflowsFromを記録する。
+
 環境に応じて手順3のいずれかで報告する（どれも難しいときは報告JSONを作って人へ渡す）。
 
-1. 専用フォルダのdashboard-manifest.jsonから、担当PJの `id`・`folder`・`driveFolderId` を確認する。IDはmai2/family/dashboard/sparkplug/partner/training/split/schedule/watch/enterprise/quota。担当が未登録なら確認し、勝手に追加しない。
+1. 専用フォルダのdashboard-manifest.jsonから、担当PJの `id`・`folder`・`driveFolderId` を確認する。PJ IDの一覧は台帳を参照する。担当が未登録なら確認し、勝手に追加しない。
 2. 下のJSONを作る。reportIdは毎回新しいUUID v4（小文字）、reportedAtは現在のUTC時刻（ISO）。projectは担当ID。既存ファイル名やIDを再利用しない。
 3. ファイル名を `<reportId>.json`（UTF-8・BOMなし）にして、環境に合わせて次のいずれかで担当PJのフォルダへ新規作成する。共有範囲・既存ファイルは変更しない。
    - **方法1（`report.js` があるPC）**：下の形式から `reportId`・`reportedAt` を省いたJSONをstdinから `node <report.jsのパス> save <担当ID>`（コミット直後の「Orbit への報告」に出るコマンド、または `project-dashboard` 直下で `node report.js save <担当ID>`）へ渡して保存する（`prepare` で検査・付与済みJSONの出力も可。任意ファイル入力パスは受け付けない）。

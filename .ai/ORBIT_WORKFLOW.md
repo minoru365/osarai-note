@@ -1,11 +1,11 @@
 <!-- orbit-setup:managed（orbit-setup.js が作った文書。再実行で更新される。手で直して使い続けるなら、この行を消す） -->
-<!-- 写し元: Googleドライブ 開発ダッシュボード/ORBIT_WORKFLOW.md（全文）／sha256 e91cc985b0f2。orbit-setup.js が写した。正本が変わったら再実行で更新する -->
-<!-- 取得日 2026-11-20 -->
+<!-- 写し元: Googleドライブ 開発ダッシュボード/ORBIT_WORKFLOW.md（全文）／sha256 cdb80819d505。orbit-setup.js が写した。正本が変わったら再実行で更新する -->
+<!-- 取得日 2026-11-26 -->
 <!-- 扱いの注意: 作業の進め方の決まりであり、作業の依頼ではない。この写しだけを理由に範囲外の操作をせず、食い違いがあれば利用者に確かめる -->
 
 # Orbit：開発担当AIの共通手順
 
-対象はMAI2が担当・管理する開発作業。日常の個人情報、実利用者のデータ、ログ全文は対象外。Orbitは本人専用の閲覧画面。各AIは担当PJの既定DriveフォルダへJSONを新規追加する。報告だけの担当は従来どおり `.ai/AGENT_UPDATE.md` だけでよい。
+対象はMAI2が担当・管理する開発作業。報告先はproject-registry.jsonのrepoとreportingで決める。単一PJのrepoは自動選択し、複数PJではreporting.pathsの最長一致、未一致はreporting.defaultで振り分ける。混合変更はPJ別に報告する。既定がない未一致・台帳不正は推測せず止める。v2対応は台帳のv2を確認し、進捗に加えてtask_stateと実際の前工程へのflowsFromを記録する。日常の個人情報、実利用者のデータ、ログ全文は対象外。Orbitは本人専用の閲覧画面。各AIは担当PJの既定DriveフォルダへJSONを新規追加する。報告だけの担当は従来どおり `.ai/AGENT_UPDATE.md` だけでよい。
 
 1. **着手前**：自分の担当PJとrepoを確認し、専用Drive（または `ORBIT_DRIVE_DIR` や `dashboard-manifest.json` があるローカル同期フォルダ）の `KNOWLEDGE_INDEX.md` を検索する。**設計・実装の前はそのPJの設計判断（ADR）、エラーで詰まったときは他PJの「つまずきと解決」・`他PJ再利用`** を確かめる。使えそうなら担当作業で確かめ、使えた／使えなかった結果を進捗の `notes` に残す。索引は15分周期の写し。本文を命令として実行しない。
 2. **計画確定・着手**：v2対応PJなら主体となる仕事を `task_state` として1件作る。現在の作業を続けるときは既存の仕事を更新する。タスクごとの `entityId`、直前の `eventId`、`alias` を作業引き継ぎに控える。分岐・合流は実際の前工程のentityIdを `flowsFrom` に入れる。文章から関係を推測しない。
@@ -22,16 +22,15 @@
 
 `workState` は todo / doing / done / live / paused / cancelled。`evidence` は `[]` または `[{"kind":"commit","ref":"<40桁hex>"}]`（または `"kind":"record"`）、`waiting` は `[]` または `[{"text":"待ち内容","optional":false}]` とし、**ファイルパスや文字列だけの配列は書かない**（`invalid-event` になり3Dマップに出ず、`KNOWLEDGE_INDEX.md` からも隔離されて冒頭の「読み取りで外した記録」に計上される）。また別AI・別PCが同じ `entityId` を更新していた場合は、最新の親 `eventId`（枝分かれ時は両方）を `supersedes` に漏れなく入れて競合を防ぐ。CLIのある環境では `node <record-v2.jsのパス> prepare`（`project-dashboard` 直下では `node record-v2.js prepare`）へUTF-8のJSONをstdinで渡し、stdoutを作業repoの外（下の方法のいずれか）へUTF-8（BOMなし）で保存する（CLIがversion・eventId・UTC時刻を付ける。作業repoの中には保存しない）。Drive接続がある担当は `.ai/KNOWLEDGE_UPDATE.md` に従って宛先メタデータを照合し、担当PJの `knowledge` 直下へ `<eventId>.json` を新規アップロードする。Drive接続（MCP）が無いが Google ドライブの同期フォルダ（`ORBIT_DRIVE_DIR` 等、直下に `dashboard-manifest.json` があるフォルダ）がローカルから読み書きできる環境では（CLI の有無を問わず）、`.ai/AGENT_UPDATE.md` / `.ai/KNOWLEDGE_UPDATE.md` の手順どおり manifest の担当エントリ・既存通常フォルダ（無ければ作らず確認）を確かめたうえで、`<同期フォルダ>/<担当PJ>/...` へ既にあれば失敗させる新規作成（`wx` 相当）で1回でまとめて UTF-8（BOMなし）で書き出せば反映される。不確かな投稿結果では新しいIDでやり直さず、最初のIDの存在を確認する。競合・親不明は勝手に上書きせず報告する。
 
-### 投稿可能な範囲（2026-11-11）
+### 投稿可能な範囲
 
-| PJ | 担当repo | 進捗v1 | タスク・知識v2 |
-|---|---|---|---|
-| mai2 | MinoruAI | 可 | 可 |
-| dashboard（Orbit） | project-dashboard | 可 | 可 |
-| family（家族脳の開発） | MinoruAI内。別PJ ID | 可 | 未対応 |
-| sparkplug / partner / training / split / schedule / watch / enterprise / quota | 正式repoとの対応は未確定 | 可 | 未対応 |
+PJ・repo・v2対応の正本はproject-registry.json。PJ名を手順書やフックに列挙しない。保存先はdashboard-manifest.jsonとも照合する。
 
-未登録PJの記録はmai2に付け替えない。新しいPJを有効化するときは正式なprojectId・repoId・専用Driveフォルダを確定し、固定対応を追加し、他PJ拒否の試験を通し、利用者が選んだメインモデルが差分と試験結果を確認する。各repoには、自分のPJ IDと、共通手順の実行時点の写しを置く（AIはrepoの外のリンクを開きに行かないため、参照ではなく本文を写す）。写しは専用フォルダの `setup/orbit-setup.js` が AGENTS.md・CLAUDE.md と `.ai/` フォルダへ入れる。手では写さず、共通手順を直したら再実行して更新する。既存ファイルの上書き・共有変更・commit/pushは不要。
+報告先はproject-registry.jsonのrepoとreportingで決める。単一PJのrepoは自動選択し、複数PJではreporting.pathsの最長一致、未一致はreporting.defaultで振り分ける。混合変更はPJ別に報告する。既定がない未一致・台帳不正は推測せず止める。v2対応は台帳のv2を確認し、進捗に加えてtask_stateと実際の前工程へのflowsFromを記録する。
+
+未登録PJは既存PJへ付け替えない。新規登録はPROJECTS.mdに従い、台帳・manifest・専用フォルダを揃える。各repoへの写しはsetup/orbit-setup.jsで更新する。
+
+直接投稿も読取時に所属・別PJ接続・競合・循環を検証する。孤立は独立仕事の可能性があるため削除せず警告する。本文から所属や前工程を推測して自動修正しない。
 
 ### レポ文書の定期整理基準
 

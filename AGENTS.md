@@ -28,12 +28,13 @@ Before changing this project, read these files in order:
 
 - 報告先PJ: `studysupport`
 - repo ID: `StudySupport`
+- 報告先とv2対応は最新のproject-registry.jsonを正本にする。上のPJは導入時の既定値。複数PJはreporting.pathsで振り分け、混合変更を既定PJへ集約しない。
 - このPJ（`studysupport`）は、仕事・知識（v2）の記録にも対応している。
 
 ### 常時守ること（orbit-setup が付けた要約。詳細は `.ai/共通ルール.md`＝vault の写し）
 
 - 秘密・個人メール・家族の実データ・絶対パス・内部URLをコードや報告、コミットに残さない。無断の commit / push / 共有変更をしない。
-- vault（Obsidian の外部脳）の場所は各PCのグローバル指示（Claude Code は `~/.claude/CLAUDE.md` など）にある。読めない環境では vault 項目を飛ばす。
+- vault（Markdown の外部脳）の場所は各PCのグローバル指示（Claude Code は `~/.claude/CLAUDE.md` など）にある。読めない環境では vault 項目を飛ばす。
 - 文中の「専用フォルダ」は Googleドライブの「開発ダッシュボード」フォルダ。
 - レポ文書衛生（肥大化防止）：`AGENTS.md`・`CLAUDE.md` は **12KB以下** に保ち、個別領域の設計書や `.ai/` はその領域を触るときだけ読む。`HANDOFF*.md` は引き継ぎ完了時に削除する（詳細 `.ai/ORBIT_WORKFLOW.md`）。
 
@@ -59,12 +60,12 @@ Before changing this project, read these files in order:
 - [ ] force-pushはremote先端を確認し、`--force-with-lease`を使う。
 - [ ] 書き換え後はtree同一性、コミット数、remote上のメール、可視性を再確認する。
 
-- 写し元（取得日 2026-11-21。sha256 は写した部分の先頭12桁）:
-  - Googleドライブ 開発ダッシュボード/AGENT_UPDATE.md（節: いつ報告するか・手順・守ること）sha256 b04b67f840ec
-  - vault 90_Meta/AGENTS.md（節: 共通ルール・行動原則・つまずき・気づきメモ・UI画面を作るときの共通基準・モデルの分担）sha256 6b873a678b10
+- 写し元（取得日 2026-11-26。sha256 は写した部分の先頭12桁）:
+  - Googleドライブ 開発ダッシュボード/AGENT_UPDATE.md（節: いつ報告するか・手順・守ること）sha256 c11afcca9715
+  - vault 90_Meta/AGENTS.md（節: 共通ルール・行動原則・つまずき・気づきメモ・UI画面を作るときの共通基準・モデルの分担）sha256 d070c9c405a3
   - vault 50_Resources/AIエージェント共通の高リスク開発ガードレール.md（全文（関連の節を除く））sha256 a812955ac7f5
   - vault 50_Resources/GitHub公開前にコミットメールを確認する.md（節: 再発防止チェックリスト）sha256 d62a0bcdf6a7
-  - Googleドライブ 開発ダッシュボード/KNOWLEDGE_UPDATE.md（全文）sha256 d5496aa38130
-  - Googleドライブ 開発ダッシュボード/ORBIT_WORKFLOW.md（全文）sha256 e91cc985b0f2
-  - Googleドライブ UIデザイン基準/UIデザイン基準.md（全文）sha256 d2239b553e40
+  - Googleドライブ 開発ダッシュボード/KNOWLEDGE_UPDATE.md（全文）sha256 6e63ad77786c
+  - Googleドライブ 開発ダッシュボード/ORBIT_WORKFLOW.md（全文）sha256 cdb80819d505
+  - Googleドライブ UIデザイン基準/UIデザイン基準.md（全文）sha256 3fc60ca1f05b
 <!-- orbit-setup:end -->
