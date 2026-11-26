@@ -112,6 +112,18 @@ describe("都道府県の図鑑", () => {
     expect(cells).toHaveLength(47);
   });
 
+  it("地方の問題の正解では県に色をつけない（場所と県名の問題だけ数える）", () => {
+    const region = { ...mapQuestion("osaka", "大阪府"), id: "japan-map:region:osaka", questionType: "prefecture-region" as const, choices: [{ id: "kinki", label: "近畿" }, { id: "chubu", label: "中部" }], answerChoiceId: "kinki" };
+    const name = { ...mapQuestion("tokyo", "東京都"), id: "japan-map:name:tokyo", questionType: "prefecture-name" as const, choices: [{ id: "tokyo", label: "東京都" }, { id: "chiba", label: "千葉県" }], answerChoiceId: "tokyo" };
+    const cells = prefectureCollection([
+      attempt({ subject: "japan-map", questionId: region.id, firstTryCorrect: true }),
+      attempt({ subject: "japan-map", questionId: name.id, firstTryCorrect: true }),
+    ], [...questions, region, name], [4]);
+    const byId = Object.fromEntries(cells.map((cell) => [cell.key, cell.status]));
+    expect(byId.osaka).toBe("notYet");
+    expect(byId.tokyo).toBe("collected");
+  });
+
   it("4年生を選んでいないときは、集めた県は残したまま他を「まだならっていない」にする", () => {
     const cells = prefectureCollection([attempt({ subject: "japan-map", questionId: "japan-map:prefecture:tokyo", firstTryCorrect: true })], questions, [3]);
     const byId = Object.fromEntries(cells.map((cell) => [cell.key, cell.status]));

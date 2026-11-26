@@ -83,15 +83,22 @@ export function selectJapanMapQuestions(
       || left.tie - right.tie);
   const byCoverage = [...candidates].sort((left, right) => left.presentations - right.presentations || left.tie - right.tie);
   const selected: JapanMapQuestion[] = [];
-  const take = (source: typeof candidates) => {
-    for (const candidate of source) {
-      if (selected.length >= limit) return;
-      if (!selected.some((question) => question.id === candidate.question.id)) selected.push(candidate.question);
+
+  // One prefecture per set: a name question colours the prefecture on the
+  // map, which would give away a location question for it in the same set.
+  // Repeats are allowed only when there are not enough prefectures.
+  const takeDistinct = (source: typeof candidates, upTo: number, passes: boolean[]) => {
+    for (const allowRepeat of passes) {
+      for (const candidate of source) {
+        if (selected.length >= upTo) return;
+        if (selected.some((question) => question.id === candidate.question.id)) continue;
+        if (!allowRepeat && selected.some((question) => question.prefectureId === candidate.question.prefectureId)) continue;
+        selected.push(candidate.question);
+      }
     }
   };
-
-  take(byWeakness.slice(0, Math.min(WEAK_SLOTS, limit)));
-  take(byCoverage);
+  takeDistinct(byWeakness.slice(0, Math.min(WEAK_SLOTS, limit)), Math.min(WEAK_SLOTS, limit), [false]);
+  takeDistinct(byCoverage, limit, [false, true]);
   // Mix the weak slots into the set so it does not always open with them.
   return selected
     .map((question) => ({ question, order: stableHash(`${seed}:order:${question.id}`) }))

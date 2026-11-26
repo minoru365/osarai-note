@@ -12,18 +12,51 @@ export const JAPAN_MAP_PREFECTURE_IDS = [
 
 export type JapanMapPrefectureId = typeof JAPAN_MAP_PREFECTURE_IDS[number];
 
+export const JAPAN_MAP_QUESTION_TYPES = ["prefecture-location", "prefecture-name", "prefecture-region"] as const;
+export type JapanMapQuestionType = typeof JAPAN_MAP_QUESTION_TYPES[number];
+
+export type JapanMapChoice = { id: string; label: string };
+
+/**
+ * prefecture-location: tap the prefecture on the map.
+ * prefecture-name: the prefecture is coloured on the map; pick its name.
+ * prefecture-region: pick the region the named (and coloured) prefecture is in.
+ */
 export type JapanMapQuestion = {
   id: string;
   grade: 4;
-  questionType: "prefecture-location";
+  questionType: JapanMapQuestionType;
   prefectureId: JapanMapPrefectureId;
   answer: string;
   prompt: string;
   explanation: string;
+  choices?: JapanMapChoice[];
+  answerChoiceId?: string;
 };
+
+/** The value a correct answer submits: a prefecture for the map, a choice id otherwise. */
+export function japanMapAnswerKey(question: JapanMapQuestion): string {
+  return question.questionType === "prefecture-location" ? question.prefectureId : question.answerChoiceId ?? "";
+}
+
+/** Questions that show where the prefecture is, and so count for the 都道府県図鑑 (ADR-0015). */
+export function countsTowardPrefectureCollection(question: Pick<JapanMapQuestion, "questionType">): boolean {
+  return question.questionType === "prefecture-location" || question.questionType === "prefecture-name";
+}
 
 function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function validChoices(item: Record<string, unknown>): boolean {
+  if (!Array.isArray(item.choices) || item.choices.length < 2 || item.choices.length > 8 || typeof item.answerChoiceId !== "string") return false;
+  const ids = new Set<string>();
+  for (const choice of item.choices) {
+    if (!isObject(choice) || typeof choice.id !== "string" || choice.id.length === 0
+      || typeof choice.label !== "string" || choice.label.length === 0 || ids.has(choice.id)) return false;
+    ids.add(choice.id);
+  }
+  return ids.has(item.answerChoiceId);
 }
 
 export function validateJapanMapPack(value: unknown): JapanMapQuestion[] {
@@ -32,13 +65,17 @@ export function validateJapanMapPack(value: unknown): JapanMapQuestion[] {
   }
 
   const ids = new Set<string>();
-  return value.questions.map((item) => {
+  const questions: JapanMapQuestion[] = [];
+  for (const item of value.questions) {
+    // A question type this version does not know is skipped, not fatal, so a
+    // future pack never breaks a tab left open on an older version.
+    if (isObject(item) && typeof item.questionType === "string"
+      && !(JAPAN_MAP_QUESTION_TYPES as readonly string[]).includes(item.questionType)) continue;
     if (!isObject(item)
       || typeof item.id !== "string"
       || item.id.length === 0
       || ids.has(item.id)
       || item.grade !== 4
-      || item.questionType !== "prefecture-location"
       || typeof item.prefectureId !== "string"
       || !(JAPAN_MAP_PREFECTURE_IDS as readonly string[]).includes(item.prefectureId)
       || typeof item.answer !== "string"
@@ -46,12 +83,14 @@ export function validateJapanMapPack(value: unknown): JapanMapQuestion[] {
       || typeof item.prompt !== "string"
       || item.prompt.length === 0
       || typeof item.explanation !== "string"
-      || item.explanation.length === 0) {
+      || item.explanation.length === 0
+      || (item.questionType !== "prefecture-location" && !validChoices(item))) {
       throw new Error("日本地図問題の形式が不正です");
     }
     ids.add(item.id);
-    return item as unknown as JapanMapQuestion;
-  });
+    questions.push(item as unknown as JapanMapQuestion);
+  }
+  return questions;
 }
 
 export async function loadJapanMapQuestions(fetcher: typeof fetch = fetch): Promise<JapanMapQuestion[]> {

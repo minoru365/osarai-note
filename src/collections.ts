@@ -8,7 +8,7 @@
 import { getLocalDate } from "./dailySession";
 import type { KanjiQuestion } from "./contentPack";
 import { getKanjiByGrade, type KanjiGrade } from "./kanjiCatalog";
-import { JAPAN_MAP_PREFECTURE_IDS, type JapanMapPrefectureId, type JapanMapQuestion } from "./japanMapContent";
+import { countsTowardPrefectureCollection, JAPAN_MAP_PREFECTURE_IDS, type JapanMapPrefectureId, type JapanMapQuestion } from "./japanMapContent";
 import type { RetiredUnitQuestion, UnitQuestion } from "./unitContent";
 import { isUnitQuestionAllowed } from "./unitSession";
 import { UNIT_CATEGORIES, UNIT_DEFINITIONS, type UnitCategory } from "./units";
@@ -140,7 +140,9 @@ export function prefectureCollection(
   for (const attempt of attempts) {
     if (attempt.subject !== "japan-map") continue;
     const question = questionMap.get(attempt.questionId);
-    if (!question) continue;
+    // Region questions name and colour the prefecture, so they say nothing
+    // about knowing where it is (ADR-0015 addendum).
+    if (!question || !countsTowardPrefectureCollection(question)) continue;
     tried.add(question.prefectureId);
     if (attempt.firstTryCorrect) collected.add(question.prefectureId);
   }

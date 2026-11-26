@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "2026.09.08-1",
+  "contentVersion": "2026.11.27-1",
   "questions": [
     { "id": "japan-map:prefecture:hokkaido", "grade": 4, "questionType": "prefecture-location", "prefectureId": "hokkaido", "answer": "北海道", "prompt": "北海道は、地図のどこかな？", "explanation": "北海道は、北海道地方にあります。" },
     { "id": "japan-map:prefecture:aomori", "grade": 4, "questionType": "prefecture-location", "prefectureId": "aomori", "answer": "青森県", "prompt": "青森県は、地図のどこかな？", "explanation": "青森県は、東北地方にあります。" },
@@ -25,13 +25,13 @@
     { "id": "japan-map:prefecture:gifu", "grade": 4, "questionType": "prefecture-location", "prefectureId": "gifu", "answer": "岐阜県", "prompt": "岐阜県は、地図のどこかな？", "explanation": "岐阜県は、中部地方にあります。" },
     { "id": "japan-map:prefecture:shizuoka", "grade": 4, "questionType": "prefecture-location", "prefectureId": "shizuoka", "answer": "静岡県", "prompt": "静岡県は、地図のどこかな？", "explanation": "静岡県は、中部地方にあります。" },
     { "id": "japan-map:prefecture:aichi", "grade": 4, "questionType": "prefecture-location", "prefectureId": "aichi", "answer": "愛知県", "prompt": "愛知県は、地図のどこかな？", "explanation": "愛知県は、中部地方にあります。" },
-    { "id": "japan-map:prefecture:mie", "grade": 4, "questionType": "prefecture-location", "prefectureId": "mie", "answer": "三重県", "prompt": "三重県は、地図のどこかな？", "explanation": "三重県は、近畿地方にあります。" },
-    { "id": "japan-map:prefecture:shiga", "grade": 4, "questionType": "prefecture-location", "prefectureId": "shiga", "answer": "滋賀県", "prompt": "滋賀県は、地図のどこかな？", "explanation": "滋賀県は、近畿地方にあります。" },
-    { "id": "japan-map:prefecture:kyoto", "grade": 4, "questionType": "prefecture-location", "prefectureId": "kyoto", "answer": "京都府", "prompt": "京都府は、地図のどこかな？", "explanation": "京都府は、近畿地方にあります。" },
-    { "id": "japan-map:prefecture:osaka", "grade": 4, "questionType": "prefecture-location", "prefectureId": "osaka", "answer": "大阪府", "prompt": "大阪府は、地図のどこかな？", "explanation": "大阪府は、近畿地方にあります。" },
-    { "id": "japan-map:prefecture:hyogo", "grade": 4, "questionType": "prefecture-location", "prefectureId": "hyogo", "answer": "兵庫県", "prompt": "兵庫県は、地図のどこかな？", "explanation": "兵庫県は、近畿地方にあります。" },
-    { "id": "japan-map:prefecture:nara", "grade": 4, "questionType": "prefecture-location", "prefectureId": "nara", "answer": "奈良県", "prompt": "奈良県は、地図のどこかな？", "explanation": "奈良県は、近畿地方にあります。" },
-    { "id": "japan-map:prefecture:wakayama", "grade": 4, "questionType": "prefecture-location", "prefectureId": "wakayama", "answer": "和歌山県", "prompt": "和歌山県は、地図のどこかな？", "explanation": "和歌山県は、近畿地方にあります。" },
+    { "id": "japan-map:prefecture:mie", "grade": 4, "questionType": "prefecture-location", "prefectureId": "mie", "answer": "三重県", "prompt": "三重県は、地図のどこかな？", "explanation": "三重県は、近畿（きんき）地方にあります。" },
+    { "id": "japan-map:prefecture:shiga", "grade": 4, "questionType": "prefecture-location", "prefectureId": "shiga", "answer": "滋賀県", "prompt": "滋賀県は、地図のどこかな？", "explanation": "滋賀県は、近畿（きんき）地方にあります。" },
+    { "id": "japan-map:prefecture:kyoto", "grade": 4, "questionType": "prefecture-location", "prefectureId": "kyoto", "answer": "京都府", "prompt": "京都府は、地図のどこかな？", "explanation": "京都府は、近畿（きんき）地方にあります。" },
+    { "id": "japan-map:prefecture:osaka", "grade": 4, "questionType": "prefecture-location", "prefectureId": "osaka", "answer": "大阪府", "prompt": "大阪府は、地図のどこかな？", "explanation": "大阪府は、近畿（きんき）地方にあります。" },
+    { "id": "japan-map:prefecture:hyogo", "grade": 4, "questionType": "prefecture-location", "prefectureId": "hyogo", "answer": "兵庫県", "prompt": "兵庫県は、地図のどこかな？", "explanation": "兵庫県は、近畿（きんき）地方にあります。" },
+    { "id": "japan-map:prefecture:nara", "grade": 4, "questionType": "prefecture-location", "prefectureId": "nara", "answer": "奈良県", "prompt": "奈良県は、地図のどこかな？", "explanation": "奈良県は、近畿（きんき）地方にあります。" },
+    { "id": "japan-map:prefecture:wakayama", "grade": 4, "questionType": "prefecture-location", "prefectureId": "wakayama", "answer": "和歌山県", "prompt": "和歌山県は、地図のどこかな？", "explanation": "和歌山県は、近畿（きんき）地方にあります。" },
     { "id": "japan-map:prefecture:tottori", "grade": 4, "questionType": "prefecture-location", "prefectureId": "tottori", "answer": "鳥取県", "prompt": "鳥取県は、地図のどこかな？", "explanation": "鳥取県は、中国地方にあります。" },
     { "id": "japan-map:prefecture:shimane", "grade": 4, "questionType": "prefecture-location", "prefectureId": "shimane", "answer": "島根県", "prompt": "島根県は、地図のどこかな？", "explanation": "島根県は、中国地方にあります。" },
     { "id": "japan-map:prefecture:okayama", "grade": 4, "questionType": "prefecture-location", "prefectureId": "okayama", "answer": "岡山県", "prompt": "岡山県は、地図のどこかな？", "explanation": "岡山県は、中国地方にあります。" },
@@ -48,6 +48,6 @@
     { "id": "japan-map:prefecture:oita", "grade": 4, "questionType": "prefecture-location", "prefectureId": "oita", "answer": "大分県", "prompt": "大分県は、地図のどこかな？", "explanation": "大分県は、九州地方にあります。" },
     { "id": "japan-map:prefecture:miyazaki", "grade": 4, "questionType": "prefecture-location", "prefectureId": "miyazaki", "answer": "宮崎県", "prompt": "宮崎県は、地図のどこかな？", "explanation": "宮崎県は、九州地方にあります。" },
     { "id": "japan-map:prefecture:kagoshima", "grade": 4, "questionType": "prefecture-location", "prefectureId": "kagoshima", "answer": "鹿児島県", "prompt": "鹿児島県は、地図のどこかな？", "explanation": "鹿児島県は、九州地方にあります。" },
-    { "id": "japan-map:prefecture:okinawa", "grade": 4, "questionType": "prefecture-location", "prefectureId": "okinawa", "answer": "沖縄県", "prompt": "沖縄県は、地図のどこかな？", "explanation": "沖縄県は、沖縄地方にあります。" }
+    { "id": "japan-map:prefecture:okinawa", "grade": 4, "questionType": "prefecture-location", "prefectureId": "okinawa", "answer": "沖縄県", "prompt": "沖縄県は、地図のどこかな？", "explanation": "沖縄県は、九州地方にあります。" }
   ]
 }

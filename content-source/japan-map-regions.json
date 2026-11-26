@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "note": "4年生社会の8地方区分。沖縄県は九州地方（2026-11-27 利用者確認）。近畿は読みがな付きで表示する。neighbors は地方を答える問題のまちがい選択肢に使うとなりの地方。",
+  "regions": [
+    {
+      "id": "hokkaido",
+      "label": "北海道",
+      "prefectures": [
+        "hokkaido"
+      ],
+      "neighbors": [
+        "tohoku",
+        "kanto",
+        "chubu"
+      ]
+    },
+    {
+      "id": "tohoku",
+      "label": "東北",
+      "prefectures": [
+        "aomori",
+        "iwate",
+        "miyagi",
+        "akita",
+        "yamagata",
+        "fukushima"
+      ],
+      "neighbors": [
+        "hokkaido",
+        "kanto",
+        "chubu"
+      ]
+    },
+    {
+      "id": "kanto",
+      "label": "関東",
+      "prefectures": [
+        "ibaraki",
+        "tochigi",
+        "gunma",
+        "saitama",
+        "chiba",
+        "tokyo",
+        "kanagawa"
+      ],
+      "neighbors": [
+        "tohoku",
+        "chubu",
+        "kinki"
+      ]
+    },
+    {
+      "id": "chubu",
+      "label": "中部",
+      "prefectures": [
+        "niigata",
+        "toyama",
+        "ishikawa",
+        "fukui",
+        "yamanashi",
+        "nagano",
+        "gifu",
+        "shizuoka",
+        "aichi"
+      ],
+      "neighbors": [
+        "kanto",
+        "kinki",
+        "tohoku"
+      ]
+    },
+    {
+      "id": "kinki",
+      "label": "近畿（きんき）",
+      "prefectures": [
+        "mie",
+        "shiga",
+        "kyoto",
+        "osaka",
+        "hyogo",
+        "nara",
+        "wakayama"
+      ],
+      "neighbors": [
+        "chubu",
+        "chugoku",
+        "shikoku"
+      ]
+    },
+    {
+      "id": "chugoku",
+      "label": "中国",
+      "prefectures": [
+        "tottori",
+        "shimane",
+        "okayama",
+        "hiroshima",
+        "yamaguchi"
+      ],
+      "neighbors": [
+        "kinki",
+        "shikoku",
+        "kyushu"
+      ]
+    },
+    {
+      "id": "shikoku",
+      "label": "四国",
+      "prefectures": [
+        "tokushima",
+        "kagawa",
+        "ehime",
+        "kochi"
+      ],
+      "neighbors": [
+        "chugoku",
+        "kinki",
+        "kyushu"
+      ]
+    },
+    {
+      "id": "kyushu",
+      "label": "九州",
+      "prefectures": [
+        "fukuoka",
+        "saga",
+        "nagasaki",
+        "kumamoto",
+        "oita",
+        "miyazaki",
+        "kagoshima",
+        "okinawa"
+      ],
+      "neighbors": [
+        "chugoku",
+        "shikoku",
+        "kinki"
+      ]
+    }
+  ]
+}

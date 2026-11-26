@@ -523,6 +523,14 @@ button.collection-cell { cursor: pointer; }
 .japan-map-static [data-prefecture-id]:hover path { fill: #fffefa !important; stroke: #607269 !important; }
 .japan-map-svg [data-prefecture-id][data-fill="practiced"] path { fill: #fff0c9 !important; stroke: #b88a2e !important; }
 .japan-map-svg [data-prefecture-id][data-fill="collected"] path { fill: #86c2a2 !important; stroke: #2d7656 !important; }
+/* The prefecture a name or region question asks about. */
+.japan-map-svg [data-prefecture-id][data-fill="target"] path { fill: #f4a640 !important; stroke: #8a4f00 !important; stroke-width: 3px !important; }
+/* Leave room for the choice buttons under the map on the tablet. */
+.japan-map-answer:has(.japan-map-choices) .japan-map-canvas > svg { max-height: calc(100vh - 420px); }
+.japan-map-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.japan-map-choices button { min-height: 56px; padding: 6px 10px; border: 2px solid #bcd1c3; border-radius: 14px; color: #294f40; background: #f1f7f1; cursor: pointer; font-size: 20px; font-weight: 700; touch-action: manipulation; }
+.japan-map-choices button.correct, .japan-map-choices button.correct:disabled { border-color: #2d7656; color: #fff; background: #3b7d65; }
+.japan-map-choices button.wrong, .japan-map-choices button.wrong:disabled { border-color: #d9b56b; color: #5c4310; background: #fff3d6; }
 .collection-legend-map .collection-swatch.status-collected { border-color: #2d7656; background: #86c2a2; }
 .collection-legend-map .collection-swatch.status-practiced { border-color: #b88a2e; background: #fff0c9; }
 .collection-pets { display: grid; gap: 14px; }
@@ -677,6 +685,10 @@ button.collection-cell { cursor: pointer; }
   .japan-map-zoom-controls { top: 8px; right: 8px; padding: 4px; }
   .japan-map-actions button { min-height: 52px; }
   .japan-map-actions .primary:only-child { grid-column: 1 / -1; }
+  .japan-map-choices { gap: 8px; }
+  .japan-map-choices button { min-height: 48px; font-size: 17px; }
+  /* Once answered, the result card names the answer; the choices give their room back to the map and 次へ. */
+  .japan-map-answer.answer-locked .japan-map-choices { display: none; }
 
   /* Home */
   .home-workspace { grid-template-rows: none; overflow: visible; }
@@ -767,6 +779,8 @@ button.collection-cell { cursor: pointer; }
   /* The character boxes above already show which character is being written,
      so the heading row gives its height to the handwriting box. */
   .writing-shell .question-card { padding: 12px 16px; }
+  .japan-map-hint { display: none; }
+  .japan-map-choices button { min-height: 44px; padding: 4px 6px; font-size: 16px; }
   .writing-shell .workspace { gap: 8px; padding-top: 8px; }
   .writer-heading { display: none; }
   .writer-layout { --writing-answer-size: clamp(140px, min(100cqw - 4px, 100cqh - 70px), 470px); }

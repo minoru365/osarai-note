@@ -1,7 +1,7 @@
 import { IDBFactory } from "fake-indexeddb";
 import { describe, expect, it } from "vitest";
 import { selectJapanMapQuestions, startNextJapanMapBatch, summarizeJapanMapSession } from "./japanMapSession";
-import type { JapanMapQuestion } from "./japanMapContent";
+import { JAPAN_MAP_PREFECTURE_IDS, type JapanMapQuestion } from "./japanMapContent";
 import { StudyStorage } from "./storage/indexedDb";
 import type { JapanMapSessionAttempt, StudyAttempt } from "./storage/schema";
 
@@ -71,7 +71,8 @@ describe("日本地図の出題と当日セッション", () => {
   });
 
   it("苦手が5県以上あるときは古い順に4県を選び、正解した県の次へ移る", () => {
-    const questions = ["a", "b", "c", "d", "e", "f"].map((id) => question(id, "tokyo"));
+    const prefectures = ["tokyo", "osaka", "kyoto", "aichi", "hokkaido", "okinawa"] as const;
+    const questions = ["a", "b", "c", "d", "e", "f"].map((id, index) => question(id, prefectures[index]));
     const attempts = questions.map((item, index) => mapAttempt(item.id, `item-${item.id}`, false, `2026-09-0${index + 1}T10:00:00.000Z`));
     const first = selectJapanMapQuestions(questions, { attempts, limit: 4, seed: "s1" });
     expect(ids(first).sort()).toEqual(["a", "b", "c", "d"]);
@@ -80,13 +81,22 @@ describe("日本地図の出題と当日セッション", () => {
   });
 
   it("苦手枠の県をセットの先頭に固めない", () => {
-    const questions = Array.from({ length: 20 }, (_, index) => question(`q${index}`, "tokyo"));
+    const questions = Array.from({ length: 20 }, (_, index) => question(`q${index}`, JAPAN_MAP_PREFECTURE_IDS[index]));
     const attempts = ["q0", "q1", "q2", "q3"].map((id) => mapAttempt(id, `item-${id}`, false, "2026-09-01T10:00:00.000Z"));
     const firstIds = new Set(["s1", "s2", "s3", "s4", "s5", "s6"].map((seed) => selectJapanMapQuestions(questions, { attempts, seed })[0].id));
     expect([...firstIds].some((id) => !["q0", "q1", "q2", "q3"].includes(id))).toBe(true);
     for (const seed of ["s1", "s2"]) {
       expect(ids(selectJapanMapQuestions(questions, { attempts, seed }))).toEqual(expect.arrayContaining(["q0", "q1", "q2", "q3"]));
     }
+  });
+
+  it("1回のセットに同じ県の問題を2つ入れない（足りないときだけ重ねる）", () => {
+    const location = question("loc-tokyo", "tokyo");
+    const name = { ...question("name-tokyo", "tokyo"), questionType: "prefecture-name" as const, choices: [{ id: "tokyo", label: "東京都" }, { id: "chiba", label: "千葉県" }], answerChoiceId: "tokyo" };
+    const others = [question("loc-osaka", "osaka"), question("loc-kyoto", "kyoto")];
+    const picked = selectJapanMapQuestions([location, name, ...others], { limit: 3, seed: "s" });
+    expect(new Set(picked.map((item) => item.prefectureId)).size).toBe(3);
+    expect(selectJapanMapQuestions([location, name], { limit: 2, seed: "s" })).toHaveLength(2);
   });
 
   it("回答を保存し、正解で1問進めてポイントを加算する", async () => {

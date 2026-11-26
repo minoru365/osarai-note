@@ -12,7 +12,7 @@ type Props = {
    */
   interactive?: boolean;
   /** Per-prefecture fill for the collection map. */
-  fills?: Partial<Record<JapanMapPrefectureId, "collected" | "practiced">>;
+  fills?: Partial<Record<JapanMapPrefectureId, "collected" | "practiced" | "target">>;
   label?: string;
 };
 

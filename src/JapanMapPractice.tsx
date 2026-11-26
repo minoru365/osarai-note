@@ -12,7 +12,7 @@ import { JapanMapSvg } from "./JapanMapSvg";
 import { startNextJapanMapBatch, summarizeJapanMapSession } from "./japanMapSession";
 import { studyStorage } from "./storage/indexedDb";
 import { isJapanMapSession, type JapanMapSessionAttempt } from "./storage/schema";
-import type { JapanMapPrefectureId, JapanMapQuestion } from "./japanMapContent";
+import { japanMapAnswerKey, type JapanMapPrefectureId, type JapanMapQuestion } from "./japanMapContent";
 
 type Props = {
   questions: JapanMapQuestion[];
@@ -78,21 +78,23 @@ export function JapanMapPractice({ questions, onHome }: Props) {
     setSession(updated);
   };
 
-  const submit = async (prefectureId: string) => {
+  const submit = async (selected: string) => {
     if (!question || !item || saving || answerState.solved || answerState.revealed) return;
-    const correct = question.prefectureId === prefectureId;
+    const answerKey = japanMapAnswerKey(question);
+    const correct = selected === answerKey;
+    const onMap = question.questionType === "prefecture-location";
     setSaving(true);
     try {
       await record({
-        answer: prefectureId,
+        answer: selected,
         correct,
         mistakes: correct ? 0 : 1,
         usedGuide: false,
         firstTryCorrect: correct && answerState.mistakes === 0 && !answerState.usedGuide,
       });
       if (correct) setAnsweredQuestion(question);
-      setAnswerState((current) => submitJapanMapAnswer(current, question.prefectureId, prefectureId));
-      setFeedback(correct ? "せいかい！" : "ちがうよ。もう一度、地図を見てみよう。");
+      setAnswerState((current) => submitJapanMapAnswer(current, answerKey, selected));
+      setFeedback(correct ? "せいかい！" : onMap ? "ちがうよ。もう一度、地図を見てみよう。" : "ちがうよ。もう一度えらんでみよう。");
     } catch {
       setFeedback("保存できませんでした。もう一度おしてね。");
     } finally {
@@ -112,7 +114,7 @@ export function JapanMapPractice({ questions, onHome }: Props) {
         firstTryCorrect: false,
       });
       setAnswerState((current) => revealJapanMapAnswer(current));
-      setFeedback("答えの場所を見てから、もう一度おしてみよう。");
+      setFeedback(question.questionType === "prefecture-location" ? "答えの場所を見てから、もう一度おしてみよう。" : "答えを見てから、もう一度えらんでみよう。");
     } catch {
       setFeedback("保存できませんでした。もう一度おしてね。");
     } finally {
@@ -149,7 +151,12 @@ export function JapanMapPractice({ questions, onHome }: Props) {
   }
 
   const solved = answerState.solved;
-  const mapCorrectId = answerState.revealed || solved ? question.prefectureId : null;
+  const onMap = question.questionType === "prefecture-location";
+  const mapCorrectId = onMap && (answerState.revealed || solved) ? question.prefectureId : null;
+  // Name and region questions show the prefecture in colour; the map stays
+  // zoomable so small prefectures such as 香川県 can be seen on a phone.
+  const targetFill = onMap ? undefined : { [question.prefectureId]: "target" as const };
+  const answerKey = japanMapAnswerKey(question);
 
   return (
     <MapShell onHome={onHome} progress={`${answeredIndex + 1} / ${session.items.length}`}>
@@ -157,13 +164,13 @@ export function JapanMapPractice({ questions, onHome }: Props) {
         <section className="japan-map-question-card">
           <p className="eyebrow">{answeredIndex + 1}問目</p>
           <h1 className="japan-map-prompt">{question.prompt}</h1>
-          <p className="japan-map-hint">地図の都道府県をおしてね。</p>
+          <p className="japan-map-hint">{onMap ? "地図の都道府県をおしてね。" : "下からえらんでね。"}</p>
           {feedback && !solved && <p className={`japan-map-feedback ${answerState.revealed ? "guide" : "incorrect"}`} role="status">{feedback}</p>}
           {answerState.revealed && (
             <div className="japan-map-reveal" role="status">
               <strong>こたえ：{question.answer}</strong>
               <p>{question.explanation}</p>
-              <button type="button" onClick={() => setAnswerState(hideJapanMapAnswer)}>地図をかくす</button>
+              <button type="button" onClick={() => setAnswerState(hideJapanMapAnswer)}>{onMap ? "地図をかくす" : "答えをかくす"}</button>
             </div>
           )}
           {solved && (
@@ -173,12 +180,32 @@ export function JapanMapPractice({ questions, onHome }: Props) {
             </div>
           )}
         </section>
-        <section className="japan-map-answer">
+        <section className={`japan-map-answer${!onMap && (solved || answerState.revealed) ? " answer-locked" : ""}`}>
           <JapanMapSvg
-            selectedId={answerState.selectedId as JapanMapPrefectureId | null}
+            selectedId={onMap ? answerState.selectedId as JapanMapPrefectureId | null : null}
             correctId={mapCorrectId}
-            onSelect={(id) => void submit(id)}
+            onSelect={onMap ? (id) => void submit(id) : undefined}
+            fills={targetFill}
           />
+          {!onMap && question.choices && (
+            <div className={`japan-map-choices${question.choices.length > 4 ? " many" : ""}`}>
+              {question.choices.map((choice) => {
+                const isAnswer = choice.id === answerKey && (answerState.revealed || solved);
+                const isWrong = !solved && choice.id === answerState.selectedId && choice.id !== answerKey;
+                return (
+                  <button
+                    key={choice.id}
+                    type="button"
+                    className={isAnswer ? "correct" : isWrong ? "wrong" : ""}
+                    disabled={saving || solved || answerState.revealed}
+                    onClick={() => void submit(choice.id)}
+                  >
+                    {choice.label}
+                  </button>
+                );
+              })}
+            </div>
+          )}
           <div className="japan-map-actions">
             {!solved && !answerState.revealed && <button type="button" disabled={saving} onClick={() => void reveal()}>分からない</button>}
             {answerState.revealed && <button type="button" disabled={saving} onClick={() => setAnswerState(hideJapanMapAnswer)}>もう一度答える</button>}
