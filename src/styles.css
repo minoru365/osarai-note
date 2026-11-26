@@ -505,12 +505,13 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
   .japan-map-question-card, .japan-map-answer, .home-section, .achievements-panel { border-radius: 18px; }
 
   /* Writing: the page must not move while the child writes, so the writing
-     screen is locked to one small viewport (svh does not change when the
-     address bar slides) and the handwriting box takes whatever height is left.
+     screen is locked to one viewport with page scrolling switched off (dvh is
+     then stable: the browser bars only move when the page scrolls) and the
+     handwriting box takes whatever height is left.
      Every part above the box keeps a fixed height while a character is being
      written; if the box changed size the writer would be recreated and the
      strokes so far would be lost. */
-  .writing-shell { height: 100svh; min-height: 0; overflow: hidden; }
+  .writing-shell, .app-shell:has(> .japan-map-workspace), .app-shell:has(> .unit-workspace) { height: 100dvh; min-height: 0; overflow: hidden; }
   .writing-shell .workspace { min-height: 0; grid-template-rows: auto minmax(0, 1fr); gap: 12px; overflow: hidden; padding-top: 12px; padding-bottom: max(12px, env(safe-area-inset-bottom)); }
   .question-card { padding: 16px 18px; }
   .question-card .eyebrow, .question-card .reading, .live-stats, .writing-question-progress { display: none; }
@@ -549,10 +550,13 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
   .kana-grid button { grid-row: var(--kana-row); grid-column: var(--kana-column); min-height: 48px; font-size: 24px; }
   .reading-actions, .unit-actions, .japan-map-actions { grid-template-columns: minmax(0, 1fr) minmax(0, .6fr); }
 
-  /* Units */
-  .unit-card { justify-content: flex-start; gap: 12px; padding: 20px; }
+  /* Units: locked to one screen like writing and the map; a long prompt or
+     explanation scrolls inside the question card. */
+  .unit-workspace { min-height: 0; grid-template-rows: auto minmax(0, 1fr); gap: 8px; overflow: hidden; padding-top: 8px; }
+  .unit-card { max-height: 38dvh; min-height: 0; overflow-y: auto; justify-content: flex-start; gap: 8px; padding: 14px 18px; }
+  .unit-card .eyebrow { display: none; }
   .unit-prompt { font-size: 24px; }
-  .unit-answer { padding: 16px; }
+  .unit-answer { min-height: 0; overflow-y: auto; gap: 10px; padding: 14px; }
   .unit-entry { min-height: 64px; }
   .unit-entry span { font-size: 32px; }
   .number-pad-grid button, .number-pad-submit { min-height: 56px; }
@@ -562,7 +566,6 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
      the map takes what is left, so the feedback appearing above it can never
      push the 次へ button off the screen. A long explanation scrolls inside the
      question card instead. */
-  .app-shell:has(> .japan-map-workspace) { height: 100svh; min-height: 0; overflow: hidden; }
   .japan-map-workspace { min-height: 0; grid-template-rows: auto minmax(0, 1fr); gap: 8px; overflow: hidden; padding-top: 8px; padding-bottom: max(12px, env(safe-area-inset-bottom)); }
   .japan-map-question-card { max-height: 42svh; overflow-y: auto; justify-content: flex-start; padding: 14px 18px; gap: 8px; }
   .japan-map-question-card .eyebrow { display: none; }
@@ -643,6 +646,8 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
   .writing-shell .question-card { overflow-y: auto; }
   .japan-map-workspace { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); grid-template-rows: minmax(0, 1fr); }
   .japan-map-question-card { max-height: none; }
+  .unit-workspace { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
+  .unit-card { max-height: none; }
 }
 
 /* Short phones (Safari with its toolbars is often only ~660px tall): tighten
@@ -653,6 +658,9 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
   .character-progress { margin-top: 8px; }
   .character-box { width: 40px; font-size: 22px; }
   .writing-shell .status-message { margin-top: 8px; }
+  .unit-entry { min-height: 52px; }
+  .number-pad-grid button, .number-pad-submit { min-height: 48px; }
+  .number-pad-grid, .number-pad { gap: 6px; }
   /* The character boxes above already show which character is being written,
      so the heading row gives its height to the handwriting box. */
   .writing-shell .question-card { padding: 12px 16px; }
@@ -661,9 +669,11 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
   .writer-layout { --writing-answer-size: clamp(140px, min(100cqw - 4px, 100cqh - 70px), 470px); }
 }
 
-/* Stop the whole page from bouncing under the child's finger while writing. */
+/* Question screens that fit one screen (writing, map, units) never scroll or
+   bounce, so the page cannot shift under the child's finger. */
 @media (max-width: 999px) {
-  html:has(.writing-shell), html:has(.writing-shell) body { overscroll-behavior: none; }
+  html:has(.writing-shell, .app-shell > .japan-map-workspace, .app-shell > .unit-workspace),
+  html:has(.writing-shell, .app-shell > .japan-map-workspace, .app-shell > .unit-workspace) body { overflow: hidden; overscroll-behavior: none; }
 }
 
 /* A sticky question keeps the prompt and the typed answer in view while the

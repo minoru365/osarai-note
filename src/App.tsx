@@ -35,6 +35,11 @@ type QuizState = "loading" | "writing" | "guide" | "character-complete" | "word-
 
 function App() {
   const [view, setView] = useState<"home" | "reading" | "writing" | "kanji-settings" | "free-practice" | "achievements" | "units" | "japan-map" | "kanji-mode">("home");
+  // Each view is a new screen: start it at the top instead of keeping the
+  // previous screen's scroll position (on a phone that hid the header).
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [view]);
   /**
    * The pending mode choice. `kanji` narrows it to one character picked in
    * がんばり記録; `batch` carries a set chosen in 自由練習 so that screen also
