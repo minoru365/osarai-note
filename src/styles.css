@@ -558,14 +558,25 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
   .number-pad-grid button, .number-pad-submit { min-height: 56px; }
   .unit-choices button { min-height: 64px; font-size: 24px; }
 
-  /* Map: the map also refuses scrolling, so keep its height bounded and leave
-     the page around it scrollable. */
-  .japan-map-question-card { padding: 18px; gap: 10px; }
-  .japan-map-prompt { font-size: 24px; }
-  .japan-map-hint { font-size: 16px; }
-  .japan-map-answer { padding: 12px; }
-  .japan-map-svg { flex: none; height: clamp(260px, 60svh, 560px); }
+  /* Map: like the writing screen, the screen is locked to one viewport and
+     the map takes what is left, so the feedback appearing above it can never
+     push the 次へ button off the screen. A long explanation scrolls inside the
+     question card instead. */
+  .app-shell:has(> .japan-map-workspace) { height: 100svh; min-height: 0; overflow: hidden; }
+  .japan-map-workspace { min-height: 0; grid-template-rows: auto minmax(0, 1fr); gap: 8px; overflow: hidden; padding-top: 8px; padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+  .japan-map-question-card { max-height: 42svh; overflow-y: auto; justify-content: flex-start; padding: 14px 18px; gap: 8px; }
+  .japan-map-question-card .eyebrow { display: none; }
+  .japan-map-prompt { font-size: 22px; line-height: 1.45; }
+  .japan-map-hint { font-size: 15px; }
+  .japan-map-feedback { min-height: 0; margin: 0; padding: 10px 14px; }
+  .japan-map-reveal, .japan-map-solved { gap: 4px; padding: 10px 14px; }
+  .japan-map-reveal strong, .japan-map-solved strong { font-size: 20px; }
+  .japan-map-answer { min-height: 0; padding: 10px; gap: 10px; }
+  .japan-map-svg { flex: 1 1 auto; min-height: 120px; }
   .japan-map-canvas > svg { max-height: none; }
+  .japan-map-zoom-controls { top: 8px; right: 8px; padding: 4px; }
+  .japan-map-actions button { min-height: 52px; }
+  .japan-map-actions .primary:only-child { grid-column: 1 / -1; }
 
   /* Home */
   .home-workspace { grid-template-rows: none; overflow: visible; }
@@ -630,6 +641,8 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
 @media (max-width: 999px) and (orientation: landscape) and (max-height: 600px) {
   .writing-shell .workspace { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); grid-template-rows: minmax(0, 1fr); }
   .writing-shell .question-card { overflow-y: auto; }
+  .japan-map-workspace { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); grid-template-rows: minmax(0, 1fr); }
+  .japan-map-question-card { max-height: none; }
 }
 
 /* Short phones (Safari with its toolbars is often only ~660px tall): tighten
