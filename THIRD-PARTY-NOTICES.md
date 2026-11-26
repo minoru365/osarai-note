@@ -14,7 +14,7 @@
 - ライセンス：[Creative Commons Attribution-ShareAlike 3.0](https://creativecommons.org/licenses/by-sa/3.0/)
 
 `content-source/kanjivg/` に取り込んだ SVG と、そこから生成する
-`src/generated/kanjiCharacterData.ts` は、いずれも KanjiVG の派生物である。
+`src/generated/kanjiCharacterData.json`（配信物では `assets/kanjiCharacterData-<hash>.json`）は、いずれも KanjiVG の派生物である。
 **CC BY-SA 3.0 の継承条件により、これらは同じライセンスで配布する。**
 再配布・改変する場合は、出典表示と同ライセンスでの公開が必要になる。
 

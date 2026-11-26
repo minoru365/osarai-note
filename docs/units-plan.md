@@ -87,7 +87,7 @@
 
 - 配信先は `public/content/units-v1.json`。
 - `public/content/manifest.json` の `packs` へ `{"subject": "units", "url": "units-v1.json"}` を追加する。
-- 組み合わせを網羅せず、`系統 × 形式` ごとに上限件数を決めて生成する。ビルド済みJavaScriptが既に500KBを超えている（`progress.md` 参照）ため、パックを無制限に増やさない。
+- 組み合わせを網羅せず、`系統 × 形式` ごとに上限件数を決めて生成する。問題パックは起動時に取得して保持するため、パックを無制限に増やさない。
 
 ## 5. 記録と苦手度
 

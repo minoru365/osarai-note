@@ -10,7 +10,7 @@ Before changing this project, read these files in order:
 ## Working rules
 
 - Preserve user changes in the working tree. Never discard or overwrite unrelated edits.
-- Do not edit generated files directly: `public/content/kanji-v2.json`, `src/generated/kanjiCharacterData.ts`, `docs/generated/*.md`, `content-review/*.md`, and `dist/`.
+- Do not edit generated files directly: `public/content/kanji-v2.json`, `src/generated/kanjiCharacterData.json`, `docs/generated/*.md`, `content-review/*.md`, and `dist/`.
 - Treat `content-source/kanji-materials.json` and `content-review/*.json` as the kanji content sources of truth.
 - Preserve IndexedDB name `study-support`, existing question IDs, `pairId` values, learning history, and learned/unlearned settings.
 - Only `approved` materials may enter the published question pack. Keep excluded material as `needs-fix` with a reason unless physical deletion is explicitly required.

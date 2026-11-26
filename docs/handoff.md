@@ -1,6 +1,6 @@
 # おさらいノート 引き継ぎ
 
-最終更新：2026-10-25
+最終更新：2026-11-26
 
 セキュリティ依存更新の変更理由と残る警告は
 [security-maintenance.md](./security-maintenance.md) を参照。最新検証件数は進捗に記録。
@@ -93,7 +93,7 @@ git clone --depth 1 --branch r20250816 https://github.com/KanjiVG/kanjivg <作�
 
 リモート作業環境ではraw.githubusercontent.comへの直接接続がネットワーク方針で拒否されるが、git proxyが公開リポジトリの匿名cloneを通すため、この方法なら取り込める。取り込み後は既存ファイルとの一致を確認するとよい（2026-09-03時点で、既存368字は`r20250816`とバイト一致した）。
 
-問題レビューと並行しない次の技術課題は、ストロークJSONの増加でViteの生成JavaScriptが500KBを超えた警告への対応である。現在は532字収録で2,644.45KB（gzip 1,015.36KB）まで増えたが動作するため、レビューを止める問題ではない。対応時はストロークデータの遅延読み込みまたは静的JSON分離を検討し、オフライン動作とGitHub Pagesのパスを検証する。
+ストロークデータは2026-11-26に静的JSONへ分離し、Viteの500KB警告は解消した（[ADR-0010](./adr/0010-kanjivg-stroke-data.md) 追記）。**実機でのオフライン確認は未実施**：オンラインで開く→再読み込み→機内モード→書き問題（複数字の語）を最後まで書く、の順で確かめる。
 
 ## 5. 問題レビュー手順
 
@@ -165,7 +165,7 @@ npm run build
 |---|---|---|
 | 問題素材 | `content-source/kanji-materials.json`、`content-review/*.json` | `public/content/kanji-v2.json` |
 | 読みの基準 | `content-source/joyo-readings-2010.json`、`content-source/place-name-readings.json` | `docs/generated/kanji-reading-coverage.md` |
-| ストローク収録 | `scripts/generate-kanji-character-data.mjs` と素材 | `src/generated/kanjiCharacterData.ts` |
+| ストローク収録 | `scripts/generate-kanji-character-data.mjs` と素材 | `src/generated/kanjiCharacterData.json` |
 | レビュー文書 | バッチJSON | `content-review/*.md`、`docs/generated/*.md` |
 | 学習画面 | `src/App.tsx`、`src/ReadingPractice.tsx`、`src/styles.css` | `dist/` |
 | 保存層 | `src/storage/` | ブラウザ内IndexedDB |

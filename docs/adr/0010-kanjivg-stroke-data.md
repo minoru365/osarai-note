@@ -29,7 +29,7 @@
 |---|---|---|
 | リポジトリのコード | MIT | 自分の著作物 |
 | `content-source/kanjivg/` | CC BY-SA 3.0 | KanjiVG そのもの |
-| `src/generated/kanjiCharacterData.ts` | CC BY-SA 3.0 | KanjiVG の派生物 |
+| `src/generated/kanjiCharacterData.json` | CC BY-SA 3.0 | KanjiVG の派生物 |
 
 出典表示は [THIRD-PARTY-NOTICES.md](../../THIRD-PARTY-NOTICES.md) と、アプリ内の保護者設定から見える位置に置く。配信物（GitHub Pages の JavaScript）がデータを再配布するため、リポジトリ内の表記だけでは足りない。
 
@@ -40,3 +40,7 @@
 - 配信サイズが増える。実測で、10点/画・整数座標なら368字で約1,240KB（現行1,122KB、+11%）。標本点を増やすほど曲線は滑らかになるがサイズも増える。ビルドは既に500KB警告が出ているため悪化する。
 - CC BY-SA 3.0 の継承条件が生成物に付く。派生物を再配布する第三者にも同じ条件がかかる。
 - 曲線の多い字が10点/画でどこまで滑らかかは未検証で、実機確認で判断する。滑らかさが足りなければ点数を増やし、サイズと引き換える。
+
+## 追記（2026-11-26）：配信形式
+
+生成物を TypeScript から JSON（`src/generated/kanjiCharacterData.json`）へ変え、`?url` で import してハッシュ付きの静的ファイルとして配信する。メインのJavaScriptから外れたため500KB警告は解消した（2,660KB → 335KB）。ハッシュがJSのビルドと結び付くので、古いJSと新しいストロークが混ざることはない。オフライン用には起動時に背景で取得し、Service Workerのキャッシュへ載せる。出典とライセンスはJSON内の `source`・`license`・`attribution` に記録する。正本・線幅・標本点の決定は変えていない。

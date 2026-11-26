@@ -13,7 +13,7 @@ SVG だけを取り込んだものである。ファイル名は文字のコー�
 
 - **手で編集しない。** 書き順や字形を直す必要があるときは、上流の KanjiVG へ
   報告するか、生成スクリプト側で対処する。
-- ここから `src/generated/kanjiCharacterData.ts` を生成する
+- ここから `src/generated/kanjiCharacterData.json` を生成する
   （`npm run content:generate`）。生成物も CC BY-SA 3.0 の派生物である。
 - 字を追加するときは、同じリリースから該当するコードポイントの SVG を
   取り込み、[THIRD-PARTY-NOTICES.md](../../THIRD-PARTY-NOTICES.md) の記述と

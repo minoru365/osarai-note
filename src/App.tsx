@@ -9,7 +9,7 @@ import {
   type KanjiWritingQuestion,
 } from "./contentPack";
 import { startNextDailyBatch, summarizeDailySession } from "./dailySession";
-import { japaneseCharDataLoader } from "./kanjiData";
+import { japaneseCharDataLoader, preloadJapaneseCharData } from "./kanjiData";
 import { loadUnitQuestions, type UnitQuestion } from "./unitContent";
 import { loadJapanMapQuestions, type JapanMapQuestion } from "./japanMapContent";
 import type { UnitCategory } from "./units";
@@ -217,6 +217,13 @@ function App() {
     });
   }, []);
 
+  // Fetch the stroke data in the background at startup so it is cached for
+  // offline use before the writing screen is opened. A failure here is
+  // retried when the writing screen asks for a character.
+  useEffect(() => {
+    void preloadJapaneseCharData().catch(() => undefined);
+  }, []);
+
   // The map pack is optional: a map asset or pack failure must not block the
   // kanji and units subjects.
   useEffect(() => {
@@ -261,6 +268,9 @@ function App() {
   useEffect(() => {
     if (view !== "writing" || !selected || !currentCharacter || !targetRef.current || completed) return;
 
+    // Stroke data can arrive after this effect is cleaned up (the first load
+    // is a download), so callbacks from a replaced writer must be ignored.
+    let active = true;
     setQuizState("loading");
     setStatus("ストロークデータを読み込んでいます");
     targetRef.current.replaceChildren();
@@ -279,8 +289,11 @@ function App() {
       highlightCompleteColor: "#3c8b6b",
       drawingWidth: 13,
       strokeWidth: 4,
-      onLoadCharDataSuccess: () => startQuiz(writer),
+      onLoadCharDataSuccess: () => {
+        if (active) startQuiz(writer);
+      },
       onLoadCharDataError: (error) => {
+        if (!active) return;
         setQuizState("error");
         setStatus(`データを読み込めませんでした: ${String(error)}`);
       },
@@ -288,6 +301,7 @@ function App() {
 
     writerRef.current = writer;
     return () => {
+      active = false;
       writer.cancelQuiz();
       writerRef.current = null;
     };
@@ -598,8 +612,8 @@ function App() {
             </div>
 
             <div className="actions">
-              <button type="button" onClick={resetCharacter} disabled={quizState === "loading" || quizState === "word-complete" || quizState === "save-error"}>最初から</button>
-              <button type="button" className="help" onClick={showGuide} disabled={quizState === "loading" || quizState === "guide" || quizState === "character-complete" || quizState === "word-complete" || quizState === "save-error"}>分からない</button>
+              <button type="button" onClick={resetCharacter} disabled={quizState === "loading" || quizState === "error" || quizState === "word-complete" || quizState === "save-error"}>最初から</button>
+              <button type="button" className="help" onClick={showGuide} disabled={quizState === "loading" || quizState === "error" || quizState === "guide" || quizState === "character-complete" || quizState === "word-complete" || quizState === "save-error"}>分からない</button>
               {quizState === "guide" && <button type="button" className="primary" onClick={retryAfterGuide}>もう一度書く</button>}
               {quizState === "character-complete" && <button type="button" className="primary" onClick={() => void continueWord()}>次へ</button>}
               {quizState === "saving" && <button type="button" className="primary" disabled>保存中…</button>}
