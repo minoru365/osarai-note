@@ -1,5 +1,23 @@
-import { useEffect, useState } from "react";
-import { getLocalDate } from "./dailySession";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import {
+  badges as buildBadges,
+  countCompletedQuestions,
+  countStudyDays,
+  kanjiCollection,
+  petCollection,
+  prefectureCollection,
+  summarize,
+  unitCollection,
+  type Badge,
+  type CollectionCell,
+  type KanjiCollectionSection,
+  type PetCollectionEntry,
+  type UnitCollectionSection,
+} from "./collections";
+import { BadgeView, CollectionView } from "./CollectionViews";
+import { loadKanjiQuestions } from "./contentPack";
+import { loadJapanMapQuestions, type JapanMapPrefectureId } from "./japanMapContent";
+import { loadUnitQuestions } from "./unitContent";
 import { getRecentStudyDays, type RecentStudyDay } from "./motivation";
 import { PET_EMOJI, PET_LABEL, petAssetUrl } from "./petPresentation";
 import { studyStorage } from "./storage/indexedDb";
@@ -54,9 +72,7 @@ function practicedWeakness(state: KanjiState): number | null {
   return practiced.length === 0 ? null : Math.max(...practiced);
 }
 
-export function countStudyDays(attempts: StudyAttempt[]): number {
-  return new Set(attempts.map((attempt) => getLocalDate(new Date(attempt.answeredAt)))).size;
-}
+export { countStudyDays };
 
 /** Units the child has answered, weakest first, for the units panel. */
 export function rankUnitStates(states: UnitState[]): UnitState[] {
@@ -132,6 +148,13 @@ function CompletedPetBadge({ species }: { species: CompletedPet["species"] }) {
     );
 }
 
+type TabId = "records" | "collection" | "badges";
+const TABS: { id: TabId; label: string }[] = [
+  { id: "records", label: "きろく" },
+  { id: "collection", label: "ずかん" },
+  { id: "badges", label: "バッジ" },
+];
+
 export function Achievements({ onBack, onPracticeKanji, onPracticeUnit }: Props) {
   const [loading, setLoading] = useState(true);
   const [studyDays, setStudyDays] = useState(0);
@@ -141,16 +164,49 @@ export function Achievements({ onBack, onPracticeKanji, onPracticeUnit }: Props)
   const [completedPets, setCompletedPets] = useState<CompletedPet[]>([]);
   const [unitSummaries, setUnitSummaries] = useState<UnitCategorySummary[]>([]);
   const [recentStudyDays, setRecentStudyDays] = useState<RecentStudyDay[]>([]);
+  const [tab, setTab] = useState<TabId>("records");
+  const [pets, setPets] = useState<PetCollectionEntry[]>([]);
+  const [kanjiCells, setKanjiCells] = useState<KanjiCollectionSection[] | null>(null);
+  const [unitCells, setUnitCells] = useState<UnitCollectionSection[] | null>(null);
+  const [prefectureCells, setPrefectureCells] = useState<CollectionCell<JapanMapPrefectureId>[] | null>(null);
+  const [mapAvailable, setMapAvailable] = useState(true);
+  const [badgeList, setBadgeList] = useState<Badge[]>([]);
+  const tabRefs = useRef<Record<TabId, HTMLButtonElement | null>>({ records: null, collection: null, badges: null });
 
   useEffect(() => {
     let active = true;
+    // Question packs are optional here: if one fails to load, only its
+    // collection says so and the rest of the screen still works.
+    const optional = <T,>(promise: Promise<T>) => promise.then((value) => value, () => null);
     void Promise.all([
       studyStorage.listAttempts(),
       studyStorage.listKanjiStates(),
       studyStorage.getMotivationState(),
       studyStorage.listUnitStates(),
-    ]).then(([attempts, states, motivation, units]) => {
+      studyStorage.getGradeSettings(),
+      studyStorage.getUnitLearningSettings(),
+      optional(loadKanjiQuestions()),
+      optional(loadUnitQuestions()),
+      optional(loadJapanMapQuestions()),
+    ]).then(([attempts, states, motivation, units, gradeSettings, unitLearning, kanjiQuestions, unitQuestions, mapQuestions]) => {
       if (!active) return;
+      const grades = gradeSettings.grades;
+      const nextKanji = kanjiQuestions ? kanjiCollection(states, kanjiQuestions, grades) : null;
+      const nextUnits = unitQuestions ? unitCollection(attempts, unitQuestions, unitLearning.unlearnedGroups, grades) : null;
+      const nextPrefectures = mapQuestions ? prefectureCollection(attempts, mapQuestions, grades) : null;
+      setPets(petCollection(motivation));
+      setKanjiCells(nextKanji);
+      setUnitCells(nextUnits);
+      setPrefectureCells(nextPrefectures);
+      setMapAvailable(grades.includes(4));
+      setBadgeList(buildBadges({
+        completedQuestions: countCompletedQuestions(attempts),
+        studyDays: countStudyDays(attempts),
+        kanji: summarize(nextKanji?.flatMap((section) => section.cells) ?? []),
+        units: summarize(nextUnits?.flatMap((section) => section.cells) ?? []),
+        prefectures: summarize(nextPrefectures ?? []),
+        completedPets: motivation.completedPets.length,
+      }));
       setStudyDays(countStudyDays(attempts));
       setMastered(masteredKanji(states));
       setNeedsWork(needsWorkKanji(states));
@@ -176,6 +232,43 @@ export function Achievements({ onBack, onPracticeKanji, onPracticeUnit }: Props)
       </header>
 
       <main className="achievements-workspace" aria-busy={loading}>
+        <div className="achievements-tabs" role="tablist" aria-label="がんばり記録の見かた">
+          {TABS.map((item) => (
+            <button
+              key={item.id}
+              ref={(element) => { tabRefs.current[item.id] = element; }}
+              type="button"
+              role="tab"
+              id={`achievements-tab-${item.id}`}
+              aria-selected={tab === item.id}
+              aria-controls={`achievements-panel-${item.id}`}
+              tabIndex={tab === item.id ? 0 : -1}
+              className={tab === item.id ? "selected" : ""}
+              onClick={() => setTab(item.id)}
+              onKeyDown={(event: KeyboardEvent<HTMLButtonElement>) => {
+                const index = TABS.findIndex((candidate) => candidate.id === item.id);
+                const step = event.key === "ArrowRight" ? 1 : event.key === "ArrowLeft" ? -1 : 0;
+                if (step === 0) return;
+                event.preventDefault();
+                const next = TABS[(index + step + TABS.length) % TABS.length].id;
+                setTab(next);
+                tabRefs.current[next]?.focus();
+              }}
+            >{item.label}</button>
+          ))}
+        </div>
+
+        {tab === "collection" && (
+          <div className="achievements-tabpanel" role="tabpanel" id="achievements-panel-collection" aria-labelledby="achievements-tab-collection">
+            <CollectionView pets={pets} kanji={kanjiCells} units={unitCells} prefectures={prefectureCells} mapAvailable={mapAvailable} onPracticeKanji={onPracticeKanji} />
+          </div>
+        )}
+        {tab === "badges" && (
+          <div className="achievements-tabpanel" role="tabpanel" id="achievements-panel-badges" aria-labelledby="achievements-tab-badges">
+            <BadgeView badges={badgeList} />
+          </div>
+        )}
+        {tab === "records" && <>
         <section className="achievements-stat-row">
           <div className="achievements-stat">
             <span>がくしゅうした日</span>
@@ -290,6 +383,7 @@ export function Achievements({ onBack, onPracticeKanji, onPracticeUnit }: Props)
               </div>
             )}
         </section>
+        </>}
       </main>
     </div>
   );

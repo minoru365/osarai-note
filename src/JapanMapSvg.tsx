@@ -3,9 +3,17 @@ import { JAPAN_MAP_PREFECTURE_IDS, type JapanMapPrefectureId } from "./japanMapC
 import { addPrefectureDataAttributes } from "./japanMapSvgContent";
 
 type Props = {
-  selectedId: JapanMapPrefectureId | null;
-  correctId: JapanMapPrefectureId | null;
-  onSelect: (id: JapanMapPrefectureId) => void;
+  selectedId?: JapanMapPrefectureId | null;
+  correctId?: JapanMapPrefectureId | null;
+  onSelect?: (id: JapanMapPrefectureId) => void;
+  /**
+   * Read-only mode for the collection (ADR-0015): no zoom, pan or selection,
+   * and touches scroll the page instead of being captured by the map.
+   */
+  interactive?: boolean;
+  /** Per-prefecture fill for the collection map. */
+  fills?: Partial<Record<JapanMapPrefectureId, "collected" | "practiced">>;
+  label?: string;
 };
 
 const MIN_ZOOM = 1;
@@ -33,7 +41,7 @@ function limitPan(pan: PointerPosition, zoom: number, wrapper: HTMLDivElement | 
   };
 }
 
-export function JapanMapSvg({ selectedId, correctId, onSelect }: Props) {
+export function JapanMapSvg({ selectedId = null, correctId = null, onSelect, interactive = true, fills, label = "都道府県の地図" }: Props) {
   const [svg, setSvg] = useState("");
   const [error, setError] = useState("");
   const [zoom, setZoom] = useState(MIN_ZOOM);
@@ -67,8 +75,11 @@ export function JapanMapSvg({ selectedId, correctId, onSelect }: Props) {
       const id = region.dataset.prefectureId;
       region.dataset.selected = id === selectedId ? "true" : "false";
       region.dataset.correct = id === correctId ? "true" : "false";
+      const fill = fills?.[id as JapanMapPrefectureId];
+      if (fill) region.dataset.fill = fill;
+      else delete region.dataset.fill;
     });
-  }, [correctId, selectedId, svg]);
+  }, [correctId, fills, selectedId, svg]);
 
   const updateZoom = (value: number) => {
     const nextZoom = limitZoom(value);
@@ -143,12 +154,20 @@ export function JapanMapSvg({ selectedId, correctId, onSelect }: Props) {
   if (error) return <div className="japan-map-loading" role="alert">{error}</div>;
   if (!svg) return <div className="japan-map-loading" role="status">地図を読み込んでいます…</div>;
 
+  if (!interactive) {
+    return (
+      <div ref={wrapperRef} className="japan-map-svg japan-map-static" role="img" aria-label={label}>
+        <div className="japan-map-canvas" dangerouslySetInnerHTML={{ __html: svg }} />
+      </div>
+    );
+  }
+
   return (
     <div
       ref={wrapperRef}
       className={`japan-map-svg${dragging ? " dragging" : ""}`}
       role="group"
-      aria-label="都道府県の地図"
+      aria-label={label}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={releasePointer}
@@ -163,7 +182,7 @@ export function JapanMapSvg({ selectedId, correctId, onSelect }: Props) {
         const region = target.closest("[data-prefecture-id]");
         const id = region?.getAttribute("data-prefecture-id");
         if ((JAPAN_MAP_PREFECTURE_IDS as readonly string[]).includes(id ?? "")) {
-          onSelect(id as JapanMapPrefectureId);
+          onSelect?.(id as JapanMapPrefectureId);
         }
       }}
     >
