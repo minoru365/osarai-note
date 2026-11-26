@@ -83,6 +83,13 @@ describe("たんいの図鑑", () => {
     expect(cells([]).m2).toBe("notYet");
   });
 
+  it("出題から外した問題（退役一覧）の正解も数え、集めた単位が消えない", () => {
+    const retired = [{ id: "old-1", unitCategory: "length", questionType: "conversion", requiredUnits: ["cm"] }, { id: "old-2", unitCategory: "length", questionType: "conversion", requiredUnits: ["cm"] }, { id: "old-3", unitCategory: "length", questionType: "conversion", requiredUnits: ["cm"] }];
+    const attempts = ["old-1", "old-2", "old-3"].map((questionId) => attempt({ subject: "units", questionId, firstTryCorrect: true }));
+    const byKey = Object.fromEntries(unitCollection(attempts, questions, [], [3, 4], retired).flatMap((section) => section.cells).map((cell) => [cell.key, cell.status]));
+    expect(byKey.cm).toBe("collected");
+  });
+
   it("今の問題集に無い問題の回答は飛ばす", () => {
     expect(() => cells([attempt({ subject: "units", questionId: "gone", firstTryCorrect: true })])).not.toThrow();
   });

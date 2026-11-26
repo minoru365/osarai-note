@@ -65,6 +65,55 @@ describe("生成した単位パック", () => {
     }
   });
 
+  it("大小比較は、大きい単位の側が勝つとは限らず、2つの量が近い", () => {
+    // 2026-11-27: the larger unit used to win every time.
+    const comparisons = of("comparison");
+    let smallerUnitWins = 0;
+    for (const question of comparisons) {
+      const [bigUnit] = question.requiredUnits;
+      const amounts = question.choices.map((choice) => amountsIn(choice.label)[0]);
+      const winner = question.choices.find((choice) => choice.id === question.answerChoiceId);
+      expect(Math.max(...amounts)).toBe(amountsIn(winner.label)[0]);
+      const gap = Math.abs(amounts[0] - amounts[1]) / Math.max(...amounts);
+      expect(gap).toBeLessThanOrEqual(0.06);
+      // The winner's unit is the question unit whose label ends the winning
+      // label exactly after its number ("710cm" is cm, not m).
+      const winnerUnit = question.requiredUnits
+        .map((id) => UNIT_DEFINITIONS.find((unit) => unit.id === id))
+        .find((unit) => /^[0-9.]+$/u.test(winner.label.slice(0, -unit.label.length)) && winner.label.endsWith(unit.label));
+      expect(winnerUnit).toBeDefined();
+      if (winnerUnit.id !== bigUnit) smallerUnitWins += 1;
+    }
+    expect(smallerUnitWins / comparisons.length).toBeGreaterThanOrEqual(0.35);
+    expect(smallerUnitWins / comparisons.length).toBeLessThanOrEqual(0.65);
+  });
+
+  it("くみあわせたんいの半分以上は、0がはさまる数かキリの悪い数を使う", () => {
+    const tricky = [...of("compoundPart"), ...of("compoundToSingle")].filter((question) => {
+      const numbers = question.prompt.match(/\d+/gu) ?? [];
+      return numbers.some((number) => /0\d/u.test(number) || (number.length >= 2 && !/0$/u.test(number)));
+    });
+    expect(tricky.length / (of("compoundPart").length + of("compoundToSingle").length)).toBeGreaterThanOrEqual(0.5);
+  });
+
+  it("どの単位も、習う学年で3問以上ある（図鑑で集められる）", () => {
+    const missing = UNIT_DEFINITIONS.filter((unit) => {
+      const grade = Math.max(3, unit.introducedGrade);
+      return pack.questions.filter((question) => question.grade <= grade && question.requiredUnits.includes(unit.id)).length < 3;
+    }).map((unit) => unit.id);
+    expect(missing).toEqual([]);
+  });
+
+  it("外した問題は退役一覧に残し、出題中の問題と重ならない", () => {
+    const live = new Set(pack.questions.map((question) => question.id));
+    for (const retired of pack.retiredQuestions) {
+      expect(live.has(retired.id)).toBe(false);
+      expect(retired.requiredUnits.length).toBeGreaterThan(0);
+      expect(typeof retired.unitCategory).toBe("string");
+    }
+    expect(new Set(pack.retiredQuestions.map((question) => question.id)).size).toBe(pack.retiredQuestions.length);
+  });
+
   it("くみあわせたんいは大きい単位と小さい単位の両方を問題文で示す", () => {
     for (const question of of("compoundPart")) {
       expect(question.prompt).toMatch(/は .+と何.+ですか。$/u);

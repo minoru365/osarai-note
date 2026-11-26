@@ -132,16 +132,50 @@ export function validateUnitPack(value: unknown): UnitQuestion[] {
   return value.questions.map((question) => validateQuestion(question, seen));
 }
 
-export async function loadUnitQuestions(fetcher: typeof fetch = fetch): Promise<UnitQuestion[]> {
+/**
+ * A question taken out of the pack (ADR-0015 addendum). Never selected; kept
+ * only so answers given to it still count in the collections.
+ */
+export type RetiredUnitQuestion = {
+  id: string;
+  unitCategory: string;
+  questionType: string;
+  requiredUnits: string[];
+};
+
+/** Reads the retired list leniently: a malformed entry is dropped, not fatal. */
+export function readRetiredUnitQuestions(value: unknown): RetiredUnitQuestion[] {
+  if (!isObject(value) || !Array.isArray(value.retiredQuestions)) return [];
+  return value.retiredQuestions.filter((entry): entry is RetiredUnitQuestion => isObject(entry)
+    && typeof entry.id === "string"
+    && typeof entry.unitCategory === "string"
+    && typeof entry.questionType === "string"
+    && Array.isArray(entry.requiredUnits)
+    && entry.requiredUnits.every((unit) => typeof unit === "string"));
+}
+
+async function fetchUnitPack(fetcher: typeof fetch): Promise<unknown | null> {
   const contentRoot = new URL(`${import.meta.env.BASE_URL}content/`, document.baseURI);
   const manifestResponse = await fetcher(new URL("manifest.json", contentRoot), { cache: "no-cache" });
   if (!manifestResponse.ok) throw new Error("問題パック一覧を取得できませんでした");
   const manifest = validateManifest(await manifestResponse.json());
   const pack = manifest.packs.find((entry) => entry.subject === "units");
   // The units pack is optional; the app still runs with kanji alone.
-  if (!pack) return [];
+  if (!pack) return null;
 
   const packResponse = await fetcher(new URL(pack.url, contentRoot), { cache: "no-cache" });
   if (!packResponse.ok) throw new Error("単位問題パックを取得できませんでした");
-  return validateUnitPack(await packResponse.json());
+  return packResponse.json();
+}
+
+export async function loadUnitQuestions(fetcher: typeof fetch = fetch): Promise<UnitQuestion[]> {
+  const pack = await fetchUnitPack(fetcher);
+  return pack === null ? [] : validateUnitPack(pack);
+}
+
+/** The live questions plus the retired ones, for the collections. */
+export async function loadUnitCollectionSource(fetcher: typeof fetch = fetch): Promise<{ questions: UnitQuestion[]; retired: RetiredUnitQuestion[] }> {
+  const pack = await fetchUnitPack(fetcher);
+  if (pack === null) return { questions: [], retired: [] };
+  return { questions: validateUnitPack(pack), retired: readRetiredUnitQuestions(pack) };
 }

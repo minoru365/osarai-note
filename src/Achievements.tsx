@@ -17,7 +17,7 @@ import {
 import { BadgeView, CollectionView } from "./CollectionViews";
 import { loadKanjiQuestions } from "./contentPack";
 import { loadJapanMapQuestions, type JapanMapPrefectureId } from "./japanMapContent";
-import { loadUnitQuestions } from "./unitContent";
+import { loadUnitCollectionSource } from "./unitContent";
 import { getRecentStudyDays, type RecentStudyDay } from "./motivation";
 import { PET_EMOJI, PET_LABEL, petAssetUrl } from "./petPresentation";
 import { studyStorage } from "./storage/indexedDb";
@@ -186,13 +186,13 @@ export function Achievements({ onBack, onPracticeKanji, onPracticeUnit }: Props)
       studyStorage.getGradeSettings(),
       studyStorage.getUnitLearningSettings(),
       optional(loadKanjiQuestions()),
-      optional(loadUnitQuestions()),
+      optional(loadUnitCollectionSource()),
       optional(loadJapanMapQuestions()),
-    ]).then(([attempts, states, motivation, units, gradeSettings, unitLearning, kanjiQuestions, unitQuestions, mapQuestions]) => {
+    ]).then(([attempts, states, motivation, units, gradeSettings, unitLearning, kanjiQuestions, unitSource, mapQuestions]) => {
       if (!active) return;
       const grades = gradeSettings.grades;
       const nextKanji = kanjiQuestions ? kanjiCollection(states, kanjiQuestions, grades) : null;
-      const nextUnits = unitQuestions ? unitCollection(attempts, unitQuestions, unitLearning.unlearnedGroups, grades) : null;
+      const nextUnits = unitSource ? unitCollection(attempts, unitSource.questions, unitLearning.unlearnedGroups, grades, unitSource.retired) : null;
       const nextPrefectures = mapQuestions ? prefectureCollection(attempts, mapQuestions, grades) : null;
       setPets(petCollection(motivation));
       setKanjiCells(nextKanji);

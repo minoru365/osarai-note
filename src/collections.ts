@@ -9,7 +9,7 @@ import { getLocalDate } from "./dailySession";
 import type { KanjiQuestion } from "./contentPack";
 import { getKanjiByGrade, type KanjiGrade } from "./kanjiCatalog";
 import { JAPAN_MAP_PREFECTURE_IDS, type JapanMapPrefectureId, type JapanMapQuestion } from "./japanMapContent";
-import type { UnitQuestion } from "./unitContent";
+import type { RetiredUnitQuestion, UnitQuestion } from "./unitContent";
 import { isUnitQuestionAllowed } from "./unitSession";
 import { UNIT_CATEGORIES, UNIT_DEFINITIONS, type UnitCategory } from "./units";
 import {
@@ -89,8 +89,13 @@ export function unitCollection(
   questions: UnitQuestion[],
   unlearnedGroups: readonly string[],
   grades: readonly SelectableGrade[],
+  retired: RetiredUnitQuestion[] = [],
 ): UnitCollectionSection[] {
-  const questionMap = new Map(questions.map((question) => [question.id, question]));
+  // Answers to retired questions still count, so taking a question out of the
+  // pack never takes a collected unit away. Reachability uses live questions.
+  const questionMap = new Map<string, { id: string; requiredUnits: string[] }>(
+    [...retired, ...questions].map((question) => [question.id, question]),
+  );
   const correctQuestions = new Map<string, Set<string>>();
   const triedUnits = new Set<string>();
   for (const attempt of attempts) {

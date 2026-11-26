@@ -9,7 +9,7 @@
 // needs a human-authored list of objects to measure, and sense-of-quantity and
 // word problems need full human review, so they arrive through a review batch.
 
-import { writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { KANJI_CATALOG } from "../src/kanjiCatalog.ts";
@@ -37,11 +37,47 @@ const MAX_PER_CATEGORY_PER_TYPE = 24;
  */
 const MAX_UNIT_RATIO = 10_000;
 
-/** Whole-number amounts that read naturally in a question. */
-const CONVERSION_VALUES = [1, 2, 3, 5, 8, 12];
+/**
+ * Amounts for downward conversions. 1 and other single round numbers made
+ * "1kgは何g" style questions that only append zeros (2026-11-27 feedback:
+ * too easy), so most values are two digits.
+ */
+const CONVERSION_VALUES = [3, 7, 12, 25, 40];
 /** Answers, in the larger unit, for questions that convert upwards. */
-const UPWARD_ANSWERS = [1, 2, 3, 5];
-const COMPARISON_VALUES = [2, 3, 5];
+const UPWARD_ANSWERS = [2, 4, 6, 9, 15];
+const COMPARISON_VALUES = [2, 3, 5, 7];
+
+/**
+ * Adjacent power-of-ten pairs (cm-mm, L-dL) only shift a decimal place, so
+ * plain conversions use them sparingly; the compound and decimal formats
+ * already cover them. Conversions favour time (x60, x24) and pairs one unit
+ * apart (m-mm, L-mL), which need a real calculation.
+ */
+function isShiftOnly(big, small) {
+  const ratio = big.baseFactor / small.baseFactor;
+  return ratio === 10;
+}
+
+/**
+ * Keeps up to `cap` questions while visiting every unit pair in turn, so the
+ * cap does not simply keep whichever pairs were generated first.
+ */
+function spread(questions, cap) {
+  const groups = new Map();
+  for (const question of questions) {
+    const key = question.requiredUnits.join(":");
+    groups.set(key, [...(groups.get(key) ?? []), question]);
+  }
+  const lists = [...groups.values()];
+  const picked = [];
+  for (let round = 0; picked.length < cap && lists.some((list) => list.length > round); round += 1) {
+    for (const list of lists) {
+      if (picked.length >= cap) break;
+      if (list[round]) picked.push(list[round]);
+    }
+  }
+  return picked;
+}
 
 function questionGrade(units) {
   return Math.max(MIN_GRADE, ...units.map((unit) => unit.introducedGrade));
@@ -62,7 +98,7 @@ function conversionQuestion(category, grade, from, to, baseValue, key) {
   // to a child than "1m = 0.001km".
   const [big, small] = from.baseFactor > to.baseFactor ? [from, to] : [to, from];
   return {
-    id: `units:conversion:${from.id}:${to.id}:${key}`,
+    id: `units:conversion2:${from.id}:${to.id}:${key}`,
     grade,
     unitCategory: category,
     questionType: "conversion",
@@ -89,6 +125,8 @@ function conversionQuestions(category) {
         ? from.baseFactor / to.baseFactor
         : to.baseFactor / from.baseFactor;
       if (ratio > MAX_UNIT_RATIO) continue;
+      const [big, small] = from.baseFactor > to.baseFactor ? [from, to] : [to, from];
+      if (isShiftOnly(big, small)) continue;
 
       if (from.baseFactor > to.baseFactor) {
         // Downwards: a whole amount of the larger unit, always a whole answer.
@@ -99,6 +137,10 @@ function conversionQuestions(category) {
           if (question) questions.push(question);
         }
       } else {
+        // Upwards by a power of ten ("9000kgは何t") only strips zeros, and the
+        // compound formats already ask it with a remainder; keep upward
+        // conversions for time, where 60 and 24 need a real division.
+        if (Number.isInteger(Math.log10(ratio))) continue;
         // Upwards: build from the answer so the question never asks for a
         // sliver like 0.0001m². Halves are grade 4 material only.
         for (const answer of UPWARD_ANSWERS) {
@@ -118,7 +160,7 @@ function conversionQuestions(category) {
       }
     }
   }
-  return questions.slice(0, MAX_PER_CATEGORY_PER_TYPE);
+  return spread(questions, MAX_PER_CATEGORY_PER_TYPE);
 }
 
 function comparisonQuestions(category) {
@@ -134,22 +176,24 @@ function comparisonQuestions(category) {
       if (bigger.baseFactor / smaller.baseFactor > MAX_UNIT_RATIO) continue;
 
       for (const value of COMPARISON_VALUES) {
-        const leftBase = value * bigger.baseFactor;
-        // Land just under the same amount so the larger-looking number is the
-        // smaller quantity, and comparing digits alone gives the wrong answer.
-        const leftInSmaller = leftBase / smaller.baseFactor;
-        const step = leftInSmaller >= 200 ? 100 : leftInSmaller >= 20 ? 10 : 1;
-        const rightBase = (leftInSmaller - step) * smaller.baseFactor;
-        if (rightBase <= 0 || leftBase === rightBase) continue;
-        if (!canRender(leftBase, bigger.id) || !canRender(rightBase, smaller.id)) continue;
+        const bigBase = value * bigger.baseFactor;
+        const inSmaller = bigBase / smaller.baseFactor;
+        // Keep the two amounts within a few percent, and let the smaller unit
+        // win about half the time. Before 2026-11-27 the larger unit always
+        // won, so a child could score by picking the bigger unit.
+        const step = inSmaller >= 2000 ? 50 : inSmaller >= 200 ? 10 : inSmaller >= 50 ? 2 : 1;
+        const id = `units:comparison2:${bigger.id}:${smaller.id}:${value}`;
+        const smallerWins = stableHash(`${id}:winner`) % 2 === 0;
+        const smallBase = (inSmaller + (smallerWins ? step : -step)) * smaller.baseFactor;
+        if (smallBase <= 0 || smallBase === bigBase) continue;
+        if (!canRender(bigBase, bigger.id) || !canRender(smallBase, smaller.id)) continue;
 
-        const larger = formatQuantity(leftBase, bigger.id);
-        const lesser = formatQuantity(rightBase, smaller.id);
-        const id = `units:comparison:${bigger.id}:${smaller.id}:${value}`;
-        // Alternate which side is correct. Always putting the answer first
-        // would let a child score every question by tapping the left option.
-        const answerFirst = stableHash(id) % 2 === 0;
-        const [first, second] = answerFirst ? [larger, lesser] : [lesser, larger];
+        const bigLabel = formatQuantity(bigBase, bigger.id);
+        const smallLabel = formatQuantity(smallBase, smaller.id);
+        const winnerLabel = smallerWins ? smallLabel : bigLabel;
+        // Alternate which side is shown first, independently of the winner.
+        const bigFirst = stableHash(`${id}:order`) % 2 === 0;
+        const [first, second] = bigFirst ? [bigLabel, smallLabel] : [smallLabel, bigLabel];
 
         questions.push({
           id,
@@ -157,29 +201,43 @@ function comparisonQuestions(category) {
           unitCategory: category,
           questionType: "comparison",
           prompt: `${first}と ${second}、大きいのはどちらですか。`,
-          explanation: `${larger} は ${formatQuantity(leftBase, smaller.id)} なので、${larger} のほうが大きいです。`,
+          explanation: `${bigLabel} は ${formatQuantity(bigBase, smaller.id)} なので、${winnerLabel} のほうが大きいです。`,
           requiredUnits: [bigger.id, smaller.id],
           answerType: "choice",
           choices: [
             { id: "left", label: first },
             { id: "right", label: second },
           ],
-          answerChoiceId: answerFirst ? "left" : "right",
+          answerChoiceId: winnerLabel === first ? "left" : "right",
         });
       }
     }
   }
-  return questions.slice(0, MAX_PER_CATEGORY_PER_TYPE);
+  return spread(questions, MAX_PER_CATEGORY_PER_TYPE);
 }
 
 
 /**
- * Amounts that split cleanly into a whole larger part and a remainder, the
- * shape the grade 3-4 drill uses most: 2800m is 2km and 800m.
+ * Whole parts and remainders for compound amounts, by the ratio between the
+ * two units. Remainders include internal zeros (2km45m = 2045m) and uneven
+ * amounts, and time uses base 60 and 24, which is where children slip.
+ * Before 2026-11-27 every remainder was a round tenth (1km500m), which only
+ * asked a child to write digits side by side.
  */
-const COMPOUND_PARTS = [
-  [1, 5], [2, 8], [3, 6], [4, 2], [5, 4], [6, 9], [7, 3], [8, 7],
-];
+const COMPOUND_WHOLES = [2, 3, 4, 6, 1, 12];
+const COMPOUND_REMAINDERS = {
+  10: [7, 4, 5, 3, 8, 6],
+  24: [6, 18, 4, 15, 9, 20],
+  60: [15, 45, 5, 50, 8, 36],
+  100: [5, 30, 8, 75, 6, 40],
+  1000: [45, 80, 5, 250, 608, 30],
+};
+
+function compoundAmounts(ratio) {
+  const remainders = COMPOUND_REMAINDERS[ratio] ?? [];
+  return remainders.map((remainder, index) => [COMPOUND_WHOLES[index % COMPOUND_WHOLES.length], remainder]);
+}
+
 /** Numerators for a decimal answer, over a ratio of 10 or 100. */
 const DECIMAL_NUMERATORS = [2, 3, 5, 8, 15, 16, 27, 35];
 
@@ -232,7 +290,7 @@ function decimalConversionQuestions(category) {
       });
     }
   }
-  return questions.slice(0, MAX_PER_CATEGORY_PER_TYPE);
+  return spread(questions, MAX_PER_CATEGORY_PER_TYPE);
 }
 
 /**
@@ -244,13 +302,12 @@ function compoundPartQuestions(category) {
   for (const { big, small, ratio } of adjacentPairs(category)) {
     const grade = questionGrade([big, small]);
     if (grade > 4) continue;
-    for (const [wholes, tenths] of COMPOUND_PARTS) {
-      const remainder = tenths * (ratio / 10);
-      if (!Number.isSafeInteger(remainder) || remainder === 0) continue;
+    for (const [wholes, remainder] of compoundAmounts(ratio)) {
+      if (remainder <= 0 || remainder >= ratio) continue;
       const baseValue = (wholes * ratio + remainder) * small.baseFactor;
       if (!canRender(baseValue, small.id)) continue;
       questions.push({
-        id: `units:compound-part:${small.id}:${big.id}:${wholes}-${tenths}`,
+        id: `units:compound-part2:${small.id}:${big.id}:${wholes}-${remainder}`,
         grade,
         unitCategory: category,
         questionType: "compoundPart",
@@ -266,7 +323,7 @@ function compoundPartQuestions(category) {
       });
     }
   }
-  return questions.slice(0, MAX_PER_CATEGORY_PER_TYPE);
+  return spread(questions, MAX_PER_CATEGORY_PER_TYPE);
 }
 
 /**
@@ -278,16 +335,15 @@ function compoundToSingleQuestions(category) {
   for (const { big, small, ratio } of adjacentPairs(category)) {
     const baseGrade = questionGrade([big, small]);
     if (baseGrade > 4) continue;
-    for (const [wholes, tenths] of COMPOUND_PARTS) {
-      const remainder = tenths * (ratio / 10);
-      if (!Number.isSafeInteger(remainder) || remainder === 0) continue;
+    for (const [wholes, remainder] of compoundAmounts(ratio)) {
+      if (remainder <= 0 || remainder >= ratio) continue;
       const baseValue = (wholes * ratio + remainder) * small.baseFactor;
       const compound = `${formatQuantity(wholes * big.baseFactor, big.id)}`
         + `${formatQuantity(remainder * small.baseFactor, small.id)}`;
       if (!canRender(baseValue, small.id)) continue;
 
       questions.push({
-        id: `units:compound-single:${small.id}:${big.id}:${wholes}-${tenths}`,
+        id: `units:compound-single2:${small.id}:${big.id}:${wholes}-${remainder}`,
         grade: baseGrade,
         unitCategory: category,
         questionType: "compoundToSingle",
@@ -304,7 +360,7 @@ function compoundToSingleQuestions(category) {
       // The same amount written as a decimal of the larger unit (grade 4).
       if ((ratio === 10 || ratio === 100) && canRender(baseValue, big.id)) {
         questions.push({
-          id: `units:compound-decimal:${small.id}:${big.id}:${wholes}-${tenths}`,
+          id: `units:compound-decimal2:${small.id}:${big.id}:${wholes}-${remainder}`,
           grade: 4,
           unitCategory: category,
           questionType: "compoundToSingle",
@@ -320,7 +376,7 @@ function compoundToSingleQuestions(category) {
       }
     }
   }
-  return questions.slice(0, MAX_PER_CATEGORY_PER_TYPE);
+  return spread(questions, MAX_PER_CATEGORY_PER_TYPE);
 }
 
 const materials = readMaterials(MATERIALS);
@@ -373,11 +429,45 @@ for (const question of questions) {
 // materialId and answerText exist for the review page; keep them out of the pack.
 const published = questions.map(({ materialId, answerText, ...question }) => question);
 
+/**
+ * Questions dropped from the pack stay listed in `retiredQuestions` (ADR-0015
+ * addendum). The collections resolve old answers through it, so a unit the
+ * child already collected never loses its colour when a question is retired.
+ * Selection only ever reads `questions`. The list is cumulative.
+ */
+const previous = existsSync(OUTPUT) ? JSON.parse(readFileSync(OUTPUT, "utf8")) : { questions: [], retiredQuestions: [] };
+const previousRetired = previous.retiredQuestions ?? [];
+const fingerprint = (question) => JSON.stringify([
+  question.prompt, question.answerType, question.answerBaseValue ?? null, question.answerUnit ?? null,
+  question.choices ?? null, question.answerChoiceId ?? null, question.requiredUnits,
+]);
+const previousById = new Map(previous.questions.map((question) => [question.id, question]));
+const retiredIds = new Set(previousRetired.map((question) => question.id));
+for (const question of published) {
+  // An ID must never come back meaning a different question: old answers
+  // would silently attach to it.
+  const before = previousById.get(question.id);
+  if (before && fingerprint(before) !== fingerprint(question)) {
+    throw new Error(`同じ問題IDで中身が変わっています: ${question.id}`);
+  }
+  if (retiredIds.has(question.id)) {
+    throw new Error(`退役した問題IDを使い回しています: ${question.id}`);
+  }
+}
+const publishedIds = new Set(published.map((question) => question.id));
+const retiredQuestions = [
+  ...previousRetired,
+  ...previous.questions
+    .filter((question) => !publishedIds.has(question.id))
+    .map(({ id, unitCategory, questionType, requiredUnits }) => ({ id, unitCategory, questionType, requiredUnits })),
+];
+
 writeFileSync(
   OUTPUT,
-  `${JSON.stringify({ schemaVersion: 1, packId: "units-v1", questions: published }, null, 2)}\n`,
+  `${JSON.stringify({ schemaVersion: 1, packId: "units-v1", questions: published, retiredQuestions }, null, 2)}\n`,
   "utf8",
 );
+console.log(`retired: ${retiredQuestions.length}`);
 
 const byType = published.reduce((counts, question) => {
   counts[question.questionType] = (counts[question.questionType] ?? 0) + 1;
