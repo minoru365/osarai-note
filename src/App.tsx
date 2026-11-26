@@ -559,7 +559,7 @@ function App() {
   }
 
   return (
-    <div className="app-shell">
+    <div className="app-shell writing-shell">
       <PracticeHeader
         mode="writing"
         progress={freePracticeQuestion?.mode === "writing" ? (writingQuestionCount === 0 ? 0 : (freePracticeIndex / writingQuestionCount) * 100) : writingQuestionCount === 0 ? 0 : ((writingSession?.currentIndex ?? 0) / writingQuestionCount) * 100}

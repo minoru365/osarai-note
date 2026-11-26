@@ -504,10 +504,14 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
   .question-card, .writing-card, .reading-question-card, .kana-panel, .unit-card, .unit-answer,
   .japan-map-question-card, .japan-map-answer, .home-section, .achievements-panel { border-radius: 18px; }
 
-  /* Writing: the handwriting box refuses scrolling, so on a typical phone the
-     whole screen fits one viewport. The box takes what width and height allow;
-     svh (not dvh) keeps it from resizing, and resetting the character, when the
-     address bar slides away. Very short screens scroll in the side gutters. */
+  /* Writing: the page must not move while the child writes, so the writing
+     screen is locked to one small viewport (svh does not change when the
+     address bar slides) and the handwriting box takes whatever height is left.
+     Every part above the box keeps a fixed height while a character is being
+     written; if the box changed size the writer would be recreated and the
+     strokes so far would be lost. */
+  .writing-shell { height: 100svh; min-height: 0; overflow: hidden; }
+  .writing-shell .workspace { min-height: 0; grid-template-rows: auto minmax(0, 1fr); gap: 12px; overflow: hidden; padding-top: 12px; padding-bottom: max(12px, env(safe-area-inset-bottom)); }
   .question-card { padding: 16px 18px; }
   .question-card .eyebrow, .question-card .reading, .live-stats, .writing-question-progress { display: none; }
   .writing-context { margin: 0 0 8px; font-size: 18px; }
@@ -515,14 +519,17 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
   .character-progress { margin-top: 12px; gap: 8px; }
   .character-box { width: 48px; border-radius: 12px; font-size: 26px; }
   .character-box span { top: 2px; left: 5px; }
-  .status-message { margin-top: 12px; min-height: 48px; padding: 10px 14px; }
-  .writing-card { padding: 12px; }
-  .writer-heading { min-height: 0; padding: 0 4px 8px; }
+  .status-message { height: calc(3em + 20px); min-height: 0; margin-top: 12px; padding: 10px 14px; overflow: hidden; }
+  /* The card is the one size container: the stage, guide and writer all
+     resolve the box size against it, so they always agree. Below the box:
+     heading 44px, gap 10px, buttons 56px, stage border 4px. */
+  .writing-card { min-height: 0; padding: 12px; container-type: size; }
+  .writer-heading { height: 44px; min-height: 0; padding: 0 4px 8px; }
   .writer-heading strong { font-size: 24px; }
-  .writer-layout { --writing-answer-size: clamp(220px, min(100vw - 64px, 100svh - 430px), 470px); grid-template-columns: minmax(0, 1fr); justify-items: center; gap: 10px; }
-  .writer-stage { border-radius: 16px; }
-  .actions { width: 100%; flex-direction: row; flex-wrap: wrap; }
-  .actions button { flex: 1 1 0; min-height: 52px; }
+  .writer-layout { --writing-answer-size: clamp(140px, min(100cqw - 4px, 100cqh - 114px), 470px); grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; justify-items: center; align-items: center; gap: 10px; }
+  .writer-stage { container-type: normal; border-radius: 16px; touch-action: none; }
+  .actions { width: 100%; flex-direction: row; flex-wrap: nowrap; }
+  .actions button { flex: 1 1 0; min-width: 0; height: 56px; min-height: 0; padding: 4px; font-size: 15px; line-height: 1.3; }
   .actions .help { margin-top: 0; }
 
   /* Reading: one row per 行, あ行 on top, five kana across. */
@@ -616,6 +623,34 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
   .achievements-week strong { font-size: 22px; }
   .achievements-unit-list button { grid-template-columns: minmax(0, 1fr) auto; }
   .achievements-unit-list i { grid-column: 1 / -1; grid-row: 2; }
+}
+
+/* Phone held sideways: too short to stack, so the question and the
+   handwriting box sit side by side and the question scrolls on its own. */
+@media (max-width: 999px) and (orientation: landscape) and (max-height: 600px) {
+  .writing-shell .workspace { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); grid-template-rows: minmax(0, 1fr); }
+  .writing-shell .question-card { overflow-y: auto; }
+}
+
+/* Short phones (Safari with its toolbars is often only ~660px tall): tighten
+   the question so the handwriting box keeps a usable size. */
+@media (max-width: 999px) and (max-height: 760px) {
+  .writing-context { margin-bottom: 4px; font-size: 17px; line-height: 1.5; }
+  .question-card h1 { font-size: 16px; }
+  .character-progress { margin-top: 8px; }
+  .character-box { width: 40px; font-size: 22px; }
+  .writing-shell .status-message { margin-top: 8px; }
+  /* The character boxes above already show which character is being written,
+     so the heading row gives its height to the handwriting box. */
+  .writing-shell .question-card { padding: 12px 16px; }
+  .writing-shell .workspace { gap: 8px; padding-top: 8px; }
+  .writer-heading { display: none; }
+  .writer-layout { --writing-answer-size: clamp(140px, min(100cqw - 4px, 100cqh - 70px), 470px); }
+}
+
+/* Stop the whole page from bouncing under the child's finger while writing. */
+@media (max-width: 999px) {
+  html:has(.writing-shell), html:has(.writing-shell) body { overscroll-behavior: none; }
 }
 
 /* A sticky question keeps the prompt and the typed answer in view while the
