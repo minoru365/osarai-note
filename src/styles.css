@@ -1,13 +1,16 @@
 :root {
   font-family: "Noto Sans JP", "Yu Gothic UI", sans-serif;
   color: #25332d;
-  background: #eef2e8;
+  /* Safari 26 on iOS ignores theme-color and tints the area behind the status
+     bar from the page background, so the page background matches the top bar.
+     The app shell paints the visible green-grey background over it. */
+  background: #fffefa;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 }
 
 * { box-sizing: border-box; }
-body { margin: 0; min-width: 1000px; min-height: 100vh; background: #eef2e8; }
+body { margin: 0; min-width: 1000px; min-height: 100vh; background: #fffefa; }
 button { font: inherit; }
 /* UI design standard: supporting text is never under 14px. */
 small { font-size: 14px; }
@@ -488,7 +491,9 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
   .app-shell { min-height: 100dvh; grid-template-rows: auto 1fr; grid-template-columns: minmax(0, 1fr); }
   .reading-shell, .home-shell, .free-practice-shell, .settings-shell, .achievements-shell { height: auto; min-height: 100dvh; overflow: visible; }
 
-  .topbar { grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; min-height: 60px; padding: max(8px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 8px max(16px, env(safe-area-inset-left)); }
+  /* The top bar stays at the top edge: Safari 26 also takes its tint from a
+     header pinned there, and the home button stays in reach while scrolling. */
+  .topbar { position: sticky; top: 0; z-index: 10; grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; min-height: 60px; padding: 8px 16px; }
   .topbar > :first-child { grid-column: 1; }
   .topbar > :last-child { grid-column: 3; }
   .topbar .spike-label { grid-column: 2; justify-self: center; padding: 8px 12px; }
@@ -678,12 +683,13 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
 
 /* A sticky question keeps the prompt and the typed answer in view while the
    child scrolls down the kana table. Only on screens tall enough to spare it. */
-@media (max-width: 999px) and (min-height: 700px) {
-  .reading-question-card { position: sticky; top: 0; z-index: 3; box-shadow: 0 10px 24px rgba(53, 77, 65, .16); }
+@media (max-width: 999px) and (min-height: 600px) {
+  .reading-question-card { position: sticky; top: 60px; z-index: 3; box-shadow: 0 10px 24px rgba(53, 77, 65, .16); }
 }
 
 @media (max-width: 559px) {
   .subject-grid { grid-template-columns: minmax(0, 1fr); }
+  .header-action, .compact-header-button { padding: 0 10px; font-size: 15px; }
   .mode-choice-row { grid-template-columns: minmax(0, 1fr); }
 }
 
