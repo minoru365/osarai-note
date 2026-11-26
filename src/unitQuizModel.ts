@@ -1,10 +1,14 @@
 // Answer handling for a units question, kept out of the component so the
 // rules can be tested without a DOM.
 
-import { isNumericAnswerCorrect, type UnitQuestion } from "./unitContent";
+import { isCompoundAnswerCorrect, isNumericAnswerCorrect, type UnitQuestion } from "./unitContent";
 
 export type UnitAnswerState = {
   entry: string;
+  /** Second number for "何km何m" questions; `entry` holds the larger unit. */
+  entrySmall: string;
+  /** Which of the two boxes the keypad types into. */
+  activeField: "big" | "small";
   chosenId: string | null;
   mistakes: number;
   usedGuide: boolean;
@@ -14,13 +18,13 @@ export type UnitAnswerState = {
 };
 
 export function createUnitAnswerState(): UnitAnswerState {
-  return { entry: "", chosenId: null, mistakes: 0, usedGuide: false, revealed: false, solved: false };
+  return { entry: "", entrySmall: "", activeField: "big", chosenId: null, mistakes: 0, usedGuide: false, revealed: false, solved: false };
 }
 
 export function isAnswerCorrect(question: UnitQuestion, answer: string): boolean {
-  return question.answerType === "numeric"
-    ? isNumericAnswerCorrect(question, answer)
-    : answer === question.answerChoiceId;
+  if (question.answerType === "numeric") return isNumericAnswerCorrect(question, answer);
+  if (question.answerType === "compound") return isCompoundAnswerCorrect(question, answer);
+  return answer === question.answerChoiceId;
 }
 
 /**
@@ -34,9 +38,9 @@ export function submitUnitAnswer(
 ): UnitAnswerState {
   if (state.solved || state.revealed) return state;
   if (isAnswerCorrect(question, answer)) {
-    return { ...state, entry: "", chosenId: null, solved: true };
+    return { ...state, entry: "", entrySmall: "", activeField: "big", chosenId: null, solved: true };
   }
-  return { ...state, entry: "", chosenId: null, mistakes: state.mistakes + 1 };
+  return { ...state, entry: "", entrySmall: "", activeField: "big", chosenId: null, mistakes: state.mistakes + 1 };
 }
 
 /** "分からない": one mistake, show the answer, and require a real attempt after. */
@@ -45,6 +49,8 @@ export function revealUnitAnswer(state: UnitAnswerState): UnitAnswerState {
   return {
     ...state,
     entry: "",
+    entrySmall: "",
+    activeField: "big",
     chosenId: null,
     revealed: true,
     // Only the first reveal counts, matching the kanji rule in ADR-0002.

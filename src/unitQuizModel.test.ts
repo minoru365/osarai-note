@@ -119,3 +119,30 @@ describe("「分からない」", () => {
     expect(toRevealAttemptInput(state).mistakes).toBe(0);
   });
 });
+
+describe("2つの数で答える問題（何km何m）", () => {
+  const compound = {
+    id: "s", grade: 3, unitCategory: "length", questionType: "compoundSplit",
+    prompt: "2045mは 何km何mですか。", explanation: "せつめい", requiredUnits: ["m", "km"],
+    answerType: "compound", answerUnits: ["km", "m"], answerBaseValue: 2_045_000,
+  } as UnitQuestion;
+
+  it("2つとも合っていれば正解", () => {
+    expect(isAnswerCorrect(compound, "2|45")).toBe(true);
+  });
+
+  it("片方だけ合っている、くり上がっていない、形が違う答えは不正解", () => {
+    expect(isAnswerCorrect(compound, "2|450")).toBe(false);
+    expect(isAnswerCorrect(compound, "1|1045")).toBe(false);
+    expect(isAnswerCorrect(compound, "2045|0")).toBe(false);
+    expect(isAnswerCorrect(compound, "2.0|45")).toBe(false);
+    expect(isAnswerCorrect(compound, "2045")).toBe(false);
+  });
+
+  it("答えたあとは2つの欄とも空になり、大きい単位の欄にもどる", () => {
+    const typed = { ...createUnitAnswerState(), entry: "2", entrySmall: "450", activeField: "small" as const };
+    const after = submitUnitAnswer(typed, compound, "2|450");
+    expect(after).toMatchObject({ entry: "", entrySmall: "", activeField: "big", mistakes: 1, solved: false });
+    expect(submitUnitAnswer(typed, compound, "2|45")).toMatchObject({ solved: true });
+  });
+});

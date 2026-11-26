@@ -7,6 +7,10 @@ type Props = {
   onSubmit: () => void;
   disabled?: boolean;
   submitLabel?: string;
+  /** False for whole-number answers such as "何km何m"; disables the point key. */
+  allowDecimal?: boolean;
+  /** Overrides when こたえる can be pressed, e.g. both boxes of a two-number answer. */
+  canSubmit?: boolean;
 };
 
 const DIGITS = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -23,7 +27,7 @@ export function appendKey(value: string, key: string): string {
   return `${value}${key}`;
 }
 
-export function NumberPad({ value, onChange, onSubmit, disabled = false, submitLabel = "こたえる" }: Props) {
+export function NumberPad({ value, onChange, onSubmit, disabled = false, submitLabel = "こたえる", allowDecimal = true, canSubmit }: Props) {
   const press = (key: string) => onChange(appendKey(value, key));
 
   return (
@@ -34,7 +38,7 @@ export function NumberPad({ value, onChange, onSubmit, disabled = false, submitL
             {digit}
           </button>
         ))}
-        <button type="button" disabled={disabled} onClick={() => press(".")}>.</button>
+        <button type="button" disabled={disabled || !allowDecimal} aria-label={allowDecimal ? "小数点" : "小数点（この問題では使わない）"} onClick={() => press(".")}>.</button>
         <button type="button" disabled={disabled} onClick={() => press("0")}>0</button>
         <button
           type="button"
@@ -48,7 +52,7 @@ export function NumberPad({ value, onChange, onSubmit, disabled = false, submitL
       <button
         className="number-pad-submit"
         type="button"
-        disabled={disabled || value.length === 0 || value.endsWith(".")}
+        disabled={disabled || !(canSubmit ?? (value.length > 0 && !value.endsWith(".")))}
         onClick={onSubmit}
       >
         {submitLabel}

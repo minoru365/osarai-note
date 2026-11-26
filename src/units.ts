@@ -18,6 +18,8 @@ export const UNIT_QUESTION_TYPES = [
   "decimalConversion",
   "compoundPart",
   "compoundToSingle",
+  // "2045mは 何km何mですか": answered with two numbers (units-plan 3.1).
+  "compoundSplit",
 ] as const;
 export type UnitQuestionType = typeof UNIT_QUESTION_TYPES[number];
 
@@ -169,6 +171,7 @@ export const UNIT_QUESTION_TYPE_LABEL: Record<UnitQuestionType, string> = {
   decimalConversion: "小数であらわす",
   compoundPart: "くみあわせたんい",
   compoundToSingle: "ひとつのたんいに",
+  compoundSplit: "ふたつのたんいに",
 };
 
 /** Renders a `category:questionType` aggregate key for display. */

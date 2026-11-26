@@ -1422,6 +1422,330 @@
       "answerBaseValue": 1060
     },
     {
+      "id": "units:compound-split:mm:cm:2-7",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundSplit",
+      "prompt": "27mmは 何cm何mmですか。",
+      "explanation": "20mm が 2cm だから、27mm は 2cm7mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "cm",
+        "mm"
+      ],
+      "answerBaseValue": 27
+    },
+    {
+      "id": "units:compound-split:cm:m:2-5",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundSplit",
+      "prompt": "205cmは 何m何cmですか。",
+      "explanation": "200cm が 2m だから、205cm は 2m5cm です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "m",
+        "cm"
+      ],
+      "answerBaseValue": 2050
+    },
+    {
+      "id": "units:compound-split:m:km:2-45",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundSplit",
+      "prompt": "2045mは 何km何mですか。",
+      "explanation": "2000m が 2km だから、2045m は 2km45m です。",
+      "requiredUnits": [
+        "m",
+        "km"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "km",
+        "m"
+      ],
+      "answerBaseValue": 2045000
+    },
+    {
+      "id": "units:compound-split:mm:cm:3-4",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundSplit",
+      "prompt": "34mmは 何cm何mmですか。",
+      "explanation": "30mm が 3cm だから、34mm は 3cm4mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "cm",
+        "mm"
+      ],
+      "answerBaseValue": 34
+    },
+    {
+      "id": "units:compound-split:cm:m:3-30",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundSplit",
+      "prompt": "330cmは 何m何cmですか。",
+      "explanation": "300cm が 3m だから、330cm は 3m30cm です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "m",
+        "cm"
+      ],
+      "answerBaseValue": 3300
+    },
+    {
+      "id": "units:compound-split:m:km:3-80",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundSplit",
+      "prompt": "3080mは 何km何mですか。",
+      "explanation": "3000m が 3km だから、3080m は 3km80m です。",
+      "requiredUnits": [
+        "m",
+        "km"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "km",
+        "m"
+      ],
+      "answerBaseValue": 3080000
+    },
+    {
+      "id": "units:compound-split:mm:cm:4-5",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundSplit",
+      "prompt": "45mmは 何cm何mmですか。",
+      "explanation": "40mm が 4cm だから、45mm は 4cm5mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "cm",
+        "mm"
+      ],
+      "answerBaseValue": 45
+    },
+    {
+      "id": "units:compound-split:cm:m:4-8",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundSplit",
+      "prompt": "408cmは 何m何cmですか。",
+      "explanation": "400cm が 4m だから、408cm は 4m8cm です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "m",
+        "cm"
+      ],
+      "answerBaseValue": 4080
+    },
+    {
+      "id": "units:compound-split:m:km:4-5",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundSplit",
+      "prompt": "4005mは 何km何mですか。",
+      "explanation": "4000m が 4km だから、4005m は 4km5m です。",
+      "requiredUnits": [
+        "m",
+        "km"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "km",
+        "m"
+      ],
+      "answerBaseValue": 4005000
+    },
+    {
+      "id": "units:compound-split:mm:cm:6-3",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundSplit",
+      "prompt": "63mmは 何cm何mmですか。",
+      "explanation": "60mm が 6cm だから、63mm は 6cm3mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "cm",
+        "mm"
+      ],
+      "answerBaseValue": 63
+    },
+    {
+      "id": "units:compound-split:cm:m:6-75",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundSplit",
+      "prompt": "675cmは 何m何cmですか。",
+      "explanation": "600cm が 6m だから、675cm は 6m75cm です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "m",
+        "cm"
+      ],
+      "answerBaseValue": 6750
+    },
+    {
+      "id": "units:compound-split:m:km:6-250",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundSplit",
+      "prompt": "6250mは 何km何mですか。",
+      "explanation": "6000m が 6km だから、6250m は 6km250m です。",
+      "requiredUnits": [
+        "m",
+        "km"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "km",
+        "m"
+      ],
+      "answerBaseValue": 6250000
+    },
+    {
+      "id": "units:compound-split:mm:cm:1-8",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundSplit",
+      "prompt": "18mmは 何cm何mmですか。",
+      "explanation": "10mm が 1cm だから、18mm は 1cm8mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "cm",
+        "mm"
+      ],
+      "answerBaseValue": 18
+    },
+    {
+      "id": "units:compound-split:cm:m:1-6",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundSplit",
+      "prompt": "106cmは 何m何cmですか。",
+      "explanation": "100cm が 1m だから、106cm は 1m6cm です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "m",
+        "cm"
+      ],
+      "answerBaseValue": 1060
+    },
+    {
+      "id": "units:compound-split:m:km:1-608",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundSplit",
+      "prompt": "1608mは 何km何mですか。",
+      "explanation": "1000m が 1km だから、1608m は 1km608m です。",
+      "requiredUnits": [
+        "m",
+        "km"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "km",
+        "m"
+      ],
+      "answerBaseValue": 1608000
+    },
+    {
+      "id": "units:compound-split:mm:cm:12-6",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundSplit",
+      "prompt": "126mmは 何cm何mmですか。",
+      "explanation": "120mm が 12cm だから、126mm は 12cm6mm です。",
+      "requiredUnits": [
+        "mm",
+        "cm"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "cm",
+        "mm"
+      ],
+      "answerBaseValue": 126
+    },
+    {
+      "id": "units:compound-split:cm:m:12-40",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundSplit",
+      "prompt": "1240cmは 何m何cmですか。",
+      "explanation": "1200cm が 12m だから、1240cm は 12m40cm です。",
+      "requiredUnits": [
+        "cm",
+        "m"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "m",
+        "cm"
+      ],
+      "answerBaseValue": 12400
+    },
+    {
+      "id": "units:compound-split:m:km:12-30",
+      "grade": 3,
+      "unitCategory": "length",
+      "questionType": "compoundSplit",
+      "prompt": "12030mは 何km何mですか。",
+      "explanation": "12000m が 12km だから、12030m は 12km30m です。",
+      "requiredUnits": [
+        "m",
+        "km"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "km",
+        "m"
+      ],
+      "answerBaseValue": 12030000
+    },
+    {
       "id": "units:conversion2:kg:g:3",
       "grade": 3,
       "unitCategory": "weight",
@@ -2121,6 +2445,222 @@
       ],
       "answerType": "numeric",
       "answerUnit": "kg",
+      "answerBaseValue": 12030000
+    },
+    {
+      "id": "units:compound-split:g:kg:2-45",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundSplit",
+      "prompt": "2045gは 何kg何gですか。",
+      "explanation": "2000g が 2kg だから、2045g は 2kg45g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "kg",
+        "g"
+      ],
+      "answerBaseValue": 2045
+    },
+    {
+      "id": "units:compound-split:kg:t:2-45",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundSplit",
+      "prompt": "2045kgは 何t何kgですか。",
+      "explanation": "2000kg が 2t だから、2045kg は 2t45kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "t",
+        "kg"
+      ],
+      "answerBaseValue": 2045000
+    },
+    {
+      "id": "units:compound-split:g:kg:3-80",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundSplit",
+      "prompt": "3080gは 何kg何gですか。",
+      "explanation": "3000g が 3kg だから、3080g は 3kg80g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "kg",
+        "g"
+      ],
+      "answerBaseValue": 3080
+    },
+    {
+      "id": "units:compound-split:kg:t:3-80",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundSplit",
+      "prompt": "3080kgは 何t何kgですか。",
+      "explanation": "3000kg が 3t だから、3080kg は 3t80kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "t",
+        "kg"
+      ],
+      "answerBaseValue": 3080000
+    },
+    {
+      "id": "units:compound-split:g:kg:4-5",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundSplit",
+      "prompt": "4005gは 何kg何gですか。",
+      "explanation": "4000g が 4kg だから、4005g は 4kg5g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "kg",
+        "g"
+      ],
+      "answerBaseValue": 4005
+    },
+    {
+      "id": "units:compound-split:kg:t:4-5",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundSplit",
+      "prompt": "4005kgは 何t何kgですか。",
+      "explanation": "4000kg が 4t だから、4005kg は 4t5kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "t",
+        "kg"
+      ],
+      "answerBaseValue": 4005000
+    },
+    {
+      "id": "units:compound-split:g:kg:6-250",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundSplit",
+      "prompt": "6250gは 何kg何gですか。",
+      "explanation": "6000g が 6kg だから、6250g は 6kg250g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "kg",
+        "g"
+      ],
+      "answerBaseValue": 6250
+    },
+    {
+      "id": "units:compound-split:kg:t:6-250",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundSplit",
+      "prompt": "6250kgは 何t何kgですか。",
+      "explanation": "6000kg が 6t だから、6250kg は 6t250kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "t",
+        "kg"
+      ],
+      "answerBaseValue": 6250000
+    },
+    {
+      "id": "units:compound-split:g:kg:1-608",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundSplit",
+      "prompt": "1608gは 何kg何gですか。",
+      "explanation": "1000g が 1kg だから、1608g は 1kg608g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "kg",
+        "g"
+      ],
+      "answerBaseValue": 1608
+    },
+    {
+      "id": "units:compound-split:kg:t:1-608",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundSplit",
+      "prompt": "1608kgは 何t何kgですか。",
+      "explanation": "1000kg が 1t だから、1608kg は 1t608kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "t",
+        "kg"
+      ],
+      "answerBaseValue": 1608000
+    },
+    {
+      "id": "units:compound-split:g:kg:12-30",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundSplit",
+      "prompt": "12030gは 何kg何gですか。",
+      "explanation": "12000g が 12kg だから、12030g は 12kg30g です。",
+      "requiredUnits": [
+        "g",
+        "kg"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "kg",
+        "g"
+      ],
+      "answerBaseValue": 12030
+    },
+    {
+      "id": "units:compound-split:kg:t:12-30",
+      "grade": 3,
+      "unitCategory": "weight",
+      "questionType": "compoundSplit",
+      "prompt": "12030kgは 何t何kgですか。",
+      "explanation": "12000kg が 12t だから、12030kg は 12t30kg です。",
+      "requiredUnits": [
+        "kg",
+        "t"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "t",
+        "kg"
+      ],
       "answerBaseValue": 12030000
     },
     {
@@ -3279,6 +3819,222 @@
       ],
       "answerType": "numeric",
       "answerUnit": "L",
+      "answerBaseValue": 12600
+    },
+    {
+      "id": "units:compound-split:mL:dL:2-5",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundSplit",
+      "prompt": "205mLは 何dL何mLですか。",
+      "explanation": "200mL が 2dL だから、205mL は 2dL5mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "dL",
+        "mL"
+      ],
+      "answerBaseValue": 205
+    },
+    {
+      "id": "units:compound-split:dL:L:2-7",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundSplit",
+      "prompt": "27dLは 何L何dLですか。",
+      "explanation": "20dL が 2L だから、27dL は 2L7dL です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "L",
+        "dL"
+      ],
+      "answerBaseValue": 2700
+    },
+    {
+      "id": "units:compound-split:mL:dL:3-30",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundSplit",
+      "prompt": "330mLは 何dL何mLですか。",
+      "explanation": "300mL が 3dL だから、330mL は 3dL30mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "dL",
+        "mL"
+      ],
+      "answerBaseValue": 330
+    },
+    {
+      "id": "units:compound-split:dL:L:3-4",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundSplit",
+      "prompt": "34dLは 何L何dLですか。",
+      "explanation": "30dL が 3L だから、34dL は 3L4dL です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "L",
+        "dL"
+      ],
+      "answerBaseValue": 3400
+    },
+    {
+      "id": "units:compound-split:mL:dL:4-8",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundSplit",
+      "prompt": "408mLは 何dL何mLですか。",
+      "explanation": "400mL が 4dL だから、408mL は 4dL8mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "dL",
+        "mL"
+      ],
+      "answerBaseValue": 408
+    },
+    {
+      "id": "units:compound-split:dL:L:4-5",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundSplit",
+      "prompt": "45dLは 何L何dLですか。",
+      "explanation": "40dL が 4L だから、45dL は 4L5dL です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "L",
+        "dL"
+      ],
+      "answerBaseValue": 4500
+    },
+    {
+      "id": "units:compound-split:mL:dL:6-75",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundSplit",
+      "prompt": "675mLは 何dL何mLですか。",
+      "explanation": "600mL が 6dL だから、675mL は 6dL75mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "dL",
+        "mL"
+      ],
+      "answerBaseValue": 675
+    },
+    {
+      "id": "units:compound-split:dL:L:6-3",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundSplit",
+      "prompt": "63dLは 何L何dLですか。",
+      "explanation": "60dL が 6L だから、63dL は 6L3dL です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "L",
+        "dL"
+      ],
+      "answerBaseValue": 6300
+    },
+    {
+      "id": "units:compound-split:mL:dL:1-6",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundSplit",
+      "prompt": "106mLは 何dL何mLですか。",
+      "explanation": "100mL が 1dL だから、106mL は 1dL6mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "dL",
+        "mL"
+      ],
+      "answerBaseValue": 106
+    },
+    {
+      "id": "units:compound-split:dL:L:1-8",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundSplit",
+      "prompt": "18dLは 何L何dLですか。",
+      "explanation": "10dL が 1L だから、18dL は 1L8dL です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "L",
+        "dL"
+      ],
+      "answerBaseValue": 1800
+    },
+    {
+      "id": "units:compound-split:mL:dL:12-40",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundSplit",
+      "prompt": "1240mLは 何dL何mLですか。",
+      "explanation": "1200mL が 12dL だから、1240mL は 12dL40mL です。",
+      "requiredUnits": [
+        "mL",
+        "dL"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "dL",
+        "mL"
+      ],
+      "answerBaseValue": 1240
+    },
+    {
+      "id": "units:compound-split:dL:L:12-6",
+      "grade": 3,
+      "unitCategory": "volume",
+      "questionType": "compoundSplit",
+      "prompt": "126dLは 何L何dLですか。",
+      "explanation": "120dL が 12L だから、126dL は 12L6dL です。",
+      "requiredUnits": [
+        "dL",
+        "L"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "L",
+        "dL"
+      ],
       "answerBaseValue": 12600
     },
     {
@@ -4659,6 +5415,330 @@
       ],
       "answerType": "numeric",
       "answerUnit": "hour",
+      "answerBaseValue": 1108800
+    },
+    {
+      "id": "units:compound-split:sec:min:2-15",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundSplit",
+      "prompt": "135秒は 何分何秒ですか。",
+      "explanation": "120秒 が 2分 だから、135秒 は 2分15秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "min",
+        "sec"
+      ],
+      "answerBaseValue": 135
+    },
+    {
+      "id": "units:compound-split:min:hour:2-15",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundSplit",
+      "prompt": "135分は 何時間何分ですか。",
+      "explanation": "120分 が 2時間 だから、135分 は 2時間15分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "hour",
+        "min"
+      ],
+      "answerBaseValue": 8100
+    },
+    {
+      "id": "units:compound-split:hour:day:2-6",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundSplit",
+      "prompt": "54時間は 何日何時間ですか。",
+      "explanation": "48時間 が 2日 だから、54時間 は 2日6時間 です。",
+      "requiredUnits": [
+        "hour",
+        "day"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "day",
+        "hour"
+      ],
+      "answerBaseValue": 194400
+    },
+    {
+      "id": "units:compound-split:sec:min:3-45",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundSplit",
+      "prompt": "225秒は 何分何秒ですか。",
+      "explanation": "180秒 が 3分 だから、225秒 は 3分45秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "min",
+        "sec"
+      ],
+      "answerBaseValue": 225
+    },
+    {
+      "id": "units:compound-split:min:hour:3-45",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundSplit",
+      "prompt": "225分は 何時間何分ですか。",
+      "explanation": "180分 が 3時間 だから、225分 は 3時間45分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "hour",
+        "min"
+      ],
+      "answerBaseValue": 13500
+    },
+    {
+      "id": "units:compound-split:hour:day:3-18",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundSplit",
+      "prompt": "90時間は 何日何時間ですか。",
+      "explanation": "72時間 が 3日 だから、90時間 は 3日18時間 です。",
+      "requiredUnits": [
+        "hour",
+        "day"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "day",
+        "hour"
+      ],
+      "answerBaseValue": 324000
+    },
+    {
+      "id": "units:compound-split:sec:min:4-5",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundSplit",
+      "prompt": "245秒は 何分何秒ですか。",
+      "explanation": "240秒 が 4分 だから、245秒 は 4分5秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "min",
+        "sec"
+      ],
+      "answerBaseValue": 245
+    },
+    {
+      "id": "units:compound-split:min:hour:4-5",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundSplit",
+      "prompt": "245分は 何時間何分ですか。",
+      "explanation": "240分 が 4時間 だから、245分 は 4時間5分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "hour",
+        "min"
+      ],
+      "answerBaseValue": 14700
+    },
+    {
+      "id": "units:compound-split:hour:day:4-4",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundSplit",
+      "prompt": "100時間は 何日何時間ですか。",
+      "explanation": "96時間 が 4日 だから、100時間 は 4日4時間 です。",
+      "requiredUnits": [
+        "hour",
+        "day"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "day",
+        "hour"
+      ],
+      "answerBaseValue": 360000
+    },
+    {
+      "id": "units:compound-split:sec:min:6-50",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundSplit",
+      "prompt": "410秒は 何分何秒ですか。",
+      "explanation": "360秒 が 6分 だから、410秒 は 6分50秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "min",
+        "sec"
+      ],
+      "answerBaseValue": 410
+    },
+    {
+      "id": "units:compound-split:min:hour:6-50",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundSplit",
+      "prompt": "410分は 何時間何分ですか。",
+      "explanation": "360分 が 6時間 だから、410分 は 6時間50分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "hour",
+        "min"
+      ],
+      "answerBaseValue": 24600
+    },
+    {
+      "id": "units:compound-split:hour:day:6-15",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundSplit",
+      "prompt": "159時間は 何日何時間ですか。",
+      "explanation": "144時間 が 6日 だから、159時間 は 6日15時間 です。",
+      "requiredUnits": [
+        "hour",
+        "day"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "day",
+        "hour"
+      ],
+      "answerBaseValue": 572400
+    },
+    {
+      "id": "units:compound-split:sec:min:1-8",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundSplit",
+      "prompt": "68秒は 何分何秒ですか。",
+      "explanation": "60秒 が 1分 だから、68秒 は 1分8秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "min",
+        "sec"
+      ],
+      "answerBaseValue": 68
+    },
+    {
+      "id": "units:compound-split:min:hour:1-8",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundSplit",
+      "prompt": "68分は 何時間何分ですか。",
+      "explanation": "60分 が 1時間 だから、68分 は 1時間8分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "hour",
+        "min"
+      ],
+      "answerBaseValue": 4080
+    },
+    {
+      "id": "units:compound-split:hour:day:1-9",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundSplit",
+      "prompt": "33時間は 何日何時間ですか。",
+      "explanation": "24時間 が 1日 だから、33時間 は 1日9時間 です。",
+      "requiredUnits": [
+        "hour",
+        "day"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "day",
+        "hour"
+      ],
+      "answerBaseValue": 118800
+    },
+    {
+      "id": "units:compound-split:sec:min:12-36",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundSplit",
+      "prompt": "756秒は 何分何秒ですか。",
+      "explanation": "720秒 が 12分 だから、756秒 は 12分36秒 です。",
+      "requiredUnits": [
+        "sec",
+        "min"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "min",
+        "sec"
+      ],
+      "answerBaseValue": 756
+    },
+    {
+      "id": "units:compound-split:min:hour:12-36",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundSplit",
+      "prompt": "756分は 何時間何分ですか。",
+      "explanation": "720分 が 12時間 だから、756分 は 12時間36分 です。",
+      "requiredUnits": [
+        "min",
+        "hour"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "hour",
+        "min"
+      ],
+      "answerBaseValue": 45360
+    },
+    {
+      "id": "units:compound-split:hour:day:12-20",
+      "grade": 3,
+      "unitCategory": "time",
+      "questionType": "compoundSplit",
+      "prompt": "308時間は 何日何時間ですか。",
+      "explanation": "288時間 が 12日 だから、308時間 は 12日20時間 です。",
+      "requiredUnits": [
+        "hour",
+        "day"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "day",
+        "hour"
+      ],
       "answerBaseValue": 1108800
     },
     {
@@ -6406,6 +7486,330 @@
       "answerType": "numeric",
       "answerUnit": "km2",
       "answerBaseValue": 67500000000
+    },
+    {
+      "id": "units:compound-split:m2:a:2-5",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundSplit",
+      "prompt": "205m²は 何a何m²ですか。",
+      "explanation": "200m² が 2a だから、205m² は 2a5m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "a",
+        "m2"
+      ],
+      "answerBaseValue": 2050000
+    },
+    {
+      "id": "units:compound-split:a:ha:2-5",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundSplit",
+      "prompt": "205aは 何ha何aですか。",
+      "explanation": "200a が 2ha だから、205a は 2ha5a です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "ha",
+        "a"
+      ],
+      "answerBaseValue": 205000000
+    },
+    {
+      "id": "units:compound-split:ha:km2:2-5",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundSplit",
+      "prompt": "205haは 何km²何haですか。",
+      "explanation": "200ha が 2km² だから、205ha は 2km²5ha です。",
+      "requiredUnits": [
+        "ha",
+        "km2"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "km2",
+        "ha"
+      ],
+      "answerBaseValue": 20500000000
+    },
+    {
+      "id": "units:compound-split:m2:a:3-30",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundSplit",
+      "prompt": "330m²は 何a何m²ですか。",
+      "explanation": "300m² が 3a だから、330m² は 3a30m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "a",
+        "m2"
+      ],
+      "answerBaseValue": 3300000
+    },
+    {
+      "id": "units:compound-split:a:ha:3-30",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundSplit",
+      "prompt": "330aは 何ha何aですか。",
+      "explanation": "300a が 3ha だから、330a は 3ha30a です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "ha",
+        "a"
+      ],
+      "answerBaseValue": 330000000
+    },
+    {
+      "id": "units:compound-split:ha:km2:3-30",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundSplit",
+      "prompt": "330haは 何km²何haですか。",
+      "explanation": "300ha が 3km² だから、330ha は 3km²30ha です。",
+      "requiredUnits": [
+        "ha",
+        "km2"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "km2",
+        "ha"
+      ],
+      "answerBaseValue": 33000000000
+    },
+    {
+      "id": "units:compound-split:m2:a:4-8",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundSplit",
+      "prompt": "408m²は 何a何m²ですか。",
+      "explanation": "400m² が 4a だから、408m² は 4a8m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "a",
+        "m2"
+      ],
+      "answerBaseValue": 4080000
+    },
+    {
+      "id": "units:compound-split:a:ha:4-8",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundSplit",
+      "prompt": "408aは 何ha何aですか。",
+      "explanation": "400a が 4ha だから、408a は 4ha8a です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "ha",
+        "a"
+      ],
+      "answerBaseValue": 408000000
+    },
+    {
+      "id": "units:compound-split:ha:km2:4-8",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundSplit",
+      "prompt": "408haは 何km²何haですか。",
+      "explanation": "400ha が 4km² だから、408ha は 4km²8ha です。",
+      "requiredUnits": [
+        "ha",
+        "km2"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "km2",
+        "ha"
+      ],
+      "answerBaseValue": 40800000000
+    },
+    {
+      "id": "units:compound-split:m2:a:6-75",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundSplit",
+      "prompt": "675m²は 何a何m²ですか。",
+      "explanation": "600m² が 6a だから、675m² は 6a75m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "a",
+        "m2"
+      ],
+      "answerBaseValue": 6750000
+    },
+    {
+      "id": "units:compound-split:a:ha:6-75",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundSplit",
+      "prompt": "675aは 何ha何aですか。",
+      "explanation": "600a が 6ha だから、675a は 6ha75a です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "ha",
+        "a"
+      ],
+      "answerBaseValue": 675000000
+    },
+    {
+      "id": "units:compound-split:ha:km2:6-75",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundSplit",
+      "prompt": "675haは 何km²何haですか。",
+      "explanation": "600ha が 6km² だから、675ha は 6km²75ha です。",
+      "requiredUnits": [
+        "ha",
+        "km2"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "km2",
+        "ha"
+      ],
+      "answerBaseValue": 67500000000
+    },
+    {
+      "id": "units:compound-split:m2:a:1-6",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundSplit",
+      "prompt": "106m²は 何a何m²ですか。",
+      "explanation": "100m² が 1a だから、106m² は 1a6m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "a",
+        "m2"
+      ],
+      "answerBaseValue": 1060000
+    },
+    {
+      "id": "units:compound-split:a:ha:1-6",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundSplit",
+      "prompt": "106aは 何ha何aですか。",
+      "explanation": "100a が 1ha だから、106a は 1ha6a です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "ha",
+        "a"
+      ],
+      "answerBaseValue": 106000000
+    },
+    {
+      "id": "units:compound-split:ha:km2:1-6",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundSplit",
+      "prompt": "106haは 何km²何haですか。",
+      "explanation": "100ha が 1km² だから、106ha は 1km²6ha です。",
+      "requiredUnits": [
+        "ha",
+        "km2"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "km2",
+        "ha"
+      ],
+      "answerBaseValue": 10600000000
+    },
+    {
+      "id": "units:compound-split:m2:a:12-40",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundSplit",
+      "prompt": "1240m²は 何a何m²ですか。",
+      "explanation": "1200m² が 12a だから、1240m² は 12a40m² です。",
+      "requiredUnits": [
+        "m2",
+        "a"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "a",
+        "m2"
+      ],
+      "answerBaseValue": 12400000
+    },
+    {
+      "id": "units:compound-split:a:ha:12-40",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundSplit",
+      "prompt": "1240aは 何ha何aですか。",
+      "explanation": "1200a が 12ha だから、1240a は 12ha40a です。",
+      "requiredUnits": [
+        "a",
+        "ha"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "ha",
+        "a"
+      ],
+      "answerBaseValue": 1240000000
+    },
+    {
+      "id": "units:compound-split:ha:km2:12-40",
+      "grade": 4,
+      "unitCategory": "area",
+      "questionType": "compoundSplit",
+      "prompt": "1240haは 何km²何haですか。",
+      "explanation": "1200ha が 12km² だから、1240ha は 12km²40ha です。",
+      "requiredUnits": [
+        "ha",
+        "km2"
+      ],
+      "answerType": "compound",
+      "answerUnits": [
+        "km2",
+        "ha"
+      ],
+      "answerBaseValue": 124000000000
     },
     {
       "id": "units:appropriateUnit:au-textbook-thickness",

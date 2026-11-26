@@ -379,6 +379,40 @@ function compoundToSingleQuestions(category) {
   return spread(questions, MAX_PER_CATEGORY_PER_TYPE);
 }
 
+/**
+ * "2045mは 何km何mですか": the child answers with two whole numbers, one box
+ * per unit (units-plan 3.1, 2026-11-27). Uses the same remainders as the
+ * other compound formats, so internal zeros and base 60/24 appear here too.
+ */
+function compoundSplitQuestions(category) {
+  const questions = [];
+  for (const { big, small, ratio } of adjacentPairs(category)) {
+    const grade = questionGrade([big, small]);
+    if (grade > 4) continue;
+    for (const [wholes, remainder] of compoundAmounts(ratio)) {
+      if (remainder <= 0 || remainder >= ratio) continue;
+      const baseValue = (wholes * ratio + remainder) * small.baseFactor;
+      if (!canRender(baseValue, small.id)) continue;
+      const wholePart = formatQuantity(wholes * big.baseFactor, big.id);
+      const rest = formatQuantity(remainder * small.baseFactor, small.id);
+      questions.push({
+        id: `units:compound-split:${small.id}:${big.id}:${wholes}-${remainder}`,
+        grade,
+        unitCategory: category,
+        questionType: "compoundSplit",
+        prompt: `${formatQuantity(baseValue, small.id)}は 何${big.label}何${small.label}ですか。`,
+        explanation: `${formatQuantity(wholes * big.baseFactor, small.id)} が ${wholePart} だから、`
+          + `${formatQuantity(baseValue, small.id)} は ${wholePart}${rest} です。`,
+        requiredUnits: [small.id, big.id],
+        answerType: "compound",
+        answerUnits: [big.id, small.id],
+        answerBaseValue: baseValue,
+      });
+    }
+  }
+  return spread(questions, MAX_PER_CATEGORY_PER_TYPE);
+}
+
 const materials = readMaterials(MATERIALS);
 
 const questions = [
@@ -388,6 +422,7 @@ const questions = [
     ...decimalConversionQuestions(category),
     ...compoundPartQuestions(category),
     ...compoundToSingleQuestions(category),
+    ...compoundSplitQuestions(category),
   ]),
   ...buildReviewedQuestions(materials),
 ];
@@ -439,7 +474,7 @@ const previous = existsSync(OUTPUT) ? JSON.parse(readFileSync(OUTPUT, "utf8")) :
 const previousRetired = previous.retiredQuestions ?? [];
 const fingerprint = (question) => JSON.stringify([
   question.prompt, question.answerType, question.answerBaseValue ?? null, question.answerUnit ?? null,
-  question.choices ?? null, question.answerChoiceId ?? null, question.requiredUnits,
+  question.choices ?? null, question.answerChoiceId ?? null, question.requiredUnits, question.answerUnits ?? null,
 ]);
 const previousById = new Map(previous.questions.map((question) => [question.id, question]));
 const retiredIds = new Set(previousRetired.map((question) => question.id));

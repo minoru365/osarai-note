@@ -3,7 +3,7 @@ import { NumberPad } from "./NumberPad";
 import { createId } from "./id";
 import { getLocalDate } from "./dailySession";
 import { studyStorage } from "./storage/indexedDb";
-import { formatExpectedAnswer, type UnitQuestion } from "./unitContent";
+import { compoundAnswer, formatAnswerWithUnits, type UnitQuestion } from "./unitContent";
 import { getUnit } from "./units";
 import {
   canAdvance,
@@ -173,9 +173,7 @@ export function UnitPractice({ questions, onHome }: Props) {
             <div className="unit-reveal" role="status">
               <strong>
                 こたえ：
-                {question.answerType === "numeric"
-                  ? `${formatExpectedAnswer(question)}${getUnit(question.answerUnit).label}`
-                  : question.choices.find((choice) => choice.id === question.answerChoiceId)?.label}
+                {formatAnswerWithUnits(question)}
               </strong>
               <p>{question.explanation}</p>
               <button type="button" onClick={() => setAnswerState(hideUnitAnswer)}>
@@ -196,7 +194,7 @@ export function UnitPractice({ questions, onHome }: Props) {
           )}
         </section>
 
-        <section className="unit-answer">
+        <section className={`unit-answer${solved || answerState.revealed ? " answer-locked" : ""}`}>
           {question.answerType === "numeric" ? (
             <>
               <div className="unit-entry" aria-label="こたえ">
@@ -208,6 +206,35 @@ export function UnitPractice({ questions, onHome }: Props) {
                 onChange={(entry) => setAnswerState((current) => ({ ...current, entry }))}
                 onSubmit={() => void submit(answerState.entry)}
                 disabled={saving || solved || answerState.revealed}
+              />
+            </>
+          ) : question.answerType === "compound" ? (
+            <>
+              <div className="unit-entry unit-entry-compound" role="group" aria-label="こたえ（2つの数）">
+                {(["big", "small"] as const).map((field, index) => (
+                  <button
+                    key={field}
+                    type="button"
+                    className={answerState.activeField === field ? "active" : ""}
+                    aria-pressed={answerState.activeField === field}
+                    aria-label={`${getUnit(question.answerUnits[index]).label}の数`}
+                    disabled={saving || solved || answerState.revealed}
+                    onClick={() => setAnswerState((current) => ({ ...current, activeField: field }))}
+                  >
+                    <span>{(field === "big" ? answerState.entry : answerState.entrySmall) || "　"}</span>
+                    <em>{getUnit(question.answerUnits[index]).label}</em>
+                  </button>
+                ))}
+              </div>
+              <NumberPad
+                value={answerState.activeField === "big" ? answerState.entry : answerState.entrySmall}
+                onChange={(value) => setAnswerState((current) => (current.activeField === "big"
+                  ? { ...current, entry: value }
+                  : { ...current, entrySmall: value }))}
+                onSubmit={() => void submit(compoundAnswer(answerState.entry, answerState.entrySmall))}
+                disabled={saving || solved || answerState.revealed}
+                allowDecimal={false}
+                canSubmit={answerState.entry.length > 0 && answerState.entrySmall.length > 0}
               />
             </>
           ) : (

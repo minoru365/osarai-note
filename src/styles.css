@@ -347,6 +347,11 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
 .unit-entry { min-height: 76px; display: flex; align-items: baseline; justify-content: flex-end; gap: 8px; padding: 0 20px; border: 2px solid #cbd7cf; border-radius: 14px; background: #fbfdf8; }
 .unit-entry span { color: #25332d; font-size: 40px; font-weight: 700; }
 .unit-entry em { color: #5f6f67; font-size: 22px; font-style: normal; font-weight: 700; }
+/* "何km何m": two boxes, the one the keypad types into is marked by colour,
+   border and aria-pressed. */
+.unit-entry-compound { justify-content: stretch; gap: 10px; padding: 8px; }
+.unit-entry-compound button { flex: 1 1 0; min-width: 0; min-height: 60px; display: flex; align-items: baseline; justify-content: flex-end; gap: 6px; padding: 0 14px; border: 2px solid #cbd7cf; border-radius: 12px; background: #fff; cursor: pointer; }
+.unit-entry-compound button.active { border-color: #3b7d65; background: #edf6f0; box-shadow: inset 0 -4px 0 #e2a33c; }
 .number-pad { display: grid; gap: 10px; }
 .number-pad-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .number-pad-grid button { min-height: 62px; border: 1px solid #cbd7cf; border-radius: 12px; color: #294f40; background: #fbfdf8; cursor: pointer; font-size: 26px; font-weight: 700; box-shadow: 0 2px 0 #d7e0d9; touch-action: manipulation; }
@@ -643,6 +648,12 @@ button.collection-cell { cursor: pointer; }
   .unit-card .eyebrow { display: none; }
   .unit-prompt { font-size: 24px; }
   .unit-answer { min-height: 0; overflow-y: auto; gap: 10px; padding: 14px; }
+  /* Once answered or while the answer is shown, the keypad cannot be used, so
+     on a phone it gives its room to the explanation and the 次へ button. */
+  .unit-answer.answer-locked .number-pad { display: none; }
+  .unit-workspace:has(.answer-locked) .unit-card { max-height: none; }
+  .unit-entry.unit-entry-compound { min-height: 0; }
+  .unit-entry-compound button { min-height: 52px; }
   .unit-entry { min-height: 64px; }
   .unit-entry span { font-size: 32px; }
   .number-pad-grid button, .number-pad-submit { min-height: 56px; }

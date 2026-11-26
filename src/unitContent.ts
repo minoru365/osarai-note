@@ -40,7 +40,38 @@ export type ChoiceUnitQuestion = UnitQuestionBase & {
   answerChoiceId: string;
 };
 
-export type UnitQuestion = NumericUnitQuestion | ChoiceUnitQuestion;
+/**
+ * Answered with two whole numbers, one per unit: "2045mは 何km何mですか" →
+ * 2 km and 45 m. The remainder must stay below one of the larger unit, so
+ * "1km1045m" is not accepted even though it adds up.
+ */
+export type CompoundUnitQuestion = UnitQuestionBase & {
+  answerType: "compound";
+  /** [larger unit, smaller unit], both shown on screen. */
+  answerUnits: [string, string];
+  answerBaseValue: number;
+};
+
+export type UnitQuestion = NumericUnitQuestion | ChoiceUnitQuestion | CompoundUnitQuestion;
+
+/** The expected two numbers for a compound question. */
+export function compoundParts(question: CompoundUnitQuestion): [number, number] {
+  const [big, small] = question.answerUnits.map(getUnit);
+  const whole = Math.floor(question.answerBaseValue / big.baseFactor);
+  return [whole, (question.answerBaseValue - whole * big.baseFactor) / small.baseFactor];
+}
+
+/** Answer string for a compound question, as stored in the attempt: "2|45". */
+export function compoundAnswer(big: string, small: string): string {
+  return `${big}|${small}`;
+}
+
+export function isCompoundAnswerCorrect(question: CompoundUnitQuestion, answer: string): boolean {
+  const match = /^(\d+)\|(\d+)$/u.exec(answer);
+  if (!match) return false;
+  const [expectedBig, expectedSmall] = compoundParts(question);
+  return Number(match[1]) === expectedBig && Number(match[2]) === expectedSmall;
+}
 
 export function getUnitStateKey(question: UnitQuestion): string {
   return unitStateKey(question.unitCategory, question.questionType);
@@ -54,6 +85,16 @@ export function isNumericAnswerCorrect(question: NumericUnitQuestion, input: str
 
 export function formatExpectedAnswer(question: NumericUnitQuestion): string {
   return formatBaseValue(question.answerBaseValue, question.answerUnit);
+}
+
+/** The full answer with units, as shown after "分からない". */
+export function formatAnswerWithUnits(question: UnitQuestion): string {
+  if (question.answerType === "numeric") return `${formatExpectedAnswer(question)}${getUnit(question.answerUnit).label}`;
+  if (question.answerType === "compound") {
+    const [big, small] = compoundParts(question);
+    return `${big}${getUnit(question.answerUnits[0]).label}${small}${getUnit(question.answerUnits[1]).label}`;
+  }
+  return question.choices.find((choice) => choice.id === question.answerChoiceId)?.label ?? "";
 }
 
 function isObject(value: unknown): value is Record<string, unknown> {
@@ -99,6 +140,23 @@ function validateQuestion(value: unknown, seen: Set<string>): UnitQuestion {
     // which would otherwise misrender a base-60 remainder (units-plan 3.1).
     formatBaseValue(value.answerBaseValue, value.answerUnit);
     return value as unknown as NumericUnitQuestion;
+  }
+
+  if (value.answerType === "compound") {
+    const units = value.answerUnits;
+    if (!Array.isArray(units) || units.length !== 2
+      || typeof units[0] !== "string" || typeof units[1] !== "string"
+      || !requiredUnits.includes(units[0]) || !requiredUnits.includes(units[1])
+      || typeof value.answerBaseValue !== "number" || !Number.isSafeInteger(value.answerBaseValue)) {
+      throw new Error(`${value.id}: 2つの数で答える指定が不正です`);
+    }
+    const [big, small] = [getUnit(units[0]), getUnit(units[1])];
+    if (big.baseFactor <= small.baseFactor || big.baseFactor % small.baseFactor !== 0
+      || value.answerBaseValue % small.baseFactor !== 0
+      || value.answerBaseValue < big.baseFactor || value.answerBaseValue % big.baseFactor === 0) {
+      throw new Error(`${value.id}: 2つの数で答える指定が不正です`);
+    }
+    return value as unknown as CompoundUnitQuestion;
   }
 
   if (value.answerType === "choice") {

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  formatAnswerWithUnits,
   formatExpectedAnswer,
   getUnitStateKey,
   isNumericAnswerCorrect,
@@ -137,5 +138,26 @@ describe("数値回答の判定", () => {
 describe("getUnitStateKey", () => {
   it("系統と出題形式から集計キーを作る", () => {
     expect(getUnitStateKey(numeric as unknown as NumericUnitQuestion)).toBe("length:conversion");
+  });
+});
+
+describe("2つの数で答える問題の検査", () => {
+  const base = {
+    id: "s", grade: 3, unitCategory: "length", questionType: "compoundSplit",
+    prompt: "2045mは 何km何mですか。", explanation: "せつめい", requiredUnits: ["m", "km"],
+    answerType: "compound", answerUnits: ["km", "m"], answerBaseValue: 2_045_000,
+  };
+  const check = (question: Record<string, unknown>) => validateUnitPack({ schemaVersion: 1, questions: [question] });
+
+  it("正しい問題を受け入れ、答えを単位つきで表せる", () => {
+    const [question] = check(base);
+    expect(formatAnswerWithUnits(question)).toBe("2km45m");
+  });
+
+  it("単位の順番が逆、割り切れる量、大きい単位1つに満たない量を拒否する", () => {
+    expect(() => check({ ...base, answerUnits: ["m", "km"] })).toThrow();
+    expect(() => check({ ...base, answerBaseValue: 2_000_000 })).toThrow();
+    expect(() => check({ ...base, answerBaseValue: 45_000 })).toThrow();
+    expect(() => check({ ...base, answerUnits: ["km"] })).toThrow();
   });
 });

@@ -114,6 +114,21 @@ describe("生成した単位パック", () => {
     expect(new Set(pack.retiredQuestions.map((question) => question.id)).size).toBe(pack.retiredQuestions.length);
   });
 
+  it("2つの数で答える問題は、整数2つに分けられ、のこりが大きい単位1つ分より小さい", () => {
+    const split = of("compoundSplit");
+    expect(split.length).toBeGreaterThan(0);
+    for (const question of split) {
+      const [big, small] = question.answerUnits.map((id) => UNIT_DEFINITIONS.find((unit) => unit.id === id));
+      expect(big.baseFactor).toBeGreaterThan(small.baseFactor);
+      const whole = Math.floor(question.answerBaseValue / big.baseFactor);
+      const rest = (question.answerBaseValue - whole * big.baseFactor) / small.baseFactor;
+      expect(whole).toBeGreaterThan(0);
+      expect(Number.isInteger(rest) && rest > 0).toBe(true);
+      expect(amountsIn(question.prompt)[0]).toBe(question.answerBaseValue);
+      expect(question.prompt).toBe(`${question.prompt.split("は ")[0]}は 何${big.label}何${small.label}ですか。`);
+    }
+  });
+
   it("くみあわせたんいは大きい単位と小さい単位の両方を問題文で示す", () => {
     for (const question of of("compoundPart")) {
       expect(question.prompt).toMatch(/は .+と何.+ですか。$/u);
