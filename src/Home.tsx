@@ -98,7 +98,7 @@ export function Home({ questionCount, readingQuestionCount, writingQuestionCount
       hint: "長さ・重さ・かさ・時間・面積", start: onStartUnits,
     },
     { icon: "分", name: "分数", note: "準備中", ready: false, hint: "" },
-    { icon: "地", name: "日本地図", note: "4年生", ready: canStartJapanMap, hint: "都道府県の場所", start: onStartJapanMap },
+    { icon: "地", name: "日本地図", note: "4年生", ready: canStartJapanMap, hint: "場所・県名・地方・形", start: onStartJapanMap },
     { icon: "理", name: "理科", note: "準備中", ready: false, hint: "" },
   ];
 

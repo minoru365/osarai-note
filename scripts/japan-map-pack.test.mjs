@@ -16,12 +16,22 @@ describe("日本地図の問題パック", () => {
     expect(of("prefecture-location")).toEqual(source.questions);
   });
 
-  it("県名・地方の問題は、選択肢が重ならず正解がちょうど1つ", () => {
-    for (const question of [...of("prefecture-name"), ...of("prefecture-region")]) {
+  it("選択肢が重ならず正解がちょうど1つ", () => {
+    for (const question of pack.questions.filter((question) => question.questionType !== "prefecture-location")) {
       const ids = question.choices.map((choice) => choice.id);
       expect(new Set(ids).size).toBe(ids.length);
       expect(ids.filter((id) => id === question.answerChoiceId)).toHaveLength(1);
       expect(question.choices.find((choice) => choice.id === question.answerChoiceId).label).toBe(question.answer);
+    }
+  });
+
+  it("形の問題は47都道府県を1問ずつ出し、正解IDはその都道府県", () => {
+    const shapes = of("prefecture-shape");
+    expect(shapes.map((question) => question.prefectureId)).toEqual(source.questions.map((question) => question.prefectureId));
+    for (const question of shapes) {
+      expect(question.choices).toHaveLength(4);
+      expect(question.answerChoiceId).toBe(question.prefectureId);
+      expect(question.prompt).not.toContain(question.answer);
     }
   });
 

@@ -2,7 +2,7 @@
 //
 // - prefecture-location: the 47 human-written questions in
 //   content-source/japan-map-questions.json, copied as they are.
-// - prefecture-name / prefecture-region (2026-11-27): generated from those
+// - prefecture-name / prefecture-region / prefecture-shape: generated from those
 //   names and the 8-region table in content-source/japan-map-regions.json.
 //   Choices are fixed per question, distinct, and contain the answer once.
 import { readFile, writeFile } from "node:fs/promises";
@@ -68,21 +68,26 @@ function nameDistractors(prefectureId) {
   return [...new Set(pool)].slice(0, 3);
 }
 
-const nameQuestions = source.questions.map(({ prefectureId, answer }) => {
+function nameChoiceQuestion({ prefectureId, answer }, kind, prompt) {
   const region = regionOf.get(prefectureId);
-  const options = orderBy([prefectureId, ...nameDistractors(prefectureId)], `name:${prefectureId}`);
+  const options = orderBy([prefectureId, ...nameDistractors(prefectureId)], `${kind}:${prefectureId}`);
   return {
-    id: `japan-map:name:${prefectureId}`,
+    id: `japan-map:${kind}:${prefectureId}`,
     grade: 4,
-    questionType: "prefecture-name",
+    questionType: `prefecture-${kind}`,
     prefectureId,
     answer,
-    prompt: "色のついた都道府県は、どこかな？",
+    prompt,
     explanation: `${answer}です。${region.label}地方にあります。`,
     choices: options.map((id) => ({ id, label: nameOf.get(id) })),
     answerChoiceId: prefectureId,
   };
-});
+}
+
+const nameQuestions = source.questions.map((question) =>
+  nameChoiceQuestion(question, "name", "色のついた都道府県は、どこかな？"));
+const shapeQuestions = source.questions.map((question) =>
+  nameChoiceQuestion(question, "shape", "どの都道府県の形かな？"));
 
 // 「北海道は何地方？」 answers itself, so it is not asked.
 const regionQuestions = source.questions
@@ -103,7 +108,7 @@ const regionQuestions = source.questions
     };
   });
 
-const questions = [...source.questions, ...nameQuestions, ...regionQuestions];
+const questions = [...source.questions, ...nameQuestions, ...regionQuestions, ...shapeQuestions];
 const allIds = new Set();
 for (const question of questions) {
   if (allIds.has(question.id)) throw new Error(`問題IDが重複しています: ${question.id}`);
@@ -123,4 +128,4 @@ const pack = {
   questions,
 };
 await writeFile(outputPath, `${JSON.stringify(pack, null, 2)}\n`, "utf8");
-console.log(`generated japan map pack: ${questions.length} questions (location ${source.questions.length}, name ${nameQuestions.length}, region ${regionQuestions.length})`);
+console.log(`generated japan map pack: ${questions.length} questions (location ${source.questions.length}, name ${nameQuestions.length}, region ${regionQuestions.length}, shape ${shapeQuestions.length})`);

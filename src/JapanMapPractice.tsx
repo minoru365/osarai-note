@@ -9,6 +9,7 @@ import {
   type JapanMapAnswerState,
 } from "./japanMapQuizModel";
 import { JapanMapSvg } from "./JapanMapSvg";
+import { JapanMapSilhouette } from "./JapanMapSilhouette";
 import { startNextJapanMapBatch, summarizeJapanMapSession } from "./japanMapSession";
 import { studyStorage } from "./storage/indexedDb";
 import { isJapanMapSession, type JapanMapSessionAttempt } from "./storage/schema";
@@ -152,6 +153,7 @@ export function JapanMapPractice({ questions, onHome }: Props) {
 
   const solved = answerState.solved;
   const onMap = question.questionType === "prefecture-location";
+  const isSilhouette = question.questionType === "prefecture-shape";
   const mapCorrectId = onMap && (answerState.revealed || solved) ? question.prefectureId : null;
   // Name and region questions show the prefecture in colour; the map stays
   // zoomable so small prefectures such as 香川県 can be seen on a phone.
@@ -164,7 +166,7 @@ export function JapanMapPractice({ questions, onHome }: Props) {
         <section className="japan-map-question-card">
           <p className="eyebrow">{answeredIndex + 1}問目</p>
           <h1 className="japan-map-prompt">{question.prompt}</h1>
-          <p className="japan-map-hint">{onMap ? "地図の都道府県をおしてね。" : "下からえらんでね。"}</p>
+          <p className="japan-map-hint">{onMap ? "地図の都道府県をおしてね。" : isSilhouette ? "おもな部分の形を見てね。" : "下からえらんでね。"}</p>
           {feedback && !solved && <p className={`japan-map-feedback ${answerState.revealed ? "guide" : "incorrect"}`} role="status">{feedback}</p>}
           {answerState.revealed && (
             <div className="japan-map-reveal" role="status">
@@ -181,12 +183,14 @@ export function JapanMapPractice({ questions, onHome }: Props) {
           )}
         </section>
         <section className={`japan-map-answer${!onMap && (solved || answerState.revealed) ? " answer-locked" : ""}`}>
-          <JapanMapSvg
-            selectedId={onMap ? answerState.selectedId as JapanMapPrefectureId | null : null}
-            correctId={mapCorrectId}
-            onSelect={onMap ? (id) => void submit(id) : undefined}
-            fills={targetFill}
-          />
+          {isSilhouette ? <JapanMapSilhouette prefectureId={question.prefectureId} /> : (
+            <JapanMapSvg
+              selectedId={onMap ? answerState.selectedId as JapanMapPrefectureId | null : null}
+              correctId={mapCorrectId}
+              onSelect={onMap ? (id) => void submit(id) : undefined}
+              fills={targetFill}
+            />
+          )}
           {!onMap && question.choices && (
             <div className={`japan-map-choices${question.choices.length > 4 ? " many" : ""}`}>
               {question.choices.map((choice) => {

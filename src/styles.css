@@ -385,6 +385,8 @@ h1 { margin: 0; font-size: clamp(26px, 2.5vw, 38px); line-height: 1.55; font-wei
 .japan-map-answer { display: flex; flex-direction: column; gap: 14px; padding: 20px; }
 .japan-map-svg { position: relative; min-height: 0; flex: 1; display: grid; place-items: center; overflow: hidden; border: 1px solid #e0e7df; border-radius: 17px; background: #f7faf4; cursor: grab; touch-action: none; }
 .japan-map-svg.dragging { cursor: grabbing; }
+.japan-map-silhouette { position: relative; flex: 1; min-height: 0; border: 1px solid #e0e7df; border-radius: 17px; background: #f7faf4; color: #294f40; }
+.japan-map-silhouette svg { position: absolute; inset: 0; width: 100%; height: 100%; fill: currentColor; }
 .japan-map-canvas { width: 100%; height: 100%; display: grid; place-items: center; transform-origin: center; transition: transform .16s ease; }
 .japan-map-svg.dragging .japan-map-canvas { transition: none; }
 .japan-map-canvas > svg { width: 100%; height: 100%; max-height: calc(100vh - 260px); object-fit: contain; }
@@ -761,6 +763,8 @@ button.collection-cell { cursor: pointer; }
   .writing-shell .question-card { overflow-y: auto; }
   .japan-map-workspace { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); grid-template-rows: minmax(0, 1fr); }
   .japan-map-question-card { max-height: none; }
+  .japan-map-answer:has(> .japan-map-silhouette) { gap: 8px; padding: 8px; }
+  .japan-map-answer:has(> .japan-map-silhouette) .japan-map-actions button { min-height: 44px; }
   .unit-workspace { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
   .unit-card { max-height: none; }
 }

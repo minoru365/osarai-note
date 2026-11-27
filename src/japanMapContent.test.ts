@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { JAPAN_MAP_PREFECTURE_IDS, japanMapAnswerKey, validateJapanMapPack } from "./japanMapContent";
+import { countsTowardPrefectureCollection, JAPAN_MAP_PREFECTURE_IDS, japanMapAnswerKey, validateJapanMapPack } from "./japanMapContent";
 
 const question = {
   id: "japan-map:prefecture:tokyo",
@@ -38,6 +38,12 @@ describe("県名・地方の問題の検査", () => {
   });
 
   it("知らない種類の問題は止まらずに飛ばす（将来の問題で古い画面が壊れない）", () => {
-    expect(validateJapanMapPack(pack(base, { ...base, id: "x", questionType: "prefecture-shape" }))).toHaveLength(1);
+    expect(validateJapanMapPack(pack(base, { ...base, id: "x", questionType: "future-type" }))).toHaveLength(1);
+  });
+
+  it("形の問題は都道府県名を選んで答え、場所を覚える図鑑の集計には入れない", () => {
+    const [shape] = validateJapanMapPack(pack({ ...base, questionType: "prefecture-shape" }));
+    expect(japanMapAnswerKey(shape)).toBe("tokyo");
+    expect(countsTowardPrefectureCollection(shape)).toBe(false);
   });
 });

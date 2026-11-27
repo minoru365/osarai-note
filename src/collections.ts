@@ -140,8 +140,7 @@ export function prefectureCollection(
   for (const attempt of attempts) {
     if (attempt.subject !== "japan-map") continue;
     const question = questionMap.get(attempt.questionId);
-    // Region questions name and colour the prefecture, so they say nothing
-    // about knowing where it is (ADR-0015 addendum).
+    // Only the location and map-based name questions count (ADR-0015 addendum).
     if (!question || !countsTowardPrefectureCollection(question)) continue;
     tried.add(question.prefectureId);
     if (attempt.firstTryCorrect) collected.add(question.prefectureId);

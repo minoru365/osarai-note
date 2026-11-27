@@ -12,7 +12,7 @@ export const JAPAN_MAP_PREFECTURE_IDS = [
 
 export type JapanMapPrefectureId = typeof JAPAN_MAP_PREFECTURE_IDS[number];
 
-export const JAPAN_MAP_QUESTION_TYPES = ["prefecture-location", "prefecture-name", "prefecture-region"] as const;
+export const JAPAN_MAP_QUESTION_TYPES = ["prefecture-location", "prefecture-name", "prefecture-region", "prefecture-shape"] as const;
 export type JapanMapQuestionType = typeof JAPAN_MAP_QUESTION_TYPES[number];
 
 export type JapanMapChoice = { id: string; label: string };
@@ -21,6 +21,7 @@ export type JapanMapChoice = { id: string; label: string };
  * prefecture-location: tap the prefecture on the map.
  * prefecture-name: the prefecture is coloured on the map; pick its name.
  * prefecture-region: pick the region the named (and coloured) prefecture is in.
+ * prefecture-shape: pick the name from its outline alone.
  */
 export type JapanMapQuestion = {
   id: string;

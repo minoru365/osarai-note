@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "2026.11.27-1",
+  "contentVersion": "2026.11.27-2",
   "questions": [
     { "id": "japan-map:prefecture:hokkaido", "grade": 4, "questionType": "prefecture-location", "prefectureId": "hokkaido", "answer": "北海道", "prompt": "北海道は、地図のどこかな？", "explanation": "北海道は、北海道地方にあります。" },
     { "id": "japan-map:prefecture:aomori", "grade": 4, "questionType": "prefecture-location", "prefectureId": "aomori", "answer": "青森県", "prompt": "青森県は、地図のどこかな？", "explanation": "青森県は、東北地方にあります。" },

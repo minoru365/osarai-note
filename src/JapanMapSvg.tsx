@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
 import { JAPAN_MAP_PREFECTURE_IDS, type JapanMapPrefectureId } from "./japanMapContent";
-import { addPrefectureDataAttributes } from "./japanMapSvgContent";
+import { addPrefectureDataAttributes, fetchJapanMapSvg } from "./japanMapSvgContent";
 
 type Props = {
   selectedId?: JapanMapPrefectureId | null;
@@ -43,6 +43,8 @@ function limitPan(pan: PointerPosition, zoom: number, wrapper: HTMLDivElement | 
 
 export function JapanMapSvg({ selectedId = null, correctId = null, onSelect, interactive = true, fills, label = "都道府県の地図" }: Props) {
   const [svg, setSvg] = useState("");
+  // Keep the SVG nodes and their fill attributes when only zoom or pan changes.
+  const svgMarkup = useMemo(() => ({ __html: svg }), [svg]);
   const [error, setError] = useState("");
   const [zoom, setZoom] = useState(MIN_ZOOM);
   const [pan, setPan] = useState<PointerPosition>({ x: 0, y: 0 });
@@ -56,11 +58,7 @@ export function JapanMapSvg({ selectedId = null, correctId = null, onSelect, int
 
   useEffect(() => {
     let active = true;
-    const url = new URL(`${import.meta.env.BASE_URL}maps/japan-prefectures.svg`, document.baseURI);
-    void fetch(url, { cache: "force-cache" }).then(async (response) => {
-      if (!response.ok) throw new Error("地図を読み込めませんでした");
-      return response.text();
-    }).then((contents) => {
+    void fetchJapanMapSvg().then((contents) => {
       if (active) setSvg(addPrefectureDataAttributes(contents));
     }).catch(() => {
       if (active) setError("地図を読み込めませんでした");
@@ -79,7 +77,7 @@ export function JapanMapSvg({ selectedId = null, correctId = null, onSelect, int
       if (fill) region.dataset.fill = fill;
       else delete region.dataset.fill;
     });
-  }, [correctId, fills, selectedId, svg]);
+  }, [correctId, fills, selectedId, svgMarkup]);
 
   const updateZoom = (value: number) => {
     const nextZoom = limitZoom(value);
@@ -157,7 +155,7 @@ export function JapanMapSvg({ selectedId = null, correctId = null, onSelect, int
   if (!interactive) {
     return (
       <div ref={wrapperRef} className="japan-map-svg japan-map-static" role="img" aria-label={label}>
-        <div className="japan-map-canvas" dangerouslySetInnerHTML={{ __html: svg }} />
+        <div className="japan-map-canvas" dangerouslySetInnerHTML={svgMarkup} />
       </div>
     );
   }
@@ -186,7 +184,7 @@ export function JapanMapSvg({ selectedId = null, correctId = null, onSelect, int
         }
       }}
     >
-      <div className="japan-map-canvas" style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})` }} dangerouslySetInnerHTML={{ __html: svg }} />
+      <div className="japan-map-canvas" style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})` }} dangerouslySetInnerHTML={svgMarkup} />
       <div className="japan-map-zoom-controls" aria-label="地図の拡大縮小">
         <button type="button" aria-label="地図を拡大" title="拡大" disabled={zoom >= MAX_ZOOM} onClick={() => updateZoom(zoomRef.current + ZOOM_STEP)}>＋</button>
         <span aria-live="polite">{Math.round(zoom * 100)}%</span>

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "packId": "japan-map-v1",
-  "contentVersion": "2026.11.27-1",
+  "contentVersion": "2026.11.27-2",
   "questions": [
     {
       "id": "japan-map:prefecture:hokkaido",
@@ -3029,6 +3029,1322 @@
         }
       ],
       "answerChoiceId": "kyushu"
+    },
+    {
+      "id": "japan-map:shape:hokkaido",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "hokkaido",
+      "answer": "北海道",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "北海道です。北海道地方にあります。",
+      "choices": [
+        {
+          "id": "fukushima",
+          "label": "福島県"
+        },
+        {
+          "id": "iwate",
+          "label": "岩手県"
+        },
+        {
+          "id": "yamagata",
+          "label": "山形県"
+        },
+        {
+          "id": "hokkaido",
+          "label": "北海道"
+        }
+      ],
+      "answerChoiceId": "hokkaido"
+    },
+    {
+      "id": "japan-map:shape:aomori",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "aomori",
+      "answer": "青森県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "青森県です。東北地方にあります。",
+      "choices": [
+        {
+          "id": "miyagi",
+          "label": "宮城県"
+        },
+        {
+          "id": "yamagata",
+          "label": "山形県"
+        },
+        {
+          "id": "aomori",
+          "label": "青森県"
+        },
+        {
+          "id": "fukushima",
+          "label": "福島県"
+        }
+      ],
+      "answerChoiceId": "aomori"
+    },
+    {
+      "id": "japan-map:shape:iwate",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "iwate",
+      "answer": "岩手県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "岩手県です。東北地方にあります。",
+      "choices": [
+        {
+          "id": "aomori",
+          "label": "青森県"
+        },
+        {
+          "id": "iwate",
+          "label": "岩手県"
+        },
+        {
+          "id": "akita",
+          "label": "秋田県"
+        },
+        {
+          "id": "yamagata",
+          "label": "山形県"
+        }
+      ],
+      "answerChoiceId": "iwate"
+    },
+    {
+      "id": "japan-map:shape:miyagi",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "miyagi",
+      "answer": "宮城県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "宮城県です。東北地方にあります。",
+      "choices": [
+        {
+          "id": "yamagata",
+          "label": "山形県"
+        },
+        {
+          "id": "miyagi",
+          "label": "宮城県"
+        },
+        {
+          "id": "aomori",
+          "label": "青森県"
+        },
+        {
+          "id": "iwate",
+          "label": "岩手県"
+        }
+      ],
+      "answerChoiceId": "miyagi"
+    },
+    {
+      "id": "japan-map:shape:akita",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "akita",
+      "answer": "秋田県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "秋田県です。東北地方にあります。",
+      "choices": [
+        {
+          "id": "fukushima",
+          "label": "福島県"
+        },
+        {
+          "id": "aomori",
+          "label": "青森県"
+        },
+        {
+          "id": "iwate",
+          "label": "岩手県"
+        },
+        {
+          "id": "akita",
+          "label": "秋田県"
+        }
+      ],
+      "answerChoiceId": "akita"
+    },
+    {
+      "id": "japan-map:shape:yamagata",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "yamagata",
+      "answer": "山形県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "山形県です。東北地方にあります。",
+      "choices": [
+        {
+          "id": "miyagi",
+          "label": "宮城県"
+        },
+        {
+          "id": "iwate",
+          "label": "岩手県"
+        },
+        {
+          "id": "aomori",
+          "label": "青森県"
+        },
+        {
+          "id": "yamagata",
+          "label": "山形県"
+        }
+      ],
+      "answerChoiceId": "yamagata"
+    },
+    {
+      "id": "japan-map:shape:fukushima",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "fukushima",
+      "answer": "福島県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "福島県です。東北地方にあります。",
+      "choices": [
+        {
+          "id": "akita",
+          "label": "秋田県"
+        },
+        {
+          "id": "fukushima",
+          "label": "福島県"
+        },
+        {
+          "id": "yamagata",
+          "label": "山形県"
+        },
+        {
+          "id": "miyagi",
+          "label": "宮城県"
+        }
+      ],
+      "answerChoiceId": "fukushima"
+    },
+    {
+      "id": "japan-map:shape:ibaraki",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "ibaraki",
+      "answer": "茨城県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "茨城県です。関東地方にあります。",
+      "choices": [
+        {
+          "id": "chiba",
+          "label": "千葉県"
+        },
+        {
+          "id": "ibaraki",
+          "label": "茨城県"
+        },
+        {
+          "id": "saitama",
+          "label": "埼玉県"
+        },
+        {
+          "id": "kanagawa",
+          "label": "神奈川県"
+        }
+      ],
+      "answerChoiceId": "ibaraki"
+    },
+    {
+      "id": "japan-map:shape:tochigi",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "tochigi",
+      "answer": "栃木県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "栃木県です。関東地方にあります。",
+      "choices": [
+        {
+          "id": "tokyo",
+          "label": "東京都"
+        },
+        {
+          "id": "chiba",
+          "label": "千葉県"
+        },
+        {
+          "id": "kanagawa",
+          "label": "神奈川県"
+        },
+        {
+          "id": "tochigi",
+          "label": "栃木県"
+        }
+      ],
+      "answerChoiceId": "tochigi"
+    },
+    {
+      "id": "japan-map:shape:gunma",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "gunma",
+      "answer": "群馬県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "群馬県です。関東地方にあります。",
+      "choices": [
+        {
+          "id": "gunma",
+          "label": "群馬県"
+        },
+        {
+          "id": "tochigi",
+          "label": "栃木県"
+        },
+        {
+          "id": "saitama",
+          "label": "埼玉県"
+        },
+        {
+          "id": "ibaraki",
+          "label": "茨城県"
+        }
+      ],
+      "answerChoiceId": "gunma"
+    },
+    {
+      "id": "japan-map:shape:saitama",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "saitama",
+      "answer": "埼玉県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "埼玉県です。関東地方にあります。",
+      "choices": [
+        {
+          "id": "tochigi",
+          "label": "栃木県"
+        },
+        {
+          "id": "ibaraki",
+          "label": "茨城県"
+        },
+        {
+          "id": "tokyo",
+          "label": "東京都"
+        },
+        {
+          "id": "saitama",
+          "label": "埼玉県"
+        }
+      ],
+      "answerChoiceId": "saitama"
+    },
+    {
+      "id": "japan-map:shape:chiba",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "chiba",
+      "answer": "千葉県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "千葉県です。関東地方にあります。",
+      "choices": [
+        {
+          "id": "gunma",
+          "label": "群馬県"
+        },
+        {
+          "id": "saitama",
+          "label": "埼玉県"
+        },
+        {
+          "id": "kanagawa",
+          "label": "神奈川県"
+        },
+        {
+          "id": "chiba",
+          "label": "千葉県"
+        }
+      ],
+      "answerChoiceId": "chiba"
+    },
+    {
+      "id": "japan-map:shape:tokyo",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "tokyo",
+      "answer": "東京都",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "東京都です。関東地方にあります。",
+      "choices": [
+        {
+          "id": "ibaraki",
+          "label": "茨城県"
+        },
+        {
+          "id": "tokyo",
+          "label": "東京都"
+        },
+        {
+          "id": "saitama",
+          "label": "埼玉県"
+        },
+        {
+          "id": "chiba",
+          "label": "千葉県"
+        }
+      ],
+      "answerChoiceId": "tokyo"
+    },
+    {
+      "id": "japan-map:shape:kanagawa",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "kanagawa",
+      "answer": "神奈川県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "神奈川県です。関東地方にあります。",
+      "choices": [
+        {
+          "id": "ibaraki",
+          "label": "茨城県"
+        },
+        {
+          "id": "tokyo",
+          "label": "東京都"
+        },
+        {
+          "id": "kanagawa",
+          "label": "神奈川県"
+        },
+        {
+          "id": "saitama",
+          "label": "埼玉県"
+        }
+      ],
+      "answerChoiceId": "kanagawa"
+    },
+    {
+      "id": "japan-map:shape:niigata",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "niigata",
+      "answer": "新潟県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "新潟県です。中部地方にあります。",
+      "choices": [
+        {
+          "id": "niigata",
+          "label": "新潟県"
+        },
+        {
+          "id": "nagano",
+          "label": "長野県"
+        },
+        {
+          "id": "ishikawa",
+          "label": "石川県"
+        },
+        {
+          "id": "yamanashi",
+          "label": "山梨県"
+        }
+      ],
+      "answerChoiceId": "niigata"
+    },
+    {
+      "id": "japan-map:shape:toyama",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "toyama",
+      "answer": "富山県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "富山県です。中部地方にあります。",
+      "choices": [
+        {
+          "id": "fukui",
+          "label": "福井県"
+        },
+        {
+          "id": "shizuoka",
+          "label": "静岡県"
+        },
+        {
+          "id": "toyama",
+          "label": "富山県"
+        },
+        {
+          "id": "niigata",
+          "label": "新潟県"
+        }
+      ],
+      "answerChoiceId": "toyama"
+    },
+    {
+      "id": "japan-map:shape:ishikawa",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "ishikawa",
+      "answer": "石川県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "石川県です。中部地方にあります。",
+      "choices": [
+        {
+          "id": "gifu",
+          "label": "岐阜県"
+        },
+        {
+          "id": "ishikawa",
+          "label": "石川県"
+        },
+        {
+          "id": "nagano",
+          "label": "長野県"
+        },
+        {
+          "id": "toyama",
+          "label": "富山県"
+        }
+      ],
+      "answerChoiceId": "ishikawa"
+    },
+    {
+      "id": "japan-map:shape:fukui",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "fukui",
+      "answer": "福井県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "福井県です。中部地方にあります。",
+      "choices": [
+        {
+          "id": "toyama",
+          "label": "富山県"
+        },
+        {
+          "id": "shizuoka",
+          "label": "静岡県"
+        },
+        {
+          "id": "ishikawa",
+          "label": "石川県"
+        },
+        {
+          "id": "fukui",
+          "label": "福井県"
+        }
+      ],
+      "answerChoiceId": "fukui"
+    },
+    {
+      "id": "japan-map:shape:yamanashi",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "yamanashi",
+      "answer": "山梨県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "山梨県です。中部地方にあります。",
+      "choices": [
+        {
+          "id": "fukui",
+          "label": "福井県"
+        },
+        {
+          "id": "aichi",
+          "label": "愛知県"
+        },
+        {
+          "id": "shizuoka",
+          "label": "静岡県"
+        },
+        {
+          "id": "yamanashi",
+          "label": "山梨県"
+        }
+      ],
+      "answerChoiceId": "yamanashi"
+    },
+    {
+      "id": "japan-map:shape:nagano",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "nagano",
+      "answer": "長野県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "長野県です。中部地方にあります。",
+      "choices": [
+        {
+          "id": "ishikawa",
+          "label": "石川県"
+        },
+        {
+          "id": "nagano",
+          "label": "長野県"
+        },
+        {
+          "id": "fukui",
+          "label": "福井県"
+        },
+        {
+          "id": "yamanashi",
+          "label": "山梨県"
+        }
+      ],
+      "answerChoiceId": "nagano"
+    },
+    {
+      "id": "japan-map:shape:gifu",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "gifu",
+      "answer": "岐阜県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "岐阜県です。中部地方にあります。",
+      "choices": [
+        {
+          "id": "yamanashi",
+          "label": "山梨県"
+        },
+        {
+          "id": "aichi",
+          "label": "愛知県"
+        },
+        {
+          "id": "gifu",
+          "label": "岐阜県"
+        },
+        {
+          "id": "shizuoka",
+          "label": "静岡県"
+        }
+      ],
+      "answerChoiceId": "gifu"
+    },
+    {
+      "id": "japan-map:shape:shizuoka",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "shizuoka",
+      "answer": "静岡県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "静岡県です。中部地方にあります。",
+      "choices": [
+        {
+          "id": "shizuoka",
+          "label": "静岡県"
+        },
+        {
+          "id": "gifu",
+          "label": "岐阜県"
+        },
+        {
+          "id": "yamanashi",
+          "label": "山梨県"
+        },
+        {
+          "id": "fukui",
+          "label": "福井県"
+        }
+      ],
+      "answerChoiceId": "shizuoka"
+    },
+    {
+      "id": "japan-map:shape:aichi",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "aichi",
+      "answer": "愛知県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "愛知県です。中部地方にあります。",
+      "choices": [
+        {
+          "id": "shizuoka",
+          "label": "静岡県"
+        },
+        {
+          "id": "aichi",
+          "label": "愛知県"
+        },
+        {
+          "id": "nagano",
+          "label": "長野県"
+        },
+        {
+          "id": "niigata",
+          "label": "新潟県"
+        }
+      ],
+      "answerChoiceId": "aichi"
+    },
+    {
+      "id": "japan-map:shape:mie",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "mie",
+      "answer": "三重県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "三重県です。近畿（きんき）地方にあります。",
+      "choices": [
+        {
+          "id": "mie",
+          "label": "三重県"
+        },
+        {
+          "id": "osaka",
+          "label": "大阪府"
+        },
+        {
+          "id": "hyogo",
+          "label": "兵庫県"
+        },
+        {
+          "id": "kyoto",
+          "label": "京都府"
+        }
+      ],
+      "answerChoiceId": "mie"
+    },
+    {
+      "id": "japan-map:shape:shiga",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "shiga",
+      "answer": "滋賀県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "滋賀県です。近畿（きんき）地方にあります。",
+      "choices": [
+        {
+          "id": "shiga",
+          "label": "滋賀県"
+        },
+        {
+          "id": "mie",
+          "label": "三重県"
+        },
+        {
+          "id": "kyoto",
+          "label": "京都府"
+        },
+        {
+          "id": "osaka",
+          "label": "大阪府"
+        }
+      ],
+      "answerChoiceId": "shiga"
+    },
+    {
+      "id": "japan-map:shape:kyoto",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "kyoto",
+      "answer": "京都府",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "京都府です。近畿（きんき）地方にあります。",
+      "choices": [
+        {
+          "id": "nara",
+          "label": "奈良県"
+        },
+        {
+          "id": "kyoto",
+          "label": "京都府"
+        },
+        {
+          "id": "shiga",
+          "label": "滋賀県"
+        },
+        {
+          "id": "mie",
+          "label": "三重県"
+        }
+      ],
+      "answerChoiceId": "kyoto"
+    },
+    {
+      "id": "japan-map:shape:osaka",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "osaka",
+      "answer": "大阪府",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "大阪府です。近畿（きんき）地方にあります。",
+      "choices": [
+        {
+          "id": "osaka",
+          "label": "大阪府"
+        },
+        {
+          "id": "shiga",
+          "label": "滋賀県"
+        },
+        {
+          "id": "wakayama",
+          "label": "和歌山県"
+        },
+        {
+          "id": "nara",
+          "label": "奈良県"
+        }
+      ],
+      "answerChoiceId": "osaka"
+    },
+    {
+      "id": "japan-map:shape:hyogo",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "hyogo",
+      "answer": "兵庫県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "兵庫県です。近畿（きんき）地方にあります。",
+      "choices": [
+        {
+          "id": "hyogo",
+          "label": "兵庫県"
+        },
+        {
+          "id": "nara",
+          "label": "奈良県"
+        },
+        {
+          "id": "mie",
+          "label": "三重県"
+        },
+        {
+          "id": "kyoto",
+          "label": "京都府"
+        }
+      ],
+      "answerChoiceId": "hyogo"
+    },
+    {
+      "id": "japan-map:shape:nara",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "nara",
+      "answer": "奈良県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "奈良県です。近畿（きんき）地方にあります。",
+      "choices": [
+        {
+          "id": "kyoto",
+          "label": "京都府"
+        },
+        {
+          "id": "shiga",
+          "label": "滋賀県"
+        },
+        {
+          "id": "nara",
+          "label": "奈良県"
+        },
+        {
+          "id": "mie",
+          "label": "三重県"
+        }
+      ],
+      "answerChoiceId": "nara"
+    },
+    {
+      "id": "japan-map:shape:wakayama",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "wakayama",
+      "answer": "和歌山県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "和歌山県です。近畿（きんき）地方にあります。",
+      "choices": [
+        {
+          "id": "hyogo",
+          "label": "兵庫県"
+        },
+        {
+          "id": "shiga",
+          "label": "滋賀県"
+        },
+        {
+          "id": "kyoto",
+          "label": "京都府"
+        },
+        {
+          "id": "wakayama",
+          "label": "和歌山県"
+        }
+      ],
+      "answerChoiceId": "wakayama"
+    },
+    {
+      "id": "japan-map:shape:tottori",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "tottori",
+      "answer": "鳥取県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "鳥取県です。中国地方にあります。",
+      "choices": [
+        {
+          "id": "shimane",
+          "label": "島根県"
+        },
+        {
+          "id": "tottori",
+          "label": "鳥取県"
+        },
+        {
+          "id": "yamaguchi",
+          "label": "山口県"
+        },
+        {
+          "id": "hiroshima",
+          "label": "広島県"
+        }
+      ],
+      "answerChoiceId": "tottori"
+    },
+    {
+      "id": "japan-map:shape:shimane",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "shimane",
+      "answer": "島根県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "島根県です。中国地方にあります。",
+      "choices": [
+        {
+          "id": "okayama",
+          "label": "岡山県"
+        },
+        {
+          "id": "yamaguchi",
+          "label": "山口県"
+        },
+        {
+          "id": "shimane",
+          "label": "島根県"
+        },
+        {
+          "id": "tottori",
+          "label": "鳥取県"
+        }
+      ],
+      "answerChoiceId": "shimane"
+    },
+    {
+      "id": "japan-map:shape:okayama",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "okayama",
+      "answer": "岡山県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "岡山県です。中国地方にあります。",
+      "choices": [
+        {
+          "id": "tottori",
+          "label": "鳥取県"
+        },
+        {
+          "id": "okayama",
+          "label": "岡山県"
+        },
+        {
+          "id": "yamaguchi",
+          "label": "山口県"
+        },
+        {
+          "id": "shimane",
+          "label": "島根県"
+        }
+      ],
+      "answerChoiceId": "okayama"
+    },
+    {
+      "id": "japan-map:shape:hiroshima",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "hiroshima",
+      "answer": "広島県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "広島県です。中国地方にあります。",
+      "choices": [
+        {
+          "id": "okayama",
+          "label": "岡山県"
+        },
+        {
+          "id": "yamaguchi",
+          "label": "山口県"
+        },
+        {
+          "id": "tottori",
+          "label": "鳥取県"
+        },
+        {
+          "id": "hiroshima",
+          "label": "広島県"
+        }
+      ],
+      "answerChoiceId": "hiroshima"
+    },
+    {
+      "id": "japan-map:shape:yamaguchi",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "yamaguchi",
+      "answer": "山口県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "山口県です。中国地方にあります。",
+      "choices": [
+        {
+          "id": "hiroshima",
+          "label": "広島県"
+        },
+        {
+          "id": "yamaguchi",
+          "label": "山口県"
+        },
+        {
+          "id": "tottori",
+          "label": "鳥取県"
+        },
+        {
+          "id": "okayama",
+          "label": "岡山県"
+        }
+      ],
+      "answerChoiceId": "yamaguchi"
+    },
+    {
+      "id": "japan-map:shape:tokushima",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "tokushima",
+      "answer": "徳島県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "徳島県です。四国地方にあります。",
+      "choices": [
+        {
+          "id": "kochi",
+          "label": "高知県"
+        },
+        {
+          "id": "tokushima",
+          "label": "徳島県"
+        },
+        {
+          "id": "ehime",
+          "label": "愛媛県"
+        },
+        {
+          "id": "kagawa",
+          "label": "香川県"
+        }
+      ],
+      "answerChoiceId": "tokushima"
+    },
+    {
+      "id": "japan-map:shape:kagawa",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "kagawa",
+      "answer": "香川県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "香川県です。四国地方にあります。",
+      "choices": [
+        {
+          "id": "kochi",
+          "label": "高知県"
+        },
+        {
+          "id": "kagawa",
+          "label": "香川県"
+        },
+        {
+          "id": "tokushima",
+          "label": "徳島県"
+        },
+        {
+          "id": "ehime",
+          "label": "愛媛県"
+        }
+      ],
+      "answerChoiceId": "kagawa"
+    },
+    {
+      "id": "japan-map:shape:ehime",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "ehime",
+      "answer": "愛媛県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "愛媛県です。四国地方にあります。",
+      "choices": [
+        {
+          "id": "tokushima",
+          "label": "徳島県"
+        },
+        {
+          "id": "kochi",
+          "label": "高知県"
+        },
+        {
+          "id": "kagawa",
+          "label": "香川県"
+        },
+        {
+          "id": "ehime",
+          "label": "愛媛県"
+        }
+      ],
+      "answerChoiceId": "ehime"
+    },
+    {
+      "id": "japan-map:shape:kochi",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "kochi",
+      "answer": "高知県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "高知県です。四国地方にあります。",
+      "choices": [
+        {
+          "id": "kagawa",
+          "label": "香川県"
+        },
+        {
+          "id": "kochi",
+          "label": "高知県"
+        },
+        {
+          "id": "tokushima",
+          "label": "徳島県"
+        },
+        {
+          "id": "ehime",
+          "label": "愛媛県"
+        }
+      ],
+      "answerChoiceId": "kochi"
+    },
+    {
+      "id": "japan-map:shape:fukuoka",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "fukuoka",
+      "answer": "福岡県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "福岡県です。九州地方にあります。",
+      "choices": [
+        {
+          "id": "fukuoka",
+          "label": "福岡県"
+        },
+        {
+          "id": "oita",
+          "label": "大分県"
+        },
+        {
+          "id": "okinawa",
+          "label": "沖縄県"
+        },
+        {
+          "id": "nagasaki",
+          "label": "長崎県"
+        }
+      ],
+      "answerChoiceId": "fukuoka"
+    },
+    {
+      "id": "japan-map:shape:saga",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "saga",
+      "answer": "佐賀県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "佐賀県です。九州地方にあります。",
+      "choices": [
+        {
+          "id": "fukuoka",
+          "label": "福岡県"
+        },
+        {
+          "id": "miyazaki",
+          "label": "宮崎県"
+        },
+        {
+          "id": "saga",
+          "label": "佐賀県"
+        },
+        {
+          "id": "kagoshima",
+          "label": "鹿児島県"
+        }
+      ],
+      "answerChoiceId": "saga"
+    },
+    {
+      "id": "japan-map:shape:nagasaki",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "nagasaki",
+      "answer": "長崎県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "長崎県です。九州地方にあります。",
+      "choices": [
+        {
+          "id": "okinawa",
+          "label": "沖縄県"
+        },
+        {
+          "id": "kumamoto",
+          "label": "熊本県"
+        },
+        {
+          "id": "saga",
+          "label": "佐賀県"
+        },
+        {
+          "id": "nagasaki",
+          "label": "長崎県"
+        }
+      ],
+      "answerChoiceId": "nagasaki"
+    },
+    {
+      "id": "japan-map:shape:kumamoto",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "kumamoto",
+      "answer": "熊本県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "熊本県です。九州地方にあります。",
+      "choices": [
+        {
+          "id": "kagoshima",
+          "label": "鹿児島県"
+        },
+        {
+          "id": "kumamoto",
+          "label": "熊本県"
+        },
+        {
+          "id": "saga",
+          "label": "佐賀県"
+        },
+        {
+          "id": "okinawa",
+          "label": "沖縄県"
+        }
+      ],
+      "answerChoiceId": "kumamoto"
+    },
+    {
+      "id": "japan-map:shape:oita",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "oita",
+      "answer": "大分県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "大分県です。九州地方にあります。",
+      "choices": [
+        {
+          "id": "kumamoto",
+          "label": "熊本県"
+        },
+        {
+          "id": "nagasaki",
+          "label": "長崎県"
+        },
+        {
+          "id": "miyazaki",
+          "label": "宮崎県"
+        },
+        {
+          "id": "oita",
+          "label": "大分県"
+        }
+      ],
+      "answerChoiceId": "oita"
+    },
+    {
+      "id": "japan-map:shape:miyazaki",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "miyazaki",
+      "answer": "宮崎県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "宮崎県です。九州地方にあります。",
+      "choices": [
+        {
+          "id": "fukuoka",
+          "label": "福岡県"
+        },
+        {
+          "id": "nagasaki",
+          "label": "長崎県"
+        },
+        {
+          "id": "oita",
+          "label": "大分県"
+        },
+        {
+          "id": "miyazaki",
+          "label": "宮崎県"
+        }
+      ],
+      "answerChoiceId": "miyazaki"
+    },
+    {
+      "id": "japan-map:shape:kagoshima",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "kagoshima",
+      "answer": "鹿児島県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "鹿児島県です。九州地方にあります。",
+      "choices": [
+        {
+          "id": "kumamoto",
+          "label": "熊本県"
+        },
+        {
+          "id": "kagoshima",
+          "label": "鹿児島県"
+        },
+        {
+          "id": "nagasaki",
+          "label": "長崎県"
+        },
+        {
+          "id": "fukuoka",
+          "label": "福岡県"
+        }
+      ],
+      "answerChoiceId": "kagoshima"
+    },
+    {
+      "id": "japan-map:shape:okinawa",
+      "grade": 4,
+      "questionType": "prefecture-shape",
+      "prefectureId": "okinawa",
+      "answer": "沖縄県",
+      "prompt": "どの都道府県の形かな？",
+      "explanation": "沖縄県です。九州地方にあります。",
+      "choices": [
+        {
+          "id": "nagasaki",
+          "label": "長崎県"
+        },
+        {
+          "id": "kumamoto",
+          "label": "熊本県"
+        },
+        {
+          "id": "okinawa",
+          "label": "沖縄県"
+        },
+        {
+          "id": "miyazaki",
+          "label": "宮崎県"
+        }
+      ],
+      "answerChoiceId": "okinawa"
     }
   ]
 }
